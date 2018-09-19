@@ -1,0 +1,972 @@
+@charset "UTF-8";
+/*
+* @style       Standard Layout
+* @media       screen
+* @version     1.0
+* @author      John Alexander Fandiño
+* @copyright   John Alexander Fandiño 2018
+* @licensor    Universidad Santo Tomás
+* @layout      in pixels:
+*              |            788            |
+*              | 10  |      768       | 10 |
+*              | 10  | 27 |    741    | 10 |
+*/
+/*
+* ======================
+* @section Variables css
+* ======================
+*/
+/*Fuentes de text´o para Titulos*/
+/*Fuentes de text´o para Parrafos en general*/
+/*Color Boton Principal*/
+/*Color Boton Envio*/
+/*Color Boton Envio*/
+/*Color texto de los campos*/
+/* @Mixin para BTN's estado HOVER -- Revisar el archivo "main.scss"*/
+/*
+* ==============
+* @section reset
+* ==============
+*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  font-size: 16px;
+  font-family: "Encode Sans Condensed", sans-serif;
+  background: #F0F5FB; }
+
+a {
+  display: inline-block;
+  text-decoration: none; }
+
+img {
+  width: 100%;
+  border: 0; }
+
+button {
+  cursor: pointer; }
+
+button,
+input,
+select,
+textarea {
+  outline: 0;
+  border: 0px; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Righteous", cursive; }
+
+:focus {
+  outline: none; }
+
+ul {
+  list-style: none; }
+
+input[type="submit"] {
+  width: 120px; }
+
+input[type="color"] {
+  width: 80px;
+  height: 25px;
+  display: inline-block;
+  padding: 0rem;
+  cursor: pointer; }
+
+label {
+  position: relative; }
+
+textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid #ccc !important;
+  resize: none;
+  height: 100px !important;
+  font-family: sans-serif; }
+
+.required {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C20201;
+  position: absolute;
+  top: 14px;
+  left: -8px; }
+
+.linkGuia {
+  background: url(../img/iconPDF.png) no-repeat;
+  background-size: 18px;
+  background-position: 5px 7px;
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 2rem;
+  color: blue;
+  font-size: 0.8rem; }
+
+/*
+* ==================
+* @section Generales
+* ==================
+*/
+/*--Botons--*/
+.btns {
+  text-align: center; }
+
+.btn {
+  min-width: 120px;
+  padding: 0rem 1rem;
+  line-height: 35px;
+  color: #fff;
+  border-radius: 3px;
+  border: 0px solid rgba(0, 0, 0, 0.5);
+  border-bottom-width: 3px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s; }
+  .btn.btn-world {
+    background: blue; }
+    .btn.btn-world:hover {
+      background: #0000db; }
+  .btn.btn-send {
+    background: green; }
+    .btn.btn-send:hover {
+      background: #005c00; }
+  .btn.btn-validate {
+    background: #EA7120; }
+    .btn.btn-validate:hover {
+      background: #d26014; }
+  .btn:active {
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+    border-bottom-width: 0px; }
+
+/*--Inputs--*/
+/* form starting stylings ------------------------------- */
+.group {
+  position: relative;
+  margin-bottom: 20px; }
+
+input, select, textarea {
+  padding: 10px 10px 5px 5px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 100%; }
+
+input:focus, select:focus, textarea:focus {
+  outline: none; }
+
+/* LABEL ======================================= */
+label {
+  padding-right: 0.5rem;
+  background: #fff;
+  color: #999;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 8px;
+  -webkit-transition: 0.2s ease all;
+  -o-transition: 0.2s ease all;
+  transition: 0.2s ease all; }
+
+/* active state */
+input:focus ~ label, input:valid ~ label,
+select:focus ~ label, select:valid ~ label,
+textarea:focus ~ label, textarea:valid ~ label {
+  top: -10px;
+  font-size: 14px;
+  color: steelblue; }
+
+.colorTxt {
+  color: steelblue; }
+
+/* BOTTOM BARS ================================= */
+.bar {
+  position: relative;
+  display: block;
+  width: 100%; }
+
+.bar:before, .bar:after {
+  content: '';
+  height: 1px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: steelblue;
+  -webkit-transition: 0.2s ease all;
+  -o-transition: 0.2s ease all;
+  transition: 0.2s ease all; }
+
+.bar:before {
+  left: 50%; }
+
+.bar:after {
+  right: 50%; }
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after,
+select:focus ~ .bar:before, select:focus ~ .bar:after {
+  width: 50%; }
+
+.error {
+  color: red;
+  font-size: 0.8rem; }
+
+/*
+* ====================
+* @section Cuadriculla
+* ====================
+*/
+.celda .cuadricula {
+  margin-left: 0px; }
+
+.cuadricula {
+  overflow: hidden;
+  width: 95%;
+  margin: 0 auto; }
+
+.cuadricula .celda {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem; }
+
+.cuadricula .celda.celdax2,
+.cuadricula .celda.celdax3,
+.cuadricula .celda.celdax4,
+.cuadricula .celda.celdax5,
+.cuadricula .celda.celdax6,
+.cuadricula .celda.celdax10l,
+.cuadricula .celda.celdax20l,
+.cuadricula .celda.celdax30l,
+.cuadricula .celda.celdax40l,
+.cuadricula .celda.celdax60r,
+.cuadricula .celda.celdax70r,
+.cuadricula .celda.celdax80r,
+.cuadricula .celda.celdax90r {
+  float: left;
+  margin-right: 2%; }
+
+.cuadricula .celda.celdax2:last-child,
+.cuadricula .celda.celdax3:last-child,
+.cuadricula .celda.celdax4:last-child,
+.cuadricula .celda.celdax5:last-child,
+.cuadricula .celda.celdax6:last-child,
+.cuadricula .celda.celdax10r,
+.cuadricula .celda.celdax20r,
+.cuadricula .celda.celdax30r,
+.cuadricula .celda.celdax40r,
+.cuadricula .celda.celdax60l,
+.cuadricula .celda.celdax70l,
+.cuadricula .celda.celdax80l,
+.cuadricula .celda.celdax90l {
+  float: right;
+  margin-right: 0%; }
+
+.cuadricula .celda.celdax2 {
+  width: 49%; }
+
+.cuadricula .celda.celdax3 {
+  width: 32%; }
+
+.cuadricula .celda.celdax4 {
+  width: 23.5%; }
+
+.cuadricula .celda.celdax5 {
+  width: 18.4%; }
+
+.cuadricula .celda.celdax6 {
+  width: 15%; }
+
+.cuadricula .celda.celdax10l {
+  width: 10%; }
+
+.cuadricula .celda.celdax10r {
+  width: 10%; }
+
+.cuadricula .celda.celdax20l {
+  width: 20%; }
+
+.cuadricula .celda.celdax20r {
+  width: 20%; }
+
+.cuadricula .celda.celdax30l {
+  width: 30%; }
+
+.cuadricula .celda.celdax30r {
+  width: 30%; }
+
+.cuadricula .celda.celdax40l {
+  width: 40%; }
+
+.cuadricula .celda.celdax40r {
+  width: 40%; }
+
+.cuadricula .celda.celdax60l {
+  width: 58%; }
+
+.cuadricula .celda.celdax60r {
+  width: 58%; }
+
+.cuadricula .celda.celdax70r {
+  width: 68%; }
+
+.cuadricula .celda.celdax70l {
+  width: 68%; }
+
+.cuadricula .celda.celdax80l {
+  width: 78%; }
+
+.cuadricula .celda.celdax80r {
+  width: 78%; }
+
+.cuadricula .celda.celdax90l {
+  width: 88%; }
+
+.cuadricula .celda.celdax90r {
+  width: 88%; }
+
+@media screen and (max-width: 1460px) {
+  .cuadricula .celda.celdax10 {
+    width: 20%; }
+  .cuadricula .celda.celdax90 {
+    width: 78%; } }
+
+@media screen and (max-width: 1050px) {
+  .cuadricula .celda.celdax5,
+  .cuadricula .celda.celdax6 {
+    width: 32%; }
+  .cuadricula .celda.celdax5:nth-child(3),
+  .cuadricula .celda.celdax6:nth-child(3) {
+    margin-right: 0%; }
+  .cuadricula .celda.celdax5:nth-child(4) {
+    margin-left: 17%; }
+  .cuadricula .celda.celdax5:nth-child(5) {
+    margin-right: 17%; } }
+
+@media screen and (max-width: 850px) {
+  .cuadricula .celda.celdax4 {
+    width: 49%; }
+  .cuadricula .celda.celdax4:nth-child(2),
+  .cuadricula .celda.celdax4:nth-child(3) {
+    margin-right: 0%; }
+  .cuadricula .celda.celdax10,
+  .cuadricula .celda.celdax20,
+  .cuadricula .celda.celdax80,
+  .cuadricula .celda.celdax90 {
+    width: 100%; } }
+
+@media screen and (max-width: 650px) {
+  .cuadricula .celda.celdax3,
+  .cuadricula .celda.celdax5 {
+    width: 49%; }
+  .cuadricula .celda.celdax3:nth-child(2),
+  .cuadricula .celda.celdax5:nth-child(2),
+  .cuadricula .celda.celdax5:nth-child(4) {
+    margin-right: 0%; }
+  .cuadricula .celda.celdax3:last-child {
+    margin-right: 25%; }
+  .cuadricula .celda.celdax5:nth-child(4) {
+    margin-left: 2%; }
+  .cuadricula .celda.celdax5:nth-child(5) {
+    margin-right: 25%; }
+  .cuadricula .celda.celdax6 {
+    width: 49%; }
+  .cuadricula .celda.celdax6:nth-child(2),
+  .cuadricula .celda.celdax6:nth-child(4) {
+    margin-right: 0%; }
+  .cuadricula .celda.celdax6:nth-child(4) {
+    margin-left: 2%; }
+  .cuadricula .celda.celdax30,
+  .cuadricula .celda.celdax40,
+  .cuadricula .celda.celdax60,
+  .cuadricula .celda.celdax70 {
+    width: 100%; } }
+
+@media screen and (max-width: 480px) {
+  .cuadricula .celda.celdax2,
+  .cuadricula .celda.celdax3,
+  .cuadricula .celda.celdax4,
+  .cuadricula .celda.celdax5,
+  .cuadricula .celda.celdax6 {
+    width: 100%;
+    float: none; }
+  .cuadricula .celda.celdax3:last-child,
+  .cuadricula .celda.celdax5:last-child {
+    margin-right: 0%; }
+  .cuadricula .celda.celdax5:nth-child(4),
+  .cuadricula .celda.celdax6:nth-child(4) {
+    margin-left: 0%; } }
+
+/*
+* ================================
+* @section Venatana Modal
+* ================================
+*/
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */ }
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 800px; }
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold; }
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer; }
+
+/*
+* ================================
+* @section Inciales del formulario
+* ================================
+*/
+.content {
+  background: #fff;
+  width: 90%;
+  max-width: 1200px;
+  margin: 5rem auto 1rem;
+  padding: 2rem 2rem 1rem;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); }
+
+/*
+* ================================
+* @section Home del formulario
+* ================================
+*/
+.home .titles {
+  text-align: center;
+  margin-bottom: 2rem; }
+  .home .titles .titlePrimary {
+    font-size: 1.5rem;
+    text-transform: uppercase; }
+  .home .titles .titleSecond {
+    margin-top: -8px;
+    font-weight: lighter; }
+  .home .titles .titleThird {
+    font-size: 1rem;
+    margin-top: 8px;
+    font-weight: lighter;
+    color: blue; }
+
+.home .txtIntro {
+  text-align: justify;
+  margin-bottom: 1rem; }
+
+.home .modalVideo {
+  margin-bottom: 2rem;
+  background: red;
+  color: #fff;
+  display: table;
+  padding: 0.5rem;
+  border-radius: 5px; }
+
+.home .navUnidades .navUnidad {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  list-style: none;
+  /* text-align: center; */ }
+  .home .navUnidades .navUnidad > li {
+    background: red;
+    width: 300px;
+    margin: 10px;
+    padding: 0.6rem;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative; }
+    .home .navUnidades .navUnidad > li:hover .subNavUnidad {
+      display: block; }
+    .home .navUnidades .navUnidad > li::before {
+      content: "";
+      position: absolute;
+      top: 16px;
+      right: 10px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid #fff;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent; }
+    .home .navUnidades .navUnidad > li .subNavUnidad {
+      display: none;
+      position: absolute;
+      z-index: 500;
+      top: 100%;
+      left: 0px;
+      width: 100%; }
+      .home .navUnidades .navUnidad > li .subNavUnidad li {
+        background: rgba(255, 0, 0, 0.8);
+        padding: 0rem 0.5rem;
+        border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+        border-radius: 3px; }
+        .home .navUnidades .navUnidad > li .subNavUnidad li:hover {
+          background: green; }
+    .home .navUnidades .navUnidad > li a {
+      color: #fff;
+      width: 100%;
+      display: block;
+      line-height: 40px; }
+
+/*
+* =============================
+* @section Formulario Next Prev
+* =============================
+*/
+#msform {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0px auto;
+  /* text-align: center; */
+  position: relative; }
+
+#msform fieldset {
+  background: #fff;
+  border: 0 none;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px 30px;
+  width: 100%;
+  margin-bottom: 5rem;
+  position: absolute; }
+
+#msform fieldset:not(:first-of-type) {
+  display: none; }
+
+/*
+* ==================================
+* @section Formulario INPUT Checkbox
+* ==================================
+*/
+/* INPUT */
+.checkBtn[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  width: 60px;
+  height: 29px;
+  border-radius: 30px;
+  border: 1px solid #aaa;
+  background: #cbd1d8;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  transition: background 0.3s;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+  cursor: pointer; }
+
+.checkBtn[type="checkbox"]:hover {
+  background: #9faab7; }
+
+.checkBtn[type="checkbox"]:after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: -0.3px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #aaa;
+  -webkit-transition: left 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  -o-transition: left 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: left 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86); }
+
+.checkBtn[type="checkbox"]:checked {
+  background: #40e0d0;
+  border-color: #40e0d0; }
+
+.checkBtn[type="checkbox"]:checked:after {
+  left: 31px;
+  border-color: #40e0d0; }
+
+.checkBtn[type="checkbox"]:disabled {
+  opacity: 0.5; }
+
+/*
+* ==================================
+* @section Formulario INPUT Checkbox
+* ==================================
+*/
+.contentCheck {
+  text-align: left; }
+
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  top: 5px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  -webkit-transition: all 0.15s ease-out 0s;
+  -o-transition: all 0.15s ease-out 0s;
+  transition: all 0.15s ease-out 0s;
+  background: #cbd1d8;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000; }
+
+.option-input:hover {
+  background: #9faab7; }
+
+.option-input:checked {
+  background: #40e0d0; }
+
+.option-input:checked::before {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  content: '✔';
+  display: inline-block;
+  font-size: 13px;
+  /* text-align: center; */
+  line-height: 3px; }
+
+.option-input:checked::after {
+  background: #40e0d0;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100; }
+
+.option-input.radio {
+  border-radius: 50%; }
+
+.option-input.radio::after {
+  border-radius: 50%; }
+
+.checkboxAudioVisual label {
+  position: relative;
+  display: block;
+  line-height: 40px; }
+
+.selectColor p {
+  margin-bottom: 0.3rem !important; }
+
+/*
+* ==============================================
+* @section Formulario Table Impresos y digitales
+* ==============================================
+*/
+.tableImpWeb {
+  margin-left: -1rem;
+  margin-top: 1rem;
+  width: 100%; }
+  .tableImpWeb tr {
+    width: 100%;
+    display: table; }
+    .tableImpWeb tr td {
+      padding-left: 1rem; }
+
+.boxImpDig h4 {
+  background-color: red;
+  text-align: center;
+  padding: 0.5rem;
+  color: #fff; }
+
+.boxImpDig > div {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* background-color: red; */
+  padding: 1rem; }
+  .boxImpDig > div p,
+  .boxImpDig > div > a {
+    margin-bottom: 1rem; }
+  .boxImpDig > div p {
+    text-align: justify;
+    font-size: 0.9rem; }
+
+.plusMinus a {
+  text-align: center;
+  background: red; }
+  .plusMinus a:nth-child(1) {
+    background: green;
+    margin-right: 0.3rem; }
+  .plusMinus a:nth-child(2) {
+    background: purple;
+    margin-left: 0.3rem; }
+
+/*
+* =====================
+* @section Progress Bar
+* =====================
+*/
+#enviandoBOX {
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 900; }
+
+#enviandoBOX .progresoBarra {
+  background: #fff;
+  max-width: 500px;
+  padding: 1.5rem;
+  border-radius: 3px;
+  margin: 10% auto 0rem;
+  position: relative; }
+
+#enviandoBOX .progresoBarra h3 {
+  text-align: center;
+  margin-bottom: 1rem; }
+
+.progress {
+  overflow: hidden;
+  height: 30px;
+  background-color: #89949B;
+  background-image: -moz-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: -ms-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#f9f9f9));
+  background-image: -webkit-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: -o-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f9f9f9));
+  background-image: linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#f9f9f9', GradientType=0);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px; }
+
+.progress .bar {
+  line-height: 30px;
+  width: 0%;
+  height: 30px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+  background-color: red;
+  background-image: -moz-linear-gradient(top, #FCCA2C, #0480be);
+  background-image: -ms-linear-gradient(top, #FCCA2C, #0480be);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FCCA2C), to(#0480be));
+  background-image: -webkit-linear-gradient(top, #FCCA2C, #0480be);
+  background-image: -o-linear-gradient(top, #FCCA2C, #0480be);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FCCA2C), to(#0480be));
+  background-image: linear-gradient(top, #FCCA2C, #0480be);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FCCA2C', endColorstr='#0480be', GradientType=0);
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: width 0.6s ease;
+  -moz-transition: width 0.6s ease;
+  -ms-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
+  transition: width 0.6s ease; }
+
+.progress-striped .bar {
+  background-color: #89949B;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  -webkit-background-size: 40px 40px;
+  -moz-background-size: 40px 40px;
+  -o-background-size: 40px 40px;
+  background-size: 40px 40px; }
+
+.progress.active .bar {
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
+  -moz-animation: progress-bar-stripes 2s linear infinite;
+  animation: progress-bar-stripes 2s linear infinite; }
+
+.progress-danger .bar {
+  background-color: #89949B;
+  background-image: -moz-linear-gradient(top, #89949B, #c43c35);
+  background-image: -ms-linear-gradient(top, #89949B, #c43c35);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#c43c35));
+  background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: -o-linear-gradient(top, #89949B, #c43c35);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#89949B), to(#c43c35));
+  background-image: -webkit-linear-gradient(top, #89949B, #c43c35);
+  background-image: linear-gradient(top, #89949B, #c43c35);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#c43c35', GradientType=0); }
+
+.progress-danger.progress-striped .bar {
+  background-color: #1ABC9C;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
+
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: 40px 0; } }
+
+@-moz-keyframes progress-bar-stripes {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: 40px 0; } }
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: 40px 0; } }
+
+/*
+* ==============================================
+* @section Ventana modal errores
+* ==============================================
+*/
+.modalError {
+  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 9990;
+  position: fixed; }
+
+.modalError .boxError {
+  background: #fff;
+  max-width: 400px;
+  padding: 1.5rem;
+  border-radius: 3px;
+  margin: 10% auto 0rem;
+  position: relative; }
+
+.modalError .boxError h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: green; }
+
+.modalError .boxError p {
+  padding: 0.5rem;
+  color: #fff;
+  margin-bottom: 2px;
+  border-radius: 3px;
+  /*display: table;*/ }
+
+.modalError .boxError .noerror {
+  background: #45B34D; }
+
+.modalError .boxError .sierror {
+  background: #E24459; }
+
+.modalError .boxError .cerraModal {
+  background-color: #E24459;
+  position: absolute;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 9px;
+  font-size: 1rem;
+  border-radius: 50%;
+  top: -15px;
+  right: -15px;
+  cursor: pointer;
+  font-weight: bold;
+  padding-left: 11px; }
+
+/*
+* =========================
+* @section Tabla de resumen
+* =========================
+*/
+.resumen .cuadricula .celda {
+  background: #EFF4FA;
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); }
+
+.resumen .cuadricula .celda h3 {
+  font-family: 'Encode Sans Condensed', sans-serif;
+  color: #1AA162; }
+
+.resumen .cuadricula .celda table {
+  width: 100%; }
+
+.resumen .cuadricula .celda table tr th,
+.resumen .cuadricula .celda table tr td {
+  padding: 0.5rem;
+  /* border: 1px solid #ccc; */ }
+
+.resumen .cuadricula .celda table tr th {
+  background: #ccc; }

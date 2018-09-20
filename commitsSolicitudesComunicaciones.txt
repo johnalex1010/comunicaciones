@@ -1,3 +1,9 @@
+commit a3915710dc3125f8465f8c6ea11402522eda17eb
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 11:55:52 2018 -0500
+
+    Integración de Tooltips en Comunicación Interna
+
 commit 0f7e07cc290726d61787a215ed0d9bf081ee008e
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Thu Sep 20 11:37:48 2018 -0500

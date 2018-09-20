@@ -10,7 +10,7 @@
 	// session_destroy();
 	require_once '../../php/funciones/tooltip.php';
 	require_once '../../php/funciones/campos.php';
-	// require_once '../../php/validaciones/validarComInter.php';
+	require_once '../../php/validaciones/validarComInter.php';
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +50,7 @@
 	<div class="content">
 		<h2>Seleccione una de las opciones</h2>
 		<div class="vertical-tabs">
+			<!-- ========== Link TABS ========== -->
 			<ul class="tabs vertical" data-tab="">
 				<li class="tab-title  tooltip" title="<?php envioMailInstiT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panela1" aria-selected="true" tabindex="0">Envío de correos institucionales</a></li>
 				<li class="tab-title  tooltip" title="<?php tomasNoticiaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelb1" aria-selected="false" tabindex="-1">Tomás Noticias</a></li>
@@ -57,22 +58,25 @@
 				<li class="tab-title  tooltip" title="<?php cumpleaniosT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#paneld1" aria-selected="false" tabindex="-1">Cumpleaños por mes a través de mailing institucional</a></li>
 				<li class="tab-title  tooltip" title="<?php tarjetasConmemorativasT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#paneld1" aria-selected="false" tabindex="-1">Tarjetas fechas conmemorativas</a></li>
 			</ul>
+			<!-- ========== Content TABS ========== -->
 			<div class="tabs-content">
+				<!-- ========== Content Correos Institucionales ========== -->
 				<div class="contentTab" id="panela1" aria-hidden="false" >
 					<h3>Envío de correos institucionales</h3>
 					<form action="" method="post" enctype="multipart/form-data">
 						<div class="cuadricula">
 							<div class="celda">
 								<div class="group tooltip" title="<?php correosInstuT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="adjInfoEvento" value="<?php echo $_SESSION['adjInfoEvento3']?>">
+									<input type="file" class="requi" name="adjMailInsti" value="<?php echo $_SESSION['adjMailInsti3']?>">
 									<span class="bar"></span>
-									<label>Adjuntar documento Word o PDF <span class="error">Error</span></label>
+									<label>Adjuntar documento Word o PDF <span class="error"><?php echo $error[0] = (isset($error[0])) ? $error[0] : ""; ?></span></label>
 								</div>
 							</div>
 						</div>
-						<button type='submit' name='submitEvento' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
+						<button type='submit' name='submitCorreosInstu' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
 					</form>
 				</div>
+				<!-- ========== Content Tomás Noticias ========== -->
 				<div class="contentTab" id="panelb1" aria-hidden="true" tabindex="-1">
 					<h3>Tomás Noticias</h3>
 					<form action="" method="post" enctype="multipart/form-data">
@@ -92,9 +96,10 @@
 								</div>
 							</div>
 						</div>
-						<button type='submit' name='submitEvento' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
+						<button type='submit' name='submitTN' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
 					</form>
 				</div>
+				<!-- ========== Content Condolencias ========== -->
 				<div class="contentTab" id="panelc1" aria-hidden="true" tabindex="-1">
 					<h3>Condolencias</h3>
 					<form action="" method="post">
@@ -174,9 +179,10 @@
 							</div>
 							<div class="celda celdax3"></div>
 						</div>
-						<button type='submit' name='submitEvento' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
+						<button type='submit' name='submitCondo' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
 					</form>
 				</div>
+				<!-- ========== Content Cumpleaños ========== -->
 				<div class="contentTab" id="paneld1" aria-hidden="true" tabindex="-1">
 					<h3>Envío de cumpleaños por mes</h3>
 					<form action="" method="post" enctype="multipart/form-data">
@@ -189,9 +195,10 @@
 								</div>
 							</div>
 						</div>
-						<button type='submit' name='submitEvento' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
+						<button type='submit' name='submitCumple' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
 					</form>
 				</div>
+				<!-- ========== Content Tarjetas conmemorativas ========== -->
 				<div class="contentTab" id="paneld1" aria-hidden="true" tabindex="-1">
 					<h3>Tarjetas de fechas conmemorativas</h3>
 					<form action="" method="post">
@@ -221,7 +228,7 @@
 					  			</div>
 							</div>
 						</div>
-						<button type='submit' name='submitEvento' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
+						<button type='submit' name='submitTC' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
 					</form>
 				</div>
 			</div>

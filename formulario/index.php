@@ -120,8 +120,8 @@
 						<li>Comunicaciones Institucionales
 							<ul class="subNavUnidad">
 								<li class="tooltip" title="<?php eventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="right"><a href="solicitud/unidadComIns/evento.php">Eventos</a></li>
-								<li class="tooltip" title="<?php campaniaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="right"><a href="#">Campañas</a></li>
-								<li class="tooltip" title="<?php comInterT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="right"><a href="#">Comunicaciones Internas</a></li>
+								<!-- <li class="tooltip" title="<?php campaniaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="right"><a href="#">Campañas</a></li> -->
+								<li class="tooltip" title="<?php comInterT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="right"><a href="solicitud/unidadComIns/comInter.php">Comunicaciones Internas</a></li>
 								<li class="tooltip" title="<?php aprobMateT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="right"><a href="#" >Material para aprobación</a></li>
 							</ul>
 						</li>

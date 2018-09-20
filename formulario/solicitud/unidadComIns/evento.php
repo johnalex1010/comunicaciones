@@ -18,7 +18,7 @@
 <head>
 	<!-- METAS -->
 	<meta charset="UTF-8" />
-	<title>Solicitudes | Departamento de Comunicaciones</title>
+	<title>Evento Solicitudes | Departamento de Comunicaciones</title>
 	<meta http-equiv="X-UA-Compatible" content="EDGE" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />	
 	<meta name="description" content=""/>

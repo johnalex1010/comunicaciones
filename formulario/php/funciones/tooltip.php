@@ -1,4 +1,9 @@
 <?php
+/*
+======================
+Campos del solicitante
+======================
+*/
 function campoNombreT(){
 	echo "Soy el tooltip de Campo Nombres";
 }
@@ -11,6 +16,11 @@ function campoFacDepT(){
 function campoTelT(){
 	echo "Soy el tooltip de Campo Telefono del solicitante";
 }
+/*
+======================
+Campos del Evento
+======================
+*/
 function eventoT(){
 	echo "Soy el tooltip de Evento";
 }
@@ -53,7 +63,6 @@ function numTICEventoT(){
 function adjInfoEventoT(){
 	echo "Soy adjInfo evento";
 }
-
 function qCubAUEventoT(){
 	echo "Soy qCubAU evento";
 }
@@ -107,5 +116,26 @@ function colorEventoT(){
 }
 function checkPublicoObjT(){
 	echo "Soy checkPublicoObjT evento";
+}
+
+/*
+===============================
+Campos de comunicacion interna
+===============================
+*/
+function envioMailInstiT(){
+	echo "Soy envioMailInstiT";
+}
+function tomasNoticiaT(){
+	echo "Soy tomasNoticiaT";
+}
+function condolenciasT(){
+	echo "Soy condolenciasT";
+}
+function cumpleaniosT(){
+	echo "Soy cumpleaniosT";
+}
+function tarjetasConmemorativasT(){
+	echo "Soy tarjetasConmemorativasT";
 }
 ?>

@@ -1,3 +1,9 @@
+commit d87ce73605c9a41d92cbcdfbb0af5d6a99c2701a
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 08:30:51 2018 -0500
+
+    Inicio de la creación de la plantilla de Comunicación Interna
+
 commit b8033c5b382ebf3b506c631f36423ab214724237
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Wed Sep 19 14:37:48 2018 -0500

@@ -245,3 +245,21 @@ $("#cerraModal").on( "click", function() {
     $('#modalError').toggle();
      });
 });
+
+
+
+/*
+===============
+TABS VERTICALES
+===============
+*/
+$().ready(function(){
+	$('.tab-title>a').click(function(e){
+	e.preventDefault();
+	var index = $(this).parent().index();
+	$(this).parent().addClass('active')
+	.siblings().removeClass('active')
+	.parent('ul.tabs').siblings('.tabs-content').children('.contentTab').removeClass('active')
+	.eq(index).addClass('active');
+	});
+})

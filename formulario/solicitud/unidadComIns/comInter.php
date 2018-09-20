@@ -188,12 +188,13 @@
 				<div class="contentTab <?php echo $active = isset($_POST['submitCumple']) ? $active = 'active' : "" ?>" id="paneld1" aria-hidden="true" tabindex="-1">
 					<h3>Envío de cumpleaños por mes</h3>
 					<form action="" method="post" enctype="multipart/form-data">
+						<p><span class="error"><?php echo $error[3][0] = (isset($error[3][0])) ? $error[3][0] : ""; ?></span></p>
 						<div class="cuadricula">
 							<div class="celda">
 								<div class="group tooltip" title="<?php cumpleT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="adjInfoEvento" value="<?php echo $_SESSION['adjInfoEvento3']?>">
+									<input type="file" class="requi" name="cumple" value="<?php echo $_SESSION['cumple3']?>">
 									<span class="bar"></span>
-									<label>Adjuntar documento PDF <span class="error">Error</span></label>
+									<label>Adjuntar documento Word o PDF <span class="error"><?php echo $error[3][1] = (isset($error[3][1])) ? $error[3][1] : ""; ?></span></label>
 								</div>
 							</div>
 						</div>

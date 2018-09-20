@@ -122,7 +122,31 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 	*/
 	if (isset($_POST['submitCumple'])) {
 		$error = array();
-		echo "si";
+		/*===== Validar Adjunto Adicionales =====*/
+		if (!empty($_FILES['cumple']['name'])) {
+			if(($_FILES['cumple']['type'] == "application/pdf")  || ($_FILES['cumple']['type'] == "application/msword") || ($_FILES['cumple']['type'] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")){
+				if ($_FILES['cumple']['size'] > 8000000) {
+					unset($_SESSION['cumple1']);
+					unset($_SESSION['cumple2']);
+					unset($_SESSION['cumple3']);
+					unset($_SESSION['cumple4']);
+					echo $error[3	][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
+				}else{
+					$_SESSION['cumple1'] = $_FILES['cumple']['type'];			
+					$_SESSION['cumple2'] = $_FILES['cumple']['size'];			
+					$_SESSION['cumple3'] = $_FILES['cumple']['name'];			
+					$_SESSION['cumple4'] = $_FILES['cumple']['tmp_name'];
+				}
+			}else{
+				unset($_SESSION['cumple1']);
+				unset($_SESSION['cumple2']);
+				unset($_SESSION['cumple3']);
+				unset($_SESSION['cumple4']);
+				echo $error[3	][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
+			}
+		}else{
+			echo $error[3	][0] = "El archivo adjunto es obligatorio";
+		}
 	}else{
 		echo "No4";
 	}

@@ -1,3 +1,9 @@
+commit 5a1400b840573b5843e639c86053ec52319a6f33
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 15:22:09 2018 -0500
+
+    Validación realizada sobre el formulario de Tomás Noticias
+
 commit 5e414d93d7558daba27e53883ccd8805645b377e
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Thu Sep 20 14:34:25 2018 -0500

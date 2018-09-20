@@ -1,3 +1,9 @@
+commit 5e414d93d7558daba27e53883ccd8805645b377e
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 14:34:25 2018 -0500
+
+    Validación realizada sobre el formulario de Correos Institucionales
+
 commit a3915710dc3125f8465f8c6ea11402522eda17eb
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Thu Sep 20 11:55:52 2018 -0500

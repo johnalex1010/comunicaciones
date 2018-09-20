@@ -1039,6 +1039,9 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 .tabs-content .contentTab h3 {
   padding: 1rem 2rem 0rem; }
 
+.tabs-content .contentTab p {
+  padding: 0 0 2rem 2rem; }
+
 .tabs-content .contentTab button {
   margin-left: 2rem;
   margin-bottom: 1rem; }

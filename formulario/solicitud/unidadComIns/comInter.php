@@ -52,24 +52,25 @@
 		<div class="vertical-tabs">
 			<!-- ========== Link TABS ========== -->
 			<ul class="tabs vertical" data-tab="">
-				<li class="tab-title  tooltip" title="<?php envioMailInstiT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panela1" aria-selected="true" tabindex="0">Envío de correos institucionales</a></li>
-				<li class="tab-title  tooltip" title="<?php tomasNoticiaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelb1" aria-selected="false" tabindex="-1">Tomás Noticias</a></li>
-				<li class="tab-title  tooltip" title="<?php condolenciasT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelc1" aria-selected="false" tabindex="-1">Condolencias a través de mailing institucional</a></li>
-				<li class="tab-title  tooltip" title="<?php cumpleaniosT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#paneld1" aria-selected="false" tabindex="-1">Cumpleaños por mes a través de mailing institucional</a></li>
-				<li class="tab-title  tooltip" title="<?php tarjetasConmemorativasT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#paneld1" aria-selected="false" tabindex="-1">Tarjetas fechas conmemorativas</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitCorreosInstu']) ? $active = 'active' : "" ?>" title="<?php envioMailInstiT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panela1" aria-selected="true" tabindex="0">Envío de correos institucionales</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitTN']) ? $active = 'active' : "" ?>" title="<?php tomasNoticiaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelb1" aria-selected="false" tabindex="-1">Tomás Noticias</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitCondo']) ? $active = 'active' : "" ?>" title="<?php condolenciasT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelc1" aria-selected="false" tabindex="-1">Condolencias a través de mailing institucional</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitCumple']) ? $active = 'active' : "" ?>" title="<?php cumpleaniosT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#paneld1" aria-selected="false" tabindex="-1">Cumpleaños por mes a través de mailing institucional</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitTC']) ? $active = 'active' : "" ?>" title="<?php tarjetasConmemorativasT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#paneld1" aria-selected="false" tabindex="-1">Tarjetas fechas conmemorativas</a></li>
 			</ul>
 			<!-- ========== Content TABS ========== -->
 			<div class="tabs-content">
 				<!-- ========== Content Correos Institucionales ========== -->
-				<div class="contentTab" id="panela1" aria-hidden="false" >
+				<div class="contentTab <?php echo $active = isset($_POST['submitCorreosInstu']) ? $active = 'active' : "" ?>" id="panela1" aria-hidden="false" >
 					<h3>Envío de correos institucionales</h3>
 					<form action="" method="post" enctype="multipart/form-data">
+						<p><span class="error"><?php echo $error[0][0] = (isset($error[0][0])) ? $error[0][0] : ""; ?></span></p>
 						<div class="cuadricula">
 							<div class="celda">
 								<div class="group tooltip" title="<?php correosInstuT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="adjMailInsti" value="<?php echo $_SESSION['adjMailInsti3']?>">
 									<span class="bar"></span>
-									<label>Adjuntar documento Word o PDF <span class="error"><?php echo $error[0] = (isset($error[0])) ? $error[0] : ""; ?></span></label>
+									<label>Adjuntar documento Word o PDF <span class="error"><?php echo $error[0][1] = (isset($error[0][1])) ? $error[0][1] : ""; ?></span></label>
 								</div>
 							</div>
 						</div>
@@ -77,22 +78,23 @@
 					</form>
 				</div>
 				<!-- ========== Content Tomás Noticias ========== -->
-				<div class="contentTab" id="panelb1" aria-hidden="true" tabindex="-1">
+				<div class="contentTab <?php echo $active = isset($_POST['submitTN']) ? $active = 'active' : "" ?>" id="panelb1" aria-hidden="true" tabindex="-1">
 					<h3>Tomás Noticias</h3>
 					<form action="" method="post" enctype="multipart/form-data">
+						<p><span class="error"><?php echo $error[1][0] = (isset($error[1][0])) ? $error[1][0] : ""; ?></span></p>
 						<div class="cuadricula">
 							<div class="celda celdax2">
 								<div class="group tooltip" title="<?php TNwordT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="adjInfoEvento" value="<?php echo $_SESSION['adjInfoEvento3']?>">
+									<input type="file" class="requi" name="adjTNWord" value="<?php echo $_SESSION['adjTNWord3']?>">
 									<span class="bar"></span>
-									<label>Adjuntar documento Word con la noticia <span class="error">Error</span></label>
+									<label>Adjuntar documento Word<span class="error"><?php echo $error[1][1] = (isset($error[1][1])) ? $error[1][1] : ""; ?></span></label>
 								</div>
 							</div>
 							<div class="celda celdax2">
 								<div class="group tooltip" title="<?php TNjpgT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="adjInfoEvento" value="<?php echo $_SESSION['adjInfoEvento3']?>">
+									<input type="file" class="requi" name="adjTNjpg" value="<?php echo $_SESSION['adjTNjpg3']?>">
 									<span class="bar"></span>
-									<label>Adjuntar imagen JPG de la noticia <span class="error">Error</span></label>
+									<label>Adjuntar imagen JPG/JPEG <span class="error"><?php echo $error[1][2] = (isset($error[1][2])) ? $error[1][2] : ""; ?></span></label>
 								</div>
 							</div>
 						</div>
@@ -100,7 +102,7 @@
 					</form>
 				</div>
 				<!-- ========== Content Condolencias ========== -->
-				<div class="contentTab" id="panelc1" aria-hidden="true" tabindex="-1">
+				<div class="contentTab <?php echo $active = isset($_POST['submitCondo']) ? $active = 'active' : "" ?>" id="panelc1" aria-hidden="true" tabindex="-1">
 					<h3>Condolencias</h3>
 					<form action="" method="post">
 						<div class="cuadricula">
@@ -183,7 +185,7 @@
 					</form>
 				</div>
 				<!-- ========== Content Cumpleaños ========== -->
-				<div class="contentTab" id="paneld1" aria-hidden="true" tabindex="-1">
+				<div class="contentTab <?php echo $active = isset($_POST['submitCumple']) ? $active = 'active' : "" ?>" id="paneld1" aria-hidden="true" tabindex="-1">
 					<h3>Envío de cumpleaños por mes</h3>
 					<form action="" method="post" enctype="multipart/form-data">
 						<div class="cuadricula">
@@ -199,7 +201,7 @@
 					</form>
 				</div>
 				<!-- ========== Content Tarjetas conmemorativas ========== -->
-				<div class="contentTab" id="paneld1" aria-hidden="true" tabindex="-1">
+				<div class="contentTab <?php echo $active = isset($_POST['submitTC']) ? $active = 'active' : "" ?>" id="paneld1" aria-hidden="true" tabindex="-1">
 					<h3>Tarjetas de fechas conmemorativas</h3>
 					<form action="" method="post">
 						<div class="cuadricula">

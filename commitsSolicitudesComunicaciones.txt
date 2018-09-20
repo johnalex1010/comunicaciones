@@ -1,3 +1,9 @@
+commit 0f7e07cc290726d61787a215ed0d9bf081ee008e
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 11:37:48 2018 -0500
+
+    Maquetación de comunicación internar
+
 commit d87ce73605c9a41d92cbcdfbb0af5d6a99c2701a
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Thu Sep 20 08:30:51 2018 -0500

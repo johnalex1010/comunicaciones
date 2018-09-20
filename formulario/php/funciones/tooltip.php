@@ -119,9 +119,9 @@ function checkPublicoObjT(){
 }
 
 /*
-===============================
-Campos de comunicacion interna
-===============================
+========================================
+Campos de comunicacion interna Link TABS
+========================================
 */
 function envioMailInstiT(){
 	echo "Soy envioMailInstiT";
@@ -137,5 +137,80 @@ function cumpleaniosT(){
 }
 function tarjetasConmemorativasT(){
 	echo "Soy tarjetasConmemorativasT";
+}
+
+/*
+======================================================
+Campos de comunicacion interna - Correos Instucionales
+======================================================
+*/
+function correosInstuT(){
+	echo "Soy correosInstuT";
+}
+
+/*
+===============================================
+Campos de comunicacion interna - Tomas Noticias
+===============================================
+*/
+function TNwordT(){
+	echo "Soy TNWord";
+}
+function TNjpgT(){
+	echo "Soy TNjpg";
+}
+
+/*
+============================================
+Campos de comunicacion interna - Condolecias
+============================================
+*/
+function condoNombreT(){
+	echo "Soy condoNombreT";
+}
+function condoCargoT(){
+	echo "Soy condoCargoT";
+}
+function condoFacDepT(){
+	echo "Soy condoFacDepT";
+}
+function condoFalleT(){
+	echo "Soy condoFalleT";
+}
+function condoParenT(){
+	echo "Soy condoParenT";
+}
+function condoLugarVelT(){
+	echo "Soy condoLugarVelT";
+}
+function condoFVelaT(){
+	echo "Soy condoFVelaT";
+}
+function condoHVelaT(){
+	echo "Soy condoHVelaT";
+}
+
+/*
+===========================================
+Campos de comunicacion interna - Cumpleaños
+===========================================
+*/
+function cumpleT(){
+	echo "Soy cumpleT";
+}
+
+/*
+========================================================
+Campos de comunicacion interna - Tarjetas Conmemorativas
+========================================================
+*/
+function conmeNombreT(){
+	echo "Soy conmeNombreT";
+}
+function conmeFT(){
+	echo "Soy conmeFT";
+}
+function conmeMSJT(){
+	echo "Soy conmeMSJT";
 }
 ?>

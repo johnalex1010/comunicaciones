@@ -63,7 +63,7 @@
 					<form action="" method="post" enctype="multipart/form-data">
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php adjInfoEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php correosInstuT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="adjInfoEvento" value="<?php echo $_SESSION['adjInfoEvento3']?>">
 									<span class="bar"></span>
 									<label>Adjuntar documento Word o PDF <span class="error">Error</span></label>
@@ -78,14 +78,14 @@
 					<form action="" method="post" enctype="multipart/form-data">
 						<div class="cuadricula">
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php adjInfoEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php TNwordT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="adjInfoEvento" value="<?php echo $_SESSION['adjInfoEvento3']?>">
 									<span class="bar"></span>
 									<label>Adjuntar documento Word con la noticia <span class="error">Error</span></label>
 								</div>
 							</div>
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php adjInfoEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php TNjpgT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="adjInfoEvento" value="<?php echo $_SESSION['adjInfoEvento3']?>">
 									<span class="bar"></span>
 									<label>Adjuntar imagen JPG de la noticia <span class="error">Error</span></label>
@@ -100,7 +100,7 @@
 					<form action="" method="post">
 						<div class="cuadricula">
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php nombreEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php condoNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="nombreEvento" value="<?php echo $_SESSION['nombreEvento'] = (isset($_SESSION['nombreEvento'])) ? $_SESSION['nombreEvento'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
@@ -108,7 +108,7 @@
 					  			</div>
 							</div>
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php nombreEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php condoCargoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="nombreEvento" value="<?php echo $_SESSION['nombreEvento'] = (isset($_SESSION['nombreEvento'])) ? $_SESSION['nombreEvento'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
@@ -116,7 +116,7 @@
 					  			</div>
 							</div>
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php tipoEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php condoFacDepT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<select name="tipoEvento" id="tipoEvento">
 									<?php
 										if ($_SESSION['tipoEvento'] == "") {
@@ -135,7 +135,7 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php nombreEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php condoFalleT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="nombreEvento" value="<?php echo $_SESSION['nombreEvento'] = (isset($_SESSION['nombreEvento'])) ? $_SESSION['nombreEvento'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
@@ -143,14 +143,14 @@
 					  			</div>
 							</div>
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php nombreEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php condoParenT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="nombreEvento" value="<?php echo $_SESSION['nombreEvento'] = (isset($_SESSION['nombreEvento'])) ? $_SESSION['nombreEvento'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Parentesco <span class="error">Error</span></label>
 					  			</div>
 							</div>
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php nombreEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php condoLugarVelT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="nombreEvento" value="<?php echo $_SESSION['nombreEvento'] = (isset($_SESSION['nombreEvento'])) ? $_SESSION['nombreEvento'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Lugar de velación <span class="error">Error</span></label>
@@ -159,14 +159,14 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php fIniEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php condoFVelaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="date" name="fIniEvento" value="<?php echo $_SESSION['fIniEvento'] = (isset($_SESSION['fIniEvento'])) ? $_SESSION['fIniEvento'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Fecha de velación <span class="error">Error</span></label>
 					  			</div>
 							</div>
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php horaEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php condoHVelaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="time" name="horaEvento" value="<?php echo $_SESSION['horaEvento'] = (isset($_SESSION['horaEvento'])) ? $_SESSION['horaEvento'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Hora de velación <span class="error"><?php echo $error[5] = (isset($error[5])) ? $error[5] : ""; ?></span></label>
@@ -182,7 +182,7 @@
 					<form action="" method="post" enctype="multipart/form-data">
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php adjInfoEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php cumpleT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="adjInfoEvento" value="<?php echo $_SESSION['adjInfoEvento3']?>">
 									<span class="bar"></span>
 									<label>Adjuntar documento PDF <span class="error">Error</span></label>
@@ -197,7 +197,7 @@
 					<form action="" method="post">
 						<div class="cuadricula">
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php nombreEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php conmeNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="nombreEvento" value="<?php echo $_SESSION['nombreEvento'] = (isset($_SESSION['nombreEvento'])) ? $_SESSION['nombreEvento'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
@@ -205,7 +205,7 @@
 					  			</div>
 							</div>
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php fIniEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php conmeFT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="date" name="fIniEvento" value="<?php echo $_SESSION['fIniEvento'] = (isset($_SESSION['fIniEvento'])) ? $_SESSION['fIniEvento'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Fecha de conmemoración <span class="error">Error</span></label>
@@ -214,7 +214,7 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php jutifiCubWEbEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
+								<div class="group tooltip" title="<?php conmeMSJT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<textarea name="jutifiCubWEbEvento" id=""><?php //echo $_SESSION['jutifiCubWEbEvento'] ?></textarea>
 					  				<span class="bar"></span>
 					  				<label>Mensaje <span class="error">Error</span></label>

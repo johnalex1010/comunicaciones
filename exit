@@ -1,0 +1,59 @@
+[33mcommit ef2957f02af822ba52a90a2dc6a1b3e2f8a4f436[m[33m ([m[1;36mHEAD -> [m[1;32mTestValidacionesCI[m[33m)[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 11:21:27 2018 -0500
+
+    Re escritura de CommitsSolicitudesComunicaciones.txt
+
+[33mcommit 13f4123691c792f489e6120dc3d39b17d22ddef0[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 11:15:32 2018 -0500
+
+    Validación de Tarjetas Conmemorativas
+
+[33mcommit 378e1325a8677ebb4e27f730112a3f5ef707c7b7[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 10:19:43 2018 -0500
+
+    Creción de Rama Test y comienzo de validaciones CI
+
+[33mcommit 7fdfaff2ecd3ec8a8d83c4e16cfacf577af72a6d[m[33m ([m[1;32mmaster[m[33m)[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 15:30:55 2018 -0500
+
+    Validación realizada sobre el formulario de Cumpleaños
+
+[33mcommit 5a1400b840573b5843e639c86053ec52319a6f33[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 15:22:09 2018 -0500
+
+    Validación realizada sobre el formulario de Tomás Noticias
+
+[33mcommit 5e414d93d7558daba27e53883ccd8805645b377e[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 14:34:25 2018 -0500
+
+    Validación realizada sobre el formulario de Correos Institucionales
+
+[33mcommit a3915710dc3125f8465f8c6ea11402522eda17eb[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 11:55:52 2018 -0500
+
+    Integración de Tooltips en Comunicación Interna
+
+[33mcommit 0f7e07cc290726d61787a215ed0d9bf081ee008e[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 11:37:48 2018 -0500
+
+    Maquetación de comunicación internar
+
+[33mcommit d87ce73605c9a41d92cbcdfbb0af5d6a99c2701a[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 08:30:51 2018 -0500
+
+    Inicio de la creación de la plantilla de Comunicación Interna
+
+[33mcommit b8033c5b382ebf3b506c631f36423ab214724237[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Sep 19 14:37:48 2018 -0500
+
+    Inicio del proyecto de Solicitudes de Comunicaciones -- Esté ya intregra el funcionamiento (validaciones) del formulario de Eventos

@@ -105,6 +105,7 @@
 				<div class="contentTab <?php echo $active = isset($_POST['submitCondo']) ? $active = 'active' : "" ?>" id="panelc1" aria-hidden="true" tabindex="-1">
 					<h3>Condolencias</h3>
 					<form action="" method="post">
+						<p><span class="error"><?php echo $error[2][0] = (isset($error[2][0])) ? $error[2][0] : ""; ?></span></p>
 						<div class="cuadricula">
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php condoNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">

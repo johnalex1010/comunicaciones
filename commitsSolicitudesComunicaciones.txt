@@ -1,3 +1,15 @@
+commit 13f4123691c792f489e6120dc3d39b17d22ddef0
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 11:15:32 2018 -0500
+
+    Validación de Tarjetas Conmemorativas
+
+commit 378e1325a8677ebb4e27f730112a3f5ef707c7b7
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 10:19:43 2018 -0500
+
+    Creción de Rama Test y comienzo de validaciones CI
+
 commit 7fdfaff2ecd3ec8a8d83c4e16cfacf577af72a6d
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Thu Sep 20 15:30:55 2018 -0500

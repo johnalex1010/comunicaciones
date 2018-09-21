@@ -1,3 +1,9 @@
+commit 7fdfaff2ecd3ec8a8d83c4e16cfacf577af72a6d
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 15:30:55 2018 -0500
+
+    Validación realizada sobre el formulario de Cumpleaños
+
 commit 5a1400b840573b5843e639c86053ec52319a6f33
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Thu Sep 20 15:22:09 2018 -0500

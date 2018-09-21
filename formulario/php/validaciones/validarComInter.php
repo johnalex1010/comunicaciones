@@ -111,7 +111,82 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 	*/
 	if (isset($_POST['submitCondo'])) {
 		$error = array();
-		echo "si";
+		if (!empty($_POST['condoNombre']) && !empty($_POST['condoCargo']) && !empty($_POST['condoFacDep']) && !empty($_POST['condoFalle'])) {
+
+			/*===== Validar Nombre Doliente =====*/
+			if (!isset($_POST['condoNombre']) || empty($_POST['condoNombre'])) {
+				$error[2][1] = "El campo es obligatorio";
+			}else{
+				$_SESSION['condoNombre'] = $_POST['condoNombre'];
+			}
+
+			/*===== Validar Cargo Doliente =====*/
+			if (!isset($_POST['condoCargo']) || empty($_POST['condoCargo'])) {
+				$error[2][2] = "El campo es obligatorio";
+			}else{
+				$_SESSION['condoCargo'] = $_POST['condoCargo'];
+			}			
+
+			/*===== Validar Facultad/Dependencia =====*/
+			if (!isset($_POST['condoFacDep']) || empty($_POST['condoFacDep'])){
+				$error[2][3] = "El campo es obligatorio";
+			}else{
+				$_SESSION['condoFacDep'] = $_POST['condoFacDep'];
+			}
+
+			/*===== Validar Nombre Fallecido =====*/
+			if (!isset($_POST['condoFalle']) || empty($_POST['condoFalle'])) {
+				$error[2][4] = "El campo es obligatorio";
+			}else{
+				$_SESSION['condoFalle'] = $_POST['condoFalle'];
+			}
+
+			/*===== Validar Parentesco =====*/
+			if (!isset($_POST['condoParen']) || empty($_POST['condoParen'])) {
+				//$error[2][5] = "El campo es obligatorio";
+			}else{
+				$_SESSION['condoParen'] = $_POST['condoParen'];
+			}
+
+			/*===== Validar Lugar velación =====*/
+			if (!isset($_POST['condoLugarVel']) || empty($_POST['condoLugarVel'])) {
+				//$error[2][6] = "El campo es obligatorio";
+			}else{
+				$_SESSION['condoLugarVel'] = $_POST['condoLugarVel'];
+			}
+
+			/*===== Validar Fecha de conmemoración =====*/
+			if (!isset($_POST['condoFVela']) || empty($_POST['condoFVela'])) {
+				//$error[2][7] = "El campo es obligatorio";
+			}else{
+				$_POST['condoFVela'];
+				$date = explode("-", $_POST['condoFVela']);
+				$countDate =  count($date);
+				if ($countDate == 3 && checkdate($date[1], $date[2], $date[0])) {
+					$_SESSION['condoFVela'] = $_POST['condoFVela'];
+				}else{
+					$error[2][8] = "El formato fecha es incorrecto";
+				}
+			}
+
+			/*===== Validar hora velación =====*/
+			if (!isset($_POST['condoHVela']) || empty($_POST['condoHVela'])) {
+				//$error[2][8] = "El campo es obligatorio";
+			}else{
+				$_SESSION['condoHVela'] = $_POST['condoHVela'];
+			}
+
+		}else{
+			unset($_SESSION['condoNombre']);
+			unset($_SESSION['condoCargo']);
+			unset($_SESSION['condoFacDep']);
+			unset($_SESSION['condoFalle']);
+			unset($_SESSION['condoParen']);
+			unset($_SESSION['condoLugarVel']);
+			unset($_SESSION['condoFVela']);
+			unset($_SESSION['condoHVela']);
+			echo $error[2][0] = "Los campos obligatorios";
+		}
 	}else{
 		echo "No3";
 	}
@@ -167,7 +242,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				$_SESSION['conmeNombre'] = $_POST['conmeNombre'];
 			}
 
-			/*===== Validar Fecha inicio  del evento =====*/
+			/*===== Validar Fecha de conmemoración =====*/
 			if (!isset($_POST['conmeF']) || empty($_POST['conmeF'])) {
 				$error[4][2] = "El campo es obligatorio";
 			}else{

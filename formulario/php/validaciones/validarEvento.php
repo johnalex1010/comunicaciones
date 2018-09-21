@@ -66,7 +66,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 
 		}
 
-		/*===== Validar hora  del evento =====*/
+		/*===== Validar hora del evento =====*/
 		if (!isset($_POST['horaEvento']) || empty($_POST['horaEvento'])) {
 			$error[5] = "El campo es obligatorio";
 		}else{

@@ -1,3 +1,15 @@
+commit b5ec13ab94442cd136ceb69b321048c883244ad0
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 11:32:02 2018 -0500
+
+    Creación de Rama testCondolencias
+
+commit ef2957f02af822ba52a90a2dc6a1b3e2f8a4f436
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 11:21:27 2018 -0500
+
+    Re escritura de CommitsSolicitudesComunicaciones.txt
+
 commit 13f4123691c792f489e6120dc3d39b17d22ddef0
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Fri Sep 21 11:15:32 2018 -0500

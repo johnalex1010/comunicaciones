@@ -130,7 +130,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 					unset($_SESSION['cumple2']);
 					unset($_SESSION['cumple3']);
 					unset($_SESSION['cumple4']);
-					echo $error[3	][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
+					echo $error[3][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
 				}else{
 					$_SESSION['cumple1'] = $_FILES['cumple']['type'];			
 					$_SESSION['cumple2'] = $_FILES['cumple']['size'];			
@@ -142,10 +142,10 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				unset($_SESSION['cumple2']);
 				unset($_SESSION['cumple3']);
 				unset($_SESSION['cumple4']);
-				echo $error[3	][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
+				echo $error[3][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
 			}
 		}else{
-			echo $error[3	][0] = "El archivo adjunto es obligatorio";
+			echo $error[3][0] = "El archivo adjunto es obligatorio";
 		}
 	}else{
 		echo "No4";
@@ -157,7 +157,47 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 	*/
 	if (isset($_POST['submitTC'])) {
 		$error = array();
-		echo "si";
+		/*===== Validar Nombre evento =====*/
+		if (!empty($_POST['conmeNombre']) && !empty($_POST['conmeF']) && !empty($_POST['conmeMSJ'])) {
+
+			/*===== Validar Nombre Conmemoración =====*/
+			if (!isset($_POST['conmeNombre']) || empty($_POST['conmeNombre'])) {
+				$error[4][1] = "El campo es obligatorio";
+			}else{
+				$_SESSION['conmeNombre'] = $_POST['conmeNombre'];
+			}
+
+			/*===== Validar Fecha inicio  del evento =====*/
+			if (!isset($_POST['conmeF']) || empty($_POST['conmeF'])) {
+				$error[4][2] = "El campo es obligatorio";
+			}else{
+				$_POST['conmeF'];
+				$date = explode("-", $_POST['conmeF']);
+				$countDate =  count($date);
+				if ($countDate == 3 && checkdate($date[1], $date[2], $date[0])) {
+					$_SESSION['conmeF'] = $_POST['conmeF'];
+				}else{
+					$error[4][2] = "El formato fecha es incorrecto";
+				}
+			}
+
+			/*===== Validar Justifcación web =====*/
+			if (isset($_POST['conmeMSJ'])) {
+				unset( $_SESSION["conmeMSJ"] );
+				if (strlen($_POST['conmeMSJ'])<=510) {
+					$_SESSION['conmeMSJ'] = $_POST['conmeMSJ'];
+				}else{
+					$_SESSION['conmeMSJ'] = $_POST['conmeMSJ'];
+					$error[4][3] = "Son máximo 500 caracteres";
+				}
+			}
+
+		}else{
+			unset($_SESSION['conmeNombre']);
+			unset($_SESSION['conmeF']);
+			unset($_SESSION['conmeMSJ']);
+			echo $error[4][0] = "Los campos obligatorios";
+		}
 	}else{
 		echo "N05";
 	}

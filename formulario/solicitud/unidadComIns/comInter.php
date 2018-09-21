@@ -205,29 +205,32 @@
 				<div class="contentTab <?php echo $active = isset($_POST['submitTC']) ? $active = 'active' : "" ?>" id="paneld1" aria-hidden="true" tabindex="-1">
 					<h3>Tarjetas de fechas conmemorativas</h3>
 					<form action="" method="post">
+						<p><span class="error"><?php echo $error[4][0] = (isset($error[4][0])) ? $error[4][0] : ""; ?></span>
 						<div class="cuadricula">
 							<div class="celda celdax2">
 								<div class="group tooltip" title="<?php conmeNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="text" class="requi" name="nombreEvento" value="<?php echo $_SESSION['nombreEvento'] = (isset($_SESSION['nombreEvento'])) ? $_SESSION['nombreEvento'] : ''; ?>">
+					  				<input type="text" class="requi" name="conmeNombre" value="<?php echo $_SESSION['conmeNombre'] = (isset($_SESSION['conmeNombre'])) ? $_SESSION['conmeNombre'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
-					  				<label>Nombre de la conmemoración <span class="error">Error</span></label>
+					  				<label>Nombre de la conmemoración <span class="error"><?php echo $error[4][1] = (isset($error[4][1])) ? $error[4][1] : ""; ?></span></label>
 					  			</div>
 							</div>
 							<div class="celda celdax2">
 								<div class="group tooltip" title="<?php conmeFT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="date" name="fIniEvento" value="<?php echo $_SESSION['fIniEvento'] = (isset($_SESSION['fIniEvento'])) ? $_SESSION['fIniEvento'] : ''; ?>">
+					  				<input type="date" name="conmeF" value="<?php echo $_SESSION['conmeF'] = (isset($_SESSION['conmeF'])) ? $_SESSION['conmeF'] : ''; ?>">
 					  				<span class="bar"></span>
-					  				<label>Fecha de conmemoración <span class="error">Error</span></label>
+					  				<span class="required"></span>
+					  				<label>Fecha de conmemoración <span class="error"><?php echo $error[4][2] = (isset($error[4][2])) ? $error[4][2] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>
 						<div class="cuadricula">
 							<div class="celda">
 								<div class="group tooltip" title="<?php conmeMSJT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<textarea name="jutifiCubWEbEvento" id=""><?php //echo $_SESSION['jutifiCubWEbEvento'] ?></textarea>
+									<textarea name="conmeMSJ" maxlength="498" id=""><?php echo $_SESSION['conmeMSJ'] ?></textarea>
 					  				<span class="bar"></span>
-					  				<label>Mensaje <span class="error">Error</span></label>
+					  				<span class="required"></span>
+					  				<label>Mensaje (500 Caracteres máximo)<span class="error"><?php echo $error[4][3] = (isset($error[4][3])) ? $error[4][3] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>

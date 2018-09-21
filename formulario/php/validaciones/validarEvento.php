@@ -45,7 +45,6 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			}else{
 				$error[3] = "El formato fecha es incorrecto";
 			}
-
 		}
 
 		/*===== Validar Fecha fin  del evento =====*/
@@ -128,7 +127,6 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				$_SESSION['jutifiCubWEbEvento'] = $_POST['jutifiCubWEbEvento'];
 				$error[8] = "Son máximo 500 caracteres";
 			}
-			
 		}
 
 		/*===== Validar Adjunto Web =====*/

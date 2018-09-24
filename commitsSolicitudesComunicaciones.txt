@@ -1,3 +1,9 @@
+commit 58518211ba8c25926f0e2557653cef71e957ccb0
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 09:47:50 2018 -0500
+
+    Creación formularios de Web Site
+
 commit 909038a118101092d198a024b7cda1ef3927d7ca
 Merge: 8db290d f53e28c
 Author: JohnAlex <bartho1010@gmail.com>

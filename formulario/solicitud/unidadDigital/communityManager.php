@@ -9,7 +9,7 @@
 	// session_destroy();
 	require_once '../../php/funciones/tooltip.php';
 	require_once '../../php/funciones/campos.php';
-	require_once '../../php/validaciones/validarWebSite.php';
+	require_once '../../php/validaciones/validarCM.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
 <head>
 	<!-- METAS -->
 	<meta charset="UTF-8" />
-	<title>Unidad digital Web | Departamento de Comunicaciones</title>
+	<title>Unidad digital community manager | Departamento de Comunicaciones</title>
 	<meta http-equiv="X-UA-Compatible" content="EDGE" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />	
 	<meta name="description" content=""/>
@@ -38,7 +38,7 @@
 			<div class="titles">
 				<h1 class="titlePrimary">Formato de solicitudes</h1>
 				<h2 class="titleSecond">Departamento de comunicaciones</h2>
-				<h3 class="titleThird">Sección Sitios Web</h3>
+				<h3 class="titleThird">Sección Community Manager</h3>
 			</div>
 			<p class="txtIntro">Texto explicativo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas beatae, eos nisi officia temporibus aliquid accusamus est maxime atque, voluptatibus commodi facere voluptatum esse quo ipsum expedita corporis ratione, debitis!
 			</p>
@@ -51,16 +51,15 @@
 		<div class="vertical-tabs">
 			<!-- ========== Link TABS ========== -->
 			<ul class="tabs vertical" data-tab="">
-				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitNewSite']) ? $active = 'active' : "" ?>" title="<?php tabNewSite(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panela1" aria-selected="true" tabindex="0">Nuevo sitio web</a></li>
-				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitAjusteWeb']) ? $active = 'active' : "" ?>" title="<?php tabAjusTxtImgT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelb1" aria-selected="false" tabindex="-1">Ajustes de textos y/o imagenes web</a></li>
-				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitCapa']) ? $active = 'active' : "" ?>" title="<?php tabCapWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelc1" aria-selected="false" tabindex="-1">Capacitación para contenidos web</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitNewSite']) ? $active = 'active' : "" ?>" title="<?php tabNewSite(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panela1" aria-selected="true" tabindex="0">Creación de redes sociales</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitAjusteWeb']) ? $active = 'active' : "" ?>" title="<?php tabAjusTxtImgT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelb1" aria-selected="false" tabindex="-1">Campañas</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitCapa']) ? $active = 'active' : "" ?>" title="<?php tabCapWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelc1" aria-selected="false" tabindex="-1">Asesorias</a></li>
 			</ul>
 			<!-- ========== Content TABS ========== -->
 			<div class="tabs-content">
-
 				<!-- ========== Content Nuevo sitio web ========== -->
 				<div class="contentTab <?php echo $active = isset($_POST['submitNewSite']) ? $active = 'active' : "" ?>" id="panela1" aria-hidden="false" >
-					<h3>Nuevo sitio web</h3>
+					<h3>Creación de redes sociales</h3>
 					<form action="" method="post" enctype="multipart/form-data">
 						<div class="cuadricula">
 							<div class="celda celdax2">
@@ -107,7 +106,7 @@
 				</div>
 				<!-- ========== Content Ajustes de textos y/o imagenes web ========== -->
 				<div class="contentTab <?php echo $active = isset($_POST['submitAjusteWeb']) ? $active = 'active' : "" ?>" id="panelb1" aria-hidden="true" tabindex="-1">
-					<h3>Ajustes de textos y/o imagenes web</h3>
+					<h3>Campañas</h3>
 					<form action="" method="post" enctype="multipart/form-data">
 						<div class="cuadricula">
 							<div class="celda">
@@ -144,7 +143,7 @@
 				</div>
 				<!-- ========== Content Capacitación contenidos web ========== -->
 				<div class="contentTab <?php echo $active = isset($_POST['submitCapa']) ? $active = 'active' : "" ?>" id="panelc1" aria-hidden="true" tabindex="-1">
-					<h3>Capacitación contenidos web</h3>
+					<h3>Asesorias</h3>
 					<form action="" method="post">
 						<div class="cuadricula">
 							<div class="celda">

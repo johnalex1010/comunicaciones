@@ -135,7 +135,7 @@
 						<li>Unidad Digital
 							<ul class="subNavUnidad">
 								<li class="tooltip" title="<?php webSiteT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="solicitud/unidadDigital/website.php">Web Site</a></li>
-								<li class="tooltip" title="<?php CMT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="solicitud/unidadDigital/">Community Manager</a></li>
+								<li class="tooltip" title="<?php CMT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="solicitud/unidadDigital/communityManager.php">Community Manager</a></li>
 							</ul>
 						</li>
 					</ul>

@@ -114,7 +114,7 @@
 		  	<div class="cuadricula">	
 		  		<div class="celda celdax2">
 		  			<div class="group tooltip" title="<?php numTICEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-		  				<input type="txt" name="numTICEvento" value="<?php echo $_SESSION['numTICEvento'] = (isset($_SESSION['numTICEvento'])) ? $_SESSION['numTICEvento'] : ''; ?>">
+		  				<input type="text" name="numTICEvento" value="<?php echo $_SESSION['numTICEvento'] = (isset($_SESSION['numTICEvento'])) ? $_SESSION['numTICEvento'] : ''; ?>">
 		  				<span class="bar"></span>
 		  				<label>Numero TIC del evento <span class="error"><span class="error"><?php echo $error[6] = (isset($error[6])) ? $error[6] : ""; ?></span></label>
 		  			</div>

@@ -215,7 +215,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 
 .error {
   color: red;
-  font-size: 0.8rem; }
+  font-size: 0.6rem; }
 
 /*
 * ====================

@@ -107,7 +107,6 @@
 					</form>
 				</div>
 				<!-- ========== Content Ajustes de textos y/o imagenes web ========== -->
-
 				<div class="contentTab <?php echo $active = isset($_POST['submitAjusteWeb']) ? $active = 'active' : "" ?>" id="panelb1" aria-hidden="true" tabindex="-1">
 					<h3>Ajustes de textos y/o imagenes web</h3>
 					<form action="" method="post" enctype="multipart/form-data">
@@ -148,64 +147,64 @@
 				<div class="contentTab <?php echo $active = isset($_POST['submitCapa']) ? $active = 'active' : "" ?>" id="panelc1" aria-hidden="true" tabindex="-1">
 					<h3>Capacitación contenidos web</h3>
 					<form action="" method="post">
-						<p><span class="error"><?php echo $error[2][0] = (isset($error[2][0])) ? $error[2][0] : ""; ?></span></p>
 						<div class="cuadricula">
 							<div class="celda">
 								<div class="group tooltip" title="<?php nombreCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="nombreCapa" value="<?php echo $_SESSION['nombreCapa'] = (isset($_SESSION['nombreCapa'])) ? $_SESSION['nombreCapa'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
-					  				<label>Nombre de la persona que tomará la capacitación <span class="error"><?php echo $error[2][1] = (isset($error[2][1])) ? $error[2][1] : ""; ?></label>
+					  				<label>Nombre de la persona que tomará la capacitación <span class="error"><?php echo $error[2][0] = (isset($error[2][0])) ? $error[2][0] : ""; ?></label>
 					  			</div>
 							</div>
 						</div>
 						<div class="cuadricula">
 							<div class="celda celdax2">
 								<div class="group tooltip" title="<?php numTelCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="txt" name="numTelCapa" value="<?php echo $_SESSION['numTelCapa'] = (isset($_SESSION['numTelCapa'])) ? $_SESSION['numTelCapa'] : ''; ?>">
+					  				<input type="text" name="numTelCapa" value="<?php echo $_SESSION['numTelCapa'] = (isset($_SESSION['numTelCapa'])) ? $_SESSION['numTelCapa'] : ''; ?>">
 					  				<span class="bar"></span>
-					  				<label>Telefono de contacto <span class="error"><span class="error"><?php echo $error[2][2] = (isset($error[2][2])) ? $error[2][2] : ""; ?></span></label>
+					  				<span class="required"></span>
+					  				<label>Telefono de contacto <span class="error"><span class="error"><?php echo $error[2][1] = (isset($error[2][1])) ? $error[2][1] : ""; ?></span></label>
 					  			</div>
 							</div>
 							<div class="celda celdax2">
 								<div class="group tooltip" title="<?php numCelCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="txt" name="numCelCapa" value="<?php echo $_SESSION['numCelCapa'] = (isset($_SESSION['numCelCapa'])) ? $_SESSION['numCelCapa'] : ''; ?>">
+					  				<input type="text" name="numCelCapa" value="<?php echo $_SESSION['numCelCapa'] = (isset($_SESSION['numCelCapa'])) ? $_SESSION['numCelCapa'] : ''; ?>">
 					  				<span class="bar"></span>
-					  				<label>Celular de contacto <span class="error"><span class="error"><?php echo $error[2][3] = (isset($error[2][3])) ? $error[2][3] : ""; ?></span></label>
+					  				<label>Celular de contacto <span class="error"><span class="error"><?php echo $error[2][2] = (isset($error[2][2])) ? $error[2][2] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>
 						<div class="cuadricula">
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php emailCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="email" required name="emailCapa" value="<?php echo $_SESSION['emailCapa'] = (isset($_SESSION['emailCapa'])) ? $_SESSION['emailCapa'] : ''; ?>">
+									<input type="text" name="emailCapa" value="<?php echo $_SESSION['emailCapa'] = (isset($_SESSION['emailCapa'])) ? $_SESSION['emailCapa'] : ''; ?>">
 									<span class="bar"></span>
 									<span class="required"></span>
-									<label>Correo Institucional <span class="error"><?php echo $error[1] = (isset($error[1])) ? $error[1] : ""; ?></span></label>
+									<label>Correo Institucional <span class="error"><?php echo $error[2][3] = (isset($error[2][3])) ? $error[2][3] : ""; ?></span></label>
 								</div>
 							</div>
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php fechaCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="date" name="fechaCapa" value="<?php echo $_SESSION['fechaCapa'] = (isset($_SESSION['fechaCapa'])) ? $_SESSION['fechaCapa'] : ''; ?>">
 					  				<span class="bar"></span>
-					  				<label>Fecha <span class="error"><?php echo $error[2][7] = (isset($error[2][7])) ? $error[2][7] : ""; ?></label>
+					  				<label>Fecha <span class="error"><?php echo $error[2][4] = (isset($error[2][4])) ? $error[2][4] : ""; ?></label>
 					  			</div>
 							</div>
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php horaCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="time" name="horaCapa" value="<?php echo $_SESSION['horaCapa'] = (isset($_SESSION['horaCapa'])) ? $_SESSION['horaCapa'] : ''; ?>">
 					  				<span class="bar"></span>
-					  				<span class="required"></span>
-					  				<label>Hora <span class="error"><?php echo $error[5] = (isset($error[5])) ? $error[5] : ""; ?></span></label>
+					  				<label>Hora <span class="error"><?php echo $error[2][5] = (isset($error[2][5])) ? $error[2][5] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>
 						<div class="cuadricula">
 							<div class="celda">
 								<div class="group tooltip" title="<?php motivoCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
-									<textarea name="motivoCapa" id=""><?php echo $_SESSION['motivoCapa'] ?></textarea>
+									<textarea name="motivoCapa" maxlength="500" id=""><?php echo $_SESSION['motivoCapa'] ?></textarea>
 					  				<span class="bar"></span>
-					  				<label>Motivo de la capacitación <span class="error"><?php echo $error[11] = (isset($error[11])) ? $error[11] : ""; ?></span></label>
+					  				<span class="required"></span>
+					  				<label>Motivo de la capacitación <span class="error"><?php echo $error[2][6] = (isset($error[2][6])) ? $error[2][6] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>

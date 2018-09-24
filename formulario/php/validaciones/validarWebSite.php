@@ -82,12 +82,12 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		    $urlWeb = filter_var($urlWeb, FILTER_SANITIZE_URL);
 		    // Validar url
 		    if (!filter_var($urlWeb, FILTER_VALIDATE_URL) === false) {
-		        echo $_SESSION['urlWeb'] = $urlWeb;
+		        $_SESSION['urlWeb'] = $urlWeb;
 		    } else {
-		        echo $error[1][0] = "La URL no es valida";
+		        $error[1][0] = "La URL no es valida";
 		    }
 		}else{
-			echo $error[1][0] = "Campo obligatorio";
+			$error[1][0] = "Campo obligatorio";
 		}
 
 		/*===== Validar Ajunto de ajustes =====*/
@@ -135,7 +135,74 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 	*/
 	if (isset($_POST['submitCapa'])) {
 	$error = array();	
-		/*===== Validar Aprobación de material dos campos =====*/
+		/*===== Validar Nombre de la persona que va a tomar la capacitación =====*/
+		if (isset($_POST['nombreCapa']) && !empty($_POST['nombreCapa'])) {
+			$_SESSION['nombreCapa'] = $_POST['nombreCapa'];
+		}else{
+			$error[2][0] = "Campo obligatorio";
+		}
+
+		/*===== Validar Telefono Fijo Contacto =====*/
+		if (isset($_POST['nombreCapa']) && !empty($_POST['nombreCapa'])) {
+			if (is_numeric($_POST['numTelCapa'])) {
+				$_SESSION['numTelCapa'] = $_POST['numTelCapa'];
+			}else{
+				$error[2][1] = "El campo debe ser numerico";
+			}
+		}else{
+			$error[2][1] = "Campo obligatorio";
+		}
+
+		/*===== Validar Telefono Celular Contacto =====*/
+		if (!empty($_POST['numCelCapa'])) {
+			if (is_numeric($_POST['numCelCapa'])) {
+				$_SESSION['numCelCapa'] = $_POST['numCelCapa'];
+			}else{
+				$error[2][2] = "El campo debe ser numerico";
+			}
+		}
+
+		/*===== Validar Email =====*/
+		if (!isset($_POST['emailCapa']) || empty($_POST['emailCapa'])) {
+			$error[2][3] = "El campo es obligatorio";
+		}else{
+			$emailCapa = $_POST['emailCapa'];
+			if (filter_var($emailCapa, FILTER_VALIDATE_EMAIL)) {
+				$_SESSION['emailCapa'] = $emailCapa;
+			}else{
+				$_SESSION['emailCapa'] = $emailCapa;
+				$error[2][3] = "Esta dirección de correo no es válida.";
+			}
+		}
+
+		/*===== Validar Fecha de capacitación =====*/
+		$date = explode("-", $_POST['fechaCapa']);
+		$countDate =  count($date);
+		if ($countDate == 3 && checkdate($date[1], $date[2], $date[0])) {
+			$_SESSION['fechaCapa'] = $_POST['fechaCapa'];
+		}else{
+			$error[2][4] = "El formato fecha es incorrecto";
+		}
+
+		/*===== Validar hora la capactitacion =====*/
+		if (!isset($_POST['horaCapa']) || empty($_POST['horaCapa'])) {
+			//$error[2][5] = "El campo es obligatorio";
+		}else{
+			$_SESSION['horaCapa'] = $_POST['horaCapa'];
+		}
+
+		/*===== Validar Motivo de capacitación web =====*/
+		if (isset($_POST['motivoCapa']) && !empty($_POST['motivoCapa'])) {
+			unset( $_SESSION["motivoCapa"] );
+			if (strlen($_POST['motivoCapa'])<=510) {
+				$_SESSION['motivoCapa'] = $_POST['motivoCapa'];
+			}else{
+				$_SESSION['motivoCapa'] = $_POST['motivoCapa'];
+				$error[2][6] = "Son máximo 500 caracteres";
+			}
+		}else{
+			$error[2][6] = "El campo es obligatorio";
+		}
 	}else{
 		echo "No3";
 	}

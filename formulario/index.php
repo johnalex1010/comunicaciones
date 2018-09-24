@@ -125,17 +125,17 @@
 								<li class="tooltip" title="<?php aprobMateT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="right"><a href="solicitud/unidadComIns/aprobMate.php" >Material para aprobación</a></li>
 							</ul>
 						</li>
-						<li>Medios Audiovisuales
+						<!-- <li>Medios Audiovisuales
 							<ul class="subNavUnidad">
 								<li><a href="#">Sub	Unidad</a></li>
 								<li><a href="#">Sub Unidad</a></li>
 								<li><a href="#">Sub Unidad</a></li>
 							</ul>
-						</li>
+						</li> -->
 						<li>Unidad Digital
 							<ul class="subNavUnidad">
-								<li class="tooltip" title="<?php webSiteT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#">Web Site</a></li>
-								<li class="tooltip" title="<?php CMT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#">Community Manager</a></li>
+								<li class="tooltip" title="<?php webSiteT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="solicitud/unidadDigital/website.php">Web Site</a></li>
+								<li class="tooltip" title="<?php CMT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="solicitud/unidadDigital/">Community Manager</a></li>
 							</ul>
 						</li>
 					</ul>

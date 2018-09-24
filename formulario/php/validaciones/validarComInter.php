@@ -35,7 +35,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				echo $error[0][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
 			}
 		}else{
-			echo $error[0][0] = "El archivo adjunto es obligatorio";
+			$error[0][0] = "El archivo adjunto es obligatorio";
 		}
 	}else{
 		// echo "No1";
@@ -71,7 +71,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 					unset($_SESSION['adjTNWord2']);
 					unset($_SESSION['adjTNWord3']);
 					unset($_SESSION['adjTNWord4']);
-					echo $error[1][1] = " El adjunto debe ser un Word de máximo 1MB";
+					$error[1][1] = " El adjunto debe ser un Word de máximo 1MB";
 				}
 			}
 
@@ -99,7 +99,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				}
 			}
 		}else{
-			echo $error[1][0] = "Los campos son requeridos";
+			$error[1][0] = "Los campos son requeridos";
 		}
 	}else{
 		// echo "No2";
@@ -185,7 +185,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			unset($_SESSION['condoLugarVel']);
 			unset($_SESSION['condoFVela']);
 			unset($_SESSION['condoHVela']);
-			echo $error[2][0] = "Los campos obligatorios";
+			$error[2][0] = "Los campos obligatorios";
 		}
 	}else{
 		// echo "No3";
@@ -205,7 +205,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 					unset($_SESSION['cumple2']);
 					unset($_SESSION['cumple3']);
 					unset($_SESSION['cumple4']);
-					echo $error[3][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
+					$error[3][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
 				}else{
 					$_SESSION['cumple1'] = $_FILES['cumple']['type'];			
 					$_SESSION['cumple2'] = $_FILES['cumple']['size'];			
@@ -217,10 +217,10 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				unset($_SESSION['cumple2']);
 				unset($_SESSION['cumple3']);
 				unset($_SESSION['cumple4']);
-				echo $error[3][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
+				$error[3][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
 			}
 		}else{
-			echo $error[3][0] = "El archivo adjunto es obligatorio";
+			$error[3][0] = "El archivo adjunto es obligatorio";
 		}
 	}else{
 		// echo "No4";
@@ -271,7 +271,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			unset($_SESSION['conmeNombre']);
 			unset($_SESSION['conmeF']);
 			unset($_SESSION['conmeMSJ']);
-			echo $error[4][0] = "Los campos obligatorios";
+			$error[4][0] = "Los campos obligatorios";
 		}
 	}else{
 		// echo "N05";

@@ -1,12 +1,28 @@
-<<<<<<< HEAD
-=======
+commit 909038a118101092d198a024b7cda1ef3927d7ca
+Merge: 8db290d f53e28c
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 09:42:29 2018 -0500
+
+    Hechas las validaciones de Aprobacoón de Material
+
+commit f53e28c9a102e1c20eaf5ba92c9cabc5e8bce006
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 09:39:02 2018 -0500
+
+    Hechas las validaciones de Aprobacoón de Material
+
 commit 42dd39f142cf9338290998f847dd12efc427dbdb
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Mon Sep 24 09:37:30 2018 -0500
 
     Hechas las validaciones de Aprobacoón de Material
 
->>>>>>> aprob
+commit 8db290dd5a0becbd90418e3ca471e6ccf323e43d
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 08:24:37 2018 -0500
+
+    Creación de rama aprob
+
 commit ff5cf8006f0fd1605d0aa482090bd9cd0d788889
 Merge: b5ec13a 9a31e28
 Author: JohnAlex <bartho1010@gmail.com>

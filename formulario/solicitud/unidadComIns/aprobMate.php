@@ -52,7 +52,7 @@
 			</ul>
 			<!-- ========== Content TABS ========== -->
 			<div class="tabs-content">
-				<!-- ========== Content Correos Institucionales ========== -->
+				<!-- ========== Content Aprobación Material ========== -->
 				<div class="contentTab active" id="panela1" aria-hidden="false">
 					<form action="" method="post" enctype="multipart/form-data">						
 						<div class="cuadricula">

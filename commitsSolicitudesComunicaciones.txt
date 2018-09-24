@@ -1,3 +1,9 @@
+commit 3184ddc5d7b0983c3b96afb75b34577d8ee0fb74
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 09:49:06 2018 -0500
+
+    Creación y validación formularios de Web Site desde la rama WEB
+
 commit 58518211ba8c25926f0e2557653cef71e957ccb0
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Mon Sep 24 09:47:50 2018 -0500

@@ -225,4 +225,87 @@ function checkAprobMateT(){
 function adjAprobMateT(){
 	echo "Soy adjAprobMateT";
 }
+
+/*
+=============================
+Campos de WebSite - Link TABS
+=============================
+*/
+function tabNewSite(){
+	echo "Soy tabNewSiteT";
+}
+function tabAjusTxtImgT(){
+	echo "Soy tabAjusTxtImgT";
+}
+function tabCapWebT(){
+	echo "Soy capacitacionWebT";
+}
+
+/*
+===============================
+Campos de WebSite - Nuevo Sitio
+===============================
+*/
+function nombreEventoWebT(){
+	echo "Soy nombreEventoWebT";
+}
+function subdominioT(){
+	echo "Soy subdominioT";
+}
+function adjPlanNavT(){
+	echo "Soy adjPlanNavT";
+}
+function adjLineaGT(){
+	echo "Soy adjLineaG";
+}
+function motivoNewWebT(){
+	echo "Soy motivoNewWeb";
+}
+
+/*
+=======================================
+Campos de WebSite - Ajustes a TXT e IMG
+=======================================
+*/
+function urlWebT(){
+	echo "Soy urlWebT";
+}
+function adjDocWEbT(){
+	echo "Soy adjDocWEbT";
+}
+function adjImgWebT(){
+	echo "Soy adjImgWebT";
+}
+function descripWebT(){
+	echo "Soy descripWebT";
+}
+
+/*
+================================
+Campos de WebSite - Capacitación
+================================
+*/
+function nombreCapaT(){
+	echo "Soy nombreCapaT";
+}
+function numTelCapaT(){
+	echo "Soy numTelCapaT";
+}
+function numCelCapaT(){
+	echo "Soy numCelCapaT";
+}
+function emailCapaT(){
+	echo "Soy emailCapaT";
+}
+function fechaCapaT(){
+	echo "Soy fechaCapaT";
+}
+function horaCapaT(){
+	echo "Soy horaCapaT";
+}
+function motivoCapaT(){
+	echo "Soy motivoCapaT";
+}
+
+
 ?>

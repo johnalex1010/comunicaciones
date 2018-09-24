@@ -10,7 +10,7 @@
 	// session_destroy();
 	require_once '../../php/funciones/tooltip.php';
 	require_once '../../php/funciones/campos.php';
-	require_once '../../php/validaciones/validarComInter.php';
+	require_once '../../php/validaciones/validarWebSite.php';
 ?>
 
 <!DOCTYPE html>
@@ -52,63 +52,55 @@
 		<div class="vertical-tabs">
 			<!-- ========== Link TABS ========== -->
 			<ul class="tabs vertical" data-tab="">
-				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitCorreosInstu']) ? $active = 'active' : "" ?>" title="<?php envioMailInstiT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panela1" aria-selected="true" tabindex="0">Nuevo sitio web</a></li>
-				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitTN']) ? $active = 'active' : "" ?>" title="<?php tomasNoticiaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelb1" aria-selected="false" tabindex="-1">Ajustes de textos y/o imagenes web</a></li>
-				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitCondo']) ? $active = 'active' : "" ?>" title="<?php condolenciasT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelc1" aria-selected="false" tabindex="-1">Capacitación para contenidos web</a></li>
-				<!-- <li class="tab-title tooltip <?php echo $active = isset($_POST['submitCumple']) ? $active = 'active' : "" ?>" title="<?php cumpleaniosT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#paneld1" aria-selected="false" tabindex="-1">Desarrollo de aplicativos web</a></li> -->
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitNewSite']) ? $active = 'active' : "" ?>" title="<?php tabNewSite(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panela1" aria-selected="true" tabindex="0">Nuevo sitio web</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitTN']) ? $active = 'active' : "" ?>" title="<?php tabAjusTxtImgT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelb1" aria-selected="false" tabindex="-1">Ajustes de textos y/o imagenes web</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitCondo']) ? $active = 'active' : "" ?>" title="<?php tabCapWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelc1" aria-selected="false" tabindex="-1">Capacitación para contenidos web</a></li>
 			</ul>
 			<!-- ========== Content TABS ========== -->
 			<div class="tabs-content">
 				<!-- ========== Content Nuevo sitio web ========== -->
-				<div class="contentTab <?php echo $active = isset($_POST['submitCorreosInstu']) ? $active = 'active' : "" ?>" id="panela1" aria-hidden="false" >
+				<div class="contentTab <?php echo $active = isset($_POST['submitNewSite']) ? $active = 'active' : "" ?>" id="panela1" aria-hidden="false" >
 					<h3>Nuevo sitio web</h3>
 					<form action="" method="post" enctype="multipart/form-data">
-						<p><span class="error"><?php echo $error[0][0] = (isset($error[0][0])) ? $error[0][0] : ""; ?></span></p>
-
 						<div class="cuadricula">
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php nombreEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="text" class="requi" name="nombreEvento" value="<?php echo $_SESSION['nombreEvento'] = (isset($_SESSION['nombreEvento'])) ? $_SESSION['nombreEvento'] : ''; ?>">
+								<div class="group tooltip" title="<?php nombreEventoWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+					  				<input type="text" class="requi" name="nombreEventWeb" value="<?php echo $_SESSION['nombreEventWeb'] = (isset($_SESSION['nombreEventWeb'])) ? $_SESSION['nombreEventWeb'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
-					  				<label>Nombre del evento <span class="error"><?php echo $error[1] = (isset($error[1])) ? $error[1] : ""; ?></span></label>
+					  				<label>Nombre del evento <span class="error"><?php echo $error[0][0] = (isset($error[0][0])) ? $error[0][0] : ""; ?></span></label>
 					  			</div>
 							</div>
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php nombreEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="text" class="requi" name="nombreEvento" value="<?php echo $_SESSION['nombreEvento'] = (isset($_SESSION['nombreEvento'])) ? $_SESSION['nombreEvento'] : ''; ?>">
+								<div class="group tooltip" title="<?php subdominioT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+					  				<input type="text" class="requi" name="subdominio" value="<?php echo $_SESSION['subdominio'] = (isset($_SESSION['subdominio'])) ? $_SESSION['subdominio'] : ''; ?>">
 					  				<span class="bar"></span>
-					  				<label>Subdominio.usta.edu.co <span class="error"><?php echo $error[1] = (isset($error[1])) ? $error[1] : ""; ?></span></label>
+					  				<label>Subdominio.usta.edu.co <span class="error"><?php echo $error[1] = (isset($error[0][1])) ? $error[0][1] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>
 
 						<div class="cuadricula">
-							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php correosInstuT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="adjMailInsti" value="<?php echo $_SESSION['adjMailInsti3']?>">
+							<div class="celda">
+								<div class="group tooltip" title="<?php adjPlanNavT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+									<input type="file" class="requi" name="adjPlanNav" value="<?php echo $_SESSION['adjPlanNav3']?>">
 									<span class="bar"></span>
-									<label>Adjuntar contenido y plan de navegación en (Word /Excel / PDF) <span class="error"><?php echo $error[0][1] = (isset($error[0][1])) ? $error[0][1] : ""; ?></span></label>
-								</div>
-							</div>
-							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php correosInstuT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="adjMailInsti" value="<?php echo $_SESSION['adjMailInsti3']?>">
-									<span class="bar"></span>
-									<label>Adjuntar ZIP con linea gráfica <span class="error"><?php echo $error[0][1] = (isset($error[0][1])) ? $error[0][1] : ""; ?></span></label>
+									<span class="required"></span>
+									<label>Adjuntar ZIP con contenido, plan de navegación y linea gráfica <span class="error"><?php echo $error[0][2] = (isset($error[0][2])) ? $error[0][2] : ""; ?></span></label>
 								</div>
 							</div>
 						</div>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php lineamientoGraficosT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
-									<textarea name="lineamientoGraficos" id=""><?php echo $_SESSION['lineamientoGraficos'] ?></textarea>
+								<div class="group tooltip" title="<?php motivoNewWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
+									<textarea name="motivoNewWeb" maxlength="500" id=""><?php echo $_SESSION['motivoNewWeb'] ?></textarea>
 					  				<span class="bar"></span>
-					  				<label>Lineamientos gráficos <span class="error"><?php echo $error[11] = (isset($error[11])) ? $error[11] : ""; ?></span></label>
+					  				<span class="required"></span>
+					  				<label>Motivo por el cual debe ser creado <span class="error"><?php echo $error[0][3] = (isset($error[0][3])) ? $error[0][3] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>
-						<button type='submit' name='submitCorreosInstu' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
+						<button type='submit' name='submitNewSite' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
 					</form>
 				</div>
 				<!-- ========== Content Ajustes de textos y/o imagenes web ========== -->
@@ -118,8 +110,8 @@
 						<p><span class="error"><?php echo $error[1][0] = (isset($error[1][0])) ? $error[1][0] : ""; ?></span></p>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php nombreEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="text" class="requi" name="nombreEvento" value="<?php echo $_SESSION['nombreEvento'] = (isset($_SESSION['nombreEvento'])) ? $_SESSION['nombreEvento'] : ''; ?>">
+								<div class="group tooltip" title="<?php urlWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+					  				<input type="text" class="requi" name="urlWeb" value="<?php echo $_SESSION['urlWeb'] = (isset($_SESSION['urlWeb'])) ? $_SESSION['urlWeb3'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
 					  				<label>Url<span class="error"><?php echo $error[1] = (isset($error[1])) ? $error[1] : ""; ?></span></label>
@@ -128,15 +120,15 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php TNwordT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="adjTNWord" value="<?php echo $_SESSION['adjTNWord3']?>">
+								<div class="group tooltip" title="<?php adjDocWEbT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+									<input type="file" class="requi" name="adjDocWEb" value="<?php echo $_SESSION['adjDocWEb3']?>">
 									<span class="bar"></span>
 									<label>Adjuntar documento PDF<span class="error"><?php echo $error[1][1] = (isset($error[1][1])) ? $error[1][1] : ""; ?></span></label>
 								</div>
 							</div>
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php TNjpgT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="adjTNjpg" value="<?php echo $_SESSION['adjTNjpg3']?>">
+								<div class="group tooltip" title="<?php adjImgWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+									<input type="file" class="requi" name="adjImgWeb" value="<?php echo $_SESSION['adjImgWeb3']?>">
 									<span class="bar"></span>
 									<label>Adjuntar imagen JPG/JPEG <span class="error"><?php echo $error[1][2] = (isset($error[1][2])) ? $error[1][2] : ""; ?></span></label>
 								</div>
@@ -144,14 +136,14 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php lineamientoGraficosT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
-									<textarea name="lineamientoGraficos" id=""><?php echo $_SESSION['lineamientoGraficos'] ?></textarea>
+								<div class="group tooltip" title="<?php descripWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
+									<textarea name="descripWeb" id=""><?php echo $_SESSION['descripWeb'] ?></textarea>
 					  				<span class="bar"></span>
 					  				<label>Descripción adicional <span class="error"><?php echo $error[11] = (isset($error[11])) ? $error[11] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>
-						<button type='submit' name='submitTN' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
+						<button type='submit' name='submitAjusteWeb' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
 					</form>
 				</div>
 				<!-- ========== Content Capacitación contenidos web ========== -->
@@ -161,8 +153,8 @@
 						<p><span class="error"><?php echo $error[2][0] = (isset($error[2][0])) ? $error[2][0] : ""; ?></span></p>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php condoNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="text" class="requi" name="condoNombre" value="<?php echo $_SESSION['condoNombre'] = (isset($_SESSION['condoNombre'])) ? $_SESSION['condoNombre'] : ''; ?>">
+								<div class="group tooltip" title="<?php nombreCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+					  				<input type="text" class="requi" name="nombreCapa" value="<?php echo $_SESSION['nombreCapa'] = (isset($_SESSION['nombreCapa'])) ? $_SESSION['nombreCapa'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
 					  				<label>Nombre de la persona que tomará la capacitación <span class="error"><?php echo $error[2][1] = (isset($error[2][1])) ? $error[2][1] : ""; ?></label>
@@ -171,15 +163,15 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php numTICEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="txt" name="numTICEvento" value="<?php echo $_SESSION['numTICEvento'] = (isset($_SESSION['numTICEvento'])) ? $_SESSION['numTICEvento'] : ''; ?>">
+								<div class="group tooltip" title="<?php numTelCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+					  				<input type="txt" name="numTelCapa" value="<?php echo $_SESSION['numTelCapa'] = (isset($_SESSION['numTelCapa'])) ? $_SESSION['numTelCapa'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Telefono de contacto <span class="error"><span class="error"><?php echo $error[6] = (isset($error[6])) ? $error[6] : ""; ?></span></label>
 					  			</div>
 							</div>
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php numTICEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="txt" name="numTICEvento" value="<?php echo $_SESSION['numTICEvento'] = (isset($_SESSION['numTICEvento'])) ? $_SESSION['numTICEvento'] : ''; ?>">
+								<div class="group tooltip" title="<?php numCelCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+					  				<input type="txt" name="numCelCapa" value="<?php echo $_SESSION['numCelCapa'] = (isset($_SESSION['numCelCapa'])) ? $_SESSION['numCelCapa'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Celular de contacto <span class="error"><span class="error"><?php echo $error[6] = (isset($error[6])) ? $error[6] : ""; ?></span></label>
 					  			</div>
@@ -187,23 +179,23 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php campoEmailT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="email" required name="campoEmail" value="<?php echo $_SESSION['campoEmail'] = (isset($_SESSION['campoEmail'])) ? $_SESSION['campoEmail'] : ''; ?>">
+								<div class="group tooltip" title="<?php emailCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+									<input type="email" required name="emailCapa" value="<?php echo $_SESSION['emailCapa'] = (isset($_SESSION['emailCapa'])) ? $_SESSION['emailCapa'] : ''; ?>">
 									<span class="bar"></span>
 									<span class="required"></span>
 									<label>Correo Institucional <span class="error"><?php echo $error[1] = (isset($error[1])) ? $error[1] : ""; ?></span></label>
 								</div>
 							</div>
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php condoFVelaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="date" name="condoFVela" value="<?php echo $_SESSION['condoFVela'] = (isset($_SESSION['condoFVela'])) ? $_SESSION['condoFVela'] : ''; ?>">
+								<div class="group tooltip" title="<?php fechaCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+					  				<input type="date" name="fechaCapa" value="<?php echo $_SESSION['fechaCapa'] = (isset($_SESSION['fechaCapa'])) ? $_SESSION['fechaCapa'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Fecha <span class="error"><?php echo $error[2][7] = (isset($error[2][7])) ? $error[2][7] : ""; ?></label>
 					  			</div>
 							</div>
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php horaEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="time" name="horaEvento" value="<?php echo $_SESSION['horaEvento'] = (isset($_SESSION['horaEvento'])) ? $_SESSION['horaEvento'] : ''; ?>">
+								<div class="group tooltip" title="<?php horaCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+					  				<input type="time" name="horaCapa" value="<?php echo $_SESSION['horaCapa'] = (isset($_SESSION['horaCapa'])) ? $_SESSION['horaCapa'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
 					  				<label>Hora <span class="error"><?php echo $error[5] = (isset($error[5])) ? $error[5] : ""; ?></span></label>
@@ -212,14 +204,14 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php lineamientoGraficosT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
-									<textarea name="lineamientoGraficos" id=""><?php echo $_SESSION['lineamientoGraficos'] ?></textarea>
+								<div class="group tooltip" title="<?php motivoCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
+									<textarea name="motivoCapa" id=""><?php echo $_SESSION['motivoCapa'] ?></textarea>
 					  				<span class="bar"></span>
 					  				<label>Motivo de la capacitación <span class="error"><?php echo $error[11] = (isset($error[11])) ? $error[11] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>
-						<button type='submit' name='submitCondo' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
+						<button type='submit' name='submitCapa' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
 					</form>
 				</div>
 			</div>

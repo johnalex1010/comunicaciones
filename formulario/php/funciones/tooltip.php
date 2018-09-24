@@ -213,4 +213,16 @@ function conmeFT(){
 function conmeMSJT(){
 	echo "Soy conmeMSJT";
 }
+
+/*
+================================
+Campos de Aprobación de material
+================================
+*/
+function checkAprobMateT(){
+	echo "Soy checkAprobMateT";
+}
+function adjAprobMateT(){
+	echo "Soy adjAprobMateT";
+}
 ?>

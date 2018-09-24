@@ -413,7 +413,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
-  z-index: 1;
+  z-index: 999;
   /* Sit on top */
   padding-top: 100px;
   /* Location of the box */

@@ -38,7 +38,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo $error[0][0] = "El archivo adjunto es obligatorio";
 		}
 	}else{
-		echo "No1";
+		// echo "No1";
 	}
 
 	/*
@@ -102,7 +102,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo $error[1][0] = "Los campos son requeridos";
 		}
 	}else{
-		echo "No2";
+		// echo "No2";
 	}
 	/*
 	==============================
@@ -188,7 +188,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo $error[2][0] = "Los campos obligatorios";
 		}
 	}else{
-		echo "No3";
+		// echo "No3";
 	}
 	/*
 	===========================
@@ -223,7 +223,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo $error[3][0] = "El archivo adjunto es obligatorio";
 		}
 	}else{
-		echo "No4";
+		// echo "No4";
 	}
 	/*
 	=========================================
@@ -274,7 +274,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo $error[4][0] = "Los campos obligatorios";
 		}
 	}else{
-		echo "N05";
+		// echo "N05";
 	}
 
 }else{

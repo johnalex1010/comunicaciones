@@ -1,3 +1,22 @@
+commit 42dd39f142cf9338290998f847dd12efc427dbdb
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 09:37:30 2018 -0500
+
+    Hechas las validaciones de Aprobacoón de Material
+
+commit ff5cf8006f0fd1605d0aa482090bd9cd0d788889
+Merge: b5ec13a 9a31e28
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 14:19:41 2018 -0500
+
+    Merge branch 'testCondolencias'
+
+commit 9a31e280efc56bb19f23d6b1fbccd2f48a416dca
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 12:28:01 2018 -0500
+
+    Validación de Condolencias
+
 commit b5ec13ab94442cd136ceb69b321048c883244ad0
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Fri Sep 21 11:32:02 2018 -0500

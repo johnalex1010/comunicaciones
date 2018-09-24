@@ -65,7 +65,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			$error[0][3] = "Campo obligatorio";
 		}
 	}else{
-		echo "No1";
+		// echo "No1";
 	}
 
 	/*
@@ -125,7 +125,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			$error[1][2] = "Son máximo 500 caracteres";
 		}
 	}else{
-		echo "No2";
+		// echo "No2";
 	}
 
 	/*
@@ -204,7 +204,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			$error[2][6] = "El campo es obligatorio";
 		}
 	}else{
-		echo "No3";
+		// echo "No3";
 	}
 
 }else{

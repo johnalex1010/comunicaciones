@@ -1,3 +1,27 @@
+commit 1a8a15dc6f88e8d5cca41052626337af0ff27950
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 17:28:47 2018 -0500
+
+    Establecer BD.sql
+
+commit 5625ffdd91cbd99937f23d31e6d0462e640ac58c
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 17:23:30 2018 -0500
+
+    Nomnre nuevo de titulo bd.sql
+
+commit 0c2e90f2691b0023ce1cd5d3e60897565749af3b
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 17:21:03 2018 -0500
+
+    Dejar como estaba titulo de bd.sql
+
+commit fd64c94463b6fc0fba10003e20547e103557cbf8
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 17:20:05 2018 -0500
+
+    Modificar titulo de bd.sql
+
 commit 85f71a4cc24dfe6214e9848774e6c5ba40209a07
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Tue Sep 25 16:11:08 2018 -0500

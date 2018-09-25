@@ -1,4 +1,3 @@
-
 <?php 
 	session_start();
 
@@ -18,7 +17,7 @@
 <head>
 	<!-- METAS -->
 	<meta charset="UTF-8" />
-	<title>Comunicaciones Internas Solicitudes | Departamento de Comunicaciones</title>
+	<title>Unidad digital Web | Departamento de Comunicaciones</title>
 	<meta http-equiv="X-UA-Compatible" content="EDGE" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />	
 	<meta name="description" content=""/>
@@ -187,14 +186,14 @@
 								<div class="group tooltip" title="<?php fechaCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="date" name="fechaCapa" value="<?php echo $_SESSION['fechaCapa'] = (isset($_SESSION['fechaCapa'])) ? $_SESSION['fechaCapa'] : ''; ?>">
 					  				<span class="bar"></span>
-					  				<label>Fecha <span class="error"><?php echo $error[2][4] = (isset($error[2][4])) ? $error[2][4] : ""; ?></label>
+					  				<label>Fecha (Sujeta a disponibilidad) <span class="error"><?php echo $error[2][4] = (isset($error[2][4])) ? $error[2][4] : ""; ?></label>
 					  			</div>
 							</div>
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php horaCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="time" name="horaCapa" value="<?php echo $_SESSION['horaCapa'] = (isset($_SESSION['horaCapa'])) ? $_SESSION['horaCapa'] : ''; ?>">
 					  				<span class="bar"></span>
-					  				<label>Hora <span class="error"><?php echo $error[2][5] = (isset($error[2][5])) ? $error[2][5] : ""; ?></span></label>
+					  				<label>Hora (Sujeta a disponibilidad) <span class="error"><?php echo $error[2][5] = (isset($error[2][5])) ? $error[2][5] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>

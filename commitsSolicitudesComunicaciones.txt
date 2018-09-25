@@ -1,3 +1,40 @@
+commit b775eb3ccd158a7c6b49865cb20fe873e389497b
+Merge: ed38e37 a3b63a6
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 16:10:24 2018 -0500
+
+    Realizada la acción de creación de resumenes de los formularios
+
+commit a3b63a602cd19ed40cb94891b1b333d8866e136c
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 15:59:14 2018 -0500
+
+    Creación de los resumen de formularios Unidad Web - Community Manager
+
+commit 29e2694aa38ee0d7a60bd88c4ecc203aae921690
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 15:33:39 2018 -0500
+
+    Creación de los resumen de formularios Unidad Web - Web Site
+
+commit 46f565f592a7304b4c1d79a7ecf23d62cba4898b
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 15:12:37 2018 -0500
+
+    Creación de los resumen de Aprobación de Material
+
+commit 3842edaae24ea91b663c28c54fbb636a76a83484
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 15:05:43 2018 -0500
+
+    Creación de los resumenes de Comunicación Interna
+
+commit ed38e375dac4288b76785a0a057544a284db3296
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 14:28:11 2018 -0500
+
+    Creación de la ramma resumeCI
+
 commit 4a55f22d30ed354b63172cbc45bdf03c71061c1b
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Tue Sep 25 10:39:47 2018 -0500

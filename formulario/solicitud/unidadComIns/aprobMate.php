@@ -69,7 +69,7 @@
 								<div class="group tooltip" title="<?php adjAprobMateT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="adjAprobMate" value="<?php echo $_SESSION['adjAprobMate3']?>">
 									<span class="bar"></span>
-									<label>Adjuntar material para aprobación. <span class="error"><?php echo $error[0][1] = (isset($error[0][1])) ? $error[0][1] : ""; ?></span></label>
+									<label>Adjuntar ZIP material para aprobación. <span class="error"><?php echo $error[0][1] = (isset($error[0][1])) ? $error[0][1] : ""; ?></span></label>
 								</div>
 					  		</div>
 					  	</div>

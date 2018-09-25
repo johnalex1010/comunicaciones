@@ -1,3 +1,9 @@
+commit 4a55f22d30ed354b63172cbc45bdf03c71061c1b
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 10:39:47 2018 -0500
+
+    Actualización de los commits
+
 commit daf471887c8a06c405706d2080ce55d91983e0c2
 Merge: 1aa244c 9f3aadf
 Author: JohnAlex <bartho1010@gmail.com>

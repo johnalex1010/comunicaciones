@@ -27,7 +27,7 @@
 </head>
 <body>
 <div class="content resumen">
-	<h2>Resumen de solicitud de Aprobación de material</h2>
+	<h2>Resumen de solicitud de Sitios web - Ajustes de texto y/o imagenes</h2>
 	<br>
 	<div class="cuadricula">
 		<div class="celda celdax2">
@@ -50,29 +50,23 @@
 		</div>
 	</div>
 	<div class="cuadricula">
-		<div class="celda celdax2">
-			<h3>Tipo de material para ser aprobado</h3>
-			<ul>
-				<?php
-				if (isset($_SESSION['checkAprobMate'])) {
-					$dg = count($_SESSION['checkAprobMate']);
-					for ($i=0; $i < $dg ; $i++) { 
-						echo "<li>".$_SESSION['checkAprobMate'][$i]."</li>";
-					}
-				}else{
-					echo "No hay Publico objetivo";
-				}
-
-				?>
-			</ul>
-		</div>
-		<div class="celda celdax2">
-			<h3>Material a aprobación (Adjutno)</h3>
-			<p><?php echo $_SESSION['adjAprobMate3'] = (!empty($_SESSION['adjAprobMate3'])) ? $_SESSION['adjAprobMate3'] : "No hay Adjunto";?></p>
+		<div class="celda">
+			<h3>URL donde se realizaran los cambios</h3>
+			<p><?php echo $_SESSION['urlWeb'] ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
-		<a class="btn btn-world" href="../../solicitud/unidadComIns/aprobMate.php">Atras</a>
+		<div class="celda celdax2">
+			<h3>Contendo que se va a cambiar/corregir (Adjutno)</h3>
+			<p><?php echo $_SESSION['adjDocWEb3'] = (!empty($_SESSION['adjDocWEb3'])) ? $_SESSION['adjDocWEb3'] : "No hay Adjunto";?></p>
+		</div>
+		<div class="celda celdax2">
+			<h3>Descripción.</h3>
+			<p><?php echo $_SESSION['motivoNewWeb'] ?></p>
+		</div>
+	</div>
+	<div class="cuadricula">
+		<a class="btn btn-world" href="../../solicitud/unidadDigital/website.php">Atras</a>
 		<a class="btn btn-send" href="#">Enviar Solicitud</a>
 	</div>
 </div>

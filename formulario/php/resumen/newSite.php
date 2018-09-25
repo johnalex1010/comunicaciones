@@ -27,7 +27,7 @@
 </head>
 <body>
 <div class="content resumen">
-	<h2>Resumen de solicitud de Aprobación de material</h2>
+	<h2>Resumen de solicitud de Sitios web - Nuevo Sitio</h2>
 	<br>
 	<div class="cuadricula">
 		<div class="celda celdax2">
@@ -51,28 +51,26 @@
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax2">
-			<h3>Tipo de material para ser aprobado</h3>
-			<ul>
-				<?php
-				if (isset($_SESSION['checkAprobMate'])) {
-					$dg = count($_SESSION['checkAprobMate']);
-					for ($i=0; $i < $dg ; $i++) { 
-						echo "<li>".$_SESSION['checkAprobMate'][$i]."</li>";
-					}
-				}else{
-					echo "No hay Publico objetivo";
-				}
-
-				?>
-			</ul>
+			<h3>Nombre del evento</h3>
+			<p><?php echo $_SESSION['nombreEventWeb'] ?></p>
 		</div>
 		<div class="celda celdax2">
-			<h3>Material a aprobación (Adjutno)</h3>
-			<p><?php echo $_SESSION['adjAprobMate3'] = (!empty($_SESSION['adjAprobMate3'])) ? $_SESSION['adjAprobMate3'] : "No hay Adjunto";?></p>
+			<h3>Subdominio</h3>
+			<p><?php echo $_SESSION['subdominio'] ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
-		<a class="btn btn-world" href="../../solicitud/unidadComIns/aprobMate.php">Atras</a>
+		<div class="celda celdax2">
+			<h3>Contendio de plan de navegación y linea gráfica (Adjutno)</h3>
+			<p><?php echo $_SESSION['adjPlanNav3'] = (!empty($_SESSION['adjPlanNav3'])) ? $_SESSION['adjPlanNav3'] : "No hay Adjunto";?></p>
+		</div>
+		<div class="celda celdax2">
+			<h3>Motivo por el cual debe ser creado.</h3>
+			<p><?php echo $_SESSION['motivoNewWeb'] ?></p>
+		</div>
+	</div>
+	<div class="cuadricula">
+		<a class="btn btn-world" href="../../solicitud/unidadDigital/website.php">Atras</a>
 		<a class="btn btn-send" href="#">Enviar Solicitud</a>
 	</div>
 </div>

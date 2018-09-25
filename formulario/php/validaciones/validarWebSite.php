@@ -8,8 +8,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 	=================================
 	Validar Campos de Nuevo sitio Web
 	=================================
-	*/
-	
+	*/	
 	if (isset($_POST['submitNewSite'])) {
 		$error = array();
 		/*===== Validar Nombre del evento web =====*/
@@ -64,6 +63,19 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		}else{
 			$error[0][3] = "Campo obligatorio";
 		}
+
+		// Validando si existen errores en todo formulario
+		if ($error) {
+			echo "<div class='modalError' id='modalError'>";
+			echo "<div class='boxError'>";
+			echo "<div class='cerraModal' id='cerraModal'>X</div>";
+			echo "<h3>Estimado usuario:</h3>";
+			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "</div>";
+			echo "</div>";
+		}else{
+			header("Location: ../../php/resumen/newSite.php");
+		}
 	}else{
 		// echo "No1";
 	}
@@ -98,7 +110,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 					unset($_SESSION['adjDocWEb2']);
 					unset($_SESSION['adjDocWEb3']);
 					unset($_SESSION['adjDocWEb4']);
-					echo $error[1][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
+					$error[1][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
 				}else{
 					$_SESSION['adjDocWEb1'] = $_FILES['adjDocWEb']['type'];			
 					$_SESSION['adjDocWEb2'] = $_FILES['adjDocWEb']['size'];			
@@ -110,7 +122,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				unset($_SESSION['adjDocWEb2']);
 				unset($_SESSION['adjDocWEb3']);
 				unset($_SESSION['adjDocWEb4']);
-				echo $error[1][1] = "El archivo adjunto debe ser un ZIP de máximo 1MB";
+				$error[1][1] = "El archivo adjunto debe ser un ZIP de máximo 1MB";
 			}
 		}else{
 			$error[1][1] = "El archivo adjunto es obligatorio";
@@ -124,6 +136,19 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			$_SESSION['descripWeb'] = $_POST['descripWeb'];
 			$error[1][2] = "Son máximo 500 caracteres";
 		}
+
+		// Validando si existen errores en todo formulario
+		if ($error) {
+			echo "<div class='modalError' id='modalError'>";
+			echo "<div class='boxError'>";
+			echo "<div class='cerraModal' id='cerraModal'>X</div>";
+			echo "<h3>Estimado usuario:</h3>";
+			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "</div>";
+			echo "</div>";
+		}else{
+			header("Location: ../../php/resumen/ajustestxtweb.php");
+		}
 	}else{
 		// echo "No2";
 	}
@@ -134,7 +159,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 	=================================
 	*/
 	if (isset($_POST['submitCapa'])) {
-	$error = array();	
+		$error = array();	
 		/*===== Validar Nombre de la persona que va a tomar la capacitación =====*/
 		if (isset($_POST['nombreCapa']) && !empty($_POST['nombreCapa'])) {
 			$_SESSION['nombreCapa'] = $_POST['nombreCapa'];
@@ -202,6 +227,19 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			}
 		}else{
 			$error[2][6] = "El campo es obligatorio";
+		}
+
+		// Validando si existen errores en todo formulario
+		if ($error) {
+			echo "<div class='modalError' id='modalError'>";
+			echo "<div class='boxError'>";
+			echo "<div class='cerraModal' id='cerraModal'>X</div>";
+			echo "<h3>Estimado usuario:</h3>";
+			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "</div>";
+			echo "</div>";
+		}else{
+			header("Location: ../../php/resumen/capacitacionWeb.php");
 		}
 	}else{
 		// echo "No3";

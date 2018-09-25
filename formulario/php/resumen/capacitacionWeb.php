@@ -27,7 +27,7 @@
 </head>
 <body>
 <div class="content resumen">
-	<h2>Resumen de solicitud de Aprobación de material</h2>
+	<h2>Resumen de solicitud de Sitios web - Capacitación Web</h2>
 	<br>
 	<div class="cuadricula">
 		<div class="celda celdax2">
@@ -51,28 +51,42 @@
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax2">
-			<h3>Tipo de material para ser aprobado</h3>
-			<ul>
-				<?php
-				if (isset($_SESSION['checkAprobMate'])) {
-					$dg = count($_SESSION['checkAprobMate']);
-					for ($i=0; $i < $dg ; $i++) { 
-						echo "<li>".$_SESSION['checkAprobMate'][$i]."</li>";
-					}
-				}else{
-					echo "No hay Publico objetivo";
-				}
-
-				?>
-			</ul>
+			<h3>Nombre de la persona que tomara la capacitación</h3>
+			<p><?php echo $_SESSION['nombreCapa'] ?></p>
 		</div>
 		<div class="celda celdax2">
-			<h3>Material a aprobación (Adjutno)</h3>
-			<p><?php echo $_SESSION['adjAprobMate3'] = (!empty($_SESSION['adjAprobMate3'])) ? $_SESSION['adjAprobMate3'] : "No hay Adjunto";?></p>
+			<h3>Telefono fijo de contacto</h3>
+			<p><?php echo $_SESSION['numTelCapa'] ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
-		<a class="btn btn-world" href="../../solicitud/unidadComIns/aprobMate.php">Atras</a>
+		<div class="celda celdax2">
+			<h3>Telefono celular de contacto</h3>
+			<p><?php echo $_SESSION['numCelCapa'] ?></p>
+		</div>
+		<div class="celda celdax2">
+			<h3>Correo institucional</h3>
+			<p><?php echo $_SESSION['emailCapa'] ?></p>
+		</div>
+	</div>
+	<div class="cuadricula">
+		<div class="celda celdax2">
+			<h3>Fecha (Sujeta a disponibilidad)</h3>
+			<p><?php echo $_SESSION['fechaCapa'] ?></p>
+		</div>
+		<div class="celda celdax2">
+			<h3>Hora (Sujeta a disponibilidad)</h3>
+			<p><?php echo $_SESSION['horaCapa'] ?></p>
+		</div>
+	</div>
+	<div class="cuadricula">
+		<div class="celda">
+			<h3>Motivo de la capacitación</h3>
+			<p><?php echo $_SESSION['motivoCapa'] ?></p>
+		</div>
+	</div>
+	<div class="cuadricula">
+		<a class="btn btn-world" href="../../solicitud/unidadDigital/website.php">Atras</a>
 		<a class="btn btn-send" href="#">Enviar Solicitud</a>
 	</div>
 </div>

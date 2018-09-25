@@ -31,6 +31,7 @@
 </head>
 <body>
 
+
 	<div id="enviar"></div>
 	<div class="content">
 		<!-- HOME -->
@@ -57,7 +58,6 @@
 			</ul>
 			<!-- ========== Content TABS ========== -->
 			<div class="tabs-content">
-
 				<!-- ========== Content Nuevo sitio web ========== -->
 				<div class="contentTab <?php echo $active = isset($_POST['submitNewSite']) ? $active = 'active' : "" ?>" id="panela1" aria-hidden="false" >
 					<h3>Nuevo sitio web</h3>
@@ -113,7 +113,7 @@
 							<div class="celda">
 
 								<div class="group tooltip" title="<?php urlWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="text" class="requi" name="urlWeb" value="<?php echo $_SESSION['urlWeb'] = (isset($_SESSION['urlWeb'])) ? $_SESSION['urlWeb3'] : ''; ?>">
+					  				<input type="text" class="requi" name="urlWeb" value="<?php echo $_SESSION['urlWeb'] = (isset($_SESSION['urlWeb'])) ? $_SESSION['urlWeb'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
 					  				<label>Url donde se realizaran los cambios <span class="error"><?php echo $error[1][0] = (isset($error[1][0])) ? $error[1][0] : ""; ?></span></label>

@@ -1,6 +1,6 @@
 /*
 ========================================================
-CREACIÓN DE LA BASE DATOS DE SOLICITUDES DE COMUNICIONES
+JOHN ALEX - CREACIÓN DE LA BASE DATOS DE SOLICITUDES DE COMUNICIONES
 ========================================================
 */
 CREATE DATABASE bdComunicaciones;

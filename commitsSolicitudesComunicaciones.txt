@@ -1,3 +1,34 @@
+commit daf471887c8a06c405706d2080ce55d91983e0c2
+Merge: 1aa244c 9f3aadf
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 10:36:24 2018 -0500
+
+    Validacion de campos para Community Manager.
+
+commit 9f3aadff59ad0cda5539817c72a077df6bcc7fce
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 10:34:04 2018 -0500
+
+    Validacion de campos para Community Manager.
+
+commit 6aa3568525bba58d965779a565b7a391c2934710
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 09:39:47 2018 -0500
+
+    Creación de Tooltips para Community Manager.
+
+commit 51409cc98752c7134cf10b1c9856b109800b1bf7
+Author: JohnAlex <prof.sopweb@usantotomas.red>
+Date:   Mon Sep 24 16:13:21 2018 -0500
+
+    Creación Items de Formularios de Community Manager
+
+commit 58a85d5170f77a32ad68a95f2d5b2735fc4dc5d4
+Author: JohnAlex <prof.sopweb@usantotomas.red>
+Date:   Mon Sep 24 16:11:24 2018 -0500
+
+    Creación Items de Formularios de Community Manager
+
 commit 1aa244c8c45b9e79830e4611953a8e3ca921890f
 Author: jhon Alexander Fandiño <prof.sopweb@usantotomas.red>
 Date:   Mon Sep 24 16:02:14 2018 -0500

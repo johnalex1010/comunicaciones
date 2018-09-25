@@ -307,5 +307,90 @@ function motivoCapaT(){
 	echo "Soy motivoCapaT";
 }
 
+/*
+=====================================
+Campos de Community Manager Link TABS
+=====================================
+*/
+function tabNewRedesT(){
+	echo "Soy tabNewRedes";
+}
+function tabCamaniaRedT(){
+	echo "Soy tabCamaniaRedT";
+}
+function tabAsesoriaRedT(){
+	echo "Soy tabAsesoriaRedT";
+}
 
+/*
+===================================================
+Campos de Community Manager - Nuevas redes sociales
+===================================================
+*/
+function checkNewRedesT(){
+	echo "Soy checkNewRedesT";
+}
+function nombreNewPerfilT(){
+	echo "Soy nombreNewPerfil";
+}
+function emailNewPerfilT(){
+	echo "Soy emailNewPerfilT";
+}
+function adjImgNewRedT(){
+	echo "Soy adjImgNewRedT";
+}
+function descNewRedT(){
+	echo "Soy descNewRedT";
+}
+function numTelNewRedT(){
+	echo "Soy numTelNewRedT";
+}
+function dirNewRedT(){
+	echo "Soy dirNewRedT";
+}
+function emailNewPerfil2T(){
+	echo "Soy emailNewPerfil2T";
+}
+
+/*
+======================================
+Campos de Community Manager - Campañas
+======================================
+*/
+function nomCampaT(){
+	echo "Soy nomCampaT";
+}
+function justiCampaT(){
+	echo "Soy justiCampaT";
+}
+function objCampaT(){
+	echo "Soy objCampaT";
+}
+function descripCampaT(){
+	echo "Soy descripCampaT";
+}
+function ajdImgCampaT(){
+	echo "Soy ajdImgCampaT";
+}
+function keyCamaT(){
+	echo "Soy keyCamaT";
+}
+
+/*
+======================================
+Campos de Community Manager - Asesoria
+======================================
+*/
+function temaAsesoT(){
+	echo "Soy temaAsesoT";
+}
+function lugarAsesoT(){
+	echo "Soy lugarAsesoT";
+}
+function fechaAsesoT(){
+	echo "Soy fechaAsesoT";
+}
+function horaAsesoT(){
+	echo "Soy horaAsesoT";
+}
 ?>

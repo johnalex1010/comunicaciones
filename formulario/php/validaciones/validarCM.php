@@ -10,13 +10,41 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 	=================================
 	*/
 	
-	if (isset($_POST['submitNewSite'])) {
+	if (isset($_POST['submitNewRedes'])) {
 		$error = array();
+
+		/*===== Validar Tipo de red social =====*/
+		if (isset($_POST['checkNewRedes']) || !empty($_POST['checkNewRedes'])) {
+			unset( $_SESSION["echoAM"] );
+			$_SESSION['checkNewRedes'] = $_POST['checkNewRedes'];
+			$checkNewRedes = $_SESSION['checkNewRedes'];
+			$TCAcount = count($checkNewRedes);
+			for ($tcacont=0; $tcacont < $TCAcount; $tcacont++) { 
+				$_SESSION['echoAM'] .= $checkNewRedes[$tcacont]."<br>";	
+			}
+		}else{
+
+			unset( $_SESSION["echoAM"] );
+			unset( $_SESSION["checkNewRedes"] );
+			$error[0][0] = "Debe seleccionar al menos una  opción.";
+		}
+
+
+
+
+
+
+
+
+
+
+
+
 		/*===== Validar Nombre del evento web =====*/
 		if (isset($_POST['nombreEventWeb']) && !empty($_POST['nombreEventWeb'])) {
 			$_SESSION['nombreEventWeb'] = $_POST['nombreEventWeb'];
 		}else{
-			$error[0][0] = "Campo obligatorio";
+			//$error[0][0] = "Campo obligatorio";
 		}
 
 		/*===== Validar Subdominio =====*/
@@ -65,7 +93,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			$error[0][3] = "Campo obligatorio";
 		}
 	}else{
-		// echo "No1";
+		echo "No1";
 	}
 
 	/*
@@ -73,7 +101,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 	Validar Campos de Ajustes Web
 	=============================
 	*/
-	if (isset($_POST['submitAjusteWeb'])) {
+	if (isset($_POST['submitCampania'])) {
 		$error = array();
 		/*===== Validar URL web =====*/
 		if (isset($_POST['urlWeb']) && !empty($_POST['urlWeb'])) {
@@ -125,7 +153,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			$error[1][2] = "Son máximo 500 caracteres";
 		}
 	}else{
-		// echo "No2";
+		echo "No2";
 	}
 
 	/*
@@ -133,7 +161,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 	Validar Campos de Capactación Web
 	=================================
 	*/
-	if (isset($_POST['submitCapa'])) {
+	if (isset($_POST['submitAsesoria'])) {
 	$error = array();	
 		/*===== Validar Nombre de la persona que va a tomar la capacitación =====*/
 		if (isset($_POST['nombreCapa']) && !empty($_POST['nombreCapa'])) {
@@ -204,7 +232,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			$error[2][6] = "El campo es obligatorio";
 		}
 	}else{
-		// echo "No3";
+		echo "No3";
 	}
 
 }else{

@@ -143,7 +143,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		}
 
 		/*===== Validar Telefono Fijo Contacto =====*/
-		if (isset($_POST['nombreCapa']) && !empty($_POST['nombreCapa'])) {
+		if (isset($_POST['numTelCapa']) && !empty($_POST['numTelCapa'])) {
 			if (is_numeric($_POST['numTelCapa'])) {
 				$_SESSION['numTelCapa'] = $_POST['numTelCapa'];
 			}else{

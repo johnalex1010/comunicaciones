@@ -369,6 +369,12 @@ function objCampaT(){
 function descripCampaT(){
 	echo "Soy descripCampaT";
 }
+function fIniCampaT(){
+	echo "Soy fIniCampaT";
+}
+function fFinCampaT(){
+	echo "Soy fFinCampaT";
+}
 function ajdImgCampaT(){
 	echo "Soy ajdImgCampaT";
 }

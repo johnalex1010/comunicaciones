@@ -10,7 +10,6 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 	===================================
 	*/
 	if (isset($_POST['submitNewRedes'])) {
-
 		$error = array();
 
 		/*===== Validar Tipo de red social =====*/
@@ -117,6 +116,19 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				$_SESSION['emailNewPerfil2'] = $emailNewPerfil2;
 				$error[0][7] = "Esta dirección de correo no es válida.";
 			}
+		}
+
+		// Validando si existen errores en todo formulario
+		if ($error) {
+			echo "<div class='modalError' id='modalError'>";
+			echo "<div class='boxError'>";
+			echo "<div class='cerraModal' id='cerraModal'>X</div>";
+			echo "<h3>Estimado usuario:</h3>";
+			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "</div>";
+			echo "</div>";
+		}else{
+			header("Location: ../../php/resumen/newRedes.php");
 		}
 	}else{
 		// echo "No1";
@@ -263,6 +275,19 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			unset( $_SESSION["checkPublicoObj"] );
 			$error[1][8] = "Debe seleccionar al menos una  opción.";
 		}
+
+		// Validando si existen errores en todo formulario
+		if ($error) {
+			echo "<div class='modalError' id='modalError'>";
+			echo "<div class='boxError'>";
+			echo "<div class='cerraModal' id='cerraModal'>X</div>";
+			echo "<h3>Estimado usuario:</h3>";
+			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "</div>";
+			echo "</div>";
+		}else{
+			header("Location: ../../php/resumen/campaniaCM.php");
+		}
 	}else{
 		// echo "No2";
 	}
@@ -306,6 +331,19 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			//$error[2][3] = "El campo es obligatorio";
 		}else{
 			$_SESSION['horaAseso'] = $_POST['horaAseso'];
+		}
+
+		// Validando si existen errores en todo formulario
+		if ($error) {
+			echo "<div class='modalError' id='modalError'>";
+			echo "<div class='boxError'>";
+			echo "<div class='cerraModal' id='cerraModal'>X</div>";
+			echo "<h3>Estimado usuario:</h3>";
+			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "</div>";
+			echo "</div>";
+		}else{
+			header("Location: ../../php/resumen/asesoriaCM.php");
 		}
 	}else{
 		// echo "No3";

@@ -20,7 +20,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 					unset($_SESSION['adjMailInsti2']);
 					unset($_SESSION['adjMailInsti3']);
 					unset($_SESSION['adjMailInsti4']);
-					echo $error[0][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
+					$error[0][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
 				}else{
 					$_SESSION['adjMailInsti1'] = $_FILES['adjMailInsti']['type'];			
 					$_SESSION['adjMailInsti2'] = $_FILES['adjMailInsti']['size'];			
@@ -32,10 +32,23 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				unset($_SESSION['adjMailInsti2']);
 				unset($_SESSION['adjMailInsti3']);
 				unset($_SESSION['adjMailInsti4']);
-				echo $error[0][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
+				$error[0][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
 			}
 		}else{
 			$error[0][0] = "El archivo adjunto es obligatorio";
+		}
+
+		// Validando si existen errores en todo formulario
+		if ($error) {
+			echo "<div class='modalError' id='modalError'>";
+			echo "<div class='boxError'>";
+			echo "<div class='cerraModal' id='cerraModal'>X</div>";
+			echo "<h3>Estimado usuario:</h3>";
+			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "</div>";
+			echo "</div>";
+		}else{
+			header("Location: ../../php/resumen/emailInstitucionales.php");
 		}
 	}else{
 		// echo "No1";
@@ -83,7 +96,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 						unset($_SESSION['adjTNjpg2']);
 						unset($_SESSION['adjTNjpg3']);
 						unset($_SESSION['adjTNjpg4']);
-						echo $error[1][2] = "El archivo adjunto excede el tamaño permitido de 1MB";
+						$error[1][2] = "El archivo adjunto excede el tamaño permitido de 1MB";
 					}else{
 						$_SESSION['adjTNjpg1'] = $_FILES['adjTNjpg']['type'];			
 						$_SESSION['adjTNjpg2'] = $_FILES['adjTNjpg']['size'];			
@@ -95,11 +108,25 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 					unset($_SESSION['adjTNjpg2']);
 					unset($_SESSION['adjTNjpg3']);
 					unset($_SESSION['adjTNjpg4']);
-					echo $error[1][2] = "El adjunto debe ser un JPG/JPEG de máximo 1MB";
+					$error[1][2] = "El adjunto debe ser un JPG/JPEG de máximo 1MB";
 				}
 			}
 		}else{
 			$error[1][0] = "Los campos son requeridos";
+		}
+
+
+		// Validando si existen errores en todo formulario
+		if ($error) {
+			echo "<div class='modalError' id='modalError'>";
+			echo "<div class='boxError'>";
+			echo "<div class='cerraModal' id='cerraModal'>X</div>";
+			echo "<h3>Estimado usuario:</h3>";
+			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "</div>";
+			echo "</div>";
+		}else{
+			header("Location: ../../php/resumen/tomasNoticias.php");
 		}
 	}else{
 		// echo "No2";
@@ -175,7 +202,6 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			}else{
 				$_SESSION['condoHVela'] = $_POST['condoHVela'];
 			}
-
 		}else{
 			unset($_SESSION['condoNombre']);
 			unset($_SESSION['condoCargo']);
@@ -186,6 +212,19 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			unset($_SESSION['condoFVela']);
 			unset($_SESSION['condoHVela']);
 			$error[2][0] = "Los campos obligatorios";
+		}
+
+		// Validando si existen errores en todo formulario
+		if ($error) {
+			echo "<div class='modalError' id='modalError'>";
+			echo "<div class='boxError'>";
+			echo "<div class='cerraModal' id='cerraModal'>X</div>";
+			echo "<h3>Estimado usuario:</h3>";
+			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "</div>";
+			echo "</div>";
+		}else{
+			header("Location: ../../php/resumen/condolencias.php");
 		}
 	}else{
 		// echo "No3";
@@ -221,6 +260,18 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			}
 		}else{
 			$error[3][0] = "El archivo adjunto es obligatorio";
+		}
+		// Validando si existen errores en todo formulario
+		if ($error) {
+			echo "<div class='modalError' id='modalError'>";
+			echo "<div class='boxError'>";
+			echo "<div class='cerraModal' id='cerraModal'>X</div>";
+			echo "<h3>Estimado usuario:</h3>";
+			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "</div>";
+			echo "</div>";
+		}else{
+			header("Location: ../../php/resumen/cumpleanios.php");
 		}
 	}else{
 		// echo "No4";
@@ -272,6 +323,18 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			unset($_SESSION['conmeF']);
 			unset($_SESSION['conmeMSJ']);
 			$error[4][0] = "Los campos obligatorios";
+		}
+		// Validando si existen errores en todo formulario
+		if ($error) {
+			echo "<div class='modalError' id='modalError'>";
+			echo "<div class='boxError'>";
+			echo "<div class='cerraModal' id='cerraModal'>X</div>";
+			echo "<h3>Estimado usuario:</h3>";
+			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "</div>";
+			echo "</div>";
+		}else{
+			header("Location: ../../php/resumen/tarjetasConmemorativas.php");
 		}
 	}else{
 		// echo "N05";

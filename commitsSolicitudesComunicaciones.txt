@@ -1,3 +1,9 @@
+commit ace62289c4caf4ad46a45ede2aebd312c84b0fed
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 17:54:53 2018 -0500
+
+    Se elminan las ramas pruebas y resumeCI
+
 commit 1a8a15dc6f88e8d5cca41052626337af0ff27950
 Author: JohnAlex <bartho1010@gmail.com>
 Date:   Tue Sep 25 17:28:47 2018 -0500

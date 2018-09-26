@@ -3,7 +3,7 @@
 CREACIÓN DE LA BASE DATOS DE SOLICITUDES DE COMUNICIONES
 ========================================================
 */
-CREATE DATABASE bdComunicaciones;
+CREATE DATABASE IF NOT EXISTS bdComunicaciones;
 USE bdComunicaciones;
 /*CREACION DE TABLAS*/
 	/*--Tabla de estado*/
@@ -11,6 +11,13 @@ USE bdComunicaciones;
 		id_estado int NOT NULL AUTO_INCREMENT,
 		estado varchar(50) NOT NULL,
 		PRIMARY KEY (id_estado)
+	);
+
+	/*--Tabla de Tipo de Solicitudes*/
+	CREATE TABLE t_tipoSolicitud (
+		id_tipoSolicitud int NOT NULL AUTO_INCREMENT,
+		tipoSolicitud varchar(50) NOT NULL,
+		PRIMARY KEY (id_tipoSolicitud)
 	);
 
 	/*--Tabla Unidad*/
@@ -110,8 +117,10 @@ USE bdComunicaciones;
 		faculDepen varchar(80) NOT NULL,
 		telefono varchar(20) NOT NULL,
 		id_estado int NOT NULL, /*Es FOREIGN KEY de la tabla t_estado*/
+		id_tipoSolicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_tipoSolicitud*/
 		PRIMARY KEY (id_solicitud),
-		FOREIGN KEY (id_estado) REFERENCES t_estado(id_estado)
+		FOREIGN KEY (id_estado) REFERENCES t_estado(id_estado),
+		FOREIGN KEY (id_tipoSolicitud) REFERENCES t_tipoSolicitud(id_tipoSolicitud)
 	);
 
 	/*--Tabla Categoria*/	
@@ -397,6 +406,30 @@ USE bdComunicaciones;
 	(2, "Medios Audiovisuales"),
 	(3, "Unidad Digital");
 
+	/*	
+		t_tipoSolicitud
+		CI  -> Comunicaciones Institucionales
+		CIN -> Comunicaciones Internas
+		UD 	-> Unidad Digital
+		WEB -> Web Site
+		CM 	-> Community Manager
+	*/
+	INSERT INTO t_tipoSolicitud VALUES
+	(1, "CI - Eventos"),
+	(2, "CI - Campaña"),
+	(3, "CI - Aprobación de material"),
+	(4, "CI - CIN - Email Institucionales"),
+	(5, "CI - CIN - Tomás Noticias"),
+	(6, "CI - CIN - Condolencias"),
+	(7, "CI - CIN - Cumpleaños por mes"),
+	(8, "CI - CIN - Tarjetas conmemorativas"),	
+	(9, "UD - WEB - Creación nuevo sitio"),
+	(10, "UD - WEB - Ajustes de texto y/o imagenes"),
+	(11, "UD - WEB - Capacitación de contenidos"),
+	(12, "UD - CM - Creación de redes sociales"),
+	(13, "UD - CM - Campañas"),
+	(14, "UD - CM - Asesorias");
+
 	/*--t_categoria*/
 	INSERT INTO t_categoria VALUES
 	(1, "Eventos", 1),
@@ -496,66 +529,3 @@ USE bdComunicaciones;
 	(1, "Facebook"),
 	(2, "Instagram"),
 	(3, "Twitter");
-
-/*CONSULTAS A LA BASE*/
-
-	SELECT COUNT(*) from Information_Schema.Tables where TABLE_TYPE = 'BASE TABLE' and table_schema = 'bdcomunicaciones'; /*Contar cuantas tablas hay en la base de datos*/
-
-	/*SELECCION DE SUBCATEGORIAS POR ID*/
-
-	SELECT 
-		S.id_subCategoria AS SUB,
-	    C.id_categoria AS CAT,
-	    U.id_unidad AS UNI
-	FROM t_subcategoria AS S, t_categoria AS C, t_unidad AS U
-	WHERE S.id_categoria=C.id_categoria AND C.id_unidad=U.id_unidad AND S.id_subCategoria='1'
-
-
-	/*SELECCION DE SUBCATEGORIAS POR NOMBRES*/
-	SELECT 
-		S.subcategoria AS SUB,
-	    C.categoria AS CAT,
-	    U.nomUnidad AS UNI
-	FROM t_subcategoria AS S, t_categoria AS C, t_unidad AS U
-	WHERE S.id_categoria=C.id_categoria AND C.id_unidad=U.id_unidad AND S.id_subCategoria='1'
-
-	/*SELECCION DE CATEGORIAS POR NOMBRES TRES TABLAS*/
-	SELECT 
-		S.subcategoria AS SUB,
-	    C.categoria AS CAT,
-	    U.nomUnidad AS UNI
-	FROM t_subcategoria AS S, t_categoria AS C, t_unidad AS U
-	WHERE S.id_categoria=C.id_categoria AND C.id_unidad=U.id_unidad AND C.id_categoria='6'
-
-
-	/*SELECCION DE CATEGORIAS POR NOMBRES DOS TABLAS*/
-	SELECT 
-	    C.categoria AS CAT,
-	    U.nomUnidad AS UNI
-	FROM t_categoria AS C, t_unidad AS U
-	WHERE C.id_unidad=U.id_unidad AND C.id_categoria='1'
-
-	/*SELECCION DE SUBCATEGORIAS POR NOMBRES DOS TABLAS*/
-	SELECT 
-		S.subcategoria AS SUB,
-	    C.categoria AS CAT
-	FROM t_subcategoria AS S, t_categoria AS C
-	WHERE S.id_categoria=C.id_categoria AND C.id_categoria='6'
-
-
-/*PROCEDIMIENTOS ALMACENADOS*/
-	/*PROCEDIMIETNO 1*/
-	DELIMITER //
-	CREATE OR REPLACE PROCEDURE consultaprueba (IN idSubCat INT)
-	BEGIN
-	SELECT 
-			S.id_subCategoria AS SUB,
-		    C.id_categoria AS CAT,
-		    U.id_unidad AS UNI
-		FROM t_subcategoria AS S, t_categoria AS C, t_unidad AS U
-		WHERE S.id_categoria=C.id_categoria AND C.id_unidad=U.id_unidad AND S.id_subCategoria=idSubCat;
-	END//
-	DELIMITER ;
-
-	CALL consultaprueba(1); /*La forma de como llamar al procedimiento*/
-	DROP PROCEDURE consultaprueba;  /*Eliminar el procedimiento*/

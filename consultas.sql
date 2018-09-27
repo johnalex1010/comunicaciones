@@ -45,7 +45,7 @@
 
 
 /*PROCEDIMIENTOS ALMACENADOS*/
-	/*PROCEDIMIETNO 1*/
+	/*PROCEDIMIETNO 1 CONSULTA*/
 	DELIMITER //
 	CREATE OR REPLACE PROCEDURE consultaprueba (IN idSubCat INT)
 	BEGIN
@@ -60,3 +60,29 @@
 
 	CALL consultaprueba(1); /*La forma de como llamar al procedimiento*/
 	DROP PROCEDURE consultaprueba;  /*Eliminar el procedimiento*/
+
+
+	/*PROCEDIMIETNO 2 INSERCCIÓN*/
+	DELIMITER //
+	CREATE OR REPLACE PROCEDURE insertPrueba (IN _numSol varchar(10), IN _nombres VARCHAR(50))
+	BEGIN
+	INSERT INTO t_solicitud(numST, nombre, email, faculDepen, telefono, id_estado, id_tipoSolicitud) VALUES (_numSol, _nombres, 'john@john.com', 'facultad', '3214548919', '5', '1');
+	END//
+	DELIMITER ;
+
+	CALL insertPrueba(1,2); /*La forma de como llamar al procedimiento*/
+	DROP PROCEDURE insertPrueba;  /*Eliminar el procedimiento*/
+
+	/*PROCEDIMIETNO 3 UPDATE*/
+	DELIMITER //
+	CREATE OR REPLACE PROCEDURE updatePrueba (IN _nombres VARCHAR(50))
+	BEGIN
+	UPDATE t_solicitud SET nombre = _nombres WHERE numST = 'ST001';
+	END//
+	DELIMITER ;
+
+	CALL updatePrueba("KAREN"); /*La forma de como llamar al procedimiento*/
+	DROP PROCEDURE updatePrueba;  /*Eliminar el procedimiento*/
+
+
+	

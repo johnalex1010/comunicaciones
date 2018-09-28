@@ -101,24 +101,37 @@ USE bdComunicaciones;
 		PRIMARY KEY (id_tipoRedSocial)
 	);
 	
-	/*--Tablas de opcAudiovisual para eventos y campañas*/
+	/*--Tabla de opcAudiovisual para eventos y campañas*/
 	CREATE TABLE t_audioVisual (
 		id_audioVisual int NOT NULL AUTO_INCREMENT,
 		listAudioVisual varchar(50) NOT NULL,
 		PRIMARY KEY (id_audioVisual)
 	);
 
+	/*--Tabla de Listado de Facultades/Depenencias*/
+	CREATE TABLE t_facDep (
+		id_facDep int NOT NULL AUTO_INCREMENT,
+		facDep varchar(80) NOT NULL,
+		PRIMARY KEY (id_facDep)
+	);
+	/*--Tabla de Listado de Cargos*/
+	CREATE TABLE t_cargo (
+		id_cargo int NOT NULL AUTO_INCREMENT,
+		cargo varchar(30) NOT NULL,
+		PRIMARY KEY (id_cargo)
+	);
+
 	/*--Tabla Madre*/	
 	CREATE TABLE t_solicitud (
-		id_solicitud int NOT NULL AUTO_INCREMENT,
 		numST varchar(10) NOT NULL UNIQUE,
 		nombre varchar(60) NOT NULL,
 		email varchar(80) NOT NULL,
-		faculDepen varchar(80) NOT NULL,
+		id_facDep int NOT NULL,
 		telefono varchar(20) NOT NULL,
 		id_estado int NOT NULL, /*Es FOREIGN KEY de la tabla t_estado*/
 		id_tipoSolicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_tipoSolicitud*/
-		PRIMARY KEY (id_solicitud),
+		PRIMARY KEY (numST),
+		FOREIGN KEY (id_facDep) REFERENCES t_facDep(id_facDep),
 		FOREIGN KEY (id_estado) REFERENCES t_estado(id_estado),
 		FOREIGN KEY (id_tipoSolicitud) REFERENCES t_tipoSolicitud(id_tipoSolicitud)
 	);
@@ -146,69 +159,75 @@ USE bdComunicaciones;
 		id_unidad int NOT NULL, /*Es FOREIGN KEY de la tabla t_unidad*/
 		id_categoria int NOT NULL, /*Es FOREIGN KEY de la tabla t_categoria*/
 		id_subCategoria int NOT NULL, /*Es FOREIGN KEY de la tabla t_subCategoria*/
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_resUnidad),
 		FOREIGN KEY (id_unidad) REFERENCES t_unidad(id_unidad),
 		FOREIGN KEY (id_categoria) REFERENCES t_categoria(id_categoria),
 		FOREIGN KEY (id_subCategoria) REFERENCES t_subCategoria(id_subCategoria),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*--Tablas de resultado de publico objetivo y publico objetivo*/
 	CREATE TABLE t_resObjPublico(
 		id_resObjPublico int NOT NULL AUTO_INCREMENT,
 		id_objPublico int NOT NULL, /*Es FOREIGN KEY de la tabla t_objPublico*/
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios Público Objetivo*/
 		PRIMARY KEY (id_resObjPublico),
 		FOREIGN KEY (id_objPublico) REFERENCES t_objPublico(id_objPublico),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*--Tablas de  usuarios */
 	CREATE TABLE t_usuario(
 		id_usuario int NOT NULL AUTO_INCREMENT,
-		usuario varchar(20) NOT NULL,
+		usuario varchar(30) NOT NULL UNIQUE,
+		password varchar(80) NOT NULL,
+		nombres varchar(30) NOT NULL,
+		apellido varchar(30) NOT NULL,
+		email varchar(30) NOT NULL,
+		id_cargo int NOT NULL,
 		id_permiso int NOT NULL, /*Es FOREIGN KEY de la tabla t_permiso*/
 		PRIMARY KEY (id_usuario),
+		FOREIGN KEY (id_cargo) REFERENCES t_cargo(id_cargo),
 		FOREIGN KEY (id_permiso) REFERENCES t_permiso(id_permiso)
 	);
 
-	/*--Tablas de  usuarios y permisos*/
+	/*--Tablas de  usuarios y permisos frente a la solicitud*/
 	CREATE TABLE t_resUsuario(
 		id_resUsuario int NOT NULL AUTO_INCREMENT,
 		id_usuario int NOT NULL, /*Es FOREIGN KEY de la tabla t_usuario*/
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios Usuarios a una misma  ST*/
 		PRIMARY KEY (id_resUsuario),
 		FOREIGN KEY (id_usuario) REFERENCES t_usuario(id_usuario),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);	
 
 	/*--Tabla de adjuntos*/
 	CREATE TABLE t_adjunto(
 		id_adjunto int NOT NULL AUTO_INCREMENT,
-		adjunto varchar(20) NOT NULL,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		adjunto varchar(30) NOT NULL,
+		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios Adjuntos para uns unica ST*/
 		PRIMARY KEY (id_adjunto),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*--Tabla de color*/
 	CREATE TABLE t_color(
 		id_color int NOT NULL AUTO_INCREMENT,
 		color varchar(20) NOT NULL,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios Colores(3) para uns unica ST*/
 		PRIMARY KEY (id_color),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*--Tablas de piezas digitales*/
 	CREATE TABLE t_resPiezaDig(
 		id_resPiezaDig int NOT NULL AUTO_INCREMENT,
 		id_piezaDig int NOT NULL, /*Es FOREIGN KEY de la tabla t_piezaDig*/
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser  varias piezas digitales para una unica ST*/
 		PRIMARY KEY (id_resPiezaDig),
 		FOREIGN KEY (id_piezaDig) REFERENCES t_piezaDig(id_piezaDig),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 	
 	/*--Tablas de piezas impresas*/
@@ -218,34 +237,34 @@ USE bdComunicaciones;
 		id_medidaImp int NOT NULL, /*Es FOREIGN KEY de la tabla t_medidaImp*/
 		id_acabadoImp int NOT NULL, /*Es FOREIGN KEY de la tabla t_acabadoImp*/
 		id_papelImp int NOT NULL, /*Es FOREIGN KEY de la tabla t_papelImp*/
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varias piezas impresas para una unica ST*/
 		PRIMARY KEY (id_resPiezaImp),
 		FOREIGN KEY (id_piezaImp) REFERENCES t_piezaImp(id_piezaImp),
 		FOREIGN KEY (id_medidaImp) REFERENCES t_medidaImp(id_medidaImp),
 		FOREIGN KEY (id_acabadoImp) REFERENCES t_acabadoImp(id_acabadoImp),
 		FOREIGN KEY (id_papelImp) REFERENCES t_papelImp(id_papelImp),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*--Tablas de requerimiento Audiovisual en Evento y/o Campañas*/
 	CREATE TABLE t_resAudioVisual(
 		id_resAudiovisual int NOT NULL AUTO_INCREMENT,
 		id_audiovisual int NOT NULL, /*Es FOREIGN KEY de la tabla t_audioVisual*/
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios requerimientos audiovisuales para una unica ST*/
 		PRIMARY KEY (id_resAudiovisual),
 		FOREIGN KEY (id_audioVisual) REFERENCES t_audioVisual(id_audioVisual),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 	
 	/*--Tablas de trasibilidad*/
 	CREATE TABLE t_trasabilidad(
 		id_trasabilidad int NOT NULL AUTO_INCREMENT,
 		id_fase int NOT NULL, /*Es FOREIGN KEY de la tabla t_fase*/
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unica porque se debe llevar una trasabilidad sobre la ST*/
 		fecha DATETIME, /*Guarda fecha y hora*/
 		PRIMARY KEY (id_trasabilidad),
 		FOREIGN KEY (id_fase) REFERENCES t_fase(id_fase),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*--Tablas de eventos*/
@@ -261,26 +280,27 @@ USE bdComunicaciones;
 		justificacionWeb TEXT NOT NULL,
 		txtLineamientos TEXT NOT NULL,
 		id_tipoEvento int NOT NULL, /*Es FOREIGN KEY de la tabla t_tipo*/
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_evento),
 		FOREIGN KEY (id_tipoEvento) REFERENCES t_tipoEvento(id_tipoEvento),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*Tablas de Campañas*/
 	CREATE TABLE t_campania (
 		id_campania int NOT NULL AUTO_INCREMENT,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_campania),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*Tablas de Aprobación de material*/
 	CREATE TABLE t_aprobMate (
 		id_aprobMate int NOT NULL AUTO_INCREMENT,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		nomAprobacion varchar(100) NOT NULL,
+		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unicao porque puedenser varios materiales para aprobación sobre la ST*/
 		PRIMARY KEY (id_aprobMate),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*Tabla de condolencias*/
@@ -293,9 +313,9 @@ USE bdComunicaciones;
 		lugarVelacion varchar(100) NOT NULL,
 		fechaVelacion DATE NOT NULL,
 		horaVelacion time NOT NULL,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_condolencias),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*Tabla de tarjetas conmemorativas (Ej: Día del madre)*/
@@ -304,9 +324,9 @@ USE bdComunicaciones;
 		nombreTarjeta varchar(100) NOT NULL,
 		fechaTarjeta DATE NOT NULL,
 		mensaje TEXT NOT NULL,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_tarjetas),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*Tablas de Sitios Web: Nuevos Sitios*/
@@ -315,9 +335,9 @@ USE bdComunicaciones;
 		nombreWeb varchar(100) NOT NULL,
 		subdominio varchar(100) NOT NULL,
 		justificacion TEXT NOT NULL,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_newWeb),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*Tablas de Sitios Web: Ajustes*/
@@ -325,17 +345,17 @@ USE bdComunicaciones;
 		id_ajusteWeb int NOT NULL AUTO_INCREMENT,
 		urlAjuste varchar(200) NOT NULL,
 		descripciion TEXT NOT NULL,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_ajusteWeb),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*Tablas de Sitios Web: Desarrrollo aplicaciones*/
 	CREATE TABLE t_desarrolloWeb (
 		id_desarrolloWeb int NOT NULL AUTO_INCREMENT,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_desarrolloWeb),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*Tablas de Sitios Web: Capacitaciones*/
@@ -347,9 +367,9 @@ USE bdComunicaciones;
 		email varchar(100) NOT NULL,
 		fechaHoraCW DATE NOT NULL,
 		txtMotivo TEXT NOT NULL,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_capacitacionWeb),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*Tablas de Community Manager Asesorias*/
@@ -358,9 +378,9 @@ USE bdComunicaciones;
 		tema varchar(200) NOT NULL,
 		lugar varchar(50) NOT NULL,
 		fechaHoraACM DATE NOT NULL,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_asesoriaCM),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*Tablas de Community Manager Campañas*/
@@ -372,9 +392,9 @@ USE bdComunicaciones;
 		fechaHoraIni DATE NOT NULL,
 		fechaHoraFin DATE NOT NULL,
 		palabrasClaves TEXT NOT NULL,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_campaniasCM),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	/*Tablas de Community Manager Crear Redes*/
@@ -384,9 +404,9 @@ USE bdComunicaciones;
 		emailPersonal varchar(50) NOT NULL,
 		descripcion TEXT NOT NULL,
 		direccion varchar(50) NOT NULL,
-		id_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud*/
+		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_creaRedesCM),
-		FOREIGN KEY (id_solicitud) REFERENCES t_solicitud(id_solicitud)
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
 	CREATE TABLE t_resTRS (
@@ -462,11 +482,11 @@ USE bdComunicaciones;
 
 	/*--t_estado*/
 	INSERT INTO t_estado VALUES
-	(1, "Realizado"),
-	(2, "En espera de aprobación por parte del cliente"),
-	(3, "No aprobado"),
-	(4, "No realizado"),
-	(5, "Sin asignación de usuarios");
+	(1, "En desarollo"),
+	(2, "Realizado"),
+	(3, "En espera de aprobación por parte del cliente"),
+	(4, "No aprobado"),
+	(5, "No realizado");
 
 	/*--t_objPublico*/
 	INSERT INTO t_objPublico VALUES
@@ -515,17 +535,34 @@ USE bdComunicaciones;
 	INSERT INTO t_permiso VALUES
 	(1, "Super administrador", 1 , 1 , 1, 1),
 	(2, "Administrador", 1, 1 , 1 , 0),
-	(3, "Colaborador", 0 , 1 , 1, 0);
+	(3, "Colaborador", 0 , 1 , 1, 0),
+	(4, "No Valido", 0 , 0 , 0, 0);
+
+	/*--t_cargo*/
+	INSERT INTO t_cargo VALUES
+	(1, "Sin cargo"),
+	(2, "Web Master"),
+	(3, "Profesional Soporte Web");
 
 	/*--t_usuario*/
 	INSERT INTO t_usuario VALUES
-	(1, "johnalex1010", 1),
-	(2, "joselubo51", 1),
-	(3, "nivelAdmin", 2),
-	(4, "basicoUser", 3);
+	(1, "nousuario", "nousuario", "No Soy Usuario Valido", "No valido", "usu@usu.co", 1, 4),
+	(2, "johnalex1010", "millos", "John Alexander", "Fandiño Rojas", "prof.sopweb@usantotomas.edu.co", 3, 1),
+	(3, "lubo51", "josepass", "Jose", "Lubo", "webmaster@usantotomas.edu.co", 2, 1);
 
 	/*--t_tipoRedSocial*/
 	INSERT INTO t_tipoRedSocial VALUES
 	(1, "Facebook"),
 	(2, "Instagram"),
 	(3, "Twitter");
+
+	/*--t_facDep*/
+	INSERT INTO t_facDep VALUES
+	(1, "Depto de Comunicaciones"),
+	(2, "Depto de Bienestar"),
+	(3, "Facultad de Economía"),
+	(4, "Facultad de Ingeniería de Telecomunicaciones");
+
+
+	/*--t_solicitud*/
+	INSERT INTO t_solicitud VALUES ("ST000", "ST inicial", "No se toma encuenta", 1, "000", 1, 1);

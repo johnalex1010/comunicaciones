@@ -43,46 +43,42 @@
 	FROM t_subcategoria AS S, t_categoria AS C
 	WHERE S.id_categoria=C.id_categoria AND C.id_categoria='6'
 
+	/*SELECCION DE ADJUNTOS DE ST - Tipo de solicitud: Email Institucionales*/
+	SELECT
+		S.numST,
+	    S.nombre,
+	    S.email,
+	    S.telefono,
+	    FD.facDep,
+	    E.estado AS Estado,
+	    TP.tipoSolicitud AS TipoSolicitud,
+	    ADJ.adjunto AS Adjunto
+	FROM t_solicitud AS S, t_adjunto AS ADJ, t_estado AS E, t_tiposolicitud AS TP, t_facdep AS FD WHERE S.numST=ADJ.numST AND S.id_facDep=FD.id_facDep AND S.id_estado=E.id_estado AND S.id_tipoSolicitud=TP.id_tipoSolicitud AND TP.id_tipoSolicitud=4
 
-/*PROCEDIMIENTOS ALMACENADOS*/
-	/*PROCEDIMIETNO 1 CONSULTA*/
-	DELIMITER //
-	CREATE OR REPLACE PROCEDURE consultaprueba (IN idSubCat INT)
-	BEGIN
-	SELECT 
-			S.id_subCategoria AS SUB,
-		    C.id_categoria AS CAT,
-		    U.id_unidad AS UNI
-		FROM t_subcategoria AS S, t_categoria AS C, t_unidad AS U
-		WHERE S.id_categoria=C.id_categoria AND C.id_unidad=U.id_unidad AND S.id_subCategoria=idSubCat;
-	END//
-	DELIMITER ;
-
-	CALL consultaprueba(1); /*La forma de como llamar al procedimiento*/
-	DROP PROCEDURE consultaprueba;  /*Eliminar el procedimiento*/
-
-
-	/*PROCEDIMIETNO 2 INSERCCIÓN*/
-	DELIMITER //
-	CREATE OR REPLACE PROCEDURE insertPrueba (IN _numSol varchar(10), IN _nombres VARCHAR(50))
-	BEGIN
-	INSERT INTO t_solicitud(numST, nombre, email, faculDepen, telefono, id_estado, id_tipoSolicitud) VALUES (_numSol, _nombres, 'john@john.com', 'facultad', '3214548919', '5', '1');
-	END//
-	DELIMITER ;
-
-	CALL insertPrueba(1,2); /*La forma de como llamar al procedimiento*/
-	DROP PROCEDURE insertPrueba;  /*Eliminar el procedimiento*/
-
-	/*PROCEDIMIETNO 3 UPDATE*/
-	DELIMITER //
-	CREATE OR REPLACE PROCEDURE updatePrueba (IN _nombres VARCHAR(50))
-	BEGIN
-	UPDATE t_solicitud SET nombre = _nombres WHERE numST = 'ST001';
-	END//
-	DELIMITER ;
-
-	CALL updatePrueba("KAREN"); /*La forma de como llamar al procedimiento*/
-	DROP PROCEDURE updatePrueba;  /*Eliminar el procedimiento*/
-
-
-	
+/*SELECCION DE ADJUNTOS DE ST - Tipo de solicitud: Email Institucionales con usuarios asignados*/
+SELECT
+	S.numST,
+    S.nombre,
+    S.email,
+    S.telefono,
+    U.usuario,
+    FD.facDep,
+    E.estado AS Estado,
+    TP.tipoSolicitud AS TipoSolicitud,
+    ADJ.adjunto AS Adjunto
+FROM 
+	t_solicitud AS S,
+    t_usuario AS U,
+    t_resusuario AS RS,
+    t_adjunto AS ADJ,
+    t_estado AS E,
+    t_tiposolicitud AS TP,
+    t_facdep AS FD
+WHERE 
+	S.numST=ADJ.numST
+    AND S.id_facDep=FD.id_facDep
+    AND S.id_estado=E.id_estado
+    AND S.id_tipoSolicitud=TP.id_tipoSolicitud
+    AND S.numST=RS.numST
+    AND RS.id_usuario=U.id_usuario
+    AND TP.id_tipoSolicitud=4

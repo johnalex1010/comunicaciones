@@ -261,7 +261,8 @@ USE bdComunicaciones;
 		id_trasabilidad int NOT NULL AUTO_INCREMENT,
 		id_fase int NOT NULL, /*Es FOREIGN KEY de la tabla t_fase*/
 		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unica porque se debe llevar una trasabilidad sobre la ST*/
-		fecha DATETIME, /*Guarda fecha y hora*/
+		fecha DATE, /*Guarda fecha y hora*/
+		comentario TEXT NOT NULL,
 		PRIMARY KEY (id_trasabilidad),
 		FOREIGN KEY (id_fase) REFERENCES t_fase(id_fase),
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)

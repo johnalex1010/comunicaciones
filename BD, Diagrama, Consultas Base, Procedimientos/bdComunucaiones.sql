@@ -7,13 +7,6 @@ CREATE DATABASE IF NOT EXISTS bdComunicaciones;
 USE bdComunicaciones;
 /*CREACION DE TABLAS*/
 
-	/*--Tabla de Tipo de Solicitudes*/
-	CREATE TABLE t_tipoSolicitud (
-		id_tipoSolicitud int NOT NULL AUTO_INCREMENT,
-		tipoSolicitud varchar(50) NOT NULL,
-		PRIMARY KEY (id_tipoSolicitud)
-	);
-
 	/*--Tabla Unidad*/
 	CREATE TABLE t_unidad(
 		id_unidad int NOT NULL AUTO_INCREMENT,
@@ -122,10 +115,8 @@ USE bdComunicaciones;
 		email varchar(80) NOT NULL,
 		id_facDep int NOT NULL, /*Es FOREIGN KEY de la tabla t_facDep*/
 		telefono varchar(20) NOT NULL,
-		id_tipoSolicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_tipoSolicitud*/
 		PRIMARY KEY (numST),
-		FOREIGN KEY (id_facDep) REFERENCES t_facDep(id_facDep),
-		FOREIGN KEY (id_tipoSolicitud) REFERENCES t_tipoSolicitud(id_tipoSolicitud)
+		FOREIGN KEY (id_facDep) REFERENCES t_facDep(id_facDep)
 	);
 
 	/*--Tabla Categoria*/	
@@ -140,7 +131,7 @@ USE bdComunicaciones;
 	/*--Tabla SubCategoria*/	
 	CREATE TABLE t_subCategoria(
 		id_subCategoria int NOT NULL AUTO_INCREMENT,
-		subCategoria varchar(20) NOT NULL,
+		subCategoria varchar(50) NOT NULL,
 		id_categoria int NOT NULL, /*Es FOREIGN KEY de la tabla t_permiso*/
 		PRIMARY KEY (id_subCategoria),
 		FOREIGN KEY (id_categoria) REFERENCES t_categoria(id_categoria)
@@ -372,7 +363,8 @@ USE bdComunicaciones;
 		id_asesoriaCM int NOT NULL AUTO_INCREMENT,
 		tema varchar(200) NOT NULL,
 		lugar varchar(50) NOT NULL,
-		fechaHoraACM DATE NOT NULL,
+		fechaACM DATE NOT NULL,
+		horaACM time NOT NULL,
 		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_asesoriaCM),
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
@@ -421,30 +413,6 @@ USE bdComunicaciones;
 	(2, "Medios Audiovisuales"),
 	(3, "Unidad Digital");
 
-	/*	
-		t_tipoSolicitud
-		CI  -> Comunicaciones Institucionales
-		CIN -> Comunicaciones Internas
-		UD 	-> Unidad Digital
-		WEB -> Web Site
-		CM 	-> Community Manager
-	*/
-	INSERT INTO t_tipoSolicitud VALUES
-	(1, "CI - Eventos"),
-	(2, "CI - Campaña"),
-	(3, "CI - Aprobación de material"),
-	(4, "CI - CIN - Email Institucionales"),
-	(5, "CI - CIN - Tomás Noticias"),
-	(6, "CI - CIN - Condolencias"),
-	(7, "CI - CIN - Cumpleaños por mes"),
-	(8, "CI - CIN - Tarjetas conmemorativas"),	
-	(9, "UD - WEB - Creación nuevo sitio"),
-	(10, "UD - WEB - Ajustes de texto y/o imagenes"),
-	(11, "UD - WEB - Capacitación de contenidos"),
-	(12, "UD - CM - Creación de redes sociales"),
-	(13, "UD - CM - Campañas"),
-	(14, "UD - CM - Asesorias");
-
 	/*--t_categoria*/
 	INSERT INTO t_categoria VALUES
 	(1, "Eventos", 1),
@@ -456,7 +424,7 @@ USE bdComunicaciones;
 
 	/*--t_subCategoria*/
 	INSERT INTO t_subCategoria VALUES
-	(1, "Circulares", 3),
+	(1, "Envío de correos Institucionales", 3),
 	(2, "Tomás Noticias", 3),
 	(3, "Condolencias", 3),
 	(4, "Cumpleaños", 3),
@@ -552,239 +520,4 @@ USE bdComunicaciones;
 
 
 	/*--t_solicitud*/
-	INSERT INTO t_solicitud VALUES ("ST000", "ST inicial", "No se toma encuenta", 1, "000", 1);
-
-
-/*
--------------------------
-PRCEDIMIENTOS ALMACENADOS
--------------------------
-
-1)  in_SolicitudADJ (Solo para los formularios:)
-------------------------------------------------
-    A- SOLICITUD DE ENVIO DE CORREOS INSTITUCIONALES
-    B- SOLICITUD DE TOMÁS NOTICIAS
-    C- SOLICITUD DE CUMPLEAÑOS INSTITUCIONALES
-*/
-DELIMITER //
-    CREATE OR REPLACE PROCEDURE in_SolicitudADJ (
-        IN _numST varchar(10),              /*Relación de la tabla t_solicitud*/
-        IN _nombres VARCHAR(60),            /*Relación de la tabla t_solicitud*/
-        IN _email VARCHAR(80),              /*Relación de la tabla t_solicitud*/
-        IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
-        IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
-        IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
-        IN _adjunto VARCHAR(30),            /*Relación de la tabla t_adjunto*/
-        IN _id_fase int,                    /*Relación de la tabla t_fase*/
-        IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
-        IN _comentario TEXT                 /*Relación de la tabla t_trasabilidad*/
-        
-    )
-        BEGIN
-            IF NOT EXISTS (SELECT numST FROM t_solicitud WHERE numST=_numST) THEN
-                INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
-                INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
-                INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
-                INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
-            ELSE
-                INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
-            END IF;
-        END//
-DELIMITER ;
-
-/*
-2)  in_SolicitudTFC (Solo para el formulario: Tarjeras fechas conmemorativas)
------------------------------------------------------------------------------
-*/
-DELIMITER //
-    CREATE OR REPLACE PROCEDURE in_SolicitudTFC (
-        IN _numST varchar(10),              /*Relación de la tabla t_solicitud*/
-        IN _nombres VARCHAR(60),            /*Relación de la tabla t_solicitud*/
-        IN _email VARCHAR(80),              /*Relación de la tabla t_solicitud*/
-        IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
-        IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
-        IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
-        IN _id_fase int,                    /*Relación de la tabla t_fase*/
-        IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
-        IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
-        
-        IN _nombreTarjeta varchar(100),     /*Relación de la tabla t_tarjetas*/
-        IN _fechaTarjeta DATE,              /*Relación de la tabla t_tarjetas*/
-        IN _mensaje TEXT                    /*Relación de la tabla t_tarjetas*/
-        
-    )
-        BEGIN
-            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
-            INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
-            INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
-            INSERT INTO t_tarjetas(nombreTarjeta, fechaTarjeta, mensaje, numST) VALUES (_nombreTarjeta, _fechaTarjeta, _mensaje, _numST);
-        END//
-DELIMITER ;
-
-/*
-3)  in_SolicitudCondo (Solo para el formulario: Condolencias a travez de email institucional)
---------------------------------------------------------------------------------------------
-*/
-DELIMITER //
-    CREATE OR REPLACE PROCEDURE in_SolicitudCondo (
-        IN _numST varchar(10),              /*Relación de la tabla t_solicitud*/
-        IN _nombres VARCHAR(60),            /*Relación de la tabla t_solicitud*/
-        IN _email VARCHAR(80),              /*Relación de la tabla t_solicitud*/
-        IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
-        IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
-        IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
-        IN _id_fase int,                    /*Relación de la tabla t_fase*/
-        IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
-        IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
-        
-        IN _nombreDoliente varchar(100),     /*Relación de la tabla t_condoloencias*/
-        IN _nombreFallecido varchar(100),    /*Relación de la tabla t_condoloencias*/
-        IN _parentesco varchar(100),         /*Relación de la tabla t_condoloencias*/
-        IN _lugarVelacion varchar(100),      /*Relación de la tabla t_condoloencias*/
-        IN _fechaVelacion DATE,              /*Relación de la tabla t_condoloencias*/
-        IN _horaVelacion time                /*Relación de la tabla t_condoloencias*/
-        
-    )
-        BEGIN
-            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
-            INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
-            INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
-            INSERT INTO t_condolencias(nombreDoliente, nombreFallecido, parentesco, id_facDep, lugarVelacion, fechaVelacion, horaVelacion, numST) VALUES (_nombreDoliente, _nombreFallecido, _parentesco, _id_facDep, _lugarVelacion, _fechaVelacion, _horaVelacion, _numST);
-        END//
-DELIMITER ;
-
-/*
-4)  in_SolicitudAprobMate (Solo para el formulario: Condolencias a travez de email institucional)
---------------------------------------------------------------------------------------------
-*/
-DELIMITER //
-    CREATE OR REPLACE PROCEDURE in_SolicitudAprobMate (
-        IN _numST varchar(10),              /*Relación de la tabla t_solicitud*/
-        IN _nombres VARCHAR(60),            /*Relación de la tabla t_solicitud*/
-        IN _email VARCHAR(80),              /*Relación de la tabla t_solicitud*/
-        IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
-        IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
-        IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
-        IN _id_fase int,                    /*Relación de la tabla t_fase*/
-        IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
-        IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
-
-        IN _adjunto VARCHAR(30),            /*Relación de la tabla t_adjunto*/
-        IN _nomAprobacion varchar(100)      /*Relación de la tabla t_aprobMate*/
-        
-    )
-        BEGIN
-            IF NOT EXISTS (SELECT numST FROM t_solicitud WHERE numST=_numST) THEN
-                INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
-                INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
-                INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
-                INSERT INTO t_aprobMate(nomAprobacion, numST) VALUES (_nomAprobacion, _numST);
-                INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
-            ELSE
-                INSERT INTO t_aprobMate(nomAprobacion, numST) VALUES (_nomAprobacion, _numST);
-            END IF;
-        END//
-DELIMITER ;
-
-/*
-5)  in_SolicitudNewWeb (Solo para el formulario: Nuevo sitio web eventos)
---------------------------------------------------------------------------------------------
-*/
-DELIMITER //
-    CREATE OR REPLACE PROCEDURE in_SolicitudNewWeb (
-        IN _numST varchar(10),              /*Relación de la tabla t_solicitud*/
-        IN _nombres VARCHAR(60),            /*Relación de la tabla t_solicitud*/
-        IN _email VARCHAR(80),              /*Relación de la tabla t_solicitud*/
-        IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
-        IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
-        IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
-        IN _id_fase int,                    /*Relación de la tabla t_fase*/
-        IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
-        IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
-
-        IN _nombreWeb varchar(100),         /*Relación de la tabla t_newWeb*/
-        IN _subdominio varchar(100),        /*Relación de la tabla t_newWeb*/
-        IN _justificacion TEXT,             /*Relación de la tabla t_newWeb*/
-        IN _adjunto VARCHAR(30)             /*Relación de la tabla t_adjunto*/
-        
-    )
-        BEGIN
-            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
-            INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
-            INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
-            INSERT INTO t_newWeb(nombreWeb, subdominio, justificacion, numST) VALUES (_nombreWeb, _subdominio, _justificacion, _numST);
-            INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
-            
-        END//
-DELIMITER ;
-
-/*
-6)  in_SolicitudAjusteWeb (Solo para el formulario: Ajustes de texto y/o imagenes web)
---------------------------------------------------------------------------------------------
-*/
-DELIMITER //
-    CREATE OR REPLACE PROCEDURE in_SolicitudAjusteWeb (
-        IN _numST varchar(10),              /*Relación de la tabla t_solicitud*/
-        IN _nombres VARCHAR(60),            /*Relación de la tabla t_solicitud*/
-        IN _email VARCHAR(80),              /*Relación de la tabla t_solicitud*/
-        IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
-        IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
-        IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
-        IN _id_fase int,                    /*Relación de la tabla t_fase*/
-        IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
-        IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
-
-        IN _urlAjuste varchar(200),         /*Relación de la tabla t_ajusteWeb*/
-        IN _descripcion TEXT,               /*Relación de la tabla t_ajusteWeb*/
-        IN _adjunto VARCHAR(30)             /*Relación de la tabla t_adjunto*/
-        
-    )
-        BEGIN
-            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
-            INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
-            INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
-            INSERT INTO t_ajusteWeb(urlAjuste, descripcion, numST) VALUES (_urlAjuste, _descripcion, _numST);
-            INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
-            
-        END//
-DELIMITER ;
-
-/*
-7)  in_SolicitudCapaWeb (Solo para el formulario: Capacitaciones web)
---------------------------------------------------------------------------------------------
-*/
-DELIMITER //
-    CREATE OR REPLACE PROCEDURE in_SolicitudCapaWeb (
-        IN _numST varchar(10),              /*Relación de la tabla t_solicitud*/
-        IN _nombres VARCHAR(60),            /*Relación de la tabla t_solicitud*/
-        IN _email VARCHAR(80),              /*Relación de la tabla t_solicitud*/
-        IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
-        IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
-        IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
-        IN _id_fase int,                    /*Relación de la tabla t_fase*/
-        IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
-        IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
-
-        IN _nomPersona varchar(100),         /*Relación de la tabla t_capacitacionWeb*/
-        IN _telefonoExt varchar(20),         /*Relación de la tabla t_capacitacionWeb*/
-        IN _numCelular varchar(10),          /*Relación de la tabla t_capacitacionWeb*/
-        IN _emailCapa varchar(100),              /*Relación de la tabla t_capacitacionWeb*/
-        IN _fechaCW DATE,                    /*Relación de la tabla t_capacitacionWeb*/
-        IN _horaCW time,                     /*Relación de la tabla t_capacitacionWeb*/
-        IN _txtMotivo TEXT                   /*Relación de la tabla t_capacitacionWeb*/
-        
-    )
-        BEGIN
-            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
-            INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
-            INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
-            INSERT INTO t_capacitacionWeb(nomPersona, telefonoExt, numCelular, emailCapa, fechaCW, horaCW, txtMotivo, numST) VALUES (_nomPersona, _telefonoExt, _numCelular, _emailCapa, _fechaCW, _horaCW, _txtMotivo, _numST);
-        END//
-DELIMITER ;
+	INSERT INTO t_solicitud VALUES ("ST000", "ST inicial", "No se toma encuenta", 1, "000");

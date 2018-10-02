@@ -50,16 +50,14 @@ WHERE
 ORDER BY S.numST DESC
 
 
-/*
-======
-INSERT
-======
-*/
 
 /*
 -------------------------
 PRCEDIMIENTOS ALMACENADOS
 -------------------------
+======
+INSERT
+======
 
 1)  in_SolicitudADJ (Solo para los formularios:)
 ------------------------------------------------
@@ -75,19 +73,22 @@ DELIMITER //
         IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
         IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
         IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
-        IN _adjunto VARCHAR(30),            /*Relación de la tabla t_adjunto*/
+        IN _id_unidad int,                  /*Relación de la tabla t_unidad*/
+        IN _id_categoria int,               /*Relación de la tabla t_categoria*/
+        IN _id_subCategoria int,            /*Relación de la tabla t_subcategoria*/        
         IN _id_fase int,                    /*Relación de la tabla t_fase*/
         IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
-        IN _comentario TEXT                 /*Relación de la tabla t_trasabilidad*/
+        IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
+        IN _adjunto VARCHAR(30)             /*Relación de la tabla t_adjunto*/
         
     )
         BEGIN
             IF NOT EXISTS (SELECT numST FROM t_solicitud WHERE numST=_numST) THEN
-                INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
-                INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
-                INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+                INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
                 INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
+                INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
+                INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);                
+                INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
             ELSE
                 INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
             END IF;
@@ -158,7 +159,7 @@ DELIMITER //
 DELIMITER ;
 /*
 4)  in_SolicitudAprobMate (Solo para el formulario: Condolencias a travez de email institucional)
---------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
 */
 DELIMITER //
     CREATE OR REPLACE PROCEDURE in_SolicitudAprobMate (
@@ -192,7 +193,7 @@ DELIMITER ;
 
 /*
 5)  in_SolicitudNewWeb (Solo para el formulario: Nuevo sitio web eventos)
---------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------
 */
 DELIMITER //
     CREATE OR REPLACE PROCEDURE in_SolicitudNewWeb (
@@ -225,7 +226,7 @@ DELIMITER ;
 
 /*
 6)  in_SolicitudAjusteWeb (Solo para el formulario: Ajustes de texto y/o imagenes web)
---------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
 */
 DELIMITER //
     CREATE OR REPLACE PROCEDURE in_SolicitudAjusteWeb (
@@ -257,7 +258,7 @@ DELIMITER ;
 
 /*
 7)  in_SolicitudCapaWeb (Solo para el formulario: Capacitaciones web)
---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------
 */
 DELIMITER //
     CREATE OR REPLACE PROCEDURE in_SolicitudCapaWeb (
@@ -286,6 +287,37 @@ DELIMITER //
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
             INSERT INTO t_capacitacionWeb(nomPersona, telefonoExt, numCelular, emailCapa, fechaCW, horaCW, txtMotivo, numST) VALUES (_nomPersona, _telefonoExt, _numCelular, _emailCapa, _fechaCW, _horaCW, _txtMotivo, _numST);
+        END//
+DELIMITER ;
+
+/*
+8)  in_SolicitudCapaWeb (Solo para el formulario: Asesorias Community Manager)
+------------------------------------------------------------------------------
+*/
+DELIMITER //
+    CREATE OR REPLACE PROCEDURE in_SolicitudAsesoriaCM (
+        IN _numST varchar(10),              /*Relación de la tabla t_solicitud*/
+        IN _nombres VARCHAR(60),            /*Relación de la tabla t_solicitud*/
+        IN _email VARCHAR(80),              /*Relación de la tabla t_solicitud*/
+        IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
+        IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
+        IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
+        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
+        IN _id_fase int,                    /*Relación de la tabla t_fase*/
+        IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
+        IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
+
+        IN _tema varchar(200),              /*Relación de la tabla t_asesoriaCM*/
+        IN _lugar varchar(50),              /*Relación de la tabla t_asesoriaCM*/
+        IN _fechaACM DATE,                  /*Relación de la tabla t_asesoriaCM*/
+        IN _horaACM time                    /*Relación de la tabla t_asesoriaCM*/
+        
+    )
+        BEGIN
+            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
+            INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+            INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
+            INSERT INTO t_asesoriaCM(tema, lugar, fechaACM, horaACM, numST) VALUES (_tema, _lugar, _fechaACM, _horaACM, _numST);
         END//
 DELIMITER ;
 /*

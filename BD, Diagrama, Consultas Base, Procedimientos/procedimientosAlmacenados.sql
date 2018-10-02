@@ -254,6 +254,40 @@ DELIMITER //
             
         END//
 DELIMITER ;
+
+/*
+7)  in_SolicitudCapaWeb (Solo para el formulario: Capacitaciones web)
+--------------------------------------------------------------------------------------------
+*/
+DELIMITER //
+    CREATE OR REPLACE PROCEDURE in_SolicitudCapaWeb (
+        IN _numST varchar(10),              /*Relación de la tabla t_solicitud*/
+        IN _nombres VARCHAR(60),            /*Relación de la tabla t_solicitud*/
+        IN _email VARCHAR(80),              /*Relación de la tabla t_solicitud*/
+        IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
+        IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
+        IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
+        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
+        IN _id_fase int,                    /*Relación de la tabla t_fase*/
+        IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
+        IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
+
+        IN _nomPersona varchar(100),         /*Relación de la tabla t_capacitacionWeb*/
+        IN _telefonoExt varchar(20),         /*Relación de la tabla t_capacitacionWeb*/
+        IN _numCelular varchar(10),          /*Relación de la tabla t_capacitacionWeb*/
+        IN _emailCapa varchar(100),              /*Relación de la tabla t_capacitacionWeb*/
+        IN _fechaCW DATE,                    /*Relación de la tabla t_capacitacionWeb*/
+        IN _horaCW time,                     /*Relación de la tabla t_capacitacionWeb*/
+        IN _txtMotivo TEXT                   /*Relación de la tabla t_capacitacionWeb*/
+        
+    )
+        BEGIN
+            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
+            INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+            INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
+            INSERT INTO t_capacitacionWeb(nomPersona, telefonoExt, numCelular, emailCapa, fechaCW, horaCW, txtMotivo, numST) VALUES (_nomPersona, _telefonoExt, _numCelular, _emailCapa, _fechaCW, _horaCW, _txtMotivo, _numST);
+        END//
+DELIMITER ;
 /*
 ======
 UPDATE

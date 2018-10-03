@@ -69,6 +69,7 @@
 									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="Fanpage Facebook" <?php if (in_array("Fanpage Facebook", $_SESSION['checkNewRedes'])) echo "checked"; ?> /> Fanpage Facebook<br>
 									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="Perfil Instagram" <?php if (in_array("Perfil Instagram", $_SESSION['checkNewRedes'])) echo "checked"; ?> /> Perfil Instagram<br>
 									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="Perfil Twitter" <?php if (in_array("Perfil Twitter", $_SESSION['checkNewRedes'])) echo "checked"; ?> /> Perfil Twitter<br>
+									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="Perfil Linkedin" <?php if (in_array("Perfil Linkedin", $_SESSION['checkNewRedes'])) echo "checked"; ?> /> Perfil Linkedin<br>
 									<br>
 									<br>									
 								</div>

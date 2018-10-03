@@ -75,7 +75,7 @@ DELIMITER //
         IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
         IN _id_unidad int,                  /*Relación de la tabla t_unidad*/
         IN _id_categoria int,               /*Relación de la tabla t_categoria*/
-        IN _id_subCategoria int,            /*Relación de la tabla t_subcategoria*/        
+        IN _id_subCategoria int,            /*Relación de la tabla t_subcategoria*/
         IN _id_fase int,                    /*Relación de la tabla t_fase*/
         IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
         IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
@@ -107,7 +107,9 @@ DELIMITER //
         IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
         IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
         IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
+        IN _id_unidad int,                  /*Relación de la tabla t_unidad*/
+        IN _id_categoria int,               /*Relación de la tabla t_categoria*/
+        IN _id_subCategoria int,            /*Relación de la tabla t_subcategoria*/
         IN _id_fase int,                    /*Relación de la tabla t_fase*/
         IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
         IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
@@ -118,9 +120,10 @@ DELIMITER //
         
     )
         BEGIN
-            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
+            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
+            INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_tarjetas(nombreTarjeta, fechaTarjeta, mensaje, numST) VALUES (_nombreTarjeta, _fechaTarjeta, _mensaje, _numST);
         END//
 DELIMITER ;
@@ -137,7 +140,9 @@ DELIMITER //
         IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
         IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
         IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
+        IN _id_unidad int,                  /*Relación de la tabla t_unidad*/
+        IN _id_categoria int,               /*Relación de la tabla t_categoria*/
+        IN _id_subCategoria int,            /*Relación de la tabla t_subcategoria*/
         IN _id_fase int,                    /*Relación de la tabla t_fase*/
         IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
         IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
@@ -151,9 +156,10 @@ DELIMITER //
         
     )
         BEGIN
-            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
+            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
+            INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_condolencias(nombreDoliente, nombreFallecido, parentesco, id_facDep, lugarVelacion, fechaVelacion, horaVelacion, numST) VALUES (_nombreDoliente, _nombreFallecido, _parentesco, _id_facDep, _lugarVelacion, _fechaVelacion, _horaVelacion, _numST);
         END//
 DELIMITER ;
@@ -169,7 +175,9 @@ DELIMITER //
         IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
         IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
         IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
+        IN _id_unidad int,                  /*Relación de la tabla t_unidad*/
+        IN _id_categoria int,               /*Relación de la tabla t_categoria*/
+        IN _id_subCategoria int,            /*Relación de la tabla t_subcategoria*/
         IN _id_fase int,                    /*Relación de la tabla t_fase*/
         IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
         IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
@@ -180,9 +188,10 @@ DELIMITER //
     )
         BEGIN
             IF NOT EXISTS (SELECT numST FROM t_solicitud WHERE numST=_numST) THEN
-                INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
+                INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
                 INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
                 INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
+                INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
                 INSERT INTO t_aprobMate(nomAprobacion, numST) VALUES (_nomAprobacion, _numST);
                 INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
             ELSE
@@ -203,7 +212,9 @@ DELIMITER //
         IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
         IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
         IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
+        IN _id_unidad int,                  /*Relación de la tabla t_unidad*/
+        IN _id_categoria int,               /*Relación de la tabla t_categoria*/
+        IN _id_subCategoria int,            /*Relación de la tabla t_subcategoria*/
         IN _id_fase int,                    /*Relación de la tabla t_fase*/
         IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
         IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
@@ -215,9 +226,10 @@ DELIMITER //
         
     )
         BEGIN
-            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
+            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
+            INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_newWeb(nombreWeb, subdominio, justificacion, numST) VALUES (_nombreWeb, _subdominio, _justificacion, _numST);
             INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
             
@@ -236,7 +248,9 @@ DELIMITER //
         IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
         IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
         IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
+        IN _id_unidad int,                  /*Relación de la tabla t_unidad*/
+        IN _id_categoria int,               /*Relación de la tabla t_categoria*/
+        IN _id_subCategoria int,            /*Relación de la tabla t_subcategoria*/
         IN _id_fase int,                    /*Relación de la tabla t_fase*/
         IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
         IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
@@ -247,9 +261,10 @@ DELIMITER //
         
     )
         BEGIN
-            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
+            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
+            INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_ajusteWeb(urlAjuste, descripcion, numST) VALUES (_urlAjuste, _descripcion, _numST);
             INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
             
@@ -268,7 +283,9 @@ DELIMITER //
         IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
         IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
         IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
+        IN _id_unidad int,                  /*Relación de la tabla t_unidad*/
+        IN _id_categoria int,               /*Relación de la tabla t_categoria*/
+        IN _id_subCategoria int,            /*Relación de la tabla t_subcategoria*/
         IN _id_fase int,                    /*Relación de la tabla t_fase*/
         IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
         IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
@@ -283,9 +300,10 @@ DELIMITER //
         
     )
         BEGIN
-            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
+            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
+            INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_capacitacionWeb(nomPersona, telefonoExt, numCelular, emailCapa, fechaCW, horaCW, txtMotivo, numST) VALUES (_nomPersona, _telefonoExt, _numCelular, _emailCapa, _fechaCW, _horaCW, _txtMotivo, _numST);
         END//
 DELIMITER ;
@@ -302,7 +320,9 @@ DELIMITER //
         IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
         IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
         IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
-        IN _id_tipoSolicitud int,           /*Relación de la tabla t_tipoSolicitud*/
+        IN _id_unidad int,                  /*Relación de la tabla t_unidad*/
+        IN _id_categoria int,               /*Relación de la tabla t_categoria*/
+        IN _id_subCategoria int,            /*Relación de la tabla t_subcategoria*/
         IN _id_fase int,                    /*Relación de la tabla t_fase*/
         IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
         IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
@@ -314,12 +334,102 @@ DELIMITER //
         
     )
         BEGIN
-            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono, id_tipoSolicitud) VALUES (_numST, _nombres, _email, _id_facDep, _telefono, _id_tipoSolicitud);
+            INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
+            INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_asesoriaCM(tema, lugar, fechaACM, horaACM, numST) VALUES (_tema, _lugar, _fechaACM, _horaACM, _numST);
         END//
 DELIMITER ;
+
+/*
+9)  in_SolicitudCampaniaCM (Solo para el formulario: Campaña Redes Sociales - Community Manager)
+------------------------------------------------------------------------------
+*/
+DELIMITER //
+    CREATE OR REPLACE PROCEDURE in_SolicitudCampaniaCM (
+        IN _numST varchar(10),              /*Relación de la tabla t_solicitud*/
+        IN _nombres VARCHAR(60),            /*Relación de la tabla t_solicitud*/
+        IN _email VARCHAR(80),              /*Relación de la tabla t_solicitud*/
+        IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
+        IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
+        IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
+        IN _id_unidad int,                  /*Relación de la tabla t_unidad*/
+        IN _id_categoria int,               /*Relación de la tabla t_categoria*/
+        IN _id_subCategoria int,            /*Relación de la tabla t_subcategoria*/
+        IN _id_fase int,                    /*Relación de la tabla t_fase*/
+        IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
+        IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
+
+        IN _nombreCam varchar(200),         /*Relación de la tabla t_campaniascm*/
+        IN _justificacion TEXT,             /*Relación de la tabla t_campaniascm*/
+        IN _objetivo TEXT,                  /*Relación de la tabla t_campaniascm*/
+        IN _fechaHoraIni DATE,              /*Relación de la tabla t_campaniascm*/
+        IN _fechaHoraFin DATE,              /*Relación de la tabla t_campaniascm*/
+        IN _palabrasClaves TEXT,             /*Relación de la tabla t_campaniascm*/
+        IN _adjunto VARCHAR(30),            /*Relación de la tabla t_adjunto*/
+        IN _id_objPublico int               /*Relación de la tabla t_resobjpublico*/
+
+    )
+        BEGIN
+            IF NOT EXISTS (SELECT numST FROM t_solicitud WHERE numST=_numST) THEN
+                INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
+                INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+                INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
+                INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
+                INSERT INTO t_campaniascm(nombreCam, justificacion, objetivo, fechaHoraIni, fechaHoraFin, palabrasClaves, numST) VALUES (_nombreCam, _justificacion, _objetivo, _fechaHoraIni, _fechaHoraFin, _palabrasClaves, _numST);
+                INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
+                INSERT INTO t_resobjpublico(id_objPublico, numST) VALUES (_id_objPublico, _numST);
+            ELSE
+                INSERT INTO t_resobjpublico(id_objPublico, numST) VALUES (_id_objPublico, _numST);
+            END IF;
+        END//
+DELIMITER ;
+
+/*
+10)  in_SolicitudCampaniaCM (Solo para el formulario: Creación Redes Sociales - Community Manager)
+------------------------------------------------------------------------------
+*/
+DELIMITER //
+    CREATE OR REPLACE PROCEDURE in_SolicitudNewRedSocial(
+        IN _numST varchar(10),              /*Relación de la tabla t_solicitud*/
+        IN _nombres VARCHAR(60),            /*Relación de la tabla t_solicitud*/
+        IN _email VARCHAR(80),              /*Relación de la tabla t_solicitud*/
+        IN _id_facDep int,                  /*Relación de la tabla t_solicitud*/
+        IN _telefono VARCHAR(20),           /*Relación de la tabla t_solicitud*/
+        IN _id_usuario int,                 /*Relación de la tabla t_usuario*/
+        IN _id_unidad int,                  /*Relación de la tabla t_unidad*/
+        IN _id_categoria int,               /*Relación de la tabla t_categoria*/
+        IN _id_subCategoria int,            /*Relación de la tabla t_subcategoria*/
+        IN _id_fase int,                    /*Relación de la tabla t_fase*/
+        IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
+        IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
+
+        IN _nomPerfil varchar(200),         /*Relación de la tabla t_crearedescm*/
+        IN _emailPersonal varchar(50),      /*Relación de la tabla t_crearedescm*/
+        IN _descripcion TEXT,               /*Relación de la tabla t_crearedescm*/
+        IN _direccion varchar(50),          /*Relación de la tabla t_crearedescm*/
+        IN _telPerfil varchar(10),          /*Relación de la tabla t_crearedescm*/
+        IN _emailPerfil varchar(100),       /*Relación de la tabla t_crearedescm*/
+        IN _adjunto VARCHAR(30),            /*Relación de la tabla t_adjunto*/        
+        IN _id_tipoRedSocial int            /*Relación de la tabla t_tiporedsocial*/
+
+    )
+        BEGIN
+            IF NOT EXISTS (SELECT numST FROM t_solicitud WHERE numST=_numST) THEN
+                INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
+                INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+                INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario) VALUES (_id_fase, _numST, _fecha, _comentario);
+                INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
+                INSERT INTO t_crearedescm(nomPerfil, emailPersonal, descripcion, direccion, telPerfil, emailPerfil, numST) VALUES (_nomPerfil, _emailPersonal, _descripcion, _direccion, _telPerfil, _emailPerfil, _numST);
+                INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);                
+                INSERT INTO t_restrs(id_tipoRedSocial, numST) VALUES (_id_tipoRedSocial, _numST);
+            ELSE
+                INSERT INTO t_restrs(id_tipoRedSocial, numST) VALUES (_id_tipoRedSocial, _numST);
+            END IF;
+        END//
+DELIMITER ;
+
 /*
 ======
 UPDATE

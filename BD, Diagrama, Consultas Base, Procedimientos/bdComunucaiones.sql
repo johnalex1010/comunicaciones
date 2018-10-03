@@ -246,8 +246,10 @@ USE bdComunicaciones;
 		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unica porque se debe llevar una trasabilidad sobre la ST*/
 		fecha DATE, /*Guarda fecha y hora*/
 		comentario TEXT NOT NULL,
+		id_usuario int NOT NULL, /*Es FOREIGN KEY de la tabla t_usuario*/
 		PRIMARY KEY (id_trasabilidad),
 		FOREIGN KEY (id_fase) REFERENCES t_fase(id_fase),
+		FOREIGN KEY (id_usuario) REFERENCES t_usuario(id_usuario),
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
@@ -391,6 +393,8 @@ USE bdComunicaciones;
 		emailPersonal varchar(50) NOT NULL,
 		descripcion TEXT NOT NULL,
 		direccion varchar(50) NOT NULL,
+		telPerfil varchar(10) NOT NULL,
+		emailPerfil varchar(100) NOT NULL,
 		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_creaRedesCM),
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
@@ -398,11 +402,11 @@ USE bdComunicaciones;
 
 	CREATE TABLE t_resTRS (
 		id_resTRS int NOT NULL AUTO_INCREMENT,
-		id_creaRedesCM int NOT NULL, /*Es FOREIGN KEY de la tabla t_creaRedesCM*/
 		id_tipoRedSocial int NOT NULL, /*Es FOREIGN KEY de la tabla t_tipoRedSocial*/
+		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud =  No es unico porque puede crear varia redes sociales*/
 		PRIMARY KEY (id_resTRS),
-		FOREIGN KEY (id_creaRedesCM) REFERENCES t_creaRedesCM(id_creaRedesCM),
-		FOREIGN KEY (id_tipoRedSocial) REFERENCES t_tipoRedSocial(id_tipoRedSocial)
+		FOREIGN KEY (id_tipoRedSocial) REFERENCES t_tipoRedSocial(id_tipoRedSocial),
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 	
 
@@ -418,7 +422,7 @@ USE bdComunicaciones;
 	(1, "Eventos", 1),
 	(2, "Campañas", 1),
 	(3, "Comunicaciones Internas", 1),
-	(4, "Aprobación", 1),
+	(4, "Aprobaciones", 1),
 	(5, "Web Site", 3),
 	(6, "Community Manager", 3);
 
@@ -428,14 +432,15 @@ USE bdComunicaciones;
 	(2, "Tomás Noticias", 3),
 	(3, "Condolencias", 3),
 	(4, "Cumpleaños", 3),
-	(5, "Tarjetas", 3),
+	(5, "Tarjetas conmemorativas", 3),
 	(6, "Nuevo Sitio Web", 5),
 	(7, "Ajuste Web", 5),
 	(8, "Desarrrollo Aplicaciones Web", 5),
 	(9, "Capacitación Web", 5),
 	(10, "Creación Redes Sociales", 6),
 	(11, "Campañas Redes Sociales", 6),
-	(12, "Asesorias Redes Sociales", 6);
+	(12, "Asesorias Community Manager", 6),
+	(13, "Aprobación de material", 3);
 
 	/*--t_fase*/
 	INSERT INTO t_fase VALUES

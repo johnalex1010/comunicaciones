@@ -17,37 +17,89 @@ SELECT
 */
 
 /*SELECCION DE ADJUNTOS DE ST - con usuarios asignados*/
+    SELECT
+        S.numST,
+        S.nombre,
+        U.usuario,
+        UN.nomUnidad,
+        CAT.categoria,
+        SCAT.subCategoria,
+        F.fase,
+        TRAS.comentario
+
+
+    FROM 
+        t_solicitud AS S,
+        t_usuario AS U,
+        t_resusuario AS US,
+        t_resunidad AS RU,
+        t_unidad AS UN,
+        t_categoria AS CAT,
+        t_subcategoria AS SCAT,
+        t_trasabilidad AS TRAS,
+        t_fase AS F
+    WHERE
+        S.numST=US.numST
+        AND S.numST=RU.numST
+        AND RU.id_unidad=UN.id_unidad
+        AND RU.id_categoria=CAT.id_categoria
+        AND RU.id_subCategoria=SCAT.id_subCategoria
+        AND S.numST=TRAS.numST
+        AND TRAS.id_fase=F.id_fase
+        AND TRAS.id_usuario=U.id_usuario
+        AND S.numST = 'ST014'
+    ORDER BY TRAS.id_trasabilidad DESC LIMIT 1;
+
+
+
+
+
+
+
+
+
 SELECT
-	S.numST,
-    S.nombre,
-    S.email,
-    S.telefono,
+    TRAS.numST,
     U.usuario,
-    FD.facDep,
-    TP.tipoSolicitud,
-    ADJ.adjunto,
-    TRAS.fecha,
+    SCAT.subCategoria,
+    F.fase,
     TRAS.comentario,
-    F.fase
+    TRAS.id_trasabilidad
 FROM 
-	t_solicitud     AS S,
-    t_usuario       AS U,
-    t_resusuario    AS RS,
-    t_adjunto       AS ADJ,
-    t_tiposolicitud AS TP,
-    t_facdep        AS FD,
-    t_trasabilidad  AS TRAS,
-    t_fase          AS F
-WHERE 
-	S.numST=ADJ.numST
-    AND S.id_facDep=FD.id_facDep
-    AND S.id_tipoSolicitud=TP.id_tipoSolicitud
-    AND S.numST=RS.numST
-    AND RS.id_usuario=U.id_usuario
-    AND TRAS.numST=S.numST
+    t_solicitud AS S,
+    t_usuario AS U,
+    t_resusuario AS US,
+    t_resunidad AS RU,
+    t_subcategoria AS SCAT,
+    t_trasabilidad AS TRAS,
+    t_fase AS F
+WHERE
+    S.numST=US.numST
+    AND S.numST=RU.numST
+    AND RU.id_subCategoria=SCAT.id_subCategoria
+    AND S.numST=TRAS.numST
     AND TRAS.id_fase=F.id_fase
-    AND TP.id_tipoSolicitud=4
-ORDER BY S.numST DESC
+    AND TRAS.id_usuario=U.id_usuario
+GROUP BY TRAS.numST DESC
+ORDER BY id_trasabilidad DESC;
+
+
+
+
+
+SELECT 
+    T.id_trasabilidad,
+    T.numST,
+    T.comentario,
+    T.id_usuario,
+    T.id_fase,
+    F.fase
+FROM
+    t_trasabilidad AS T,
+    t_fase AS F
+WHERE
+    T.id_fase=F.id_fase
+ORDER BY T.id_trasabilidad DESC
 
 
 

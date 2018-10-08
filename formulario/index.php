@@ -81,7 +81,7 @@
 								if ($_SESSION['campoFacDep'] == "") {
 									echo "<option value='' disable selected></option>";
 								}else{
-									echo "<option value='".$_SESSION['campoFacDep']."' selected>".$_SESSION['campoFacDep']."</option>";
+									echo "<option value='".$_SESSION['campoFacDep']."' selected>".$facDep."</option>";
 								}
 								campoFacDep();
 							?>

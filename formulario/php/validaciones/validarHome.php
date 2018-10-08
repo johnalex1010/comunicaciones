@@ -1,5 +1,5 @@
 <?php
-
+include_once 'php/conexion.php';
 /*
 ==================
 Validar Datos Home
@@ -42,6 +42,11 @@ if (isset($_POST['submit'])) {
 	}else{
 		$campoFacDep = $_POST['campoFacDep'];
 		$_SESSION['campoFacDep'] = $campoFacDep;
+		$facDep = "SELECT * FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep']; // Selescciona la ultima ST igresada en la BD
+		$rst = $conexion->query($facDep);
+		$row = mysqli_fetch_row($rst);
+		$idfacDep = $row[0];
+		$facDep = $row[1];
 	}
 
 	/*===== Validar Telefono =====*/

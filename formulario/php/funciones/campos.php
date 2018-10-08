@@ -1,11 +1,30 @@
 <?php
+//Función que suma uno(1) en las ST
+function consecutivoST($stOLD){
+	$ST = "ST";
+	$separar = explode("ST", $stOLD);
+	$newST = $separar[1]+1;
+	if (strlen($newST) == 1) {
+		$newST = "ST00".$newST;
+	}elseif (strlen($newST) == 2){
+		$newST = "ST0".$newST;
+	}else{
+		$newST = "ST".$newST;
+	}
+	return $newST;
+}
+function codigoSeguimiento($newST){
+	$cod = "<div class='codigoSeguimiento'>Este es su codigo de seguimiento:".$newST."</div>";
+	return $cod;
+}
+/*--*/
 function campoFacDep(){
-	echo "<option value='División de Ciencias de la Salud'>División de Ciencias de la Salud</option>";
-	echo "<option value='División de Ciencias Jurídicas y Políticas'>División de Ciencias Jurídicas y Políticas</option>";
-	echo "<option value='División de Ciencias Sociales'>División de Ciencias Sociales</option>";
-	echo "<option value='División de Ingenierías'>División de Ingenierías</option>";
-	echo "<option value='Divisón de Filosofía y Teología'>Divisón de Filosofía y Teología</option>";
-	echo "<option value='Instituto de Estudios Socio-Históricos'>Instituto de Estudios Socio-Históricos</option>";
+	echo "<option value='1'>División de Ciencias de la Salud</option>";
+	echo "<option value='2'>División de Ciencias Jurídicas y Políticas</option>";
+	echo "<option value='3'>División de Ciencias Sociales</option>";
+	echo "<option value='4'>División de Ingenierías</option>";
+	echo "<option value='5'>Divisón de Filosofía y Teología</option>";
+	echo "<option value='6'>Instituto de Estudios Socio-Históricos</option>";
 }
 function tipoEvento(){
 	echo "<option value='Tipo Evento 1'>Tipo Evento 1</option>";

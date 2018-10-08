@@ -6,7 +6,12 @@
 		header('Location:../../');
 	}
 	// session_destroy();
-
+	include_once '../conexion.php';
+	//Insertar ST. Solicitud de Capacitación Web
+	$facDep = "SELECT facDep FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep']; // Selescciona la ultima ST igresada en la BD
+	$rst = $conexion->query($facDep);
+	$row = mysqli_fetch_row($rst);
+	$facDep = $row[0];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -42,7 +47,7 @@
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Departamento/Facultad del solicitante</h3>
-			<p><?php echo $_SESSION['campoFacDep'] ?></p>
+			<p><?php echo $facDep; ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Telefono de contacto del solicitante</h3>
@@ -71,7 +76,7 @@
 	</div>
 	<div class="cuadricula">
 		<a class="btn btn-world" href="../../solicitud/unidadDigital/communityManager.php">Atras</a>
-		<a class="btn btn-send" href="#">Enviar Solicitud</a>
+		<a class="btn btn-send" href="../incrus/in_asesoriaCM.php">Enviar Solicitud</a>
 	</div>
 </div>
 </body>

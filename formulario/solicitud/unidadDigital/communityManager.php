@@ -66,10 +66,10 @@
 								<div class="contentCheck checkboxAudioVisual">
 									<div class="colorTxt tooltip" title="<?php checkNewRedesT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Que tipo de red social desea crear?</div>
 									<span class="error"><?php echo $error[0][0] = (isset($error[0][0])) ? $error[0][0] : ""; ?></span><br>						
-									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="Fanpage Facebook" <?php if (in_array("Fanpage Facebook", $_SESSION['checkNewRedes'])) echo "checked"; ?> /> Fanpage Facebook<br>
-									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="Perfil Instagram" <?php if (in_array("Perfil Instagram", $_SESSION['checkNewRedes'])) echo "checked"; ?> /> Perfil Instagram<br>
-									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="Perfil Twitter" <?php if (in_array("Perfil Twitter", $_SESSION['checkNewRedes'])) echo "checked"; ?> /> Perfil Twitter<br>
-									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="Perfil Linkedin" <?php if (in_array("Perfil Linkedin", $_SESSION['checkNewRedes'])) echo "checked"; ?> /> Perfil Linkedin<br>
+									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="1" <?php if (in_array("1", $_SESSION['checkNewRedes'])) echo "checked"; ?> /> Fanpage Facebook<br>
+									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="2" <?php if (in_array("2", $_SESSION['checkNewRedes'])) echo "checked"; ?> /> Perfil Instagram<br>
+									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="3" <?php if (in_array("3", $_SESSION['checkNewRedes'])) echo "checked"; ?> /> Perfil Twitter<br>
+									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="4" <?php if (in_array("4", $_SESSION['checkNewRedes'])) echo "checked"; ?> /> Perfil Linkedin<br>
 									<br>
 									<br>									
 								</div>
@@ -221,12 +221,12 @@
 								<div class="contentCheck checkboxAudioVisual">
 									<div class="colorTxt tooltip" title="<?php checkPublicoObjT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Cual es su público objetivo? </div>
 									<span class="error"><?php echo $error[1][8] = (isset($error[1][8])) ? $error[1][8] : ""; ?></span><br>
-									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="Estudiantes pregrado" <?php if (in_array("Estudiantes pregrado", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Estudiantes pregrado<br>
-									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="Estudiantes posgrado" <?php if (in_array("Estudiantes posgrado", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Estudiantes posgrado<br>
-									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="Docentes" <?php if (in_array("Docentes", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Docentes<br>
-									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="Colaboradores administrativos" <?php if (in_array("Colaboradores administrativos", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Colaboradores administrativos<br>
-									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="Egresados" <?php if (in_array("Egresados", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Egresados<br>
-									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="Directivos" <?php if (in_array("Directivos", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Directivos<br>
+									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="1" <?php if (in_array("1", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Estudiantes pregrado<br>
+									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="2" <?php if (in_array("2", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Estudiantes posgrado<br>
+									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="3" <?php if (in_array("3", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Docentes<br>
+									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="4" <?php if (in_array("4", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Colaboradores administrativos<br>
+									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="5" <?php if (in_array("5", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Egresados<br>
+									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="6" <?php if (in_array("6", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Directivos<br>
 									<br>
 									<br>									
 								</div>

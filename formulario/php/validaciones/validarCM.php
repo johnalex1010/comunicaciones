@@ -190,25 +190,25 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		}
 
 		/*===== Validar Ajunto de imagenes de referencia =====*/
-		if (!empty($_FILES['adjDocWEb']['name'])) {
-			if($_FILES['adjDocWEb']['type'] == "application/zip"){
-				if ($_FILES['adjDocWEb']['size'] > 8000000) {
-					unset($_SESSION['adjDocWEb1']);
-					unset($_SESSION['adjDocWEb2']);
-					unset($_SESSION['adjDocWEb3']);
-					unset($_SESSION['adjDocWEb4']);
+		if (!empty($_FILES['ajdImgCampa']['name'])) {
+			if($_FILES['ajdImgCampa']['type'] == "application/zip"){
+				if ($_FILES['ajdImgCampa']['size'] > 8000000) {
+					unset($_SESSION['ajdImgCampa1']);
+					unset($_SESSION['ajdImgCampa2']);
+					unset($_SESSION['ajdImgCampa3']);
+					unset($_SESSION['ajdImgCampa4']);
 					echo $error[1][4] = "El archivo adjunto excede el tamaño permitido de 1MB";
 				}else{
-					$_SESSION['adjDocWEb1'] = $_FILES['adjDocWEb']['type'];			
-					$_SESSION['adjDocWEb2'] = $_FILES['adjDocWEb']['size'];			
-					$_SESSION['adjDocWEb3'] = $_FILES['adjDocWEb']['name'];			
-					$_SESSION['adjDocWEb4'] = $_FILES['adjDocWEb']['tmp_name'];
+					$_SESSION['ajdImgCampa1'] = $_FILES['ajdImgCampa']['type'];			
+					$_SESSION['ajdImgCampa2'] = $_FILES['ajdImgCampa']['size'];			
+					$_SESSION['ajdImgCampa3'] = $_FILES['ajdImgCampa']['name'];			
+					$_SESSION['ajdImgCampa4'] = $_FILES['ajdImgCampa']['tmp_name'];
 				}
 			}else{
-				unset($_SESSION['adjDocWEb1']);
-				unset($_SESSION['adjDocWEb2']);
-				unset($_SESSION['adjDocWEb3']);
-				unset($_SESSION['adjDocWEb4']);
+				unset($_SESSION['ajdImgCampa1']);
+				unset($_SESSION['ajdImgCampa2']);
+				unset($_SESSION['ajdImgCampa3']);
+				unset($_SESSION['ajdImgCampa4']);
 				echo $error[1][4] = "El archivo adjunto debe ser un ZIP de máximo 1MB";
 			}
 		}else{

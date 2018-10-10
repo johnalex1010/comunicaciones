@@ -41,12 +41,12 @@
 		$adjunto = $_FILES['ajdImgCampa']['name'];
 		$id_objPublico = array();
 		$id_objPublico = $_SESSION['checkPublicoObj'];
-		echo $count = count($id_objPublico);
+		$count = count($id_objPublico);
 
 
 		for ($i=0; $i < $count; $i++) { 
 			//LLamo el pricedimiento almacenado
-			$a = "SELECT listPublico FROM t_objpublico WHERE id_objPublico=".$id_objPublico[$i]."";
+			$a = "SELECT id_objPublico FROM t_objpublico WHERE id_objPublico=".$id_objPublico[$i]."";
 			$ra = $conexion->query($a);
 			$rowa = mysqli_fetch_row($ra);
 			$public = $rowa[0];
@@ -57,8 +57,8 @@
 		echo codigoSeguimiento($newST);
 
 		//La eliminación de Sesión y cierre de conexión se debe hacer al final del envio de correo a solicitudes@usantotomas.edu.co
-		//mysqli_close($conexion);
-		//session_destroy();
+		mysqli_close($conexion);
+		session_destroy();
 	}else{
 		echo "Error en la creación de la solicitud, por favor";
 	}

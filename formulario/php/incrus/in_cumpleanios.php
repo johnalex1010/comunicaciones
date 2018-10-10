@@ -23,16 +23,16 @@
 		$id_usuario = 1;
 		$id_unidad = 1;
 		$id_categoria = 3;
-		$id_subCategoria = 1;
+		$id_subCategoria = 4;
 		$id_fase = 1;
 		$fecha = date('Y-m-d');
 		$comentario = 'Ingresa la Solicitud';
 		$adjunto = array();
-		$_FILES['adjMailInsti']['type'] = 		$_SESSION['adjMailInsti1'];
-		$_FILES['adjMailInsti']['size'] = 		$_SESSION['adjMailInsti2'];
-		$_FILES['adjMailInsti']['name'] = 		$_SESSION['adjMailInsti3'];
-		$_FILES['adjMailInsti']['tmp_name'] = 	$_SESSION['adjMailInsti4'];
-		$adjunto[] = $_FILES['adjMailInsti']['name'];
+		$_FILES['cumple']['type'] = 		$_SESSION['cumple1'];
+		$_FILES['cumple']['size'] = 		$_SESSION['cumple2'];
+		$_FILES['cumple']['name'] = 		$_SESSION['cumple3'];
+		$_FILES['cumple']['tmp_name'] = 	$_SESSION['cumple4'];
+		$adjunto[] = $_FILES['cumple']['name'];
 
 		$count = count($adjunto);
 

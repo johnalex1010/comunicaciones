@@ -10,7 +10,6 @@
 	require_once '../../php/funciones/tooltip.php';
 	require_once '../../php/funciones/campos.php';
 	require_once '../../php/validaciones/validarComInter.php';
-	require_once '../../php/conexion.php';
 ?>
 
 <!DOCTYPE html>
@@ -132,7 +131,7 @@
 										}else{
 											echo "<option value='".$_SESSION['condoFacDep']."' selected>".$_SESSION['condoFacDep']."</option>";
 										}
-										campoFacDep($conexion);
+										campoFacDep();
 									?>
 									</select>
 					  				<span class="bar"></span>

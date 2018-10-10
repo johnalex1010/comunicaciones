@@ -30,10 +30,6 @@
 
 		$adjunto = array();
 
-		$nomConme = $_SESSION['conmeNombre']; 	//Referencia t_tarjetas
-		$fechaConme = $_SESSION['conmeF']; 			//Referencia t_tarjetas
-		$msjConme = $_SESSION['conmeMSJ']; //Referencia t_tarjetas	
-
 		$count = count($adjunto);
 
 		for ($i=0; $i < $count; $i++) { 

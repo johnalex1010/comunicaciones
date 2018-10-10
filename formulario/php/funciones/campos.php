@@ -18,13 +18,12 @@ function codigoSeguimiento($newST){
 	return $cod;
 }
 /*--*/
-function campoFacDep(){
-	echo "<option value='1'>División de Ciencias de la Salud</option>";
-	echo "<option value='2'>División de Ciencias Jurídicas y Políticas</option>";
-	echo "<option value='3'>División de Ciencias Sociales</option>";
-	echo "<option value='4'>División de Ingenierías</option>";
-	echo "<option value='5'>Divisón de Filosofía y Teología</option>";
-	echo "<option value='6'>Instituto de Estudios Socio-Históricos</option>";
+function campoFacDep($con){
+	$r = "SELECT * FROM t_facDep";
+	$rst = $con->query($r);
+	while ($f = mysqli_fetch_array($rst)) {
+		echo "<option value='".$f['id_facDep']."'>".$f['facDep']."</option>";
+	}
 }
 function tipoEvento(){
 	echo "<option value='Tipo Evento 1'>Tipo Evento 1</option>";

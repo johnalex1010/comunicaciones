@@ -83,7 +83,7 @@
 								}else{
 									echo "<option value='".$_SESSION['campoFacDep']."' selected>".$facDep."</option>";
 								}
-								campoFacDep();
+								campoFacDep($conexion);
 							?>
 							</select>
 							<span class="bar"></span>

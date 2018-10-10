@@ -293,9 +293,10 @@ USE bdComunicaciones;
 	CREATE TABLE t_condolencias (
 		id_condolencias int NOT NULL AUTO_INCREMENT,
 		nombreDoliente varchar(100) NOT NULL,
-		nombreFallecido varchar(100) NOT NULL,
-		parentesco varchar(100) NOT NULL,
+		cargoDoliente varchar(50) NOT NULL,
 		id_facDep int NOT NULL,  /*Es FOREIGN KEY de la tabla t_facDep*/
+		nombreFallecido varchar(100) NOT NULL,
+		parentesco varchar(100) NOT NULL,		
 		lugarVelacion varchar(100) NOT NULL,
 		fechaVelacion DATE NOT NULL,
 		horaVelacion time NOT NULL,
@@ -627,6 +628,8 @@ DELIMITER //
         IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
         
         IN _nombreDoliente varchar(100),     /*Relación de la tabla t_condoloencias*/
+        IN _cargo varchar(50),				 /*Relación de la tabla t_condoloencias*/
+        IN _id_facDepCondo int,				 /*Relación de la tabla t_condoloencias*/
         IN _nombreFallecido varchar(100),    /*Relación de la tabla t_condoloencias*/
         IN _parentesco varchar(100),         /*Relación de la tabla t_condoloencias*/
         IN _lugarVelacion varchar(100),      /*Relación de la tabla t_condoloencias*/
@@ -639,7 +642,7 @@ DELIMITER //
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
             INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
-            INSERT INTO t_condolencias(nombreDoliente, nombreFallecido, parentesco, id_facDep, lugarVelacion, fechaVelacion, horaVelacion, numST) VALUES (_nombreDoliente, _nombreFallecido, _parentesco, _id_facDep, _lugarVelacion, _fechaVelacion, _horaVelacion, _numST);
+            INSERT INTO t_condolencias(nombreDoliente, cargoDoliente, id_facDep, nombreFallecido, parentesco, lugarVelacion, fechaVelacion, horaVelacion, numST) VALUES (_nombreDoliente, _cargo, _id_facDepCondo, _nombreFallecido, _parentesco, _lugarVelacion, _fechaVelacion, _horaVelacion, _numST);
         END//
 DELIMITER ;
 /*

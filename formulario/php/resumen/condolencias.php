@@ -6,6 +6,16 @@
 		header('Location:../../');
 	}
 	// session_destroy();
+	include_once '../conexion.php';
+	//Insertar ST. Solicitud de Capacitación Web
+	$facDep = "SELECT facDep FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep'];
+	$facDepCondo = "SELECT facDep FROM t_facdep WHERE id_facDep =".$_SESSION['condoFacDep'];
+	$rst = $conexion->query($facDep);
+	$rstCondo = $conexion->query($facDepCondo);
+	$row = mysqli_fetch_row($rst);
+	$rowCondo = mysqli_fetch_row($rstCondo);
+	$facDep = $row[0];
+	$facDepCondo = $rowCondo[0];
 
 ?>
 <!DOCTYPE html>
@@ -42,7 +52,7 @@
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Departamento/Facultad del solicitante</h3>
-			<p><?php echo $_SESSION['campoFacDep'] ?></p>
+			<p><?php echo $facDep ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Telefono de contacto del solicitante</h3>
@@ -60,7 +70,7 @@
 		</div>
 		<div class="celda celdax3">
 			<h3>Facultad / Dependencia</h3>
-			<p><?php echo $_SESSION['condoFacDep'] ?></p>
+			<p><?php echo $facDepCondo ?></p>
 		</div>	
 	</div>
 	<div class="cuadricula">
@@ -89,7 +99,7 @@
 	</div>
 	<div class="cuadricula">
 		<a class="btn btn-world" href="../../solicitud/unidadComIns/comInter.php">Atras</a>
-		<a class="btn btn-send" href="#">Enviar Solicitud</a>
+		<a class="btn btn-send" href="../incrus/in_condolencias.php">Enviar Solicitud</a>
 	</div>
 </div>
 </body>

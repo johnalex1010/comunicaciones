@@ -54,7 +54,7 @@
 						$a = "SELECT p.listPiezaImp FROM t_piezaimp AS p WHERE p.id_piezaImp =".$_SESSION['selectPiezaIMPEvento'][$i]."";
 
 						$rsta = $conexion->query($a);
-						$rowa = mysqli_fetch_array($rsta);
+						$rowa = mysqli_fetch_row($rsta);
 						echo "<tr>";
 						echo "<td>".$rowa[$i]."</td>";
 						echo "<td>".$_SESSION['acabadoIMPEvento'][$i]."</td>";

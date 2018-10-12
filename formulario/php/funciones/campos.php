@@ -25,41 +25,41 @@ function campoFacDep($con){
 		echo "<option value='".$f['id_facDep']."'>".$f['facDep']."</option>";
 	}
 }
-function tipoEvento(){
-	echo "<option value='Tipo Evento 1'>Tipo Evento 1</option>";
-	echo "<option value='Tipo Evento 2'>Tipo Evento 2</option>";
-	echo "<option value='Tipo Evento 3'>Tipo Evento 3</option>";
-	echo "<option value='Tipo Evento 4'>Tipo Evento 4</option>";
-	echo "<option value='Tipo Evento 5'>Tipo Evento 5</option>";
+function tipoEvento($con){
+	$r = "SELECT * FROM t_tipoevento";
+	$rst = $con->query($r);
+	while ($f = mysqli_fetch_array($rst)) {
+		echo "<option value='".$f['id_tipoEvento']."'>".$f['tipoEvento']."</option>";
+	}
 }
-function piezaImpEvento(){
-	echo "<option value='piezaImpEvetno 1'>piezaImpEvetno 1</option>";
-	echo "<option value='piezaImpEvetno 2'>piezaImpEvetno 2</option>";
-	echo "<option value='piezaImpEvetno 3'>piezaImpEvetno 3</option>";
-	echo "<option value='piezaImpEvetno 4'>piezaImpEvetno 4</option>";
-	echo "<option value='piezaImpEvetno 5'>piezaImpEvetno 5</option>";
-}
-
-function acabadosImpEvento(){
-	echo "<option value='acabados Evento 1'>acabados Evento 1</option>";
-	echo "<option value='acabados Evento 2'>acabados Evento 2</option>";
-	echo "<option value='acabados Evento 3'>acabados Evento 3</option>";
-	echo "<option value='acabados Evento 4'>acabados Evento 4</option>";
-	echo "<option value='acabados Evento 5'>acabados Evento 5</option>";
+function piezaImpEvento($con){
+	$r = "SELECT * FROM t_piezaimp";
+	$rst = $con->query($r);
+	while ($f = mysqli_fetch_array($rst)) {
+		echo "<option value='".$f['id_piezaImp']."'>".$f['listPiezaImp']."</option>";
+	}
 }
 
-function tipoPapelEvento(){
-	echo "<option value='Tipo papel Evento 1'>Tipo papel Evento 1</option>";
-	echo "<option value='Tipo papel Evento 2'>Tipo papel Evento 2</option>";
-	echo "<option value='Tipo papel Evento 3'>Tipo papel Evento 3</option>";
-	echo "<option value='Tipo papel Evento 4'>Tipo papel Evento 4</option>";
-	echo "<option value='Tipo papel Evento 5'>Tipo papel Evento 5</option>";
+function acabadosImpEvento($con){
+	$r = "SELECT * FROM t_acabadoimp";
+	$rst = $con->query($r);
+	while ($f = mysqli_fetch_array($rst)) {
+		echo "<option value='".$f['id_acabadoImp']."'>".$f['listAcabadoImp']."</option>";
+	}
 }
-function piezaDigEvento(){
-	echo "<option value='piezaDigEvetno 1'>piezaDigEvetno 1</option>";
-	echo "<option value='piezaDigEvetno 2'>piezaDigEvetno 2</option>";
-	echo "<option value='piezaDigEvetno 3'>piezaDigEvetno 3</option>";
-	echo "<option value='piezaDigEvetno 4'>piezaDigEvetno 4</option>";
-	echo "<option value='piezaDigEvetno 5'>piezaDigEvetno 5</option>";
+
+function tipoPapelEvento($con){
+	$r = "SELECT * FROM t_papelimp";
+	$rst = $con->query($r);
+	while ($f = mysqli_fetch_array($rst)) {
+		echo "<option value='".$f['id_papelImp']."'>".$f['listPapelImp']."</option>";
+	}
+}
+function piezaDigEvento($con){
+	$r = "SELECT * FROM t_piezadig";
+	$rst = $con->query($r);
+	while ($f = mysqli_fetch_array($rst)) {
+		echo "<option value='".$f['id_piezaDig']."'>".$f['listPiezaDig']."</option>";
+	}
 }
 ?>

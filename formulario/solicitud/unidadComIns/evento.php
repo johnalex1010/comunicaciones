@@ -11,6 +11,7 @@
 	require_once '../../php/funciones/tooltip.php';
 	require_once '../../php/funciones/campos.php';
 	require_once '../../php/validaciones/validarEvento.php';
+	require_once '../../php/conexion.php';
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +61,7 @@
 							}else{
 								echo "<option value='".$_SESSION['tipoEvento']."' selected>".$_SESSION['tipoEvento']."</option>";
 							}
-							tipoEvento();
+							tipoEvento($conexion);
 						?>
 						</select>
 		  				<span class="bar"></span>
@@ -220,7 +221,7 @@
 													}else{
 														echo "<option value='".$_SESSION['selectPiezaIMPEvento'][0]."' selected>".$_SESSION['selectPiezaIMPEvento'][0]."</option>";
 													}
-													piezaImpEvento();
+													piezaImpEvento($conexion);
 												?>
 												</select>
 								  				<span class="bar"></span>
@@ -236,7 +237,7 @@
 													}else{
 														echo "<option value='".$_SESSION['acabadoIMPEvento'][0]."' selected>".$_SESSION['acabadoIMPEvento'][0]."</option>";
 													}
-													acabadosImpEvento();
+													acabadosImpEvento($conexion);
 												?>
 												</select>
 								  				<span class="bar"></span>
@@ -252,7 +253,7 @@
 													}else{
 														echo "<option value='".$_SESSION['tipoPapelIMPEvento'][0]."' selected>".$_SESSION['tipoPapelIMPEvento'][0]."</option>";
 													}
-													tipoPapelEvento();
+													tipoPapelEvento($conexion);
 												?>
 												</select>
 								  				<span class="bar"></span>
@@ -288,7 +289,7 @@
 															}else{
 																echo "<option value='".$_SESSION['selectPiezaIMPEvento'][$i-1]."' selected>".$_SESSION['selectPiezaIMPEvento'][$i-1]."</option>";
 															}
-															piezaImpEvento();
+															piezaImpEvento($conexion);
 														?>
 														</select>
 										  				<span class="bar"></span>
@@ -304,7 +305,7 @@
 															}else{
 																echo "<option value='".$_SESSION['acabadoIMPEvento'][$i-1]."' selected>".$_SESSION['acabadoIMPEvento'][$i-1]."</option>";
 															}
-															acabadosImpEvento();
+															acabadosImpEvento($conexion);
 														?>
 														</select>
 										  				<span class="bar"></span>
@@ -320,7 +321,7 @@
 															}else{
 																echo "<option value='".$_SESSION['tipoPapelIMPEvento'][$i-1]."' selected>".$_SESSION['tipoPapelIMPEvento'][$i-1]."</option>";
 															}
-															tipoPapelEvento();
+															tipoPapelEvento($conexion);
 														?>
 														</select>
 										  				<span class="bar"></span>
@@ -370,7 +371,7 @@
 										}else{
 											echo "<option value='".$_SESSION['tipoDIGEvento'][0]."' selected>".$_SESSION['tipoDIGEvento'][0]."</option>";
 										}
-										piezaDigEvento();
+										piezaDigEvento($conexion);
 									?>
 									</select>
 					  				<span class="bar"></span>
@@ -395,7 +396,7 @@
 											}else{
 												echo "<option value='".$_SESSION['tipoDIGEvento'][$d-1]."' selected>".$_SESSION['tipoDIGEvento'][$d-1]."</option>";
 											}
-											piezaDigEvento();
+											piezaDigEvento($conexion);
 										?>
 										</select>
 						  				<span class="bar"></span>

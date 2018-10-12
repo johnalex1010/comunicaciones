@@ -6,6 +6,13 @@
 		header('Location:../../');
 	}
 	// session_destroy();
+	include_once '../conexion.php';
+	//Insertar ST. Solicitud de Capacitación Web
+	$facDep = "SELECT f.facDep, t.tipoEvento FROM t_facdep AS f, t_tipoevento AS t WHERE f.id_facDep =".$_SESSION['campoFacDep']." AND t.id_tipoEvento =".$_SESSION['tipoEvento']."";
+	$rst = $conexion->query($facDep);
+	$row = mysqli_fetch_row($rst);
+	// $row[0];
+	// $row[1];
 
 ?>
 <!DOCTYPE html>
@@ -30,6 +37,57 @@
 	<h2>Resumen de solicitud de evento</h2>
 	<br>
 	<div class="cuadricula">
+		<div class="celda celdax70r">
+			<h3>Piezas Impresas</h3>
+			<table>
+				<tr>
+					<th>Pieza</th>
+					<th>Acabados</th>
+					<th>Tipo de papel</th>
+					<th>Cantidad</th>
+				</tr>
+				<?php
+					$im = count($_SESSION['selectPiezaIMPEvento']);
+				if ($_SESSION['selectPiezaIMPEvento']) {
+
+					for ($i=0; $i < $im ; $i++) {
+						$a = "SELECT p.listPiezaImp FROM t_piezaimp AS p WHERE p.id_piezaImp =".$_SESSION['selectPiezaIMPEvento'][$i]."";
+
+						$rsta = $conexion->query($a);
+						$rowa = mysqli_fetch_array($rsta);
+						echo "<tr>";
+						echo "<td>".$rowa[$i]."</td>";
+						echo "<td>".$_SESSION['acabadoIMPEvento'][$i]."</td>";
+						echo "<td>".$_SESSION['tipoPapelIMPEvento'][$i]."</td>";
+						echo "<td>".$_SESSION['cantidadIMPEvento'][$i]."</td>";
+						echo "</tr>";
+
+					}
+				}else{
+					echo "No hay solicitud Impresa";
+				}
+
+				?>
+			</table>
+		</div>
+		<div class="celda celdax30r">
+			<h3>Piezas Digitales</h3>
+			<ul>
+				<?php
+					$dg = count($_SESSION['tipoDIGEvento']);
+				if ($_SESSION['tipoDIGEvento']) {
+					for ($i=0; $i < $dg ; $i++) { 
+						echo "<li>".$_SESSION['tipoDIGEvento'][$i]."</li>";
+					}
+				}else{
+					echo "No hay solicitud Digital";
+				}
+
+				?>
+			</ul>
+		</div>
+	</div>
+	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Nombre del solicitante</h3>
 			<p><?php echo $_SESSION['campoNombre'] ?></p>
@@ -42,7 +100,7 @@
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Departamento/Facultad del solicitante</h3>
-			<p><?php echo $_SESSION['campoFacDep'] ?></p>
+			<p><?php echo $row[0] ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Telefono de contacto del solicitante</h3>
@@ -52,7 +110,7 @@
 	<div class="cuadricula">
 		<div class="celda celdax3">
 			<h3>Tipo de evento</h3>
-			<p><?php echo $_SESSION['tipoEvento'] ?></p>
+			<p><?php echo $row[1] ?></p>
 		</div>
 		<div class="celda celdax3">
 			<h3>Nombre del evento</h3>
@@ -190,7 +248,7 @@
 	</div>
 	<div class="cuadricula">
 		<a class="btn btn-world" href="../../solicitud/unidadComIns/evento.php">Atras</a>
-		<a class="btn btn-send" href="#">Enviar Solicitud</a>
+		<a class="btn btn-send" href="../incrus/in_evento.php">Enviar Solicitud</a>
 	</div>
 </div>
 </body>

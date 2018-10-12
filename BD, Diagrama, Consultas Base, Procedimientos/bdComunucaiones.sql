@@ -203,6 +203,25 @@ USE bdComunicaciones;
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
+	/*--Tabla de cubrimiento*/
+	CREATE TABLE t_cubrimiento(
+		id_cubrimiento int NOT NULL AUTO_INCREMENT,
+		tipoCubrimiento varchar(50) NOT NULL,
+		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios Colores(3) para uns unica ST*/
+		PRIMARY KEY (id_cubrimiento),
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
+	);
+
+	/*--Tabla de requerimientoWeb*/
+	CREATE TABLE t_requerimientoWeb(
+		id_requerimientoWeb int NOT NULL AUTO_INCREMENT,
+		tipoWeb varchar(20) NOT NULL,
+		justificacionWeb TEXT NOT NULL,
+		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios Colores(3) para uns unica ST*/
+		PRIMARY KEY (id_requerimientoWeb),
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
+	);
+
 	/*--Tablas de piezas digitales*/
 	CREATE TABLE t_resPiezaDig(
 		id_resPiezaDig int NOT NULL AUTO_INCREMENT,
@@ -255,17 +274,15 @@ USE bdComunicaciones;
 
 	/*--Tablas de eventos*/
 	CREATE TABLE t_evento (
-		id_evento int NOT NULL AUTO_INCREMENT,		
+		id_evento int NOT NULL AUTO_INCREMENT,
+		id_tipoEvento int NOT NULL, /*Es FOREIGN KEY de la tabla t_tipo*/
 		nombreEvento varchar(100) NOT NULL,
 		lugar varchar(100) NOT NULL,
 		fechaInicio DATE NOT NULL,
 		fechaFin DATE NOT NULL,
 		hora varchar(10) NOT NULL,
 		numTIC varchar(100) NOT NULL,
-		tipoWeb varchar(100) NOT NULL,
-		justificacionWeb TEXT NOT NULL,
-		txtLineamientos TEXT NOT NULL,
-		id_tipoEvento int NOT NULL, /*Es FOREIGN KEY de la tabla t_tipo*/
+		txtLineamientos TEXT NOT NULL,		
 		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
 		PRIMARY KEY (id_evento),
 		FOREIGN KEY (id_tipoEvento) REFERENCES t_tipoEvento(id_tipoEvento),
@@ -471,27 +488,57 @@ USE bdComunicaciones;
 	/*--t_piezaDig*/
 	INSERT INTO t_piezaDig VALUES
 	(1, "Tipo Pieza Digital 1"),
-	(2, "Tipo Pieza Digital 2");
+	(2, "Tipo Pieza Digital 2"),
+	(3, "Tipo Pieza Digital 3"),
+	(4, "Tipo Pieza Digital 4"),
+	(5, "Tipo Pieza Digital 5"),
+	(6, "Tipo Pieza Digital 6"),
+	(7, "Tipo Pieza Digital 7"),
+	(8, "Tipo Pieza Digital 8");
 
 	/*--t_piezaImp*/
 	INSERT INTO t_piezaImp VALUES
 	(1, "Tipo Pieza Impresa 1"),
-	(2, "Tipo Pieza Impresa 2");
+	(2, "Tipo Pieza Impresa 2"),
+	(3, "Tipo Pieza Impresa 3"),
+	(4, "Tipo Pieza Impresa 4"),
+	(5, "Tipo Pieza Impresa 5"),
+	(6, "Tipo Pieza Impresa 6"),
+	(7, "Tipo Pieza Impresa 7"),
+	(8, "Tipo Pieza Impresa 8");
 
 	/*--t_medidaImp*/
 	INSERT INTO t_medidaImp VALUES
 	(1, "Tipo Medida Impresa 1"),
-	(2, "Tipo Medida Impresa 2");
+	(2, "Tipo Medida Impresa 2"),
+	(3, "Tipo Medida Impresa 3"),
+	(4, "Tipo Medida Impresa 4"),
+	(5, "Tipo Medida Impresa 5"),
+	(6, "Tipo Medida Impresa 6"),
+	(7, "Tipo Medida Impresa 7"),
+	(8, "Tipo Medida Impresa 8");
 
 	/*--t_acabadoImp*/
 	INSERT INTO t_acabadoImp VALUES
-	(1, "Tipo Acabado Impresa 1"),
-	(2, "Tipo Acabado Impresa 2");
+	(1, "Tipo Acabados Impresa 1"),
+	(2, "Tipo Acabados Impresa 2"),
+	(3, "Tipo Acabados Impresa 3"),
+	(4, "Tipo Acabados Impresa 4"),
+	(5, "Tipo Acabados Impresa 5"),
+	(6, "Tipo Acabados Impresa 6"),
+	(7, "Tipo Acabados Impresa 7"),
+	(8, "Tipo Acabados Impresa 8");
 
 	/*--t_papelImp*/
 	INSERT INTO t_papelImp VALUES
 	(1, "Tipo Papel Impresa 1"),
-	(2, "Tipo Papel Impresa 2");
+	(2, "Tipo Papel Impresa 2"),
+	(3, "Tipo Papel Impresa 3"),
+	(4, "Tipo Papel Impresa 4"),
+	(5, "Tipo Papel Impresa 5"),
+	(6, "Tipo Papel Impresa 6"),
+	(7, "Tipo Papel Impresa 7"),
+	(8, "Tipo Papel Impresa 8");
 
 	/*--t_permiso*/
 	INSERT INTO t_permiso VALUES
@@ -521,14 +568,28 @@ USE bdComunicaciones;
 
 	/*--t_facDep*/
 	INSERT INTO t_facDep VALUES
-	(1, "Depto de Comunicaciones"),
-	(2, "Depto de Bienestar"),
-	(3, "Facultad de Economía"),
-	(4, "Facultad de Ingeniería de Telecomunicaciones");
-
+	(1, "Departamento Departamento 1"),
+	(2, "Departamento Departamento 2"),
+	(3, "Departamento Departamento 3"),
+	(4, "Departamento Departamento 4"),
+	(5, "Departamento Departamento 5"),
+	(6, "Departamento Departamento 6"),
+	(7, "Departamento Departamento 7"),
+	(8, "Departamento Departamento 8"),
+	(9, "Departamento Departamento 9"),
+	(10, "Facultades Facultades  10"),
+	(12, "Facultades Facultades  12"),
+	(13, "Facultades Facultades  13"),
+	(14, "Facultades Facultades  14"),
+	(15, "Facultades Facultades  15"),
+	(16, "Facultades Facultades  16"),
+	(17, "Facultades Facultades  17"),
+	(18, "Facultades Facultades  18"),
+	(19, "Facultades Facultades  19"),
+	(20, "Facultades Facultades  20");
 
 	/*--t_solicitud*/
-	INSERT INTO t_solicitud VALUES ("ST000", "Solicitud Generada por el sistema", "No debes ser tenida encuenta", 1, "000");
+	INSERT INTO t_solicitud VALUES ("ST000", "Solicitud Generada por el sistema", "No debe ser tenida encuenta", 1, "000");
 
 
 /*
@@ -931,23 +992,20 @@ DELIMITER //
         IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
         IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
 
+        IN _id_tipoEvento int,              /*Relación de la tabla t_tipoevento*/
         IN _nombreEvento varchar(100),      /*Relación de la tabla t_evento*/
         IN _lugar varchar(100),             /*Relación de la tabla t_evento*/
         IN _fechaInicio DATE,               /*Relación de la tabla t_evento*/
         IN _fechaFin DATE,                  /*Relación de la tabla t_evento*/
         IN _hora varchar(10),               /*Relación de la tabla t_evento*/
         IN _numTIC varchar(100),            /*Relación de la tabla t_evento*/
-        IN _tipoWeb varchar(100),           /*Relación de la tabla t_evento*/
-        IN _justificacionWeb TEXT,          /*Relación de la tabla t_evento*/
-        IN _txtLineamientos TEXT,           /*Relación de la tabla t_evento*/
-        IN _id_tipoEvento int               /*Relación de la tabla t_tipoevento*/
-
+        IN _txtLineamientos TEXT            /*Relación de la tabla t_evento*/
     )
         BEGIN
             INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
             INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
-            INSERT INTO t_evento(nombreEvento, lugar, fechaInicio, fechaFin, hora, numTIC, tipoWeb, justificacionWeb, txtLineamientos, id_tipoEvento, numST) VALUES (_nombreEvento, _lugar, _fechaInicio, _fechaFin, _hora, _numTIC, _tipoWeb, _justificacionWeb, _txtLineamientos, _id_tipoEvento, _numST);
+            INSERT INTO t_evento(id_tipoEvento, nombreEvento, lugar, fechaInicio, fechaFin, hora, numTIC, txtLineamientos, numST) VALUES (_id_tipoEvento, _nombreEvento, _lugar, _fechaInicio, _fechaFin, _hora, _numTIC, _txtLineamientos, _numST);
         END//
 DELIMITER ;

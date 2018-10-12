@@ -50,14 +50,6 @@ SELECT
         AND S.numST = 'ST014'
     ORDER BY TRAS.id_trasabilidad DESC LIMIT 1;
 
-
-
-
-
-
-
-
-
 SELECT
     TRAS.numST,
     U.usuario,
@@ -82,10 +74,6 @@ WHERE
     AND TRAS.id_usuario=U.id_usuario
 GROUP BY TRAS.numST DESC
 ORDER BY id_trasabilidad DESC;
-
-
-
-
 
 SELECT 
     T.id_trasabilidad,
@@ -501,24 +489,21 @@ DELIMITER //
         IN _fecha DATE,                     /*Relación de la tabla t_trasabilidad*/
         IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
 
+        IN _id_tipoEvento int,              /*Relación de la tabla t_tipoevento*/
         IN _nombreEvento varchar(100),      /*Relación de la tabla t_evento*/
         IN _lugar varchar(100),             /*Relación de la tabla t_evento*/
         IN _fechaInicio DATE,               /*Relación de la tabla t_evento*/
         IN _fechaFin DATE,                  /*Relación de la tabla t_evento*/
         IN _hora varchar(10),               /*Relación de la tabla t_evento*/
         IN _numTIC varchar(100),            /*Relación de la tabla t_evento*/
-        IN _tipoWeb varchar(100),           /*Relación de la tabla t_evento*/
-        IN _justificacionWeb TEXT,          /*Relación de la tabla t_evento*/
-        IN _txtLineamientos TEXT,           /*Relación de la tabla t_evento*/
-        IN _id_tipoEvento int               /*Relación de la tabla t_tipoevento*/
-
+        IN _txtLineamientos TEXT            /*Relación de la tabla t_evento*/
     )
         BEGIN
             INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
             INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
-            INSERT INTO t_evento(nombreEvento, lugar, fechaInicio, fechaFin, hora, numTIC, tipoWeb, justificacionWeb, txtLineamientos, id_tipoEvento, numST) VALUES (_nombreEvento, _lugar, _fechaInicio, _fechaFin, _hora, _numTIC, _tipoWeb, _justificacionWeb, _txtLineamientos, _id_tipoEvento, _numST);
+            INSERT INTO t_evento(id_tipoEvento, nombreEvento, lugar, fechaInicio, fechaFin, hora, numTIC, txtLineamientos, numST) VALUES (_id_tipoEvento, _nombreEvento, _lugar, _fechaInicio, _fechaFin, _hora, _numTIC, _txtLineamientos, _numST);
         END//
 DELIMITER ;
 

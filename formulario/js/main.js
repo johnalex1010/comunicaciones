@@ -203,27 +203,38 @@ tippy('.tooltip');
 SELECT OPTION DE IMPRESOS
 =========================
 */
-var piezaImpEvetno = "<option value='piezaImpEvetno1' >piezaImpEvetno1</option>";
-piezaImpEvetno += "<option value='piezaImpEvetno2' >piezaImpEvetno2</option>";
-piezaImpEvetno += "<option value='piezaImpEvetno3' >piezaImpEvetno3</option>";
+var piezaImpEvetno = "<option value='1' >piezaImpEvetno1</option>";
+piezaImpEvetno += "<option value='2'>piezaImpEvetno2</option>";
+piezaImpEvetno += "<option value='3'>piezaImpEvetno3</option>";
+piezaImpEvetno += "<option value='4'>piezaImpEvetno4</option>";
+piezaImpEvetno += "<option value='5'>piezaImpEvetno5</option>";
+piezaImpEvetno += "<option value='6'>piezaImpEvetno6</option>";
 
-var acabadosImpEvento = "<option value='acabadosImpEvento1' >acabadosImpEvento1</option>";
-acabadosImpEvento += "<option value='acabadosImpEvento2' >acabadosImpEvento2</option>";
-acabadosImpEvento += "<option value='acabadosImpEvento3' >acabadosImpEvento3</option>";
+var acabadosImpEvento = "<option value='1' >acabadosImpEvento1</option>";
+acabadosImpEvento += "<option value='2'>acabadosImpEvento2</option>";
+acabadosImpEvento += "<option value='3'>acabadosImpEvento3</option>";
+acabadosImpEvento += "<option value='4'>acabadosImpEvento4</option>";
+acabadosImpEvento += "<option value='5'>acabadosImpEvento5</option>";
+acabadosImpEvento += "<option value='6'>acabadosImpEvento6</option>";
 
-var tipoPapelEvento = "<option value='tipoPapelEvento1' >tipoPapelEvento1</option>";
-tipoPapelEvento += "<option value='tipoPapelEvento2' >tipoPapelEvento2</option>";
-tipoPapelEvento += "<option value='tipoPapelEvento3' >tipoPapelEvento3</option>";
+var tipoPapelEvento = "<option value='1' >tipoPapelEvento1</option>";
+tipoPapelEvento += "<option value='2' >tipoPapelEvento2</option>";
+tipoPapelEvento += "<option value='3' >tipoPapelEvento3</option>";
+tipoPapelEvento += "<option value='4' >tipoPapelEvento4</option>";
+tipoPapelEvento += "<option value='5' >tipoPapelEvento5</option>";
+tipoPapelEvento += "<option value='6' >tipoPapelEvento6</option>";
 
 /*
 ========================
 SELECT OPTION DE DIGITAL
 ========================
 */
-var tipoDigEvento = "<option value='tipo digital 1' >tipo digital 1</option>";
-tipoDigEvento += "<option value='tipo digital 2' >tipo digital 2</option>";
-tipoDigEvento += "<option value='tipo digital 3' >tipo digital 3</option>";
-tipoDigEvento += "<option value='tipo digital 4' >tipo digital 4</option>";
+var tipoDigEvento = "<option value='1' >tipo digital 1</option>";
+tipoDigEvento += "<option value='2' >tipo digital 2</option>";
+tipoDigEvento += "<option value='3' >tipo digital 3</option>";
+tipoDigEvento += "<option value='4' >tipo digital 4</option>";
+tipoDigEvento += "<option value='5' >tipo digital 5</option>";
+tipoDigEvento += "<option value='6' >tipo digital 6</option>";
 
 /*
 ========================

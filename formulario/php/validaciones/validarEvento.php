@@ -80,6 +80,8 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			}else{
 				$error[6] = "El campo debe ser numerico";
 			}
+		}else{
+			unset($_SESSION['numTICEvento']);
 		}
  
 		/*===== Validar Adjunto Adicionales =====*/

@@ -78,7 +78,7 @@
 		</div>
 		<div class="celda celdax2">
 			<h3>Palabras clave (Keywords)</h3>
-			<p><?php echo $_SESSION['keyCama'] ?></p>
+			<p><?php echo $_SESSION['keyCampa'] = (!empty($_SESSION['keyCampa'])) ? $_SESSION['keyCampa'] : "No hay palabras clave."; ?></p>
 		</div>
 	</div>
 

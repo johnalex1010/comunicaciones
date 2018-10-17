@@ -952,6 +952,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 .resumen .cuadricula .celda{
   background: #EFF4FA;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  text-align: justify;
 }
 .resumen .cuadricula .celda h3{
   font-family: 'Encode Sans Condensed', sans-serif;

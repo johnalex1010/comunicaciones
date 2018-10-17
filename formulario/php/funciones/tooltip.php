@@ -378,8 +378,8 @@ function fFinCampaT(){
 function ajdImgCampaT(){
 	echo "Soy ajdImgCampaT";
 }
-function keyCamaT(){
-	echo "Soy keyCamaT";
+function keyCampaT(){
+	echo "Soy keyCampaT";
 }
 
 /*

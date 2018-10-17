@@ -209,8 +209,8 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php keyCamaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
-									<textarea name="keyCama" maxlength="500" id=""><?php echo $_SESSION['keyCama'] ?></textarea>
+								<div class="group tooltip" title="<?php keyCampaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
+									<textarea name="keyCampa" maxlength="500" id=""><?php echo $_SESSION['keyCampa'] ?></textarea>
 					  				<span class="bar"></span>
 					  				<label>Palabras clave <span class="error"><?php echo $error[1][7] = (isset($error[1][7])) ? $error[1][7] : ""; ?></span></label>
 					  			</div>

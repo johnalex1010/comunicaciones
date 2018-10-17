@@ -46,13 +46,6 @@ USE bdComunicaciones;
 		PRIMARY KEY (id_piezaImp)
 	);
 
-	/*--Tabla Medidas Impresas*/
-	CREATE TABLE t_medidaImp (
-		id_medidaImp int NOT NULL AUTO_INCREMENT,
-		listMedidaImp varchar(30) NOT NULL,
-		PRIMARY KEY (id_medidaImp)
-	);
-
 	/*--Tabla Acabados en Impresos*/
 	CREATE TABLE t_acabadoImp (
 		id_acabadoImp int NOT NULL AUTO_INCREMENT,
@@ -236,13 +229,12 @@ USE bdComunicaciones;
 	CREATE TABLE t_resPiezaImp(
 		id_resPiezaImp int NOT NULL AUTO_INCREMENT,
 		id_piezaImp int NOT NULL, /*Es FOREIGN KEY de la tabla t_piezaImp*/
-		id_medidaImp int NOT NULL, /*Es FOREIGN KEY de la tabla t_medidaImp*/
 		id_acabadoImp int NOT NULL, /*Es FOREIGN KEY de la tabla t_acabadoImp*/
 		id_papelImp int NOT NULL, /*Es FOREIGN KEY de la tabla t_papelImp*/
+		cantidad int NOT NULL,
 		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varias piezas impresas para una unica ST*/
 		PRIMARY KEY (id_resPiezaImp),
 		FOREIGN KEY (id_piezaImp) REFERENCES t_piezaImp(id_piezaImp),
-		FOREIGN KEY (id_medidaImp) REFERENCES t_medidaImp(id_medidaImp),
 		FOREIGN KEY (id_acabadoImp) REFERENCES t_acabadoImp(id_acabadoImp),
 		FOREIGN KEY (id_papelImp) REFERENCES t_papelImp(id_papelImp),
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
@@ -506,17 +498,6 @@ USE bdComunicaciones;
 	(6, "Tipo Pieza Impresa 6"),
 	(7, "Tipo Pieza Impresa 7"),
 	(8, "Tipo Pieza Impresa 8");
-
-	/*--t_medidaImp*/
-	INSERT INTO t_medidaImp VALUES
-	(1, "Tipo Medida Impresa 1"),
-	(2, "Tipo Medida Impresa 2"),
-	(3, "Tipo Medida Impresa 3"),
-	(4, "Tipo Medida Impresa 4"),
-	(5, "Tipo Medida Impresa 5"),
-	(6, "Tipo Medida Impresa 6"),
-	(7, "Tipo Medida Impresa 7"),
-	(8, "Tipo Medida Impresa 8");
 
 	/*--t_acabadoImp*/
 	INSERT INTO t_acabadoImp VALUES

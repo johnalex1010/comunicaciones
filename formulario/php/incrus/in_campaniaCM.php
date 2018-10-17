@@ -33,7 +33,7 @@
 		$objetivo = $_SESSION['objCampa'];	
 		$fechaHoraIni = $_SESSION['fIniCampa'];
 		$fechaHoraFin = $_SESSION['fFinCampa'];
-		$palabrasClaves = $_SESSION['keyCama'];
+		$palabrasClaves = $_SESSION['keyCampa'];
 		$_FILES['ajdImgCampa']['type'] = 		$_SESSION['ajdImgCampa1'];
 		$_FILES['ajdImgCampa']['size'] = 		$_SESSION['ajdImgCampa2'];
 		$_FILES['ajdImgCampa']['name'] = 		$_SESSION['ajdImgCampa3'];

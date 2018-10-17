@@ -11,9 +11,6 @@
 	$facDep = "SELECT f.facDep, t.tipoEvento FROM t_facdep AS f, t_tipoevento AS t WHERE f.id_facDep =".$_SESSION['campoFacDep']." AND t.id_tipoEvento =".$_SESSION['tipoEvento']."";
 	$rst = $conexion->query($facDep);
 	$row = mysqli_fetch_row($rst);
-	// $row[0];
-	// $row[1];
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -187,7 +184,7 @@
 						$co = count($_SESSION['colorEvento']);
 
 						for ($c=0; $c < $co; $c++) { 
-							echo "<p>Color sugerido".($c+1).": <b style='color:".$_SESSION['colorEvento'][$c]."'>". strtoupper($_SESSION['colorEvento'][$c])."</b></p>";
+							echo "<p>Color sugerido ".($c+1).": <b style='color:".$_SESSION['colorEvento'][$c]."'>". strtoupper($_SESSION['colorEvento'][$c])."</b></p>";
 						}
 					}
 
@@ -200,12 +197,14 @@
 				if (isset($_SESSION['checkPublicoObj'])) {
 					$dg = count($_SESSION['checkPublicoObj']);
 					for ($i=0; $i < $dg ; $i++) { 
-						echo "<li>".$_SESSION['checkPublicoObj'][$i]."</li>";
+						$a = "SELECT listPublico FROM t_objpublico WHERE id_objPublico=".$_SESSION['checkPublicoObj'][$i]."";
+						$ra = $conexion->query($a);
+						$rowa = mysqli_fetch_row($ra);
+						echo "<li>".$rowa[0]."</li>";
 					}
 				}else{
 					echo "No hay Publico objetivo";
 				}
-
 				?>
 			</ul>
 		</div>

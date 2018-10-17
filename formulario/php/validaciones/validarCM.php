@@ -248,19 +248,19 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		}
 
 		/*===== Validar Palabras clave campaña =====*/
-		if (isset($_POST['keyCama']) && !empty($_POST['keyCama'])) {
-			unset( $_SESSION["keyCama"] );
-			if (strlen($_POST['keyCama'])<=510) {
-				$_SESSION['keyCama'] = $_POST['keyCama'];
+		if (isset($_POST['keyCampa']) && !empty($_POST['keyCampa'])) {
+			unset( $_SESSION["keyCampa"] );
+			if (strlen($_POST['keyCampa'])<=510) {
+				$_SESSION['keyCampa'] = $_POST['keyCampa'];
 			}else{
-				$_SESSION['keyCama'] = $_POST['keyCama'];
+				$_SESSION['keyCampa'] = $_POST['keyCampa'];
 				$error[1][7] = "Son máximo 500 caracteres";
 			}
 		}else{
 			//$error[1][7] = "Campo obligatorio";
 		}
 
-		/*===== Validar Público objetivp =====*/
+		/*===== Validar Público objetivo =====*/
 		if (isset($_POST['checkPublicoObj']) || !empty($_POST['checkPublicoObj'])) {
 			unset( $_SESSION["echoAM"] );
 			$_SESSION['checkPublicoObj'] = $_POST['checkPublicoObj'];
@@ -270,7 +270,6 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				$_SESSION['echoAM'] .= $checkPublicoObj[$tcacont]."<br>";	
 			}
 		}else{
-
 			unset( $_SESSION["echoAM"] );
 			unset( $_SESSION["checkPublicoObj"] );
 			$error[1][8] = "Debe seleccionar al menos una  opción.";

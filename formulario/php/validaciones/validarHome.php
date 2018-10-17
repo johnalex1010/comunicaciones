@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
 	}else{
 		$campoFacDep = $_POST['campoFacDep'];
 		$_SESSION['campoFacDep'] = $campoFacDep;
-		$facDep = "SELECT * FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep']; // Selescciona la ultima ST igresada en la BD
+		$facDep = "SELECT * FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep'];
 		$rst = $conexion->query($facDep);
 		$row = mysqli_fetch_row($rst);
 		$idfacDep = $row[0];
@@ -54,11 +54,11 @@ if (isset($_POST['submit'])) {
 		$error[3] = "El campo es obligatorio";
 	}else{
 		$campoTel = $_POST['campoTel'];
-		if (!filter_var($_POST['campoTel'], FILTER_VALIDATE_INT) === false) {		    
+		if (is_numeric($_POST['campoTel'])) {
 			$_SESSION['campoTel'] = $campoTel;
-		} else {
-		    $_SESSION['campoTel'] = $campoTel;
-			$error[3] = "Solo se aceptan numeros";
+		}else{
+			$_SESSION['campoTel'] = $campoTel;
+			$error[3] = "Solo se aceptan numeros (Sin espacios)";
 		}
 	}
 

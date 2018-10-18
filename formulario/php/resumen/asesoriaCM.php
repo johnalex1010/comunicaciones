@@ -32,7 +32,7 @@
 </head>
 <body>
 <div class="content resumen">
-	<h2>Resumen de solicitud de Creación campañas</h2>
+	<h2>Resumen de solicitud de Asesorías</h2>
 	<br>
 	<div class="cuadricula">
 		<div class="celda celdax2">

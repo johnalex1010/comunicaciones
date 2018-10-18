@@ -30,7 +30,8 @@
 
 		$nombreCam = $_SESSION['nomCampa'];
 		$justificacion = $_SESSION['justiCampa'];
-		$objetivo = $_SESSION['objCampa'];	
+		$objetivo = $_SESSION['objCampa'];
+		$descripcion = $_SESSION['descripCampa']
 		$fechaHoraIni = $_SESSION['fIniCampa'];
 		$fechaHoraFin = $_SESSION['fFinCampa'];
 		$palabrasClaves = $_SESSION['keyCampa'];
@@ -50,7 +51,7 @@
 			$ra = $conexion->query($a);
 			$rowa = mysqli_fetch_row($ra);
 			$public = $rowa[0];
-			$in = 'CALL in_SolicitudCampaniaCM("'.$newST.'","'.$nombre.'","'.$email.'","'.$id_facDep.'","'.$telefono.'","'.$id_usuario.'","'.$id_unidad.'","'.$id_categoria.'","'.$id_subCategoria.'","'.$id_fase.'","'.$fecha.'","'.$comentario.'","'.$nombreCam.'","'.$justificacion.'","'.$objetivo.'","'.$fechaHoraIni.'","'.$fechaHoraFin.'","'.$palabrasClaves.'","'.$adjunto.'","'.$public.'")';
+			$in = 'CALL in_SolicitudCampaniaCM("'.$newST.'","'.$nombre.'","'.$email.'","'.$id_facDep.'","'.$telefono.'","'.$id_usuario.'","'.$id_unidad.'","'.$id_categoria.'","'.$id_subCategoria.'","'.$id_fase.'","'.$fecha.'","'.$comentario.'","'.$nombreCam.'","'.$justificacion.'","'.$objetivo.'","'.$descripcion.'","'.$fechaHoraIni.'","'.$fechaHoraFin.'","'.$palabrasClaves.'","'.$adjunto.'","'.$public.'")';
 			$insert = $conexion->query($in); //Ejecuto el procedimiento
 		}
 

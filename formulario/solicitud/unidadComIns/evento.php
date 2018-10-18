@@ -143,18 +143,10 @@
 		  		<div class="celda celdax2 p1" style="display: <?php echo $display = (isset($_SESSION['tipoCubAUEvento'])) ? "block" : "none"; ?>">
 					<div class="contentCheck checkboxAudioVisual">
 						<p class="colorTxt tooltip" title="<?php tipoCubAUEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Que tipo de cubrimiento audiovisual requiere? </p>
-						<p>
-							<input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='Fotográfia' <?php if (in_array("Fotográfia", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Fotográfia
-						</p>
-						<p>
-							<input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='Zona T' <?php if (in_array("Zona T", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Zona T
-						</p>
-						<p>
-							<input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='Maestro de ceremonia' <?php if (in_array("Maestro de ceremonia", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Maestro de ceremonia
-						</p>
-						<p>
-							<input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='Redes sociales y divulgación de piezas' <?php if (in_array("Redes sociales y divulgación de piezas", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Redes sociales y divulgación de piezas
-						</p>
+						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='1' <?php if (in_array("1", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Fotográfia</p>
+						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='2' <?php if (in_array("2", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Zona T</p>
+						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='3' <?php if (in_array("3", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Maestro de ceremonia</p>
+						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='4' <?php if (in_array("4", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Redes sociales y divulgación de piezas</p>
 					</div>
 				</div>
 		  		<div class="celda celdax2 p2" style="display: <?php echo $display = (isset($_SESSION['tipoCubWEbEvento'])) ? "block" : "none"; ?>">
@@ -169,7 +161,7 @@
 					</div>
 					<br><br>
 					<div class="group tooltip" title="<?php jutifiCubWEbEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
-						<textarea name="jutifiCubWEbEvento" id=""><?php echo $_SESSION['jutifiCubWEbEvento'] ?></textarea>
+						<textarea name="jutifiCubWEbEvento" id="" maxlength="500"><?php echo $_SESSION['jutifiCubWEbEvento'] ?></textarea>
 		  				<span class="bar"></span>
 		  				<label>Justificación del sitio web <span class="error"><?php echo $error[8] = (isset($error[8])) ? $error[8] : ""; ?></span></label>
 		  			</div>
@@ -436,7 +428,7 @@
 		  	<div class="cuadricula">
 		  		<div class="celda celdax60r">
 		  			<div class="group tooltip" title="<?php lineamientoGraficosT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
-						<textarea name="lineamientoGraficos" id=""><?php echo $_SESSION['lineamientoGraficos'] ?></textarea>
+						<textarea name="lineamientoGraficos" id="" maxlength="500"><?php echo $_SESSION['lineamientoGraficos'] ?></textarea>
 		  				<span class="bar"></span>
 		  				<label>Lineamientos gráficos <span class="error"><?php echo $error[11] = (isset($error[11])) ? $error[11] : ""; ?></span></label>
 		  			</div>

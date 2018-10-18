@@ -388,6 +388,7 @@ USE bdComunicaciones;
 		nombreCam varchar(200) NOT NULL,
 		justificacion TEXT NOT NULL,
 		objetivo TEXT NOT NULL,
+		descripcion TEXT NOT NULL,
 		fechaHoraIni DATE NOT NULL,
 		fechaHoraFin DATE NOT NULL,
 		palabrasClaves TEXT NOT NULL,
@@ -458,6 +459,13 @@ USE bdComunicaciones;
 	(1, "En desarrrollo"),
 	(2, "Aprobación por parte del cliente"),
 	(3, "Finalización y entrega de material");
+
+	/*--t_audioVisual*/
+	INSERT INTO t_audioVisual VALUES
+	(1, "Fotográfia"),
+	(2, "Zona T"),
+	(3, "Maestro de ceremonia"),
+	(4, "Redes sociales y divulgación de piezas");
 
 	/*--t_objPublico*/
 	INSERT INTO t_objPublico VALUES
@@ -888,6 +896,7 @@ DELIMITER //
         IN _nombreCam varchar(200),         /*Relación de la tabla t_campaniascm*/
         IN _justificacion TEXT,             /*Relación de la tabla t_campaniascm*/
         IN _objetivo TEXT,                  /*Relación de la tabla t_campaniascm*/
+        IN _descripcion TEXT,                  /*Relación de la tabla t_campaniascm*/
         IN _fechaHoraIni DATE,              /*Relación de la tabla t_campaniascm*/
         IN _fechaHoraFin DATE,              /*Relación de la tabla t_campaniascm*/
         IN _palabrasClaves TEXT,             /*Relación de la tabla t_campaniascm*/
@@ -901,7 +910,7 @@ DELIMITER //
                 INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
                 INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
                 INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
-                INSERT INTO t_campaniascm(nombreCam, justificacion, objetivo, fechaHoraIni, fechaHoraFin, palabrasClaves, numST) VALUES (_nombreCam, _justificacion, _objetivo, _fechaHoraIni, _fechaHoraFin, _palabrasClaves, _numST);
+                INSERT INTO t_campaniascm(nombreCam, justificacion, objetivo, descripcion, fechaHoraIni, fechaHoraFin, palabrasClaves, numST) VALUES (_nombreCam, _justificacion, _objetivo, _descripcion, _fechaHoraIni, _fechaHoraFin, _palabrasClaves, _numST);
                 INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
                 INSERT INTO t_resobjpublico(id_objPublico, numST) VALUES (_id_objPublico, _numST);
             ELSE

@@ -21,9 +21,9 @@
 		$id_facDep = $_SESSION['campoFacDep'];
 		$telefono = $_SESSION['campoTel'];
 		$id_usuario = 1;
-		$id_unidad = 3;
-		$id_categoria = 5;
-		$id_subCategoria = 7;
+		$id_unidad = 1;
+		$id_categoria = 3;
+		$id_subCategoria = 2;
 		$id_fase = 1;
 		$fecha = date('Y-m-d');
 		$comentario = 'Ingresa la Solicitud';

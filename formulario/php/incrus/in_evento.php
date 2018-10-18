@@ -78,6 +78,10 @@ if ($row = mysqli_fetch_row($rst)) {
 			array_push($adjunto, $pdfPresu);
 		}
 	}
+	//Arra de Cubrimiento audiovisual
+	$id_cubAudio = array();
+	$id_cubAudio = $_SESSION['tipoCubAUEvento'];
+
 	//Arra de Objetivo Público
 	$id_objPublico = array(); //Referencia de t_resobjpublico
 	$id_objPublico = $_SESSION['checkPublicoObj'];
@@ -117,6 +121,7 @@ if ($row = mysqli_fetch_row($rst)) {
 	
 	//Conteo de elemento de cada array
 	$countADJ = count($adjunto);
+	$countCubAud = count($id_cubAudio);
 	$countOBJPu = count($id_objPublico);
 	$countColor = count($color);
 	$countCubri = count($cubrimiento);
@@ -133,7 +138,7 @@ if ($row = mysqli_fetch_row($rst)) {
 	$select= mysqli_fetch_row($rstNumST);
 
 	if ($select[0] == $newST) {
-		echo $newST;
+		
 		for ($i=0; $i < $countADJ; $i++) {
 			$adj = $adjunto[$i];
 			$inAdj = 'INSERT INTO t_adjunto(numST, adjunto) VALUES ("'.$newST.'","'.$adj.'")';
@@ -173,17 +178,32 @@ if ($row = mysqli_fetch_row($rst)) {
 			$inDIG = 'INSERT INTO t_respiezadig (id_piezaDig, numST) VALUES ("'.$digital.'", "'.$newST.'")';
 			$rstDIG = $conexion->query($inDIG);
 		}
+
+		for ($o=0; $o < $countCubAud; $o++) {
+			$cubAu = $id_cubAudio[$o];
+			$inCubAu = 'INSERT INTO t_resaudiovisual(id_audiovisual, numST) VALUES ("'.$cubAu.'","'.$newST.'")';
+			$rstCubAud = $conexion->query($inCubAu);
+		}
 		
 		if (!empty($tipoSitio)) {
 			$inCubri = 'INSERT INTO t_requerimientoweb(tipoWeb, justificacionWeb, numST) VALUES ("'.$tipoSitio.'","'.$justificacionWeb.'","'.$newST.'")';
 			$rstCubri = $conexion->query($inCubri);
 		}
+
+		echo codigoSeguimiento($newST);
+
+		//La eliminación de Sesión y cierre de conexión se debe hacer al final del envio de correo a solicitudes@usantotomas.edu.co
+		mysqli_close($conexion);
+		session_destroy();
 		
 	}else{
+		mysqli_close($conexion);
 		echo "No Funciono";
 	}
 
 }else{
+	mysqli_close($conexion);
+	session_destroy();
 	echo "NO Existe";
 }
 ?>

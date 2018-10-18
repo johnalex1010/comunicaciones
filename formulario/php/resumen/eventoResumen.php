@@ -95,7 +95,19 @@
 		<div class="celda celdax30l">
 			<h3>Cubrimiento audio visual</h3>
 			<ul>
-				<?php echo $_SESSION['echoTCA'] = (!empty($_SESSION['echoTCA'])) ? "<li>".$_SESSION['echoTCA']."</li>" : "No hay items";?>
+				<?php
+					if ($_SESSION['tipoCubAUEvento'][0]=="") {
+						echo "No hay items";
+					}else{
+						$countCubAud = count($_SESSION['tipoCubAUEvento']);
+						for ($a=0; $a < $countCubAud; $a++) { 
+							$cub = "SELECT listAudioVisual FROM t_audioVisual WHERE id_audioVisual=".$_SESSION['tipoCubAUEvento'][$a]."";
+							$rstCub = $conexion->query($cub);
+							$filaCUB = mysqli_fetch_row($rstCub);
+							echo "<li>".$filaCUB[0]."</li>";
+						}
+					}
+				?>
 			</ul>
 		</div>
 		<div class="celda celdax70l">

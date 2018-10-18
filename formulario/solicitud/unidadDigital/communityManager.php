@@ -53,7 +53,7 @@
 			<ul class="tabs vertical" data-tab="">
 				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitNewRedes']) ? $active = 'active' : "" ?>" title="<?php tabNewRedesT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panela1" aria-selected="true" tabindex="0">Creación de redes sociales</a></li>
 				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitCampania']) ? $active = 'active' : "" ?>" title="<?php tabCamaniaRedT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelb1" aria-selected="false" tabindex="-1">Campañas</a></li>
-				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitAsesoria']) ? $active = 'active' : "" ?>" title="<?php tabAsesoriaRedT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelc1" aria-selected="false" tabindex="-1">Asesorias</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitAsesoria']) ? $active = 'active' : "" ?>" title="<?php tabAsesoriaRedT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelc1" aria-selected="false" tabindex="-1">Asesorías</a></li>
 			</ul>
 			<!-- ========== Content TABS ========== -->
 			<div class="tabs-content">
@@ -237,7 +237,7 @@
 				</div>
 				<!-- ========== Content Capacitación contenidos web ========== -->
 				<div class="contentTab <?php echo $active = isset($_POST['submitAsesoria']) ? $active = 'active' : "" ?>" id="panelc1" aria-hidden="true" tabindex="-1">
-					<h3>Asesorias</h3>
+					<h3>Asesorías</h3>
 					<form action="" method="post">
 						<div class="cuadricula">
 							<div class="celda celdax2">
@@ -245,14 +245,14 @@
 					  				<input type="text" class="requi" name="temaAseso" value="<?php echo $_SESSION['temaAseso'] = (isset($_SESSION['temaAseso'])) ? $_SESSION['temaAseso'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
-					  				<label>Tema central de la asesoria <span class="error"><?php echo $error[2][0] = (isset($error[2][0])) ? $error[2][0] : ""; ?></label>
+					  				<label>Tema central de la asesoría <span class="error"><?php echo $error[2][0] = (isset($error[2][0])) ? $error[2][0] : ""; ?></label>
 					  			</div>
 							</div>
 							<div class="celda celdax2">
 								<div class="group tooltip" title="<?php lugarAsesoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="lugarAseso" value="<?php echo $_SESSION['lugarAseso'] = (isset($_SESSION['lugarAseso'])) ? $_SESSION['lugarAseso'] : ''; ?>">
 					  				<span class="bar"></span>
-					  				<label>Lugar sugerido para la asesoria <span class="error"><?php echo $error[2][1] = (isset($error[2][1])) ? $error[2][1] : ""; ?></label>
+					  				<label>Lugar sugerido para la asesoría <span class="error"><?php echo $error[2][1] = (isset($error[2][1])) ? $error[2][1] : ""; ?></label>
 					  			</div>
 							</div>
 						</div>

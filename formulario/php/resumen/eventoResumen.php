@@ -6,7 +6,11 @@
 		header('Location:../../');
 	}
 	// session_destroy();
-
+	include_once '../conexion.php';
+	//Insertar ST. Solicitud de Capacitación Web
+	$facDep = "SELECT f.facDep, t.tipoEvento FROM t_facdep AS f, t_tipoevento AS t WHERE f.id_facDep =".$_SESSION['campoFacDep']." AND t.id_tipoEvento =".$_SESSION['tipoEvento']."";
+	$rst = $conexion->query($facDep);
+	$row = mysqli_fetch_row($rst);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -42,7 +46,7 @@
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Departamento/Facultad del solicitante</h3>
-			<p><?php echo $_SESSION['campoFacDep'] ?></p>
+			<p><?php echo $row[0] ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Telefono de contacto del solicitante</h3>
@@ -52,7 +56,7 @@
 	<div class="cuadricula">
 		<div class="celda celdax3">
 			<h3>Tipo de evento</h3>
-			<p><?php echo $_SESSION['tipoEvento'] ?></p>
+			<p><?php echo $row[1] ?></p>
 		</div>
 		<div class="celda celdax3">
 			<h3>Nombre del evento</h3>
@@ -80,82 +84,109 @@
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Numero TIC</h3>
-			<p><?php echo $_SESSION['numTICEvento'] = (isset($_SESSION['numTICEvento'])) ? $_SESSION['numTICEvento'] : "No tiene  numero de TIC's"; unset($_SESSION['numTICEvento']) ?></p>
+			<p><?php if (!empty($_SESSION['numTICEvento'])) {echo $_SESSION['numTICEvento'];}else{echo "No tiene  numero de TIC's";unset($_SESSION['numTICEvento']);}?></p>
 		</div>
 		<div class="celda celdax2">
-			<h3>Información adicional (Adjutno)</h3>
-			<p><?php echo $_SESSION['adjInfoEvento3'] = (!empty($_SESSION['adjInfoEvento3'])) ? $_SESSION['adjInfoEvento3'] : "No hay Adjunto"; unset($_SESSION['adjInfoEvento3']) ?></p>
+			<h3>Información adicional (Adjunto)</h3>
+			<p><?php if (!empty($_SESSION['adjInfoEvento3'])) {echo $_SESSION['adjInfoEvento3'];}else{echo "No hay Adjunto";unset($_SESSION['adjInfoEvento3']);}?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax30l">
 			<h3>Cubrimiento audio visual</h3>
 			<ul>
-				<?php echo $_SESSION['echoTCA'] = (!empty($_SESSION['echoTCA'])) ? "<li>".$_SESSION['echoTCA']."</li>" : "No hay items"; unset($_SESSION['echoTCA']) ?>
+				<?php
+					if ($_SESSION['tipoCubAUEvento'][0]=="") {
+						echo "No hay items";
+					}else{
+						$countCubAud = count($_SESSION['tipoCubAUEvento']);
+						for ($a=0; $a < $countCubAud; $a++) { 
+							$cub = "SELECT listAudioVisual FROM t_audioVisual WHERE id_audioVisual=".$_SESSION['tipoCubAUEvento'][$a]."";
+							$rstCub = $conexion->query($cub);
+							$filaCUB = mysqli_fetch_row($rstCub);
+							echo "<li>".$filaCUB[0]."</li>";
+						}
+					}
+				?>
 			</ul>
 		</div>
 		<div class="celda celdax70l">
 			<h3>Sitio web para el evento</h3>
-			<p><strong>Tipo sitio web: </strong><?php echo $_SESSION['tipoCubWEbEvento'] = (!empty($_SESSION['tipoCubWEbEvento'])) ? $_SESSION['tipoCubWEbEvento'] : "No hay items"; unset($_SESSION['tipoCubWEbEvento']) ?></p>
-			<p><strong>Justificación: </strong><?php echo $_SESSION['jutifiCubWEbEvento'] = (!empty($_SESSION['jutifiCubWEbEvento'])) ? $_SESSION['jutifiCubWEbEvento'] : "No hay Justificación"; unset($_SESSION['jutifiCubWEbEvento']) ?></p>
-			<p><strong>ZIP con plan de navegación: </strong><?php echo $_SESSION['adjCubWEbEvento3'] = (!empty($_SESSION['adjCubWEbEvento3'])) ? $_SESSION['adjCubWEbEvento3'] : "No hay Adjunto"; unset($_SESSION['adjCubWEbEvento3']) ?></p>
+			<p><strong>Tipo sitio web: </strong><?php if (!empty($_SESSION['tipoCubWEbEvento'])) {echo $_SESSION['tipoCubWEbEvento'];}else{echo "No hay items";unset($_SESSION['tipoCubWEbEvento']);}?></p>
+			<p><strong>Justificación: </strong><?php if (!empty($_SESSION['jutifiCubWEbEvento'])) {echo $_SESSION['jutifiCubWEbEvento'];}else{echo "No hay Justificación";unset($_SESSION['jutifiCubWEbEvento']);}?></p>
+			<p><strong>ZIP con plan de navegación: </strong><?php if (!empty($_SESSION['adjCubWEbEvento3'])) {echo $_SESSION['adjCubWEbEvento3'];}else{echo "No hay Adjunto";unset($_SESSION['adjCubWEbEvento3']);}?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax70r">
 			<h3>Piezas Impresas</h3>
+			<?php
+				if ($_SESSION['selectPiezaIMPEvento'][0]=="") {
+					echo "No hay solicitud de impresos.";
+				}else{
+			?>
 			<table>
 				<tr>
 					<th>Pieza</th>
-					<th>Acabados</th>
+					<th>Acabado</th>
 					<th>Tipo de papel</th>
 					<th>Cantidad</th>
 				</tr>
 				<?php
-					$im = count($_SESSION['selectPiezaIMPEvento']);
-				if ($_SESSION['selectPiezaIMPEvento']) {
-					for ($i=0; $i < $im ; $i++) { 
-						echo "<tr>";
-						echo "<td>".$_SESSION['selectPiezaIMPEvento'][$i]."</td>";
-						echo "<td>".$_SESSION['acabadoIMPEvento'][$i]."</td>";
-						echo "<td>".$_SESSION['tipoPapelIMPEvento'][$i]."</td>";
-						echo "<td>".$_SESSION['cantidadIMPEvento'][$i]."</td>";
-						echo "</tr>";
+					$countIMP = count($_SESSION['selectPiezaIMPEvento']);
+						for ($i=0; $i < $countIMP ; $i++) { 
+							$a = "SELECT p.listPiezaImp, a.listAcabadoImp, tp.listPapelImp FROM t_piezaimp AS p, t_acabadoimp AS a, t_papelimp AS tp WHERE p.id_piezaImp=".$_SESSION['selectPiezaIMPEvento'][$i]." AND a.id_acabadoImp=".$_SESSION['acabadoIMPEvento'][$i]." AND tp.id_papelImp=".$_SESSION['tipoPapelIMPEvento'][$i]."";
+							$rsta = $conexion->query($a);
+							while ($filaIMP = mysqli_fetch_row($rsta)) {
+								echo "<tr>";
+								echo "<td>".$filaIMP[0]."</td>";
+								echo "<td>".$filaIMP[1]."</td>";
+								echo "<td>".$filaIMP[2]."</td>";
+								echo "<td>".$_SESSION['cantidadIMPEvento'][$i]."</td>";
+								echo "</tr>";
+						    }
+						}
 					}
-				}else{
-					echo "No hay solicitud Impresa";
-				}
-
 				?>
 			</table>
 		</div>
 		<div class="celda celdax30r">
 			<h3>Piezas Digitales</h3>
-			<ul>
-				<?php
-					$dg = count($_SESSION['tipoDIGEvento']);
-				if ($_SESSION['tipoDIGEvento']) {
-					for ($i=0; $i < $dg ; $i++) { 
-						echo "<li>".$_SESSION['tipoDIGEvento'][$i]."</li>";
-					}
+			<?php 
+				if ($_SESSION['tipoDIGEvento'][0]=="") {
+					echo "No hay solicitud de piezas digitales.";
 				}else{
-					echo "No hay solicitud Digital";
+			?>
+			<table>
+				<tr>
+					<th>Pieza</th>
+				</tr>
+			<?php
+				$countDIG = count($_SESSION['tipoDIGEvento']);
+					for ($i=0; $i < $countDIG; $i++) { 
+						$dg = "SELECT listPiezaDig FROM t_piezadig WHERE id_piezaDig=".$_SESSION['tipoDIGEvento'][$i]."";
+						$rstaDG = $conexion->query($dg);
+						while ($filaDIG = mysqli_fetch_row($rstaDG)) {
+							echo "<tr>";
+							echo "<td>".$filaDIG[0]."</td>";
+							echo "</tr>";
+						}
+					}
 				}
-
-				?>
-			</ul>
+			?>
+			</table>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda">
 			<h3>Adjunto presupuesto PDF</h3>
-			<p><?php echo $_SESSION['adjPresupuestoEvento3'] = (!empty($_SESSION['adjPresupuestoEvento3'])) ? $_SESSION['adjPresupuestoEvento3'] : "No hay Adjunto"; unset($_SESSION['adjPresupuestoEvento3']) ?></p>
+			<p><?php if (!empty($_SESSION['adjPresupuestoEvento3'])) {echo $_SESSION['adjPresupuestoEvento3'];}else{echo "No hay Adjunto";unset($_SESSION['adjPresupuestoEvento3']);}?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax3">
 			<h3>Lienamientos gráficos</h3>
-			<p><?php echo $_SESSION['lineamientoGraficos'] = (!empty($_SESSION['lineamientoGraficos'])) ? $_SESSION['lineamientoGraficos'] : "No hay Justificación"; unset($_SESSION['lineamientoGraficos']) ?></p>
+			<p><?php if (!empty($_SESSION['lineamientoGraficos'])) {echo $_SESSION['lineamientoGraficos'];}else{echo "No hay Justificación";unset($_SESSION['lineamientoGraficos']);}?></p>
 		</div>
 		<div class="celda celdax3">
 			<h3>Colores sugeridos (Hexadecimal)</h3>
@@ -165,7 +196,7 @@
 						$co = count($_SESSION['colorEvento']);
 
 						for ($c=0; $c < $co; $c++) { 
-							echo "<p>Color sugerido".($c+1).": <b style='color:".$_SESSION['colorEvento'][$c]."'>". strtoupper($_SESSION['colorEvento'][$c])."</b></p>";
+							echo "<p>Color sugerido ".($c+1).": <b style='color:".$_SESSION['colorEvento'][$c]."'>". strtoupper($_SESSION['colorEvento'][$c])."</b></p>";
 						}
 					}
 
@@ -178,19 +209,21 @@
 				if (isset($_SESSION['checkPublicoObj'])) {
 					$dg = count($_SESSION['checkPublicoObj']);
 					for ($i=0; $i < $dg ; $i++) { 
-						echo "<li>".$_SESSION['checkPublicoObj'][$i]."</li>";
+						$a = "SELECT listPublico FROM t_objpublico WHERE id_objPublico=".$_SESSION['checkPublicoObj'][$i]."";
+						$ra = $conexion->query($a);
+						$rowa = mysqli_fetch_row($ra);
+						echo "<li>".$rowa[0]."</li>";
 					}
 				}else{
 					echo "No hay Publico objetivo";
 				}
-
 				?>
 			</ul>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<a class="btn btn-world" href="../../solicitud/unidadComIns/evento.php">Atras</a>
-		<a class="btn btn-send" href="#">Enviar Solicitud</a>
+		<a class="btn btn-send" href="../incrus/in_evento.php">Enviar Solicitud</a>
 	</div>
 </div>
 </body>

@@ -80,6 +80,8 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			}else{
 				$error[6] = "El campo debe ser numerico";
 			}
+		}else{
+			unset($_SESSION['numTICEvento']);
 		}
  
 		/*===== Validar Adjunto Adicionales =====*/
@@ -113,7 +115,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			unset( $_SESSION["tipoCubAUEvento"] );
 		}
 
-		/*===== Validar Cubrimiento WEB Radios =====*/
+		/*===== Validar Cubrimiento WEB Radios Button =====*/
 		if (!empty($_POST['tipoCubWEbEvento'])) {
 			$_SESSION['tipoCubWEbEvento'] = $_POST['tipoCubWEbEvento'];	
 		}
@@ -281,7 +283,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			$checkPublicoObj = $_SESSION['checkPublicoObj'];
 			$POcount = count($checkPublicoObj);
 			for ($pocont=0; $pocont < $POcount; $pocont++) {
-				$_SESSION['echoPO'] .= $checkPublicoObj[$pocont]."<br>";				
+				$_SESSION['echoPO'] .= $checkPublicoObj[$pocont]."<br>";
 			}
 		}else{
 			unset( $_SESSION['checkPublicoObj'] );

@@ -6,6 +6,12 @@
 		header('Location:../../');
 	}
 	// session_destroy();
+	include_once '../conexion.php';
+	//Insertar ST. Solicitud de Capacitación Web
+	$facDep = "SELECT facDep FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep']; // Selescciona la ultima ST igresada en la BD
+	$rst = $conexion->query($facDep);
+	$row = mysqli_fetch_row($rst);
+	$facDep = $row[0];
 
 ?>
 <!DOCTYPE html>
@@ -42,7 +48,7 @@
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Departamento/Facultad del solicitante</h3>
-			<p><?php echo $_SESSION['campoFacDep'] ?></p>
+			<p><?php echo $facDep ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Telefono de contacto del solicitante</h3>
@@ -52,16 +58,16 @@
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Noticia (Adjutno)</h3>
-			<p><?php echo $_SESSION['adjTNWord3'] = (!empty($_SESSION['adjTNWord3'])) ? $_SESSION['adjTNWord3'] : "No hay Adjunto"; ?></p>
+			<p><?php echo $_SESSION['tn3'][0] = (!empty($_SESSION['tn3'][0])) ? $_SESSION['tn3'][0] : "No hay Adjunto"; ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Imagen (Adjutno)</h3>
-			<p><?php echo $_SESSION['adjTNjpg3'] = (!empty($_SESSION['adjTNjpg3'])) ? $_SESSION['adjTNjpg3'] : "No hay Adjunto";?></p>
+			<p><?php echo $_SESSION['tn3'][1] = (!empty($_SESSION['tn3'][1])) ? $_SESSION['tn3'][1] : "No hay Adjunto"; ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<a class="btn btn-world" href="../../solicitud/unidadComIns/comInter.php">Atras</a>
-		<a class="btn btn-send" href="#">Enviar Solicitud</a>
+		<a class="btn btn-send" href="../incrus/in_tomasNoticias.php">Enviar Solicitud</a>
 	</div>
 </div>
 </body>

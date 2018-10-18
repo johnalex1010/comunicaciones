@@ -1,4 +1,3 @@
-
 <?php 
 	session_start();
 
@@ -11,6 +10,7 @@
 	require_once '../../php/funciones/tooltip.php';
 	require_once '../../php/funciones/campos.php';
 	require_once '../../php/validaciones/validarComInter.php';
+	require_once '../../php/conexion.php';
 ?>
 
 <!DOCTYPE html>
@@ -29,10 +29,9 @@
 	<link rel="shortcut icon" href="favicon.ico" />
 	<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed|Righteous" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
-
 </head>
-
 <body>
+
 	<div id="enviar"></div>
 	<div class="content">
 		<!-- HOME -->
@@ -49,6 +48,7 @@
 	</div>
 	<div class="content">
 		<h2>Seleccione una de las opciones</h2>
+		
 		<div class="vertical-tabs">
 			<!-- ========== Link TABS ========== -->
 			<ul class="tabs vertical" data-tab="">
@@ -85,16 +85,16 @@
 						<div class="cuadricula">
 							<div class="celda celdax2">
 								<div class="group tooltip" title="<?php TNwordT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="adjTNWord" value="<?php echo $_SESSION['adjTNWord3']?>">
+									<input type="file" class="requi" name="tn[]">
 									<span class="bar"></span>
-									<label>Adjuntar documento Word<span class="error"><?php echo $error[1][1] = (isset($error[1][1])) ? $error[1][1] : ""; ?></span></label>
+									<label>Adjuntar documento Word</label>
 								</div>
 							</div>
 							<div class="celda celdax2">
 								<div class="group tooltip" title="<?php TNjpgT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="adjTNjpg" value="<?php echo $_SESSION['adjTNjpg3']?>">
+									<input type="file" class="requi" name="tn[]">
 									<span class="bar"></span>
-									<label>Adjuntar imagen JPG/JPEG <span class="error"><?php echo $error[1][2] = (isset($error[1][2])) ? $error[1][2] : ""; ?></span></label>
+									<label>Adjuntar imagen JPG/JPEG</label>
 								</div>
 							</div>
 						</div>
@@ -132,7 +132,7 @@
 										}else{
 											echo "<option value='".$_SESSION['condoFacDep']."' selected>".$_SESSION['condoFacDep']."</option>";
 										}
-										campoFacDep();
+										campoFacDep($conexion);
 									?>
 									</select>
 					  				<span class="bar"></span>

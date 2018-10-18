@@ -8,9 +8,11 @@
 		header('Location:../../');
 	}
 	// session_destroy();
+	require_once '../../php/conexion.php';
 	require_once '../../php/funciones/tooltip.php';
 	require_once '../../php/funciones/campos.php';
 	require_once '../../php/validaciones/validarEvento.php';
+	
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +62,7 @@
 							}else{
 								echo "<option value='".$_SESSION['tipoEvento']."' selected>".$_SESSION['tipoEvento']."</option>";
 							}
-							tipoEvento();
+							tipoEvento($conexion);
 						?>
 						</select>
 		  				<span class="bar"></span>
@@ -141,18 +143,10 @@
 		  		<div class="celda celdax2 p1" style="display: <?php echo $display = (isset($_SESSION['tipoCubAUEvento'])) ? "block" : "none"; ?>">
 					<div class="contentCheck checkboxAudioVisual">
 						<p class="colorTxt tooltip" title="<?php tipoCubAUEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Que tipo de cubrimiento audiovisual requiere? </p>
-						<p>
-							<input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='Fotográfia' <?php if (in_array("Fotográfia", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Fotográfia
-						</p>
-						<p>
-							<input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='Zona T' <?php if (in_array("Zona T", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Zona T
-						</p>
-						<p>
-							<input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='Maestro de ceremonia' <?php if (in_array("Maestro de ceremonia", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Maestro de ceremonia
-						</p>
-						<p>
-							<input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='Redes sociales y divulgación de piezas' <?php if (in_array("Redes sociales y divulgación de piezas", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Redes sociales y divulgación de piezas
-						</p>
+						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='1' <?php if (in_array("1", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Fotográfia</p>
+						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='2' <?php if (in_array("2", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Zona T</p>
+						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='3' <?php if (in_array("3", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Maestro de ceremonia</p>
+						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='4' <?php if (in_array("4", $_SESSION['tipoCubAUEvento'])) echo "checked"; ?> > Redes sociales y divulgación de piezas</p>
 					</div>
 				</div>
 		  		<div class="celda celdax2 p2" style="display: <?php echo $display = (isset($_SESSION['tipoCubWEbEvento'])) ? "block" : "none"; ?>">
@@ -167,7 +161,7 @@
 					</div>
 					<br><br>
 					<div class="group tooltip" title="<?php jutifiCubWEbEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
-						<textarea name="jutifiCubWEbEvento" id=""><?php echo $_SESSION['jutifiCubWEbEvento'] ?></textarea>
+						<textarea name="jutifiCubWEbEvento" id="" maxlength="500"><?php echo $_SESSION['jutifiCubWEbEvento'] ?></textarea>
 		  				<span class="bar"></span>
 		  				<label>Justificación del sitio web <span class="error"><?php echo $error[8] = (isset($error[8])) ? $error[8] : ""; ?></span></label>
 		  			</div>
@@ -220,7 +214,7 @@
 													}else{
 														echo "<option value='".$_SESSION['selectPiezaIMPEvento'][0]."' selected>".$_SESSION['selectPiezaIMPEvento'][0]."</option>";
 													}
-													piezaImpEvento();
+													piezaImpEvento($conexion);
 												?>
 												</select>
 								  				<span class="bar"></span>
@@ -234,9 +228,9 @@
 													if ($_SESSION['acabadoIMPEvento'][0] == "") {
 														echo "<option value='' disable selected>- - -</option>";
 													}else{
-														echo "<option value='".$_SESSION['acabadoIMPEvento'][0]."' selected>".$_SESSION['acabadoIMPEvento'][0]."</option>";
+														echo "<option value='".$_SESSION['acabadoIMPEvento'][0]."' selected>".$filaIMP[1]."</option>";
 													}
-													acabadosImpEvento();
+													acabadosImpEvento($conexion);
 												?>
 												</select>
 								  				<span class="bar"></span>
@@ -252,7 +246,7 @@
 													}else{
 														echo "<option value='".$_SESSION['tipoPapelIMPEvento'][0]."' selected>".$_SESSION['tipoPapelIMPEvento'][0]."</option>";
 													}
-													tipoPapelEvento();
+													tipoPapelEvento($conexion);
 												?>
 												</select>
 								  				<span class="bar"></span>
@@ -278,63 +272,63 @@
 
 											for ($i=2; $i <= $conutArrayImp; $i++) { 
 									?>
-											<tr id="floorstrText<?php echo $i-1; ?>">
-												<td>
-													<div class="group tooltip" title="<?php selectPiezaIMPEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-										  				<select name="selectPiezaIMPEvento[]">
-														<?php
-															if ($_SESSION['selectPiezaIMPEvento'][$i-1] == "") {
-																echo "<option value='' disable selected>- - -</option>";
-															}else{
-																echo "<option value='".$_SESSION['selectPiezaIMPEvento'][$i-1]."' selected>".$_SESSION['selectPiezaIMPEvento'][$i-1]."</option>";
-															}
-															piezaImpEvento();
-														?>
-														</select>
-										  				<span class="bar"></span>
-										  				<label>Seleccione pieza </label>
-										  			</div>
-												</td>
-												<td>
-													<div class="group tooltip" title="<?php acabadoIMPEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-										  				<select name="acabadoIMPEvento[]" id="acabadoIMPEvento">
-														<?php
-															if ($_SESSION['acabadoIMPEvento'][$i-1] == "") {
-																echo "<option value='' disable selected>- - -</option>";
-															}else{
-																echo "<option value='".$_SESSION['acabadoIMPEvento'][$i-1]."' selected>".$_SESSION['acabadoIMPEvento'][$i-1]."</option>";
-															}
-															acabadosImpEvento();
-														?>
-														</select>
-										  				<span class="bar"></span>
-										  				<label>Seleccione Acabados </label>
-										  			</div>
-												</td>
-												<td>
-													<div class="group tooltip" title="<?php tipoPapelIMPEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-										  				<select name="tipoPapelIMPEvento[]" id="tipoPapelIMPEvento">
-														<?php
-															if ($_SESSION['tipoPapelIMPEvento'][$i-1] == "") {
-																echo "<option value='' disable selected>- - -</option>";
-															}else{
-																echo "<option value='".$_SESSION['tipoPapelIMPEvento'][$i-1]."' selected>".$_SESSION['tipoPapelIMPEvento'][$i-1]."</option>";
-															}
-															tipoPapelEvento();
-														?>
-														</select>
-										  				<span class="bar"></span>
-										  				<label>Tipo de papel </label>
-										  			</div>
-												</td>
-												<td>
-													<div class="group tooltip" title="<?php cantidadIMPEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-													<input type="text" name="cantidadIMPEvento[]" id="cantidadIMPEvento" value="<?php echo $_SESSION['cantidadIMPEvento'][$i-1] = (!empty($_SESSION['cantidadIMPEvento'][$i-1])) ? $_SESSION['cantidadIMPEvento'][$i-1] : ""; ?>">
-										  				<span class="bar"></span>
-										  				<label>Cantidad <span class="error"><?php echo $error[12] = (isset($error[12])) ? $error[12] : ""; ?></span></label>
-										  			</div>
-												</td>
-											</tr>
+									<tr id="floorstrText<?php echo $i-1; ?>">
+										<td>
+											<div class="group tooltip" title="<?php selectPiezaIMPEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								  				<select name="selectPiezaIMPEvento[]">
+												<?php
+													if ($_SESSION['selectPiezaIMPEvento'][$i-1] == "") {
+														echo "<option value='' disable selected>- - -</option>";
+													}else{
+														echo "<option value='".$_SESSION['selectPiezaIMPEvento'][$i-1]."' selected>".$_SESSION['selectPiezaIMPEvento'][$i-1]."</option>";
+													}
+													piezaImpEvento($conexion);
+												?>
+												</select>
+								  				<span class="bar"></span>
+								  				<label>Seleccione pieza </label>
+								  			</div>
+										</td>
+										<td>
+											<div class="group tooltip" title="<?php acabadoIMPEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								  				<select name="acabadoIMPEvento[]" id="acabadoIMPEvento">
+												<?php
+													if ($_SESSION['acabadoIMPEvento'][$i-1] == "") {
+														echo "<option value='' disable selected>- - -</option>";
+													}else{
+														echo "<option value='".$_SESSION['acabadoIMPEvento'][$i-1]."' selected>".$_SESSION['acabadoIMPEvento'][$i-1]."</option>";
+													}
+													acabadosImpEvento($conexion);
+												?>
+												</select>
+								  				<span class="bar"></span>
+								  				<label>Seleccione Acabados </label>
+								  			</div>
+										</td>
+										<td>
+											<div class="group tooltip" title="<?php tipoPapelIMPEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								  				<select name="tipoPapelIMPEvento[]" id="tipoPapelIMPEvento">
+												<?php
+													if ($_SESSION['tipoPapelIMPEvento'][$i-1] == "") {
+														echo "<option value='' disable selected>- - -</option>";
+													}else{
+														echo "<option value='".$_SESSION['tipoPapelIMPEvento'][$i-1]."' selected>".$_SESSION['tipoPapelIMPEvento'][$i-1]."</option>";
+													}
+													tipoPapelEvento($conexion);
+												?>
+												</select>
+								  				<span class="bar"></span>
+								  				<label>Tipo de papel </label>
+								  			</div>
+										</td>
+										<td>
+											<div class="group tooltip" title="<?php cantidadIMPEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+											<input type="text" name="cantidadIMPEvento[]" id="cantidadIMPEvento" value="<?php echo $_SESSION['cantidadIMPEvento'][$i-1] = (!empty($_SESSION['cantidadIMPEvento'][$i-1])) ? $_SESSION['cantidadIMPEvento'][$i-1] : ""; ?>">
+								  				<span class="bar"></span>
+								  				<label>Cantidad <span class="error"><?php echo $error[12] = (isset($error[12])) ? $error[12] : ""; ?></span></label>
+								  			</div>
+										</td>
+									</tr>
 									<?php }	} } ?>
 									</tbody>
 							</table>
@@ -370,7 +364,7 @@
 										}else{
 											echo "<option value='".$_SESSION['tipoDIGEvento'][0]."' selected>".$_SESSION['tipoDIGEvento'][0]."</option>";
 										}
-										piezaDigEvento();
+										piezaDigEvento($conexion);
 									?>
 									</select>
 					  				<span class="bar"></span>
@@ -395,7 +389,7 @@
 											}else{
 												echo "<option value='".$_SESSION['tipoDIGEvento'][$d-1]."' selected>".$_SESSION['tipoDIGEvento'][$d-1]."</option>";
 											}
-											piezaDigEvento();
+											piezaDigEvento($conexion);
 										?>
 										</select>
 						  				<span class="bar"></span>
@@ -429,12 +423,12 @@
 			<button type="button" name="next" class="btn btn-next btn-world" value="Next" />Siguiente</button>
 		</fieldset> 
 		  
-		  <!-- Página 3 -->
+		<!-- Página 3 -->
 		<fieldset>
 		  	<div class="cuadricula">
 		  		<div class="celda celdax60r">
 		  			<div class="group tooltip" title="<?php lineamientoGraficosT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
-						<textarea name="lineamientoGraficos" id=""><?php echo $_SESSION['lineamientoGraficos'] ?></textarea>
+						<textarea name="lineamientoGraficos" id="" maxlength="500"><?php echo $_SESSION['lineamientoGraficos'] ?></textarea>
 		  				<span class="bar"></span>
 		  				<label>Lineamientos gráficos <span class="error"><?php echo $error[11] = (isset($error[11])) ? $error[11] : ""; ?></span></label>
 		  			</div>
@@ -453,12 +447,12 @@
 		  			<div class="contentCheck checkboxAudioVisual">
 						<p class="colorTxt tooltip" title="<?php checkPublicoObjT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Cual es su público objetivo? </p>
 						
-						<p><input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="Estudiantes pregrado" <?php if (in_array("Estudiantes pregrado", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Estudiantes pregrado</p>
-						<p><input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="Estudiantes posgrado" <?php if (in_array("Estudiantes posgrado", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Estudiantes posgrado</p>
-						<p><input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="Docentes" <?php if (in_array("Docentes", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Docentes</p>
-						<p><input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="Colaboradores administrativos" <?php if (in_array("Colaboradores administrativos", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Colaboradores administrativos</p>
-						<p><input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="Egresados" <?php if (in_array("Egresados", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Egresados</p>
-						<p><input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="Directivos" <?php if (in_array("Directivos", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Directivos</p>
+						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="1" <?php if (in_array("1", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Estudiantes pregrado<br>
+						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="2" <?php if (in_array("2", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Estudiantes posgrado<br>
+						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="3" <?php if (in_array("3", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Docentes<br>
+						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="4" <?php if (in_array("4", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Colaboradores administrativos<br>
+						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="5" <?php if (in_array("5", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Egresados<br>
+						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="6" <?php if (in_array("6", $_SESSION['checkPublicoObj'])) echo "checked"; ?> /> Directivos<br>
 					</div>
 		  		</div>
 		  	</div>

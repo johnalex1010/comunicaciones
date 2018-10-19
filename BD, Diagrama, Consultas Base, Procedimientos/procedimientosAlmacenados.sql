@@ -16,80 +16,47 @@ SELECT
 ======
 */
 
-/*SELECCION DE ADJUNTOS DE ST - con usuarios asignados*/
-    SELECT
-        S.numST,
-        S.nombre,
-        U.usuario,
-        UN.nomUnidad,
-        CAT.categoria,
-        SCAT.subCategoria,
-        F.fase,
-        TRAS.comentario
-
-
-    FROM 
-        t_solicitud AS S,
-        t_usuario AS U,
-        t_resusuario AS US,
-        t_resunidad AS RU,
-        t_unidad AS UN,
-        t_categoria AS CAT,
-        t_subcategoria AS SCAT,
-        t_trasabilidad AS TRAS,
-        t_fase AS F
-    WHERE
-        S.numST=US.numST
-        AND S.numST=RU.numST
-        AND RU.id_unidad=UN.id_unidad
-        AND RU.id_categoria=CAT.id_categoria
-        AND RU.id_subCategoria=SCAT.id_subCategoria
-        AND S.numST=TRAS.numST
-        AND TRAS.id_fase=F.id_fase
-        AND TRAS.id_usuario=U.id_usuario
-        AND S.numST = 'ST014'
-    ORDER BY TRAS.id_trasabilidad DESC LIMIT 1;
-
-SELECT
-    TRAS.numST,
+/*---SELECT DE FORM CORREOS INSTITUCINALES---*/
+SELECT 
+    S.numST,
+    S.nombre,
+    S.email,
+    FAC.facDep,
+    S.telefono,
+    FAS.fase,
+    T.fecha,
+    T.comentario,
     U.usuario,
+    UNI.nomUnidad,
+    CAT.categoria,
     SCAT.subCategoria,
-    F.fase,
-    TRAS.comentario,
-    TRAS.id_trasabilidad
+    ADJ.adjunto
 FROM 
     t_solicitud AS S,
-    t_usuario AS U,
-    t_resusuario AS US,
-    t_resunidad AS RU,
-    t_subcategoria AS SCAT,
-    t_trasabilidad AS TRAS,
-    t_fase AS F
-WHERE
-    S.numST=US.numST
-    AND S.numST=RU.numST
-    AND RU.id_subCategoria=SCAT.id_subCategoria
-    AND S.numST=TRAS.numST
-    AND TRAS.id_fase=F.id_fase
-    AND TRAS.id_usuario=U.id_usuario
-GROUP BY TRAS.numST DESC
-ORDER BY id_trasabilidad DESC;
-
-SELECT 
-    T.id_trasabilidad,
-    T.numST,
-    T.comentario,
-    T.id_usuario,
-    T.id_fase,
-    F.fase
-FROM
     t_trasabilidad AS T,
-    t_fase AS F
-WHERE
-    T.id_fase=F.id_fase
-ORDER BY T.id_trasabilidad DESC
-
-
+    t_facdep AS FAC,
+    t_fase AS FAS,
+    t_resusuario AS USU,
+    t_usuario AS U,
+    t_resunidad AS UN,
+    t_unidad AS UNI,
+    t_categoria AS CAT,
+    t_subcategoria AS SCAT,
+    t_adjunto AS ADJ
+    
+WHERE 
+    S.numST=T.numST
+    AND S.id_facDep=FAC.id_facDep
+    AND T.id_fase=FAS.id_fase
+    AND USU.id_usuario=U.id_usuario
+    AND UN.id_unidad=UNI.id_unidad
+    AND UN.id_categoria=CAT.id_categoria
+    AND UN.id_subCategoria=SCAT.id_subCategoria
+    AND S.numST=ADJ.numST
+    AND S.numST=USU.numST
+    AND S.numST=UN.numST
+/*  AND S.numST='ST002'*/
+    AND SCAT.id_subCategoria = '1'
 
 /*
 -------------------------

@@ -14,8 +14,8 @@ function consecutivoST($stOLD){
 	return $newST;
 }
 function codigoSeguimiento($newST){
-	$cod = "<div class='codigoSeguimiento'>Este es su codigo de seguimiento:".$newST."</div>";
-	return $cod;
+	//$cod = "<div class='codigoSeguimiento'>Este es su codigo de seguimiento:".$newST."</div>";
+	include 'numST.php';
 }
 /*--*/
 function campoFacDep($con){

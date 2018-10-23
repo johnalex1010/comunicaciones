@@ -1,67 +1,511 @@
 /*
-==========================
-PROCEDIMIENTOS ALMACENADOS
-==========================
+================
+SELECT GENERALES
+================
+*/
+
+/*---SELECT DE FROM para Solicitudes Adjuntos filtrados por subcategoria y/o numST---*/
+    SELECT 
+        S.numST,
+        S.nombre,
+        S.email,
+        FAC.facDep,
+        S.telefono,
+        FAS.fase,
+        T.fecha,
+        T.comentario,
+        U.usuario,
+        UNI.nomUnidad,
+        CAT.categoria,
+        SCAT.subCategoria,
+        ADJ.adjunto
+    FROM 
+        t_solicitud AS S,
+        t_trasabilidad AS T,
+        t_facdep AS FAC,
+        t_fase AS FAS,
+        t_resusuario AS USU,
+        t_usuario AS U,
+        t_resunidad AS UN,
+        t_unidad AS UNI,
+        t_categoria AS CAT,
+        t_subcategoria AS SCAT,
+        t_adjunto AS ADJ
+        
+    WHERE 
+        S.numST=T.numST
+        AND S.id_facDep=FAC.id_facDep
+        AND T.id_fase=FAS.id_fase
+        AND USU.id_usuario=U.id_usuario
+        AND UN.id_unidad=UNI.id_unidad
+        AND UN.id_categoria=CAT.id_categoria
+        AND UN.id_subCategoria=SCAT.id_subCategoria
+        AND S.numST=ADJ.numST
+        AND S.numST=USU.numST
+        AND S.numST=UN.numST
+    /*  AND S.numST='ST002'*/
+        AND SCAT.id_subCategoria = '1' /*Correos institucionales*/
+        -- AND SCAT.id_subCategoria = '2' /*Tomás Noticias*/
+        -- AND SCAT.id_subCategoria = '4' /*Cumpleaños*/
+
+/*---SELECT DE FROM para Solicitudes Condolencias filtrados por subcategoria y/o numST---*/
+    SELECT 
+        S.numST,
+        S.nombre,
+        S.email,
+        FAC.facDep,
+        S.telefono,
+        FAS.fase,
+        T.fecha,
+        T.comentario,
+        U.usuario,
+        UNI.nomUnidad,
+        CAT.categoria,
+        SCAT.subCategoria,
+        C.nombreDoliente,
+        C.cargoDoliente,
+        C.id_facDep,
+        C.nombreFallecido,
+        C.parentesco,
+        C.lugarVelacion,
+        C.fechaVelacion,
+        C.horaVelacion
+    FROM 
+        t_solicitud AS S,
+        t_trasabilidad AS T,
+        t_facdep AS FAC,
+        t_fase AS FAS,
+        t_resusuario AS USU,
+        t_usuario AS U,
+        t_resunidad AS UN,
+        t_unidad AS UNI,
+        t_categoria AS CAT,
+        t_subcategoria AS SCAT,
+        t_condolencias AS C
+        
+    WHERE 
+        S.numST=T.numST
+        AND S.id_facDep=FAC.id_facDep
+        AND T.id_fase=FAS.id_fase
+        AND USU.id_usuario=U.id_usuario
+        AND UN.id_unidad=UNI.id_unidad
+        AND UN.id_categoria=CAT.id_categoria
+        AND UN.id_subCategoria=SCAT.id_subCategoria
+        AND S.numST=USU.numST
+        AND S.numST=UN.numST
+        AND S.numST='ST004'
+        AND SCAT.id_subCategoria = '3' /*Formulario de condolencias*/
+
+/*---SELECT DE FROM para Solicitudes Tarjetas conmemorativas filtrados por subcategoria y/o numST---*/
+    SELECT 
+        S.numST,
+        S.nombre,
+        S.email,
+        FAC.facDep,
+        S.telefono,
+        FAS.fase,
+        T.fecha,
+        T.comentario,
+        U.usuario,
+        UNI.nomUnidad,
+        CAT.categoria,
+        SCAT.subCategoria,
+        FAC.facDep,
+        TAR.nombreTarjeta,
+        TAR.fechaTarjeta,
+        TAR.mensaje
+        
+    FROM 
+        t_solicitud AS S,
+        t_trasabilidad AS T,
+        t_facdep AS FAC,
+        t_fase AS FAS,
+        t_resusuario AS USU,
+        t_usuario AS U,
+        t_resunidad AS UN,
+        t_unidad AS UNI,
+        t_categoria AS CAT,
+        t_subcategoria AS SCAT,
+        t_tarjetas AS TAR
+        
+    WHERE 
+        S.numST=T.numST
+        AND S.id_facDep=FAC.id_facDep
+        AND T.id_fase=FAS.id_fase
+        AND USU.id_usuario=U.id_usuario
+        AND UN.id_unidad=UNI.id_unidad
+        AND UN.id_categoria=CAT.id_categoria
+        AND UN.id_subCategoria=SCAT.id_subCategoria
+
+        AND S.numST=USU.numST
+        AND S.numST=UN.numST
+    /*   AND S.numST='ST006'*/
+        AND SCAT.id_subCategoria = '5' /*Formulario de tarjetas*/
+
+/*---SELECT DE FROM para Solicitudes Aprobación de material filtrados por subcategoria y/o numST---*/
+    SELECT 
+        S.numST,
+        S.nombre,
+        S.email,
+        FAC.facDep,
+        S.telefono,
+        FAS.fase,
+        T.fecha,
+        T.comentario,
+        U.usuario,
+        UNI.nomUnidad,
+        CAT.categoria,
+        SCAT.subCategoria,
+        FAC.facDep,
+        AM.nomAprobacion,
+        ADJ.adjunto
+        
+    FROM 
+        t_solicitud AS S,
+        t_trasabilidad AS T,
+        t_facdep AS FAC,
+        t_fase AS FAS,
+        t_resusuario AS USU,
+        t_usuario AS U,
+        t_resunidad AS UN,
+        t_unidad AS UNI,
+        t_categoria AS CAT,
+        t_subcategoria AS SCAT,
+        t_aprobmate AS AM,
+        t_adjunto AS ADJ
+        
+    WHERE 
+        S.numST=T.numST
+        AND S.id_facDep=FAC.id_facDep
+        AND T.id_fase=FAS.id_fase
+        AND USU.id_usuario=U.id_usuario
+        AND UN.id_unidad=UNI.id_unidad
+        AND UN.id_categoria=CAT.id_categoria
+        AND UN.id_subCategoria=SCAT.id_subCategoria
+        AND S.numST=USU.numST
+        AND S.numST=UN.numST
+        AND S.numST=ADJ.numST
+    /*   AND S.numST='ST007'*/
+        AND SCAT.id_subCategoria = '13' /*Formulario de Aprobmaterial*/
+
+/*---SELECT DE FROM para Solicitudes Nuevo sitio web filtrados por subcategoria y/o numST---*/
+    SELECT 
+        S.numST,
+        S.nombre,
+        S.email,
+        FAC.facDep,
+        S.telefono,
+        FAS.fase,
+        T.fecha,
+        T.comentario,
+        U.usuario,
+        UNI.nomUnidad,
+        CAT.categoria,
+        SCAT.subCategoria,
+        FAC.facDep,
+        NWEB.nombreWeb,
+        NWEB.subdominio,
+        NWEB.justificacion,
+        ADJ.adjunto
+        
+    FROM 
+        t_solicitud AS S,
+        t_trasabilidad AS T,
+        t_facdep AS FAC,
+        t_fase AS FAS,
+        t_resusuario AS USU,
+        t_usuario AS U,
+        t_resunidad AS UN,
+        t_unidad AS UNI,
+        t_categoria AS CAT,
+        t_subcategoria AS SCAT,
+        t_newweb AS NWEB,
+        t_adjunto AS ADJ
+        
+    WHERE 
+        S.numST=T.numST
+        AND S.id_facDep=FAC.id_facDep
+        AND T.id_fase=FAS.id_fase
+        AND USU.id_usuario=U.id_usuario
+        AND UN.id_unidad=UNI.id_unidad
+        AND UN.id_categoria=CAT.id_categoria
+        AND UN.id_subCategoria=SCAT.id_subCategoria
+        AND S.numST=USU.numST
+        AND S.numST=UN.numST
+        AND S.numST=ADJ.numST
+    /*   AND S.numST='ST007'*/
+        AND SCAT.id_subCategoria = '6' /*Formulario de Nuevo sitio web*/
+
+/*---SELECT DE FROM para Solicitudes Ajustes web filtrados por subcategoria y/o numST---*/
+    SELECT 
+        S.numST,
+        S.nombre,
+        S.email,
+        FAC.facDep,
+        S.telefono,
+        FAS.fase,
+        T.fecha,
+        T.comentario,
+        U.usuario,
+        UNI.nomUnidad,
+        CAT.categoria,
+        SCAT.subCategoria,
+        FAC.facDep,
+        AWEB.urlAjuste,
+        AWEB.descripcion,
+        ADJ.adjunto
+        
+    FROM 
+        t_solicitud AS S,
+        t_trasabilidad AS T,
+        t_facdep AS FAC,
+        t_fase AS FAS,
+        t_resusuario AS USU,
+        t_usuario AS U,
+        t_resunidad AS UN,
+        t_unidad AS UNI,
+        t_categoria AS CAT,
+        t_subcategoria AS SCAT,
+        t_ajusteweb AS AWEB,
+        t_adjunto AS ADJ
+        
+    WHERE 
+        S.numST=T.numST
+        AND S.id_facDep=FAC.id_facDep
+        AND T.id_fase=FAS.id_fase
+        AND USU.id_usuario=U.id_usuario
+        AND UN.id_unidad=UNI.id_unidad
+        AND UN.id_categoria=CAT.id_categoria
+        AND UN.id_subCategoria=SCAT.id_subCategoria
+        AND S.numST=USU.numST
+        AND S.numST=UN.numST
+        AND S.numST=ADJ.numST
+    /*   AND S.numST='ST007'*/
+        AND SCAT.id_subCategoria = '7' /*Formulario de ajustes web*/
+
+/*---SELECT DE FROM para Solicitudes Capacitación web filtrados por subcategoria y/o numST---*/
+    SELECT 
+        S.numST,
+        S.nombre,
+        S.email,
+        FAC.facDep,
+        S.telefono,
+        FAS.fase,
+        T.fecha,
+        T.comentario,
+        U.usuario,
+        UNI.nomUnidad,
+        CAT.categoria,
+        SCAT.subCategoria,
+        FAC.facDep,
+        CWEB.nomPersona,
+        CWEB.telefonoExt,
+        CWEB.numCelular,
+        CWEB.emailCapa,
+        CWEB.fechaCW,
+        CWEB.horaCW,
+        CWEB.txtMotivo
+    FROM 
+        t_solicitud AS S,
+        t_trasabilidad AS T,
+        t_facdep AS FAC,
+        t_fase AS FAS,
+        t_resusuario AS USU,
+        t_usuario AS U,
+        t_resunidad AS UN,
+        t_unidad AS UNI,
+        t_categoria AS CAT,
+        t_subcategoria AS SCAT,
+        t_capacitacionweb AS CWEB
+        
+    WHERE 
+        S.numST=T.numST
+        AND S.id_facDep=FAC.id_facDep
+        AND T.id_fase=FAS.id_fase
+        AND USU.id_usuario=U.id_usuario
+        AND UN.id_unidad=UNI.id_unidad
+        AND UN.id_categoria=CAT.id_categoria
+        AND UN.id_subCategoria=SCAT.id_subCategoria
+        AND S.numST=USU.numST
+        AND S.numST=UN.numST
+    /*   AND S.numST='ST007'*/
+        AND SCAT.id_subCategoria = '9' /*Formulario de Capacitación web*/
+
+/*---SELECT DE FROM para Solicitudes Asesorías Community Manager filtrados por subcategoria y/o numST---*/
+    SELECT 
+        S.numST,
+        S.nombre,
+        S.email,
+        FAC.facDep,
+        S.telefono,
+        FAS.fase,
+        T.fecha,
+        T.comentario,
+        U.usuario,
+        UNI.nomUnidad,
+        CAT.categoria,
+        SCAT.subCategoria,
+        FAC.facDep,
+        ACM.tema,
+        ACM.lugar,
+        ACM.fechaACM,
+        ACM.horaACM
+    FROM 
+        t_solicitud AS S,
+        t_trasabilidad AS T,
+        t_facdep AS FAC,
+        t_fase AS FAS,
+        t_resusuario AS USU,
+        t_usuario AS U,
+        t_resunidad AS UN,
+        t_unidad AS UNI,
+        t_categoria AS CAT,
+        t_subcategoria AS SCAT,
+        t_asesoriacm AS ACM
+        
+    WHERE 
+        S.numST=T.numST
+        AND S.id_facDep=FAC.id_facDep
+        AND T.id_fase=FAS.id_fase
+        AND USU.id_usuario=U.id_usuario
+        AND UN.id_unidad=UNI.id_unidad
+        AND UN.id_categoria=CAT.id_categoria
+        AND UN.id_subCategoria=SCAT.id_subCategoria
+        AND S.numST=USU.numST
+        AND S.numST=UN.numST
+    /*   AND S.numST='ST007'*/
+        AND SCAT.id_subCategoria = '12' /*Formulario de Asesorías Community Manager*/
+
+/*---SELECT DE FROM para Solicitudes Camapañas Community Manager filtrados por subcategoria y/o numST---*/
+    SELECT 
+        S.numST,
+        S.nombre,
+        S.email,
+        FAC.facDep,
+        S.telefono,
+        FAS.fase,
+        T.fecha,
+        T.comentario,
+        U.usuario,
+        UNI.nomUnidad,
+        CAT.categoria,
+        SCAT.subCategoria,
+        FAC.facDep,
+        CCM.nombreCam,
+        CCM.justificacion,
+        CCM.objetivo,
+        CCM.descripcion,
+        CCM.fechaHoraIni,
+        CCM.fechaHoraFin,
+        CCM.palabrasClaves,
+        ADJ.adjunto,
+        OBJ.listPublico
+    FROM 
+        t_solicitud AS S,
+        t_trasabilidad AS T,
+        t_facdep AS FAC,
+        t_fase AS FAS,
+        t_resusuario AS USU,
+        t_usuario AS U,
+        t_resunidad AS UN,
+        t_unidad AS UNI,
+        t_categoria AS CAT,
+        t_subcategoria AS SCAT,
+        t_adjunto AS ADJ,
+        t_campaniascm AS CCM,
+        t_resobjpublico AS ROBJ,
+        t_objpublico AS OBJ
+    WHERE 
+        S.numST=T.numST
+        AND S.id_facDep=FAC.id_facDep
+        AND T.id_fase=FAS.id_fase
+        AND USU.id_usuario=U.id_usuario
+        AND UN.id_unidad=UNI.id_unidad
+        AND UN.id_categoria=CAT.id_categoria
+        AND UN.id_subCategoria=SCAT.id_subCategoria
+        AND ROBJ.id_objPublico=OBJ.id_objPublico
+        AND S.numST=ROBJ.numST
+        AND S.numST=USU.numST
+        AND S.numST=UN.numST
+        AND S.numST=ADJ.numST
+    /*   AND S.numST='ST012'*/
+        AND SCAT.id_subCategoria = '11' /*Formulario de Campañas Community Manager*/
+
+/*---SELECT DE FROM para Solicitudes Creación de Redes Sociales Community Manager filtrados por subcategoria y/o numST---*/
+    SELECT 
+        S.numST,
+        S.nombre,
+        S.email,
+        FAC.facDep,
+        S.telefono,
+        FAS.fase,
+        T.fecha,
+        T.comentario,
+        U.usuario,
+        UNI.nomUnidad,
+        CAT.categoria,
+        SCAT.subCategoria,
+        FAC.facDep,
+        TRS.redSocial,
+        RSCM.nomPerfil,
+        RSCM.emailPersonal,
+        RSCM.descripcion,
+        RSCM.direccion,
+        RSCM.telPerfil,
+        RSCM.emailPerfil,
+        ADJ.adjunto
+
+    FROM 
+        t_solicitud AS S,
+        t_trasabilidad AS T,
+        t_facdep AS FAC,
+        t_fase AS FAS,
+        t_resusuario AS USU,
+        t_usuario AS U,
+        t_resunidad AS UN,
+        t_unidad AS UNI,
+        t_categoria AS CAT,
+        t_subcategoria AS SCAT,
+        t_adjunto AS ADJ,
+        t_crearedescm AS RSCM,
+        t_restrs AS RRS,
+        t_tiporedsocial AS TRS
+        
+    WHERE 
+        S.numST=T.numST
+        AND S.id_facDep=FAC.id_facDep
+        AND T.id_fase=FAS.id_fase
+        AND USU.id_usuario=U.id_usuario
+        AND UN.id_unidad=UNI.id_unidad
+        AND UN.id_categoria=CAT.id_categoria
+        AND UN.id_subCategoria=SCAT.id_subCategoria
+        AND RRS.id_tipoRedSocial=TRS.id_tipoRedSocial
+        AND S.numST=RRS.numST
+        AND S.numST=USU.numST
+        AND S.numST=UN.numST
+        AND S.numST=ADJ.numST
+    /*   AND S.numST='ST012'*/
+        AND SCAT.id_subCategoria = '10' /*Formulario de Ceración de Redes Sociales Community Manager*/
+
+/*---SELECT DE FROM para Solicitudes Eventos HACER SQL INDPENDIENTES SEGUN numST ---*/
+
+
+
+
+
+/*
+-------------------------
+PRCEDIMIENTOS ALMACENADOS
+-------------------------
 -- PREFIJOS
 -- sl_NombreProcedimiento = sl -> Metodo SELECT
--- in_NombreProcedimiento = in -> Metodo INSERT	
+-- in_NombreProcedimiento = in -> Metodo INSERT 
 -- up_NombreProcedimiento = up -> Metodo UPDATE
 -- dl_NombreProcedimiento = dl -> Metodo DELETE
 */
 
 
 /*
-======
-SELECT
-======
-*/
-
-/*---SELECT DE FORM CORREOS INSTITUCINALES---*/
-SELECT 
-    S.numST,
-    S.nombre,
-    S.email,
-    FAC.facDep,
-    S.telefono,
-    FAS.fase,
-    T.fecha,
-    T.comentario,
-    U.usuario,
-    UNI.nomUnidad,
-    CAT.categoria,
-    SCAT.subCategoria,
-    ADJ.adjunto
-FROM 
-    t_solicitud AS S,
-    t_trasabilidad AS T,
-    t_facdep AS FAC,
-    t_fase AS FAS,
-    t_resusuario AS USU,
-    t_usuario AS U,
-    t_resunidad AS UN,
-    t_unidad AS UNI,
-    t_categoria AS CAT,
-    t_subcategoria AS SCAT,
-    t_adjunto AS ADJ
-    
-WHERE 
-    S.numST=T.numST
-    AND S.id_facDep=FAC.id_facDep
-    AND T.id_fase=FAS.id_fase
-    AND USU.id_usuario=U.id_usuario
-    AND UN.id_unidad=UNI.id_unidad
-    AND UN.id_categoria=CAT.id_categoria
-    AND UN.id_subCategoria=SCAT.id_subCategoria
-    AND S.numST=ADJ.numST
-    AND S.numST=USU.numST
-    AND S.numST=UN.numST
-/*  AND S.numST='ST002'*/
-    AND SCAT.id_subCategoria = '1'
-
-/*
--------------------------
-PRCEDIMIENTOS ALMACENADOS
--------------------------
 ======
 INSERT
 ======

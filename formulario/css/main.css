@@ -139,6 +139,15 @@ textarea {
     background: #EA7120; }
     .btn.btn-validate:hover {
       background: #d26014; }
+  .btn.btn-msjFinal {
+    width: 150px;
+    margin: auto;
+    font-size: 1.5rem;
+    display: block; }
+  .btn.btn-newST {
+    float: right;
+    margin-top: 30px;
+    margin-right: -30px; }
   .btn:active {
     -webkit-transform: scale(0.95);
     -ms-transform: scale(0.95);
@@ -1046,3 +1055,20 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 .tabs-content .contentTab button {
   margin-left: 2rem;
   margin-bottom: 1rem; }
+
+/*
+* ======================
+* @section Mensaje Final
+* ======================
+*/
+.msjFinal {
+  text-align: center; }
+  .msjFinal .logoComunica {
+    width: 200px;
+    margin: auto; }
+  .msjFinal .hMsjFinal {
+    font-size: 5rem;
+    margin-top: 2rem; }
+  .msjFinal .pMsjFinal {
+    font-size: 1.5rem;
+    margin-bottom: 1rem; }

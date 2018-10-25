@@ -1,11 +1,10 @@
 <?php
-	session_start();
-		set_time_limit(300);
+session_start();
+set_time_limit(300);
 
 	if ($_SESSION['home'] == 0) {
 		header('Location:../../');
 	}
-	// session_destroy();
 	include_once '../conexion.php';
 	//Insertar ST. Solicitud de Capacitación Web
 	$facDep = "SELECT facDep FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep']; // Selescciona la ultima ST igresada en la BD
@@ -67,5 +66,6 @@
 			</div>
 		</div>
 	</div>
+	<?php mysqli_close($conexion); session_destroy(); ?>
 </body>
 </html>

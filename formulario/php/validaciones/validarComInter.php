@@ -17,10 +17,9 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			if(($_FILES['adjMailInsti']['type'] == "application/pdf")  || ($_FILES['adjMailInsti']['type'] == "application/msword") || ($_FILES['adjMailInsti']['type'] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")){
 				if ($_FILES['adjMailInsti']['size'] > 8000000) {
 					$error[0][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
-				}else{
-					
+				}else{					
 					include_once '../../php/incrus/in_emailInstitucionales.php';
-				}
+				}	
 			}else{
 				$error[0][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
 			}
@@ -98,8 +97,6 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		}else{
 			header("Location: ../../php/resumen/tomasNoticias.php");
 		}
-	}else{
-		// echo "No2";
 	}
 	/*
 	==============================
@@ -196,8 +193,6 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		}else{
 			header("Location: ../../php/resumen/condolencias.php");
 		}
-	}else{
-		// echo "No3";
 	}
 	/*
 	===========================
@@ -210,26 +205,15 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		if (!empty($_FILES['cumple']['name'])) {
 			if(($_FILES['cumple']['type'] == "application/pdf")  || ($_FILES['cumple']['type'] == "application/msword") || ($_FILES['cumple']['type'] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")){
 				if ($_FILES['cumple']['size'] > 8000000) {
-					unset($_SESSION['cumple1']);
-					unset($_SESSION['cumple2']);
-					unset($_SESSION['cumple3']);
-					unset($_SESSION['cumple4']);
 					$error[3][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
 				}else{
-					$_SESSION['cumple1'] = $_FILES['cumple']['type'];			
-					$_SESSION['cumple2'] = $_FILES['cumple']['size'];			
-					$_SESSION['cumple3'] = $_FILES['cumple']['name'];			
-					$_SESSION['cumple4'] = $_FILES['cumple']['tmp_name'];
+					include_once '../../php/incrus/in_cumpleanios.php';
 				}
 			}else{
-				unset($_SESSION['cumple1']);
-				unset($_SESSION['cumple2']);
-				unset($_SESSION['cumple3']);
-				unset($_SESSION['cumple4']);
-				$error[3][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
+				$error[3][1] = "AAEl archivo adjunto debe ser un PDF o Word de máximo 1MB";
 			}
 		}else{
-			$error[3][0] = "El archivo adjunto es obligatorio";
+			$error[3][0] = "BBEl archivo adjunto es obligatorio";
 		}
 		// Validando si existen errores en todo formulario
 		if ($error) {
@@ -240,11 +224,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "El formulario tiene errores, por favor corrijalos para continuar.";
 			echo "</div>";
 			echo "</div>";
-		}else{
-			header("Location: ../../php/resumen/cumpleanios.php");
 		}
-	}else{
-		// echo "No4";
 	}
 	/*
 	=========================================
@@ -306,8 +286,6 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		}else{
 			header("Location: ../../php/resumen/tarjetasConmemorativas.php");
 		}
-	}else{
-		// echo "N05";
 	}
 
 }else{

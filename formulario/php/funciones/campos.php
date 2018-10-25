@@ -13,10 +13,6 @@ function consecutivoST($stOLD){
 	}
 	return $newST;
 }
-function codigoSeguimiento($newST){
-	//$cod = "<div class='codigoSeguimiento'>Este es su codigo de seguimiento:".$newST."</div>";
-	include 'numST.php';
-}
 /*--*/
 function campoFacDep($con){
 	$r = "SELECT * FROM t_facDep";

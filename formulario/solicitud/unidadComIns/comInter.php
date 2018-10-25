@@ -193,7 +193,7 @@
 						<div class="cuadricula">
 							<div class="celda">
 								<div class="group tooltip" title="<?php cumpleT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="cumple" value="<?php echo $_SESSION['cumple3']?>">
+									<input type="file" class="requi" name="cumple">
 									<span class="bar"></span>
 									<label>Adjuntar documento Word o PDF <span class="error"><?php echo $error[3][1] = (isset($error[3][1])) ? $error[3][1] : ""; ?></span></label>
 								</div>

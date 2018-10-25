@@ -44,12 +44,16 @@
 			$in = 'CALL in_SolicitudADJ("'.$newST.'","'.$nombre.'","'.$email.'","'.$id_facDep.'","'.$telefono.'","'.$id_usuario.'","'.$id_unidad.'","'.$id_categoria.'","'.$id_subCategoria.'","'.$id_fase.'","'.$fecha.'","'.$comentario.'","'.$adj.'")';
 			$insert = $conexion->query($in); //Ejecuto el procedimiento
 		}
+		mysqli_close($conexion);
 
-		echo codigoSeguimiento($newST);
+		$_SESSION['adjMailInsti3'] = $_FILES['adjMailInsti']['name'];
+		$_SESSION['numST'] = $newST;
+
+		header('Location:../../php/resumen/emailInstitucionales.php');
 
 		//La eliminación de Sesión y cierre de conexión se debe hacer al final del envio de correo a solicitudes@usantotomas.edu.co
-		mysqli_close($conexion);
-		session_destroy();
+		
+		//session_destroy();
 	}else{
 		echo "Error en la creación de la solicitud, por favor";
 	}

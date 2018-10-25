@@ -1,6 +1,6 @@
 <?php
-// error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-// error_reporting(0);
+error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+error_reporting(0);
 
 
 if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($_SESSION['campoFacDep']) && isset($_SESSION['campoTel'])) {
@@ -20,11 +20,6 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				}else{
 					
 					include_once '../../php/incrus/in_emailInstitucionales.php';
-
-					// $_SESSION['adjMailInsti1'] = $_FILES['adjMailInsti']['type'];			
-					// $_SESSION['adjMailInsti2'] = $_FILES['adjMailInsti']['size'];			
-					// $_SESSION['adjMailInsti3'] = $_FILES['adjMailInsti']['name'];			
-					// $_SESSION['adjMailInsti4'] = $_FILES['adjMailInsti']['tmp_name'];
 				}
 			}else{
 				$error[0][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
@@ -42,11 +37,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "El formulario tiene errores, por favor corrijalos para continuar.";
 			echo "</div>";
 			echo "</div>";
-		}else{
-			//header("Location: ../../php/resumen/emailInstitucionales.php");
 		}
-	}else{
-		// echo "No1";
 	}
 
 	/*

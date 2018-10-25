@@ -24,6 +24,33 @@
 		<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
 		<div class="btn btn-send btn-msjFinal"><?php echo $newST ?></div>
 		<a href="../../" class="btn btn-world btn-newST">Nueva solicitud</a>
+
+		<div class="cuadricula">
+			<div class="celda celdax2">
+				<h3>Nombre del solicitante</h3>
+				<p><?php echo $_SESSION['campoNombre'] ?></p>
+			</div>
+			<div class="celda celdax2">
+				<h3>Email del solicitante</h3>
+				<p><?php echo $_SESSION['campoEmail'] ?></p>
+			</div>
+		</div>
+		<div class="cuadricula">
+			<div class="celda celdax2">
+				<h3>Departamento/Facultad del solicitante</h3>
+				<p><?php echo $facDep ?></p>
+			</div>
+			<div class="celda celdax2">
+				<h3>Telefono de contacto del solicitante</h3>
+				<p><?php echo $_SESSION['campoTel'] ?></p>
+			</div>
+		</div>
+		<div class="cuadricula">
+			<div class="celda">
+				<h3>Información (Adjutno)</h3>
+				<p><?php echo $_SESSION['adjMailInsti3'] = (!empty($_SESSION['adjMailInsti3'])) ? $_SESSION['adjMailInsti3'] : "No hay Adjunto"; ?></p>
+			</div>
+		</div>
 	</div>
 
 </body>

@@ -1,6 +1,6 @@
 <?php
-error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-error_reporting(0);
+// error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+// error_reporting(0);
 
 
 if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($_SESSION['campoFacDep']) && isset($_SESSION['campoTel'])) {
@@ -16,22 +16,17 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		if (!empty($_FILES['adjMailInsti']['name'])) {
 			if(($_FILES['adjMailInsti']['type'] == "application/pdf")  || ($_FILES['adjMailInsti']['type'] == "application/msword") || ($_FILES['adjMailInsti']['type'] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")){
 				if ($_FILES['adjMailInsti']['size'] > 8000000) {
-					unset($_SESSION['adjMailInsti1']);
-					unset($_SESSION['adjMailInsti2']);
-					unset($_SESSION['adjMailInsti3']);
-					unset($_SESSION['adjMailInsti4']);
 					$error[0][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
 				}else{
-					$_SESSION['adjMailInsti1'] = $_FILES['adjMailInsti']['type'];			
-					$_SESSION['adjMailInsti2'] = $_FILES['adjMailInsti']['size'];			
-					$_SESSION['adjMailInsti3'] = $_FILES['adjMailInsti']['name'];			
-					$_SESSION['adjMailInsti4'] = $_FILES['adjMailInsti']['tmp_name'];
+					
+					include_once '../../php/incrus/in_emailInstitucionales.php';
+
+					// $_SESSION['adjMailInsti1'] = $_FILES['adjMailInsti']['type'];			
+					// $_SESSION['adjMailInsti2'] = $_FILES['adjMailInsti']['size'];			
+					// $_SESSION['adjMailInsti3'] = $_FILES['adjMailInsti']['name'];			
+					// $_SESSION['adjMailInsti4'] = $_FILES['adjMailInsti']['tmp_name'];
 				}
 			}else{
-				unset($_SESSION['adjMailInsti1']);
-				unset($_SESSION['adjMailInsti2']);
-				unset($_SESSION['adjMailInsti3']);
-				unset($_SESSION['adjMailInsti4']);
 				$error[0][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
 			}
 		}else{
@@ -48,7 +43,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "</div>";
 			echo "</div>";
 		}else{
-			header("Location: ../../php/resumen/emailInstitucionales.php");
+			//header("Location: ../../php/resumen/emailInstitucionales.php");
 		}
 	}else{
 		// echo "No1";

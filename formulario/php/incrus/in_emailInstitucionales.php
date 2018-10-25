@@ -1,13 +1,14 @@
+
 <?php
+
 	session_start();
 
 	if ($_SESSION['home'] == 0) {
 		header('Location:../../');
 	}
 	
-	include_once '../conexion.php';
-	include_once '../funciones/campos.php';
-
+	include_once '../../php/conexion.php';
+	include_once '../../php/funciones/campos.php';
 
 	//Insertar ST. Solicitud de Capacitación Web
 	$selecFINNumST = "SELECT MAX(numST) FROM t_solicitud ORDER BY numST DESC"; // Selescciona la ultima ST igresada en la BD
@@ -28,10 +29,11 @@
 		$fecha = date('Y-m-d');
 		$comentario = 'Ingresa la Solicitud';
 		$adjunto = array();
-		$_FILES['adjMailInsti']['type'] = 		$_SESSION['adjMailInsti1'];
-		$_FILES['adjMailInsti']['size'] = 		$_SESSION['adjMailInsti2'];
-		$_FILES['adjMailInsti']['name'] = 		$_SESSION['adjMailInsti3'];
-		$_FILES['adjMailInsti']['tmp_name'] = 	$_SESSION['adjMailInsti4'];
+		$_FILES['adjMailInsti']['type'];
+		$_FILES['adjMailInsti']['size'];
+		$_FILES['adjMailInsti']['name'];
+		$_FILES['adjMailInsti']['tmp_name'];
+
 		$adjunto[] = $_FILES['adjMailInsti']['name'];
 
 		$count = count($adjunto);

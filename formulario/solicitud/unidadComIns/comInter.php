@@ -68,7 +68,7 @@
 						<div class="cuadricula">
 							<div class="celda">
 								<div class="group tooltip" title="<?php correosInstuT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="adjMailInsti" value="<?php echo $_SESSION['adjMailInsti3']?>">
+									<input type="file" class="requi" name="adjMailInsti">
 									<span class="bar"></span>
 									<label>Adjuntar documento Word o PDF <span class="error"><?php echo $error[0][1] = (isset($error[0][1])) ? $error[0][1] : ""; ?></span></label>
 								</div>

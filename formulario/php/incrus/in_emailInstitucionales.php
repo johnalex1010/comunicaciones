@@ -16,7 +16,7 @@ session_start();
 	//Creación de numST y envio a base de datos
 	if ($row = mysqli_fetch_row($rst)) {
 		$stOLD = $row[0];
-		$newST = consecutivoST($stOLD);
+		echo $newST = consecutivoST($stOLD);
 		$nombre = $_SESSION['campoNombre'];
 		$email = $_SESSION['campoEmail'];
 		$id_facDep = $_SESSION['campoFacDep'];
@@ -50,23 +50,24 @@ session_start();
 
 		//Se pregunta si exíste la consulta
 		if (isset($insert)) {
-			echo "Si";
 
-			$folderST = $newST;			
-			echo $folder = $rutaDestinoST.$folderST;
+			$folderST = $newST;
+			echo "<br>";
+			$folder = $rutaDestinoST.$folderST;
 			
 			// Se pregunta si no exíste la carpeta a crear
 			if (!file_exists($folder)) {
-				// Se crea la carpeta e ingresan los adjuntos
+				//Se crea la carpeta e ingresan los adjuntos
 				$newFolderST = mkdir("$rutaDestinoST$folderST", 0777);
 				move_uploaded_file($_FILES['adjMailInsti']['tmp_name'], $folder."/".$_FILES['adjMailInsti']['name']);
 
 				//Envio de correo -- solicitudes@usantotomas.edu.co
+				include '../../php/mailer/e_emailInstitucional.php';
 
-				header('Location:../../php/mailer/');
-
-				//Redirección al resumen.
-//				header('Location:../../php/resumen/emailInstitucionales.php');
+				if($exito){
+					//Redirección al resumen.
+					header('Location:../../php/resumen/emailInstitucionales.php');
+				}
 			}
 		}else{
 			echo "Error en la creación de la solicitud, por favor";

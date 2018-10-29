@@ -32,9 +32,23 @@
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
 </head>
 <body>
-<div class="content resumen">
+<?php
+$s="SELECT ad.adjunto, ap.nomAprobacion FROM t_adjunto AS ad, t_aprobmate AS ap WHERE ad.numST='".$_SESSION['numST']."' AND ap.numST='".$_SESSION['numST']."'";
+$rs = $conexion->query($s);
+for ($i=0; $i<3; $i++) {
+	$row = mysqli_fetch_array($rs);
+	$adj[$i] = $row["adjunto"];
+	$aprobMate[$i] = $row['nomAprobacion'];
+}
+?>
+
+<div class="content msjFinal resumen">
+		<img src="../../img/logo.png" alt="Logo" class="logoComunica">
+		<h1 class="hMsjFinal">GRACIAS</h1>
+		<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
+		<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>
+		<a href="../../" class="btn btn-world btn-newST">Nueva solicitud</a>
 	<h2>Resumen de solicitud de Aprobación de material</h2>
-	<br>
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Nombre del solicitante</h3>
@@ -60,27 +74,19 @@
 			<h3>Tipo de material para ser aprobado</h3>
 			<ul>
 				<?php
-				if (isset($_SESSION['checkAprobMate'])) {
-					$dg = count($_SESSION['checkAprobMate']);
-					for ($i=0; $i < $dg ; $i++) { 
-						echo "<li>".$_SESSION['checkAprobMate'][$i]."</li>";
+					$count = count($aprobMate);
+					for ($j=0; $j < $count; $j++) { 
+						echo "<li>".$aprobMate[$j]."</li>";
 					}
-				}else{
-					echo "No hay Publico objetivo";
-				}
-
 				?>
 			</ul>
 		</div>
 		<div class="celda celdax2">
-			<h3>Material a aprobación (Adjutno)</h3>
-			<p><?php echo $_SESSION['adjAprobMate3'] = (!empty($_SESSION['adjAprobMate3'])) ? $_SESSION['adjAprobMate3'] : "No hay Adjunto";?></p>
+			<h3>Material a aprobación (Adjunto)</h3>
+			<p><?php echo $adj[0] ?></p>
 		</div>
 	</div>
-	<div class="cuadricula">
-		<a class="btn btn-world" href="../../solicitud/unidadComIns/aprobMate.php">Atras</a>
-		<a class="btn btn-send" href="../incrus/in_aprobacionMaterial.php">Enviar Solicitud</a>
-	</div>
+	<?php mysqli_close($conexion); session_destroy(); ?>
 </div>
 </body>
 </html>

@@ -16,17 +16,12 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		$checkAprobMate = array();
 		/*===== Validar Aprobación de material Checked =====*/
 		if (isset($_POST['checkAprobMate']) || !empty($_POST['checkAprobMate'])) {
-			unset( $_SESSION["echoAM"] );
-			$_SESSION['checkAprobMate'] = $_POST['checkAprobMate'];
-			$checkAprobMate = $_SESSION['checkAprobMate'];
-			$TCAcount = count($checkAprobMate);
-			for ($tcacont=0; $tcacont < $TCAcount; $tcacont++) { 
-				$_SESSION['echoAM'] .= $checkAprobMate[$tcacont]."<br>";	
+			$_POST['checkAprobMate'];
+			$TCAcount = count($_POST['checkAprobMate']);
+			for ($i=0; $i < $TCAcount; $i++) { 
+				$_POST['checkAprobMate'][$i];
 			}
 		}else{
-
-			unset( $_SESSION["echoAM"] );
-			unset( $_SESSION["checkAprobMate"] );
 			$error[0][0] = "Debe seleccionar al menos una  opción.";
 		}
 
@@ -34,22 +29,11 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		if (!empty($_FILES['adjAprobMate']['name'])) {
 			if($_FILES['adjAprobMate']['type'] == "application/zip"){
 				if ($_FILES['adjAprobMate']['size'] > 8000000) {
-					unset($_SESSION['adjMailInsti1']);
-					unset($_SESSION['adjMailInsti2']);
-					unset($_SESSION['adjMailInsti3']);
-					unset($_SESSION['adjMailInsti4']);
 					$error[0][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
 				}else{
-					$_SESSION['adjAprobMate1'] = $_FILES['adjAprobMate']['type'];			
-					$_SESSION['adjAprobMate2'] = $_FILES['adjAprobMate']['size'];			
-					$_SESSION['adjAprobMate3'] = $_FILES['adjAprobMate']['name'];			
-					$_SESSION['adjAprobMate4'] = $_FILES['adjAprobMate']['tmp_name'];
+					include_once '../../php/incrus/in_aprobacionMaterial.php';
 				}
 			}else{
-				unset($_SESSION['adjAprobMate1']);
-				unset($_SESSION['adjAprobMate2']);
-				unset($_SESSION['adjAprobMate3']);
-				unset($_SESSION['adjAprobMate4']);
 				$error[0][1] = "El archivo adjunto debe ser un ZIP o Word de máximo 1MB";
 			}
 		}else{
@@ -64,13 +48,8 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "El formulario tiene errores, por favor corrijalos para continuar.";
 			echo "</div>";
 			echo "</div>";
-		}else{
-			header("Location: ../../php/resumen/aprobacionMaterial.php");
 		}
-	}else{
-		// echo "No1";
 	}
-
 }else{
 	header('Location:../../');
 }

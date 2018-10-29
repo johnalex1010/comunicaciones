@@ -6,7 +6,7 @@ $numST = $_SESSION['numST'];
 Primero, obtenemos el listado de e-mails
 desde nuestra base de datos y la incorporamos a un Array.
 */
-require("../../../mailer/datos-email.php");
+require("datos-email.php");
 $array = array($correoSolicitudes);
 
 /* 
@@ -15,7 +15,7 @@ a nuestro código, todos los archivos necesarios para utilizar la librería.
 Supongamos que guardamos dicha librería en un directorio llamado "phpmailer"
 */
 
-require("../../../mailer/PHPMailerAutoload.php"); 
+require("PHPMailerAutoload.php"); 
 
 $mail = new PHPMailer;
 
@@ -34,9 +34,7 @@ $mail->From = $correoContacto; // Nuestro correo electrónico
 $mail->FromName = 'Universidad Santo Tomás'; // El nombre de nuestro sitio o proyecto
 $mail->IsHTML(true); // Indicamos que el email tiene formato HTML                      
 $mail->Subject = "Nueva solicitud"; // El asunto del email
-$mail->Body = "
-<p>Prueba de correo ST:". $numST ."</p>
-"; // El cuerpo de nuestro mensaje
+$mail->Body = "<p>Prueba de correo ST:". $numST ."</p>"; // El cuerpo de nuestro mensaje
 
 // Recorremos nuestro array de e-mails.
 
@@ -45,7 +43,4 @@ foreach ($array as $email) {
   $exito = $mail->Send(); // Realiza el envío =)
   $mail->ClearAddresses(); // Limpia los "Address" cargados previamente para volver a cargar uno.
 }
-
-
-
 ?>

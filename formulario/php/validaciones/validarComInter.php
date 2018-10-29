@@ -50,37 +50,14 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		if (!empty($_FILES['tn']['name'][0]) && !empty($_FILES['tn']['name'][1])) {		
 			if ((($_FILES['tn']['type'][0] == "application/msword") || ($_FILES['tn']['type'][0] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")) && (($_FILES['tn']['type'][1] == "image/jpeg") || ($_FILES['tn']['type'][1] == "image/jpg"))){
 				if (($_FILES['tn']['size'][0] > 8000000) && ($_FILES['tn']['size'][1] > 8000000)) {
-					for ($i=0; $i < 2 ; $i++) { 
-						unset($_SESSION['tn1'][$i]);
-						unset($_SESSION['tn2'][$i]);
-						unset($_SESSION['tn3'][$i]);
-						unset($_SESSION['tn4'][$i]);
-					}
 					$error[1][0] = "Los archivos execenden el peso validos: Word es: 8000000 y JPG es de: 8000000";
 				}else{
-					for ($i=0; $i < 2 ; $i++) { 
-						$_SESSION['tn1'][$i] = $_FILES['tn']['type'][$i];
-						$_SESSION['tn2'][$i] = $_FILES['tn']['size'][$i];
-						$_SESSION['tn3'][$i] = $_FILES['tn']['name'][$i];
-						$_SESSION['tn4'][$i] = $_FILES['tn']['tmp_name'][$i];
-					}
+					include_once '../../php/incrus/in_tomasNoticias.php';
 				}				
 			}else{
-				for ($i=0; $i < 2 ; $i++) { 
-					unset($_SESSION['tn1'][$i]);
-					unset($_SESSION['tn2'][$i]);
-					unset($_SESSION['tn3'][$i]);
-					unset($_SESSION['tn4'][$i]);
-				}
 				$error[1][0] = "Los formatos validos son (Word y JPG)";
 			}
 		}else{
-			for ($i=0; $i < 2 ; $i++) { 
-				unset($_SESSION['tn1'][$i]);
-				unset($_SESSION['tn2'][$i]);
-				unset($_SESSION['tn3'][$i]);
-				unset($_SESSION['tn4'][$i]);
-			}
 			$error[1][0] = "Los campos son requeridos";
 		}
 
@@ -94,8 +71,6 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "El formulario tiene errores, por favor corrijalos para continuar.";
 			echo "</div>";
 			echo "</div>";
-		}else{
-			header("Location: ../../php/resumen/tomasNoticias.php");
 		}
 	}
 	/*
@@ -210,10 +185,10 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 					include_once '../../php/incrus/in_cumpleanios.php';
 				}
 			}else{
-				$error[3][1] = "AAEl archivo adjunto debe ser un PDF o Word de máximo 1MB";
+				$error[3][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
 			}
 		}else{
-			$error[3][0] = "BBEl archivo adjunto es obligatorio";
+			$error[3][0] = "El archivo adjunto es obligatorio";
 		}
 		// Validando si existen errores en todo formulario
 		if ($error) {

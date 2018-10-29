@@ -1,7 +1,7 @@
 <?php
 //Función que suma uno(1) en las ST
 function consecutivoST($stOLD){
-	$anio =  "2019";
+	$anio =  date('Y');
 	$anioALT = ".".$anio;
 	$separarAnio = explode(".20", $anioALT);
 	$STExplode = explode("ST", $stOLD);

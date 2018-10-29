@@ -5,8 +5,9 @@
 		header('Location:../../');
 	}
 	
-	include_once '../conexion.php';
-	include_once '../funciones/campos.php';
+	include_once '../../php/conexion.php';
+	include_once '../../php/variables.php';
+	include_once '../../php/funciones/campos.php';
 
 
 	//Insertar ST. Solicitud de Capacitación Web
@@ -30,10 +31,11 @@
 
 
 		for ($i=0; $i < 2 ; $i++) { 
-			$_FILES['tn']['type'][$i] = $_SESSION['tn1'][$i];
-			$_FILES['tn']['size'][$i] = $_SESSION['tn2'][$i];
-			$_FILES['tn']['name'][$i] = $_SESSION['tn3'][$i];
-			$_FILES['tn']['tmp_name'][$i] = $_SESSION['tn4'][$i];
+			echo $_FILES['tn']['type'][$i];
+			echo $_FILES['tn']['size'][$i];
+			echo $_FILES['tn']['name'][$i];
+			echo $_FILES['tn']['tmp_name'][$i];
+			echo "<br>";
 		}
 		$adjunto = array();
 		$adjunto = $_FILES['tn']['name'];
@@ -44,20 +46,44 @@
 			$in = 'CALL in_SolicitudADJ("'.$newST.'","'.$nombre.'","'.$email.'","'.$id_facDep.'","'.$telefono.'","'.$id_usuario.'","'.$id_unidad.'","'.$id_categoria.'","'.$id_subCategoria.'","'.$id_fase.'","'.$fecha.'","'.$comentario.'","'.$adj.'")';
 			$insert = $conexion->query($in); //Ejecuto el procedimiento
 		}
-
-
-		echo codigoSeguimiento($newST);
-
-		//La eliminación de Sesión y cierre de conexión se debe hacer al final del envio de correo a solicitudes@usantotomas.edu.co
 		mysqli_close($conexion);
-		session_destroy();
+
+
+		$_SESSION['numST'] = $newST;
+
+		//Se pregunta si exíste la consulta
+		if (isset($insert)) {
+
+			$folderST = $newST;
+			$folder = $rutaDestinoST.$folderST;
+			
+			// Se pregunta si no exíste la carpeta a crear
+			if (!file_exists($folder)) {
+				//Se crea la carpeta e ingresan los adjuntos
+				$newFolderST = mkdir("$rutaDestinoST$folderST", 0777);
+
+				for ($i=0; $i < 2; $i++) { 
+					move_uploaded_file($_FILES['tn']['tmp_name'][$i], $folder."/".$_FILES['tn']['name'][$i]);
+				}
+				//Envio de correo -- solicitudes@usantotomas.edu.co
+				include '../../../mailer/e_solicitud.php';
+
+				if($exito){
+					//Redirección al resumen.
+					header('Location:../../php/resumen/tomasnoticias.php');
+				}
+			}
+		}else{
+			echo "Error en la creación de la solicitud, por favor";
+			session_destroy();
+		}
+
+
+
+
+
+
 	}else{
 		echo "Error en la creación de la solicitud, por favor";
 	}
-
-
-
-
 ?>
-
-

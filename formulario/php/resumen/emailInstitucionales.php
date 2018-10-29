@@ -31,6 +31,12 @@ set_time_limit(300);
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
 </head>
 <body>
+<?php
+$s = "SELECT adjunto FROM t_adjunto WHERE numST ='".$_SESSION['numST']."'";
+$rs = $conexion->query($s);
+$row = mysqli_fetch_array($rs);
+$adj[0] = $row["adjunto"]; 
+?>
 	<div class="content msjFinal resumen">
 		<img src="../../img/logo.png" alt="Logo" class="logoComunica">
 		<h1 class="hMsjFinal">GRACIAS</h1>
@@ -62,7 +68,7 @@ set_time_limit(300);
 		<div class="cuadricula">
 			<div class="celda">
 				<h3>Información (Adjunto)</h3>
-				<p><?php echo $_SESSION['adjMailInsti3'] = (!empty($_SESSION['adjMailInsti3'])) ? $_SESSION['adjMailInsti3'] : "No hay Adjunto"; ?></p>
+				<p><?php echo $adj[0]; ?></p>
 			</div>
 		</div>
 	</div>

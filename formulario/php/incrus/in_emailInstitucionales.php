@@ -16,7 +16,7 @@ session_start();
 	//Creación de numST y envio a base de datos
 	if ($row = mysqli_fetch_row($rst)) {
 		$stOLD = $row[0];
-		echo $newST = consecutivoST($stOLD);
+		$newST = consecutivoST($stOLD);
 		$nombre = $_SESSION['campoNombre'];
 		$email = $_SESSION['campoEmail'];
 		$id_facDep = $_SESSION['campoFacDep'];
@@ -62,7 +62,7 @@ session_start();
 				move_uploaded_file($_FILES['adjMailInsti']['tmp_name'], $folder."/".$_FILES['adjMailInsti']['name']);
 
 				//Envio de correo -- solicitudes@usantotomas.edu.co
-				include '../../php/mailer/e_emailInstitucional.php';
+				include '../../../mailer/e_solicitud.php';
 
 				if($exito){
 					//Redirección al resumen.

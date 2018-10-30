@@ -31,7 +31,17 @@
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
 </head>
 <body>
-<div class="content resumen">
+<?php
+$s = "SELECT * FROM t_capacitacionweb WHERE numST='".$_SESSION['numST']."'";
+$rs = $conexion->query($s);
+$row = mysqli_fetch_array($rs);
+?>
+<div class="content msjFinal resumen">
+	<img src="../../img/logo.png" alt="Logo" class="logoComunica">
+	<h1 class="hMsjFinal">GRACIAS</h1>
+	<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
+	<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>
+	<a href="../../" class="btn btn-world btn-newST">Nueva solicitud</a>
 	<h2>Resumen de solicitud de Sitios web - Capacitación Web</h2>
 	<br>
 	<div class="cuadricula">
@@ -57,43 +67,40 @@
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Nombre de la persona que tomara la capacitación</h3>
-			<p><?php echo $_SESSION['nombreCapa']; ?></p>
+			<p><?php echo $row["nomPersona"]; ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Telefono fijo de contacto</h3>
-			<p><?php echo $_SESSION['numTelCapa']; ?></p>
+			<p><?php echo $row["telefonoExt"]; ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Telefono celular de contacto</h3>
-			<p><?php echo $_SESSION['numCelCapa']; ?></p>
+			<p><?php echo $row["numCelular"]; ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Correo institucional</h3>
-			<p><?php echo $_SESSION['emailCapa']; ?></p>
+			<p><?php echo $row["emailCapa"]; ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Fecha (Sujeta a disponibilidad)</h3>
-			<p><?php echo $_SESSION['fechaCapa']; ?></p>
+			<p><?php echo $row["fechaCW"]; ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Hora (Sujeta a disponibilidad)</h3>
-			<p><?php echo $_SESSION['horaCapa']; ?></p>
+			<p><?php echo $row["horaCW"]; ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda">
 			<h3>Motivo de la capacitación</h3>
-			<p><?php echo $_SESSION['motivoCapa']; ?></p>
+			<p><?php echo $row["txtMotivo"]; ?></p>
 		</div>
 	</div>
-	<div class="cuadricula">
-		<a class="btn btn-world" href="../../solicitud/unidadDigital/website.php">Atras</a>
-		<a class="btn btn-send" href="../incrus/in_capacitacionWeb.php">Enviar Solicitud</a>
-	</div>
+	<?php mysqli_close($conexion); session_destroy(); ?>
 </div>
 </body>
 </html>

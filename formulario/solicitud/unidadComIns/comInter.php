@@ -109,7 +109,7 @@
 						<div class="cuadricula">
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php condoNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="text" class="requi" name="condoNombre" value="<?php echo $_SESSION['condoNombre'] = (isset($_SESSION['condoNombre'])) ? $_SESSION['condoNombre'] : ''; ?>">
+					  				<input type="text" class="requi" name="condoNombre" value="<?php echo $_POST['condoNombre'] = (isset($_POST['condoNombre'])) ? $_POST['condoNombre'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
 					  				<label>Nombre del administrativo o estudiante <span class="error"><?php echo $error[2][1] = (isset($error[2][1])) ? $error[2][1] : ""; ?></label>
@@ -117,7 +117,7 @@
 							</div>
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php condoCargoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="text" class="requi" name="condoCargo" value="<?php echo $_SESSION['condoCargo'] = (isset($_SESSION['condoCargo'])) ? $_SESSION['condoCargo'] : ''; ?>">
+					  				<input type="text" class="requi" name="condoCargo" value="<?php echo $_POST['condoCargo'] = (isset($_POST['condoCargo'])) ? $_POST['condoCargo'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
 					  				<label>Cargo <span class="error"><?php echo $error[2][2] = (isset($error[2][2])) ? $error[2][2] : ""; ?></label>
@@ -127,10 +127,13 @@
 								<div class="group tooltip" title="<?php condoFacDepT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<select name="condoFacDep" id="condoFacDep">
 									<?php
-										if ($_SESSION['condoFacDep'] == "") {
+										if ($_POST['condoFacDep'] == "") {
 											echo "<option value='' disable selected>- - -</option>";
 										}else{
-											echo "<option value='".$_SESSION['condoFacDep']."' selected>".$_SESSION['condoFacDep']."</option>";
+											$s = "SELECT * FROM t_facdep WHERE id_facDep='".$_POST['condoFacDep']."'";
+											$rs = $conexion->query($s);
+											$row = mysqli_fetch_assoc($rs);
+											echo "<option value='".$row["id_facDep"]."' selected>".$row["facDep"]."</option>";
 										}
 										campoFacDep($conexion);
 									?>
@@ -144,7 +147,7 @@
 						<div class="cuadricula">
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php condoFalleT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="text" class="requi" name="condoFalle" value="<?php echo $_SESSION['condoFalle'] = (isset($_SESSION['condoFalle'])) ? $_SESSION['condoFalle'] : ''; ?>">
+					  				<input type="text" class="requi" name="condoFalle" value="<?php echo $_POST['condoFalle'] = (isset($_POST['condoFalle'])) ? $_POST['condoFalle'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
 					  				<label>Nombre del fallecido <span class="error"><?php echo $error[2][4] = (isset($error[2][4])) ? $error[2][4] : ""; ?></label>
@@ -152,14 +155,14 @@
 							</div>
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php condoParenT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="text" class="requi" name="condoParen" value="<?php echo $_SESSION['condoParen'] = (isset($_SESSION['condoParen'])) ? $_SESSION['condoParen'] : ''; ?>">
+					  				<input type="text" class="requi" name="condoParen" value="<?php echo $_POST['condoParen'] = (isset($_POST['condoParen'])) ? $_POST['condoParen'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Parentesco <span class="error"><?php echo $error[2][5] = (isset($error[2][5])) ? $error[2][5] : ""; ?></label>
 					  			</div>
 							</div>
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php condoLugarVelT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="text" class="requi" name="condoLugarVel" value="<?php echo $_SESSION['condoLugarVel'] = (isset($_SESSION['condoLugarVel'])) ? $_SESSION['condoLugarVel'] : ''; ?>">
+					  				<input type="text" class="requi" name="condoLugarVel" value="<?php echo $_POST['condoLugarVel'] = (isset($_POST['condoLugarVel'])) ? $_POST['condoLugarVel'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Lugar de velación <span class="error"><?php echo $error[2][6] = (isset($error[2][6])) ? $error[2][6] : ""; ?></label>
 					  			</div>
@@ -168,14 +171,14 @@
 						<div class="cuadricula">
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php condoFVelaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="date" name="condoFVela" value="<?php echo $_SESSION['condoFVela'] = (isset($_SESSION['condoFVela'])) ? $_SESSION['condoFVela'] : ''; ?>">
+					  				<input type="date" name="condoFVela" value="<?php echo $_POST['condoFVela'] = (isset($_POST['condoFVela'])) ? $_POST['condoFVela'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Fecha de velación <span class="error"><?php echo $error[2][7] = (isset($error[2][7])) ? $error[2][7] : ""; ?></label>
 					  			</div>
 							</div>
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php condoHVelaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="time" name="condoHVela" value="<?php echo $_SESSION['condoHVela'] = (isset($_SESSION['condoHVela'])) ? $_SESSION['condoHVela'] : ''; ?>">
+					  				<input type="time" name="condoHVela" value="<?php echo $_POST['condoHVela'] = (isset($_POST['condoHVela'])) ? $_POST['condoHVela'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Hora de velación <span class="error"><?php echo $error[2][8] = (isset($error[2][8])) ? $error[2][8] : ""; ?></label>
 					  			</div>
@@ -210,7 +213,7 @@
 						<div class="cuadricula">
 							<div class="celda celdax2">
 								<div class="group tooltip" title="<?php conmeNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="text" class="requi" name="conmeNombre" value="<?php echo $_SESSION['conmeNombre'] = (isset($_SESSION['conmeNombre'])) ? $_SESSION['conmeNombre'] : ''; ?>">
+					  				<input type="text" class="requi" name="conmeNombre" value="<?php echo $_POST['conmeNombre'] = (isset($_POST['conmeNombre'])) ? $_POST['conmeNombre'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
 					  				<label>Nombre de la conmemoración <span class="error"><?php echo $error[4][1] = (isset($error[4][1])) ? $error[4][1] : ""; ?></span></label>
@@ -218,7 +221,7 @@
 							</div>
 							<div class="celda celdax2">
 								<div class="group tooltip" title="<?php conmeFT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-					  				<input type="date" name="conmeF" value="<?php echo $_SESSION['conmeF'] = (isset($_SESSION['conmeF'])) ? $_SESSION['conmeF'] : ''; ?>">
+					  				<input type="date" name="conmeF" value="<?php echo $_POST['conmeF'] = (isset($_POST['conmeF'])) ? $_POST['conmeF'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
 					  				<label>Fecha de conmemoración <span class="error"><?php echo $error[4][2] = (isset($error[4][2])) ? $error[4][2] : ""; ?></span></label>
@@ -228,10 +231,10 @@
 						<div class="cuadricula">
 							<div class="celda">
 								<div class="group tooltip" title="<?php conmeMSJT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<textarea name="conmeMSJ" maxlength="498" id=""><?php echo $_SESSION['conmeMSJ'] ?></textarea>
+									<textarea name="conmeMSJ" id=""><?php echo $_POST['conmeMSJ'] ?></textarea>
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
-					  				<label>Mensaje (500 Caracteres máximo)<span class="error"><?php echo $error[4][3] = (isset($error[4][3])) ? $error[4][3] : ""; ?></span></label>
+					  				<label>Mensaje (500 Caracteres máximo) <span class="error"><?php echo $error[4][3] = (isset($error[4][3])) ? $error[4][3] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>

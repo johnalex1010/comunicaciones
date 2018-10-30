@@ -50,9 +50,7 @@ session_start();
 
 		//Se pregunta si exíste la consulta
 		if (isset($insert)) {
-
 			$folderST = $newST;
-			echo "<br>";
 			$folder = $rutaDestinoST.$folderST;
 			
 			// Se pregunta si no exíste la carpeta a crear

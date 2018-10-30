@@ -896,11 +896,10 @@ DELIMITER //
         IN _nombreCam varchar(200),         /*Relación de la tabla t_campaniascm*/
         IN _justificacion TEXT,             /*Relación de la tabla t_campaniascm*/
         IN _objetivo TEXT,                  /*Relación de la tabla t_campaniascm*/
-        IN _descripcion TEXT,                  /*Relación de la tabla t_campaniascm*/
+        IN _descripcion TEXT,               /*Relación de la tabla t_campaniascm*/
         IN _fechaHoraIni DATE,              /*Relación de la tabla t_campaniascm*/
         IN _fechaHoraFin DATE,              /*Relación de la tabla t_campaniascm*/
-        IN _palabrasClaves TEXT,             /*Relación de la tabla t_campaniascm*/
-        IN _adjunto VARCHAR(30),            /*Relación de la tabla t_adjunto*/
+        IN _palabrasClaves TEXT,            /*Relación de la tabla t_campaniascm*/
         IN _id_objPublico int               /*Relación de la tabla t_resobjpublico*/
 
     )
@@ -910,8 +909,7 @@ DELIMITER //
                 INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
                 INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
                 INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
-                INSERT INTO t_campaniascm(nombreCam, justificacion, objetivo, descripcion, fechaHoraIni, fechaHoraFin, palabrasClaves, numST) VALUES (_nombreCam, _justificacion, _objetivo, _descripcion, _fechaHoraIni, _fechaHoraFin, _palabrasClaves, _numST);
-                INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
+                INSERT INTO t_campaniascm(nombreCam, justificacion, objetivo, descripcion, fechaHoraIni, fechaHoraFin, palabrasClaves, numST) VALUES (_nombreCam, _justificacion, _objetivo, _descripcion, _fechaHoraIni, _fechaHoraFin, _palabrasClaves, _numST);                
                 INSERT INTO t_resobjpublico(id_objPublico, numST) VALUES (_id_objPublico, _numST);
             ELSE
                 INSERT INTO t_resobjpublico(id_objPublico, numST) VALUES (_id_objPublico, _numST);

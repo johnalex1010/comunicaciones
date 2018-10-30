@@ -31,9 +31,18 @@
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
 </head>
 <body>
-<div class="content resumen">
+<?php
+$s = "SELECT * FROM t_asesoriacm WHERE numST='".$_SESSION['numST']."'";
+$rs = $conexion->query($s);
+$row = mysqli_fetch_array($rs);
+?>
+<div class="content msjFinal resumen">
+	<img src="../../img/logo.png" alt="Logo" class="logoComunica">
+	<h1 class="hMsjFinal">GRACIAS</h1>
+	<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
+	<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>
+	<a href="../../" class="btn btn-world btn-newST">Nueva solicitud</a>
 	<h2>Resumen de solicitud de Asesorías</h2>
-	<br>
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Nombre del solicitante</h3>
@@ -57,27 +66,24 @@
 		<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Tema central de la asesoría</h3>
-			<p><?php echo $_SESSION['temaAseso'] ?></p>
+			<p><?php  echo $row["tema"]; ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Lugar de la asesoría (Sugerido)</h3>
-			<p><?php echo $_SESSION['lugarAseso'] ?></p>
+			<p><?php  echo $row["lugar"]; ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Fecha (Sujeta a disponibilidad)</h3>
-			<p><?php echo $_SESSION['fechaAseso'] ?></p>
+			<p><?php  echo $row["fechaACM"]; ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Hora (Sujeta a disponibilidad)</h3>
-			<p><?php echo $_SESSION['horaAseso'] ?></p>
+			<p><?php  echo $row["horaACM"]; ?></p>
 		</div>
 	</div>
-	<div class="cuadricula">
-		<a class="btn btn-world" href="../../solicitud/unidadDigital/communityManager.php">Atras</a>
-		<a class="btn btn-send" href="../incrus/in_asesoriaCM.php">Enviar Solicitud</a>
-	</div>
+	<?php mysqli_close($conexion); session_destroy(); ?>
 </div>
 </body>
 </html>

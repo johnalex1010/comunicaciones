@@ -32,7 +32,17 @@
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
 </head>
 <body>
-<div class="content resumen">
+<?php
+$s = "SELECT N.*, A.adjunto FROM t_newweb AS N, t_adjunto AS A WHERE N.numST=A.numST AND N.numST='".$_SESSION['numST']."'";
+$rs = $conexion->query($s);
+$row = mysqli_fetch_array($rs);
+?>
+<div class="content msjFinal resumen">
+	<img src="../../img/logo.png" alt="Logo" class="logoComunica">
+	<h1 class="hMsjFinal">GRACIAS</h1>
+	<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
+	<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>
+	<a href="../../" class="btn btn-world btn-newST">Nueva solicitud</a>
 	<h2>Resumen de solicitud de Sitios web - Nuevo Sitio</h2>
 	<br>
 	<div class="cuadricula">
@@ -58,27 +68,24 @@
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Nombre del evento</h3>
-			<p><?php echo $_SESSION['nombreEventWeb'] ?></p>
+			<p><?php echo $row["nombreWeb"]; ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Subdominio</h3>
-			<p><?php echo $_SESSION['subdominio'] ?></p>
+			<p><?php echo $row["subdominio"]; ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax2">
-			<h3>Contendio de plan de navegación y linea gráfica (Adjutno)</h3>
-			<p><?php echo $_SESSION['adjPlanNav3'] = (!empty($_SESSION['adjPlanNav3'])) ? $_SESSION['adjPlanNav3'] : "No hay Adjunto";?></p>
+			<h3>Contendio de plan de navegación y linea gráfica (Adjunto)</h3>
+			<p><?php echo $row["adjunto"]; ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Motivo por el cual debe ser creado.</h3>
-			<p><?php echo $_SESSION['motivoNewWeb'] ?></p>
+			<p><?php echo $row["justificacion"]; ?></p>
 		</div>
 	</div>
-	<div class="cuadricula">
-		<a class="btn btn-world" href="../../solicitud/unidadDigital/website.php">Atras</a>
-		<a class="btn btn-send" href="../incrus/in_newSite.php">Enviar Solicitud</a>
-	</div>
+	<?php mysqli_close($conexion); session_destroy(); ?>
 </div>
 </body>
 </html>

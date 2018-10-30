@@ -32,7 +32,17 @@
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
 </head>
 <body>
-<div class="content resumen">
+<?php 
+	$s = "SELECT * FROM t_tarjetas WHERE numST='".$_SESSION['numST']."'";
+	$rs = $conexion->query($s);
+	$row = mysqli_fetch_array($rs);
+?>
+<div class="content msjFinal resumen">
+		<img src="../../img/logo.png" alt="Logo" class="logoComunica">
+		<h1 class="hMsjFinal">GRACIAS</h1>
+		<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
+		<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>
+		<a href="../../" class="btn btn-world btn-newST">Nueva solicitud</a>
 	<h2>Resumen de solicitud de Comunicaciones Internas - Tarjetas conmemorativas</h2>
 	<br>
 	<div class="cuadricula">
@@ -58,23 +68,20 @@
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Nombre de la conmemoración</h3>
-			<p><?php echo $_SESSION['conmeNombre'] ?></p>
+			<p><?php echo $row["nombreTarjeta"]; ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Fecha de la conmemoración</h3>
-			<p><?php echo $_SESSION['conmeF'] ?></p>
+			<p><?php echo $row["fechaTarjeta"]; ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda">
 			<h3>Mensaje</h3>
-			<p><?php echo $_SESSION['conmeMSJ'] ?></p>
+			<p><?php echo $row["mensaje"]; ?></p>
 		</div>
 	</div>
-	<div class="cuadricula">
-		<a class="btn btn-world" href="../../solicitud/unidadComIns/comInter.php">Atras</a>
-		<a class="btn btn-send" href="../incrus/in_tarjetasConmemorativas.php">Enviar Solicitud</a>
-	</div>
 </div>
+<?php mysqli_close($conexion); session_destroy(); ?>
 </body>
 </html>

@@ -32,9 +32,40 @@
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
 </head>
 <body>
-<div class="content resumen">
+<?php
+$s="SELECT
+	C.*,
+	OBJ.listPublico
+FROM
+	t_campaniascm AS C,
+	t_objpublico AS OBJ,
+	t_resobjpublico AS ROBJ
+WHERE
+	ROBJ.id_objPublico=OBJ.id_objPublico
+	AND C.numST=ROBJ.numST
+	AND C.numST='".$_SESSION['numST']."'";
+$rs = $conexion->query($s);
+$a = array();
+for ($i=0; $i<6; $i++) {
+	$row = mysqli_fetch_array($rs);
+	$nombreCam[$i] = $row["nombreCam"];
+	$objetivo[$i] = $row["objetivo"];
+	$justificacion[$i] = $row["justificacion"];
+	$descripcion[$i] = $row["descripcion"];
+	$fechaHoraIni[$i] = $row["fechaHoraIni"];
+	$fechaHoraFin[$i] = $row["fechaHoraFin"];
+	$palabrasClaves[$i] = $row["palabrasClaves"];
+	array_push($a, $row["listPublico"]);
+}
+
+?>
+<div class="content msjFinal resumen">
+	<img src="../../img/logo.png" alt="Logo" class="logoComunica">
+	<h1 class="hMsjFinal">GRACIAS</h1>
+	<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
+	<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>
+	<a href="../../" class="btn btn-world btn-newST">Nueva solicitud</a>	
 	<h2>Resumen de solicitud de Creación campañas</h2>
-	<br>
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Nombre del solicitante</h3>
@@ -58,42 +89,57 @@
 	<div class="cuadricula">
 		<div class="celda">
 			<h3>Nombre de la campaña</h3>
-			<p><?php echo $_SESSION['nomCampa'] ?></p>
+			<p><?php echo $nombreCam[0] ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Justificación</h3>
-			<p><?php echo $_SESSION['justiCampa'] ?></p>
+			<p><?php echo $justificacion[0] ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Objetivo</h3>
-			<p><?php echo $_SESSION['objCampa'] ?></p>
+			<p><?php echo $objetivo[0] ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Descripción</h3>
-			<p><?php echo $_SESSION['descripCampa'] ?></p>
+			<p><?php echo $descripcion[0] ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Palabras clave (Keywords)</h3>
-			<p><?php echo $_SESSION['keyCampa'] = (!empty($_SESSION['keyCampa'])) ? $_SESSION['keyCampa'] : "No hay palabras clave."; ?></p>
+			<p><?php echo $palabrasClaves[0] ?></p>
 		</div>
 	</div>
 
 	<div class="cuadricula">
 		<div class="celda celdax3">
 			<h3>Imagenes de referencia (Adjunto)</h3>
-			<p><?php echo $_SESSION['ajdImgCampa3'] = (!empty($_SESSION['ajdImgCampa3'])) ? $_SESSION['ajdImgCampa3'] : "No hay Adjunto"; ?></p>
+			<p>
+				<?php
+					$sADJ = "SELECT adjunto FROM t_adjunto WHERE numST='".$_SESSION['numST']."'";
+					$rsADJ = $conexion->query($sADJ);
+					
+					$numero = mysqli_num_rows($rsADJ);
+					if ($numero == 0) {
+						echo "No hay Adjuntos";
+					}else{
+						$row = mysqli_fetch_array($rsADJ);
+						echo $row['adjunto'];
+					}
+
+					
+				?>
+			</p>
 		</div>
 		<div class="celda celdax3">
 			<h3>Fecha de inicio de la campaña</h3>
-			<p><?php echo $_SESSION['fIniCampa'] ?></p>
+			<p><?php echo $fechaHoraIni[0] ?></p>
 		</div>
 		<div class="celda celdax3">
 			<h3>Fecha de finalización de la campaña</h3>
-			<p><?php echo $_SESSION['fFinCampa'] ?></p>
+			<p><?php echo $fechaHoraFin[0] ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
@@ -101,25 +147,15 @@
 			<h3>Público objetivo</h3>
 			<ul>
 				<?php
-				if (isset($_SESSION['checkPublicoObj'])) {
-					$dg = count($_SESSION['checkPublicoObj']);
-					for ($i=0; $i < $dg ; $i++) { 
-						$a = "SELECT listPublico FROM t_objpublico WHERE id_objPublico=".$_SESSION['checkPublicoObj'][$i]."";
-						$ra = $conexion->query($a);
-						$rowa = mysqli_fetch_row($ra);
-						echo "<li>".$rowa[0]."</li>";
+					$c = count($a);
+					for ($i=0; $i < $c ; $i++) { 
+						echo "<li>".$a[$i]."</li>";
 					}
-				}else{
-					echo "No hay Publico objetivo";
-				}
 				?>
 			</ul>
 		</div>
 	</div>
-	<div class="cuadricula">
-		<a class="btn btn-world" href="../../solicitud/unidadDigital/communityManager.php">Atras</a>
-		<a class="btn btn-send" href="../incrus/in_campaniaCM.php">Enviar Solicitud</a>
-	</div>
+	<?php mysqli_close($conexion); session_destroy(); ?>
 </div>
 </body>
 </html>

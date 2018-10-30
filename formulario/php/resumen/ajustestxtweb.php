@@ -32,9 +32,18 @@
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
 </head>
 <body>
-<div class="content resumen">
+<?php
+$s = "SELECT AJ.*, ADJ.adjunto FROM t_ajusteweb AS AJ, t_adjunto AS ADJ WHERE AJ.numST=ADJ.numST AND AJ.numST='".$_SESSION['numST']."'";
+$rs = $conexion->query($s);
+$row = mysqli_fetch_array($rs);
+?>
+<div class="content msjFinal resumen">
+	<img src="../../img/logo.png" alt="Logo" class="logoComunica">
+	<h1 class="hMsjFinal">GRACIAS</h1>
+	<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
+	<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>
+	<a href="../../" class="btn btn-world btn-newST">Nueva solicitud</a>
 	<h2>Resumen de solicitud de Sitios web - Ajustes de texto y/o imagenes</h2>
-	<br>
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Nombre del solicitante</h3>
@@ -58,23 +67,20 @@
 	<div class="cuadricula">
 		<div class="celda">
 			<h3>URL donde se realizaran los cambios</h3>
-			<p><?php echo $_SESSION['urlWeb'] ?></p>
+			<p><?php echo $row["urlAjuste"]; ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Contendo que se va a cambiar/corregir (Adjutno)</h3>
-			<p><?php echo $_SESSION['adjDocWEb3'] = (!empty($_SESSION['adjDocWEb3'])) ? $_SESSION['adjDocWEb3'] : "No hay Adjunto";?></p>
+			<p><?php echo $row["adjunto"]; ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Descripción.</h3>
-			<p><?php echo $_SESSION['descripWeb'] ?></p>
+			<p><?php echo $row["descripcion"]; ?></p>
 		</div>
 	</div>
-	<div class="cuadricula">
-		<a class="btn btn-world" href="../../solicitud/unidadDigital/website.php">Atras</a>
-		<a class="btn btn-send" href="../incrus/in_ajustestxtweb.php">Enviar Solicitud</a>
-	</div>
+	<?php mysqli_close($conexion); session_destroy(); ?>
 </div>
 </body>
 </html>

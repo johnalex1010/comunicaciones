@@ -85,43 +85,31 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			/*===== Validar Nombre Doliente =====*/
 			if (!isset($_POST['condoNombre']) || empty($_POST['condoNombre'])) {
 				$error[2][1] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoNombre'] = $_POST['condoNombre'];
 			}
 
 			/*===== Validar Cargo Doliente =====*/
 			if (!isset($_POST['condoCargo']) || empty($_POST['condoCargo'])) {
 				$error[2][2] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoCargo'] = $_POST['condoCargo'];
-			}			
+			}
 
 			/*===== Validar Facultad/Dependencia =====*/
 			if (!isset($_POST['condoFacDep']) || empty($_POST['condoFacDep'])){
 				$error[2][3] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoFacDep'] = $_POST['condoFacDep'];
 			}
 
 			/*===== Validar Nombre Fallecido =====*/
 			if (!isset($_POST['condoFalle']) || empty($_POST['condoFalle'])) {
 				$error[2][4] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoFalle'] = $_POST['condoFalle'];
 			}
 
 			/*===== Validar Parentesco =====*/
 			if (!isset($_POST['condoParen']) || empty($_POST['condoParen'])) {
 				//$error[2][5] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoParen'] = $_POST['condoParen'];
 			}
 
 			/*===== Validar Lugar velación =====*/
 			if (!isset($_POST['condoLugarVel']) || empty($_POST['condoLugarVel'])) {
 				//$error[2][6] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoLugarVel'] = $_POST['condoLugarVel'];
 			}
 
 			/*===== Validar Fecha de conmemoración =====*/
@@ -132,7 +120,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				$date = explode("-", $_POST['condoFVela']);
 				$countDate =  count($date);
 				if ($countDate == 3 && checkdate($date[1], $date[2], $date[0])) {
-					$_SESSION['condoFVela'] = $_POST['condoFVela'];
+					$_POST['condoFVela'];
 				}else{
 					$error[2][8] = "El formato fecha es incorrecto";
 				}
@@ -141,18 +129,8 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			/*===== Validar hora velación =====*/
 			if (!isset($_POST['condoHVela']) || empty($_POST['condoHVela'])) {
 				//$error[2][8] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoHVela'] = $_POST['condoHVela'];
 			}
 		}else{
-			unset($_SESSION['condoNombre']);
-			unset($_SESSION['condoCargo']);
-			unset($_SESSION['condoFacDep']);
-			unset($_SESSION['condoFalle']);
-			unset($_SESSION['condoParen']);
-			unset($_SESSION['condoLugarVel']);
-			unset($_SESSION['condoFVela']);
-			unset($_SESSION['condoHVela']);
 			$error[2][0] = "Los campos obligatorios";
 		}
 
@@ -166,7 +144,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "</div>";
 			echo "</div>";
 		}else{
-			header("Location: ../../php/resumen/condolencias.php");
+			include_once '../../php/incrus/in_condolencias.php';
 		}
 	}
 	/*
@@ -214,8 +192,6 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			/*===== Validar Nombre Conmemoración =====*/
 			if (!isset($_POST['conmeNombre']) || empty($_POST['conmeNombre'])) {
 				$error[4][1] = "El campo es obligatorio";
-			}else{
-				$_SESSION['conmeNombre'] = $_POST['conmeNombre'];
 			}
 
 			/*===== Validar Fecha de conmemoración =====*/
@@ -226,7 +202,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				$date = explode("-", $_POST['conmeF']);
 				$countDate =  count($date);
 				if ($countDate == 3 && checkdate($date[1], $date[2], $date[0])) {
-					$_SESSION['conmeF'] = $_POST['conmeF'];
+					$_POST['conmeF'];
 				}else{
 					$error[4][2] = "El formato fecha es incorrecto";
 				}
@@ -236,17 +212,13 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			if (isset($_POST['conmeMSJ'])) {
 				unset( $_SESSION["conmeMSJ"] );
 				if (strlen($_POST['conmeMSJ'])<=510) {
-					$_SESSION['conmeMSJ'] = $_POST['conmeMSJ'];
+					$_POST['conmeMSJ'];
 				}else{
-					$_SESSION['conmeMSJ'] = $_POST['conmeMSJ'];
 					$error[4][3] = "Son máximo 500 caracteres";
 				}
 			}
 
 		}else{
-			unset($_SESSION['conmeNombre']);
-			unset($_SESSION['conmeF']);
-			unset($_SESSION['conmeMSJ']);
 			$error[4][0] = "Los campos obligatorios";
 		}
 		// Validando si existen errores en todo formulario
@@ -259,7 +231,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "</div>";
 			echo "</div>";
 		}else{
-			header("Location: ../../php/resumen/tarjetasConmemorativas.php");
+			include_once '../../php/incrus/in_tarjetasConmemorativas.php';
 		}
 	}
 

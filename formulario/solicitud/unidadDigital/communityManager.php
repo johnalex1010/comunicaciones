@@ -70,7 +70,7 @@
 									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="3" <?php if (in_array("3", $_POST['checkNewRedes'])) echo "checked"; ?> /> Perfil Twitter<br>
 									<input type="checkbox" class="option-input checkbox" name="checkNewRedes[]" value="4" <?php if (in_array("4", $_POST['checkNewRedes'])) echo "checked"; ?> /> Perfil Linkedin<br>
 									<br>
-									<br>									
+									<br>
 								</div>
 							</div>
 						</div>
@@ -94,7 +94,7 @@
 								<div class="group tooltip" title="<?php adjImgNewRedT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="adjImgNewRed" value="<?php echo $_POST['adjImgNewRed3']?>">
 									<span class="bar"></span>
-									<label>Adjuntar ZIP con imagenes (Sugerido) <span class="error"><?php echo $error[0][3] = (isset($error[0][3])) ? $error[0][3] : ""; ?></span></label>
+									<label>Adjuntar ZIP con imagenes (Opcional) <span class="error"><?php echo $error[0][3] = (isset($error[0][3])) ? $error[0][3] : ""; ?></span></label>
 								</div>
 							</div>
 						</div>

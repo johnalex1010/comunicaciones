@@ -860,7 +860,6 @@ DELIMITER //
         IN _direccion varchar(50),          /*Relación de la tabla t_crearedescm*/
         IN _telPerfil varchar(10),          /*Relación de la tabla t_crearedescm*/
         IN _emailPerfil varchar(100),       /*Relación de la tabla t_crearedescm*/
-        IN _adjunto VARCHAR(30),            /*Relación de la tabla t_adjunto*/
         IN _id_tipoRedSocial int            /*Relación de la tabla t_tiporedsocial*/
 
     )
@@ -871,7 +870,6 @@ DELIMITER //
                 INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
                 INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
                 INSERT INTO t_crearedescm(nomPerfil, emailPersonal, descripcion, direccion, telPerfil, emailPerfil, numST) VALUES (_nomPerfil, _emailPersonal, _descripcion, _direccion, _telPerfil, _emailPerfil, _numST);
-                INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
                 INSERT INTO t_restrs(id_tipoRedSocial, numST) VALUES (_id_tipoRedSocial, _numST);
             ELSE
                 INSERT INTO t_restrs(id_tipoRedSocial, numST) VALUES (_id_tipoRedSocial, _numST);

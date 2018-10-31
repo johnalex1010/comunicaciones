@@ -51,9 +51,25 @@
 			$ra = $conexion->query($a);
 			$rowa = mysqli_fetch_row($ra);
 			$rs = $rowa[0];
-			$in = 'CALL in_SolicitudNewRedSocial("'.$newST.'","'.$nombre.'","'.$email.'","'.$id_facDep.'","'.$telefono.'","'.$id_usuario.'","'.$id_unidad.'","'.$id_categoria.'","'.$id_subCategoria.'","'.$id_fase.'","'.$fecha.'","'.$comentario.'","'.$nomPerfil.'","'.$emailPersonal.'","'.$descripcion.'","'.$direccion.'","'.$telPerfil.'","'.$emailPerfil.'","'.$adjunto.'","'.$rs.'")';
+			$in = 'CALL in_SolicitudNewRedSocial("'.$newST.'","'.$nombre.'","'.$email.'","'.$id_facDep.'","'.$telefono.'","'.$id_usuario.'","'.$id_unidad.'","'.$id_categoria.'","'.$id_subCategoria.'","'.$id_fase.'","'.$fecha.'","'.$comentario.'","'.$nomPerfil.'","'.$emailPersonal.'","'.$descripcion.'","'.$direccion.'","'.$telPerfil.'","'.$emailPerfil.'","'.$rs.'")';
 			$insert = $conexion->query($in); //Ejecuto el procedimiento
 		}
+
+		//Condiciones para poder agregar los array de forma independiente
+		$selecNumST = "SELECT numST FROM t_solicitud WHERE numST=".$newST; // Busca que ya este la nueva ST
+		$rstNumST = $conexion->query($selecFINNumST);
+		$select= mysqli_fetch_row($rstNumST);
+
+		if ($select[0] == $newST) {
+			if (!empty($adjunto)) {
+				$inADJ = 'INSERT INTO t_adjunto(numST, adjunto) VALUES ("'.$newST.'","'.$adjunto.'")';
+				$rstADJ = $conexion->query($inADJ);
+			}
+		}else{
+			mysqli_close($conexion);
+			echo "No Funciono";
+		}
+
 		mysqli_close($conexion);
 
 		$_SESSION['numST'] = $newST;

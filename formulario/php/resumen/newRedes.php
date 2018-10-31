@@ -35,16 +35,13 @@
 <?php
 $s="SELECT
 	RS.*,
-	ADJ.adjunto,
 	TRS.redSocial
 FROM
 	t_crearedescm AS RS,
-	t_adjunto AS ADJ,
 	t_restrs AS RRS,
 	t_tiporedsocial AS TRS
 WHERE
-	RS.numST=ADJ.numST
-	AND RRS.id_tipoRedSocial=TRS.id_tipoRedSocial
+	RRS.id_tipoRedSocial=TRS.id_tipoRedSocial
 	AND RS.numST=RRS.numST
 	AND RS.numST='".$_SESSION['numST']."'";
 $rs = $conexion->query($s);
@@ -57,7 +54,6 @@ for ($i=0; $i<4; $i++) {
 	$direccion[$i] = $row["direccion"];
 	$telPerfil[$i] = $row["telPerfil"];
 	$emailPerfil[$i] = $row["emailPerfil"];
-	$adjunto[$i] = $row["adjunto"];	
 	array_push($a, $row["redSocial"]);
 }
 
@@ -113,8 +109,23 @@ for ($i=0; $i<4; $i++) {
 			<p><?php echo $emailPersonal[0] ?></p>
 		</div>
 		<div class="celda celdax3">
-			<h3>Archivo con imagnes sugeridas (Adjutno)</h3>
-			<p><?php echo $adjunto[0] ?></p>
+			<h3>Archivo con imagnes sugeridas (Adjunto)</h3>
+			<p>
+				<?php
+					$sADJ = "SELECT adjunto FROM t_adjunto WHERE numST='".$_SESSION['numST']."'";
+					$rsADJ = $conexion->query($sADJ);
+					
+					$numero = mysqli_num_rows($rsADJ);
+					if ($numero == 0) {
+						echo "No hay Adjuntos";
+					}else{
+						$row = mysqli_fetch_array($rsADJ);
+						echo $row['adjunto'];
+					}
+
+					
+				?>
+			</p>
 		</div>
 	</div>
 	<div class="cuadricula">

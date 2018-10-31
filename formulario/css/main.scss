@@ -298,7 +298,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 .cuadricula .celda.celdax90l{width: 88%;}
 .cuadricula .celda.celdax90r{width: 88%;}
 
-@media screen and   (max-width: 1460px){
+@media screen and (max-width: 1460px){
   .cuadricula .celda.celdax10{
     width: 20%;
   }
@@ -556,7 +556,6 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   width: 90%;
   max-width: 1200px;
   margin: 0px auto;
-  /* text-align: center; */
   position: relative;
 }
 #msform fieldset {
@@ -711,20 +710,6 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 * @section Formulario Table Impresos y digitales
 * ==============================================
 */
-.tableImpWeb{
-  margin-left: -1rem;
-  margin-top: 1rem;
-  width: 100%;
-  tr{
-    width: 100%;
-    display: table;
-    td{
-      padding-left: 1rem;
-    }
-  }
-}
-
-
 .boxImpDig{
   h4{
     background-color: red;
@@ -734,7 +719,6 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   }
   &>div{
     border:1px solid rgba(#000, 0.1);
-    /* background-color: red; */
     padding: 1rem;
     p,
     &>a{
@@ -747,20 +731,24 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   }
 }
 
-.plusMinus{
-  a{
-    text-align: center;
-    background: red;
-    
-
-    &:nth-child(1){
-      background: $btnPlus;
-      margin-right: 0.3rem;
-    }
-    &:nth-child(2){
-      background: $btnMinus;
-      margin-left: 0.3rem;
-    }
+.removeBTNS{
+  background: $btnMinus;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  border-radius: 50%;
+  &:before{
+    content:"-";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    font-size: 2rem;
+    height: 30px;
+    width: 30px;
+    margin-top: -5px;
   }
 }
 
@@ -778,7 +766,8 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   right: 0;
   bottom: 0;
   margin: auto;
-  z-index: 900;
+  z-index: 9990;
+  position: fixed;
 }
 #enviandoBOX .progresoBarra{
   background: #fff;

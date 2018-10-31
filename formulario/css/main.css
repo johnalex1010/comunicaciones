@@ -572,7 +572,6 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   width: 90%;
   max-width: 1200px;
   margin: 0px auto;
-  /* text-align: center; */
   position: relative; }
 
 #msform fieldset {
@@ -723,16 +722,6 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 * @section Formulario Table Impresos y digitales
 * ==============================================
 */
-.tableImpWeb {
-  margin-left: -1rem;
-  margin-top: 1rem;
-  width: 100%; }
-  .tableImpWeb tr {
-    width: 100%;
-    display: table; }
-    .tableImpWeb tr td {
-      padding-left: 1rem; }
-
 .boxImpDig h4 {
   background-color: red;
   text-align: center;
@@ -741,7 +730,6 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 
 .boxImpDig > div {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  /* background-color: red; */
   padding: 1rem; }
   .boxImpDig > div p,
   .boxImpDig > div > a {
@@ -750,15 +738,24 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
     text-align: justify;
     font-size: 0.9rem; }
 
-.plusMinus a {
-  text-align: center;
-  background: red; }
-  .plusMinus a:nth-child(1) {
-    background: green;
-    margin-right: 0.3rem; }
-  .plusMinus a:nth-child(2) {
-    background: purple;
-    margin-left: 0.3rem; }
+.removeBTNS {
+  background: purple;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  border-radius: 50%; }
+  .removeBTNS:before {
+    content: "-";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    font-size: 2rem;
+    height: 30px;
+    width: 30px;
+    margin-top: -5px; }
 
 /*
 * =====================
@@ -773,7 +770,8 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   right: 0;
   bottom: 0;
   margin: auto;
-  z-index: 900; }
+  z-index: 9990;
+  position: fixed; }
 
 #enviandoBOX .progresoBarra {
   background: #fff;

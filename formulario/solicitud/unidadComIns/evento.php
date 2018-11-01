@@ -51,7 +51,7 @@
 	</div>
 	<form id="msform" action="" method="post" enctype="multipart/form-data">
 		<!-- Página 1 -->
-		<!-- <fieldset>
+		<fieldset>
 		  	<div class="cuadricula">
 		  		<div class="celda celdax3">
 		  			<div class="group tooltip" title="<?php tipoEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
@@ -177,7 +177,7 @@
 		  		</div>
 		  	</div>
 		    	<button type="button" name="next" class="btn btn-next btn-world" value="Next" />Siguiente</button>
-		</fieldset> -->
+		</fieldset>
 		  
 		<!-- Página 2 -->
 		<fieldset>
@@ -195,20 +195,160 @@
 					<div class="contentCheck checkboxAudioVisual">
 						<span class="error"><?php echo $error[13] = (isset($error[13])) ? $error[13] : ""; ?></span>
 						<p class="colorTxt tooltip" title="<?php requerimientoIMPWEBEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Su solicitud requiere piezas?</p>
-						<p><input type="checkbox" class="option-input checkbox btnCheckImp" <?php if (!empty($_POST['selectPiezaIMPEvento'][0])) {echo "checked";}?>>Impresas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" class="option-input checkbox btnCheckWeb" <?php if (!empty($_POST['inputDIG'][0])) {echo "checked";}?>>Digitales</p>
+						<p><input type="checkbox" class="option-input checkbox btnCheckImp" <?php if (!empty($_POST['ImpPieza'][0])) {echo "checked";}?>>Impresas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" class="option-input checkbox btnCheckWeb" <?php if (!empty($_POST['inputDIG'][0])) {echo "checked";}?>>Digitales</p>
 					</div>
 				</div>
 			</div>
 
-			<div class="cuadricula imp" style="display: <?php echo $display = (!empty($_POST['selectPiezaIMPEvento'][0])) ? "block" : "none"; ?>">
+			<div class="cuadricula imp" style="display: <?php echo $display = (!empty($_POST['ImpPieza'][0])) ? "block" : "none"; ?>">
 				<div class="celda">
 					<h3 class="tooltip" title="<?php impresosEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">IMPRESOS</h3>
 					<div class="cuadricula">
 						<div class="celda celdax70r">
-							IMPRESOS
-							<table border="0" class="tableImpWeb">
-								
-							</table>
+							<div id="itemsIMP">
+								<?php
+									$i = "SELECT P.listPiezaImp, A.listAcabadoImp, PP.listPapelImp FROM t_piezaimp AS P, t_acabadoimp AS A, t_papelimp AS PP WHERE P.id_piezaImp='".$_POST['ImpPieza'][0]."' AND A.id_acabadoImp='".$_POST['ImpAcabado'][0]."' AND PP.id_papelImp='".$_POST['ImpTP'][0]."'";
+									$rsi = $conexion->query($i);
+									$fi = mysqli_fetch_array($rsi);
+									if (!empty($_POST['ImpPieza'][0])) {
+								?>
+									<div>
+										<div class="cuadricula">
+											<div class="celda celda90r">
+												<table>
+													<tr>
+														<th>Tipo Pieza</th>
+														<th>Tipo Acabados</th>
+														<th>Tipo Papel</th>
+														<th>Cantidad</th>
+													</tr>
+													<tr>
+														<td>
+															<select name="ImpPieza[]">
+																<option value='<?php echo $_POST['ImpPieza'][0]; ?>'><?php echo $fi['listPiezaImp']; ?></option>
+																<option value="">- - Pieza - -</option>
+																<?php piezaImpEvento($conexion); ?>
+															</select>
+														</td>
+														<td>
+															<select name="ImpAcabado[]">
+																<option value='<?php echo $_POST['ImpAcabado'][0]; ?>'><?php echo $fi['listAcabadoImp']; ?></option>
+																<option value="9">- - Acabado - -</option>
+																<?php acabadosImpEvento($conexion); ?>
+															</select>
+														</td>
+														<td>
+															<select name="ImpTP[]">
+																<option value='<?php echo $_POST['ImpTP'][0]; ?>'><?php echo $fi['listPapelImp']; ?></option>
+																<option value="9">- - Tipo de papel - -</option>
+																<?php tipoPapelEvento($conexion); ?>
+															</select>
+														</td>
+														<td>
+															<span class="error"><?php echo $error[12][0] = (isset($error[12][0])) ? $error[12][0] : ""; ?></span>
+															<input type="text" name="IMPCant[]" value="<?php echo $_POST['IMPCant'][0]; ?>" placeholder="Cantidad">
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								<?php
+									//for aquí
+									$c = count($_POST['ImpPieza']);
+									for ($i=1; $i < $c; $i++) {
+										if (!empty($_POST['ImpPieza'][$i])){
+											$imp = "SELECT P.listPiezaImp, A.listAcabadoImp, PP.listPapelImp FROM t_piezaimp AS P, t_acabadoimp AS A, t_papelimp AS PP WHERE P.id_piezaImp='".$_POST['ImpPieza'][$i]."' AND A.id_acabadoImp='".$_POST['ImpAcabado'][$i]."' AND PP.id_papelImp='".$_POST['ImpTP'][$i]."'";
+											// $imp = "SELECT P.listPiezaImp FROM t_piezaimp AS P WHERE P.id_piezaImp='".$_POST['ImpPieza'][$i]."'";
+											$rsi = $conexion->query($imp);
+											$fimp = mysqli_fetch_array($rsi);
+
+								?>
+									<div id="divIMP">
+										<div class="cuadricula">
+											<div class="celda celda90r">
+												<table>
+													<tr>
+														<td>
+															<select name="ImpPieza[]">
+																<option value='<?php echo $_POST['ImpPieza'][$i]; ?>'><?php echo $fimp['listPiezaImp']; ?></option>
+																<option value="">- - Pieza - -</option>
+																<?php piezaImpEvento($conexion); ?>
+															</select>
+														</td>
+														<td>
+															<select name="ImpAcabado[]">
+																<option value='<?php echo $_POST['ImpAcabado'][$i]; ?>'><?php echo $fimp['listAcabadoImp']; ?></option>
+																<option value="9">- - Acabado - -</option>
+																<?php acabadosImpEvento($conexion); ?>
+															</select>
+														</td>
+														<td>
+															<select name="ImpTP[]">
+																<option value='<?php echo $_POST['ImpTP'][$i]; ?>'><?php echo $fimp['listPapelImp']; ?></option>
+																<option value="9">- - Tipo de papel - -</option>
+																<?php tipoPapelEvento($conexion); ?>
+															</select>
+														</td>
+														<td>
+															<span class="error"><?php echo $error[12][$i] = (isset($error[12][$i])) ? $error[12][$i] : ""; ?></span>
+															<input type="text" name="IMPCant[]" value="<?php echo $_POST['IMPCant'][$i]; ?>" placeholder="Cantidad">
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<button class="deleteIMP removeBTNS"></button>
+									</div>
+
+								<?php
+										}
+									}
+
+
+									}else{
+								?>
+									<div>
+										<div class="cuadricula">
+											<div class="celda celda90r">
+												<table>
+													<tr>
+														<th>Tipo Pieza</th>
+														<th>Tipo Acabados</th>
+														<th>Tipo Papel</th>
+														<th>Cantidad</th>
+													</tr>
+													<tr>
+														<td>
+															<select name="ImpPieza[]">
+																<option value="">- - Pieza - -</option>
+																<?php piezaImpEvento($conexion); ?>
+															</select>
+														</td>
+														<td>
+															<select name="ImpAcabado[]">
+																<option value="9">- - Acabado - -</option>
+																<?php acabadosImpEvento($conexion); ?>
+															</select>
+														</td>
+														<td>
+															<select name="ImpTP[]">
+																<option value="9">- - Tipo de papel - -</option>
+																<?php tipoPapelEvento($conexion); ?>
+															</select>
+														</td>
+														<td>
+															<input type="text" name="IMPCant[]" value="" placeholder="Cantidad">
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								<?php
+									}
+								?>
+							</div>
 						</div>
 						<div class="celda celdax30r">
 							<div class="boxImpDig">
@@ -217,7 +357,7 @@
 									<p>Adicione o elimine elementos según sea su requerimiento</p>
 									<a class="linkGuia" href="#" target="_blank">Link Guia PDF IMP</a>
 									<div class="plusMinus">
-										<button id="addIMP" class="btn btn-send">Agregar Campos Impresos</button>
+										<button id="addIMP" class="btn btn-send btn-prevent">Agregar Campos Impresos</button>
 								    </div>
 							    </div>
 							</div>
@@ -258,7 +398,7 @@
 											$rsd = $conexion->query($d);
 											$f = mysqli_fetch_array($rsd);
 								?>
-									<div id="div">
+									<div id="divDIG">
 										<div class='cuadricula'>
 											<div class='celda celdax90r'>
 												<select name='inputDIG[]'>
@@ -267,10 +407,8 @@
 													<?php piezaDigEvento($conexion); ?>
 												</select>
 											</div>
-											<div class='celda celdax10r'>
-												<button class='deleteDIG removeBTNS'></button>
-											</div>
 										</div>
+										<button class='deleteDIG removeBTNS'></button>
 									</div>
 								<?php
 										}
@@ -282,7 +420,7 @@
 										<div class='cuadricula'>
 											<div class='celda'>
 												<select name='inputDIG[]'>
-													<option value=''>- - -</option>
+													<option value=''>Selecciones una opción</option>
 													<?php piezaDigEvento($conexion); ?>
 												</select>
 											</div>
@@ -290,67 +428,7 @@
 									</div>
 								<?php 
 									}
-								?>
-
-
-								<?php
-									// $d = "SELECT listPiezaDig FROM t_piezadig WHERE id_piezaDig='".$_POST['inputDIG'][0]."'";
-									// $rsd = $conexion->query($d);
-									// $f = mysqli_fetch_array($rsd);
-
-									// if (!empty($_POST['inputDIG'][0])) {
-									// 	echo "<div>";
-									// 	echo "<div class='cuadricula>";
-									// 	echo "<div class='celda'>";
-									// 	echo "<select name='inputDIG[]'>";
-									// 	echo "<option value='".$_POST['inputDIG'][0]."'>".$f['listPiezaDig']."</option>";
-									// 	echo "<option value=''>- - -</option>";
-									// 	piezaDigEvento($conexion);
-									// 	echo "</select>";
-									// 	echo "</div>";
-									// 	echo "</div>";
-									// 	echo "</div>";
-									// 	$c = count($_POST['inputDIG']);
-									// 	for ($i=1; $i < $c; $i++) {
-									// 		if (!empty($_POST['inputDIG'][$i])){
-									// 			$d = "SELECT listPiezaDig FROM t_piezadig WHERE id_piezaDig='".$_POST['inputDIG'][$i]."'";
-									// 			$rsd = $conexion->query($d);
-									// 			$f = mysqli_fetch_array($rsd);
-
-									// 			echo "<div id='div'>";
-									// 				echo "<div class='cuadricula>";
-									// 					echo "<div class='celda celdax90r'>";
-									// 						echo "<select name='inputDIG[]'>";
-									// 							echo "<option value='".$_POST['inputDIG'][$i]."'>".$f['listPiezaDig']."</option>";
-									// 							echo "<option value=''>- - -</option>";
-									// 							piezaDigEvento($conexion);
-									// 						echo "</select>";
-									// 					echo "</div>";
-									// 					echo "<div class='celda celdax10r'>";
-									// 						echo "<button class='deleteDIG removeBTNS'></button>";
-									// 					echo "</div>";
-									// 				echo "</div>";
-									// 			echo "</div>";
-
-
-												// echo "<div id='div'>";
-												// echo "<select name='inputDIG[]'>";
-												// echo "<option value='".$_POST['inputDIG'][$i]."'>".$f['listPiezaDig']."</option>";
-												// echo "<option value=''>- - -</option>";
-												// piezaDigEvento($conexion);
-												// echo "</select>";
-												// echo "<button class='deleteDIG removeBTNS'></button>";
-												// echo "</div>";
-										// 	}
-										// }
-
-									// }else{
-									// 	echo "<select name='inputDIG[]'>";
-									// 	echo "<option value=''>Seleccione una opción</option>";
-									// 	piezaDigEvento($conexion);
-									// 	echo "</select>";
-									// }
-								?>						
+								?>					
 							</div>
 						</div>
 						<div class="celda celdax30r">
@@ -370,11 +448,10 @@
 			</div>
 			<button type="button" name="next" class="btn btn-prev btn-world" value="Next" />Atras</button>
 			<button type="button" name="next" class="btn btn-next btn-world" value="Next" />Siguiente</button>
-			<button type='submit' name='submitEvento' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
 		</fieldset> 
 		  
 		<!-- Página 3 -->
-<!-- 		<fieldset>
+		<fieldset>
 		  	<div class="cuadricula">
 		  		<div class="celda celdax60r">
 		  			<div class="group tooltip" title="<?php lineamientoGraficosT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
@@ -408,7 +485,7 @@
 		  	</div>
 		   	<button type="button" name="prev" class="btn btn-prev btn-world" value="Next" />Atras</button>
 			<button type='submit' name='submitEvento' class='btn btn-submit btn-send' value='Next' onclick="myFunction()" />Finalizar</button>
-		</fieldset> -->
+		</fieldset>
 	</form>
 
 <?php //session_destroy(); ?>

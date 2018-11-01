@@ -196,15 +196,6 @@ USE bdComunicaciones;
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
-	/*--Tabla de cubrimiento*/
-	CREATE TABLE t_cubrimiento(
-		id_cubrimiento int NOT NULL AUTO_INCREMENT,
-		tipoCubrimiento varchar(50) NOT NULL,
-		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios Colores(3) para uns unica ST*/
-		PRIMARY KEY (id_cubrimiento),
-		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
-	);
-
 	/*--Tabla de requerimientoWeb*/
 	CREATE TABLE t_requerimientoWeb(
 		id_requerimientoWeb int NOT NULL AUTO_INCREMENT,
@@ -241,11 +232,11 @@ USE bdComunicaciones;
 	);
 
 	/*--Tablas de requerimiento Audiovisual en Evento y/o Campañas*/
-	CREATE TABLE t_resAudioVisual(
-		id_resAudiovisual int NOT NULL AUTO_INCREMENT,
+	CREATE TABLE t_cubrimiento(
+		id_cubrimiento int NOT NULL AUTO_INCREMENT,
 		id_audiovisual int NOT NULL, /*Es FOREIGN KEY de la tabla t_audioVisual*/
 		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios requerimientos audiovisuales para una unica ST*/
-		PRIMARY KEY (id_resAudiovisual),
+		PRIMARY KEY (id_cubrimiento),
 		FOREIGN KEY (id_audioVisual) REFERENCES t_audioVisual(id_audioVisual),
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
@@ -516,7 +507,8 @@ USE bdComunicaciones;
 	(5, "Tipo Acabados Impresa 5"),
 	(6, "Tipo Acabados Impresa 6"),
 	(7, "Tipo Acabados Impresa 7"),
-	(8, "Tipo Acabados Impresa 8");
+	(8, "Tipo Acabados Impresa 8"),
+	(9, "Vacio");
 
 	/*--t_papelImp*/
 	INSERT INTO t_papelImp VALUES
@@ -527,7 +519,8 @@ USE bdComunicaciones;
 	(5, "Tipo Papel Impresa 5"),
 	(6, "Tipo Papel Impresa 6"),
 	(7, "Tipo Papel Impresa 7"),
-	(8, "Tipo Papel Impresa 8");
+	(8, "Tipo Papel Impresa 8"),
+	(9, "Vacio");
 
 	/*--t_permiso*/
 	INSERT INTO t_permiso VALUES

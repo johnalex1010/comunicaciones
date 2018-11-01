@@ -62,7 +62,7 @@
 
 				if($exito){
 					//Redirección al resumen.
-					header('Location:../../php/resumen/newSite.php');
+					header('Location:../../php/resumen/evento.php');
 				}
 			}
 		}else{

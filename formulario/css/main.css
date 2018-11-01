@@ -738,24 +738,49 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
     text-align: justify;
     font-size: 0.9rem; }
 
-.removeBTNS {
-  background: purple;
-  height: 30px;
-  width: 30px;
-  position: relative;
-  border-radius: 50%; }
-  .removeBTNS:before {
-    content: "-";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    font-size: 2rem;
+#divDIG,
+#divIMP {
+  position: relative; }
+  #divDIG .removeBTNS,
+  #divIMP .removeBTNS {
+    background: purple;
     height: 30px;
     width: 30px;
-    margin-top: -5px; }
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    border-radius: 50%; }
+    #divDIG .removeBTNS:before,
+    #divIMP .removeBTNS:before {
+      content: "-";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      font-size: 2rem;
+      height: 30px;
+      width: 30px;
+      margin-top: -5px; }
+
+#divIMP .removeBTNS {
+  right: 20px; }
+
+#itemsIMP input {
+  text-align: center; }
+
+#itemsIMP th {
+  background: #DEE5EF;
+  color: #4A5164;
+  padding: 0.3rem 0.5rem;
+  border-radius: 3px; }
+
+#itemsIMP td, #itemsIMP th {
+  padding-right: 10px !important; }
+
+#itemsIMP td:last-child {
+  width: 100px; }
 
 /*
 * =====================

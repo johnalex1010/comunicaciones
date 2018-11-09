@@ -117,7 +117,12 @@ function colorEventoT(){
 function checkPublicoObjT(){
 	echo "Soy checkPublicoObjT evento";
 }
-
+function prefijosEventoT(){
+	echo "<b>Prefijos</b><br>";
+	echo "IE_: Información Evento<br> ";
+	echo "IW_: Información Web<br> ";
+	echo "PR_: Presupuesto<br> ";
+}
 /*
 ========================================
 Campos de comunicacion interna Link TABS

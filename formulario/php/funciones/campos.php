@@ -1,22 +1,35 @@
 <?php
 //Función que suma uno(1) en las ST
 function consecutivoST($stOLD){
-	$ST = "ST";
-	$separar = explode("ST", $stOLD);
-	$newST = $separar[1]+1;
-	if (strlen($newST) == 1) {
-		$newST = "ST00".$newST;
-	}elseif (strlen($newST) == 2){
-		$newST = "ST0".$newST;
+	$anio =  date('Y');
+	$anioALT = ".".$anio;
+	$separarAnio = explode(".20", $anioALT);
+	$STExplode = explode("ST", $stOLD);
+	$STAnio = explode("_", $STExplode[1]);
+	
+	//Verificar que el año se el mismo
+	if ($separarAnio[1] == $STAnio[0]) {
+		//Crear el conseutivo ST
+		$STNumExplode = explode("ST".$separarAnio[1]."_", $stOLD);
+		$conseutivo = $STNumExplode[1]+1;
+		if (strlen($conseutivo) == 1) {
+			// $conseutivo = $conseutivo+1;
+			$newST = "ST".$STAnio[0]."_00".$conseutivo;
+		}elseif (strlen($conseutivo) == 2) {
+			$newST = "ST".$STAnio[0]."_0".$conseutivo;
+		}else{
+			$newST = "ST".$STAnio[0]."_".$conseutivo;
+		}
 	}else{
-		$newST = "ST".$newST;
+		//Crear crear la carpeta año y crea el conseutivo ST 001
+		include_once '../validaciones.php';
+		$newST = "ST".$separarAnio[1]."_001";
+		mkdir($rutaDestinoST.$anio, 0777);
 	}
+
 	return $newST;
 }
-function codigoSeguimiento($newST){
-	$cod = "<div class='codigoSeguimiento'>Este es su codigo de seguimiento:".$newST."</div>";
-	return $cod;
-}
+
 /*--*/
 function campoFacDep($con){
 	$r = "SELECT * FROM t_facDep";

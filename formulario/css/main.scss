@@ -141,6 +141,17 @@ textarea{
     background: $btnValidate;
     &:hover{ @include hover($btnValidate); }
   }
+  &.btn-msjFinal{
+    width: 150px;
+    margin: auto;
+    font-size: 1.5rem;
+    display: block;
+  }
+  &.btn-newST{
+    position: absolute;
+    right: 0px;
+    bottom: -50px;
+  }
 	&:active{ 
 		transform: scale(0.95);
 		border-bottom-width: 0px;
@@ -287,7 +298,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 .cuadricula .celda.celdax90l{width: 88%;}
 .cuadricula .celda.celdax90r{width: 88%;}
 
-@media screen and   (max-width: 1460px){
+@media screen and (max-width: 1460px){
   .cuadricula .celda.celdax10{
     width: 20%;
   }
@@ -545,7 +556,6 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   width: 90%;
   max-width: 1200px;
   margin: 0px auto;
-  /* text-align: center; */
   position: relative;
 }
 #msform fieldset {
@@ -700,20 +710,6 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 * @section Formulario Table Impresos y digitales
 * ==============================================
 */
-.tableImpWeb{
-  margin-left: -1rem;
-  margin-top: 1rem;
-  width: 100%;
-  tr{
-    width: 100%;
-    display: table;
-    td{
-      padding-left: 1rem;
-    }
-  }
-}
-
-
 .boxImpDig{
   h4{
     background-color: red;
@@ -723,7 +719,6 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   }
   &>div{
     border:1px solid rgba(#000, 0.1);
-    /* background-color: red; */
     padding: 1rem;
     p,
     &>a{
@@ -735,23 +730,56 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
     }
   }
 }
-
-.plusMinus{
-  a{
-    text-align: center;
-    background: red;
-    
-
-    &:nth-child(1){
-      background: $btnPlus;
-      margin-right: 0.3rem;
-    }
-    &:nth-child(2){
-      background: $btnMinus;
-      margin-left: 0.3rem;
+#divDIG, 
+#divIMP{
+  position: relative;
+  .removeBTNS{
+    background: $btnMinus;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    border-radius: 50%;
+    &:before{
+      content:"-";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      font-size: 2rem;
+      height: 30px;
+      width: 30px;
+      margin-top: -5px;
     }
   }
 }
+#divIMP{
+  .removeBTNS{
+    right: 20px;
+  }
+  
+}
+#itemsIMP{
+  input{
+    text-align: center;
+  }
+  th{
+    background: #DEE5EF;
+    color: #4A5164;
+    padding: 0.3rem 0.5rem;
+    border-radius: 3px;
+  }
+  td,th{
+    padding-right: 10px !important;
+  }
+  td:last-child{
+    width: 100px;
+  }
+}
+
 
 /*
 * =====================
@@ -767,7 +795,8 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   right: 0;
   bottom: 0;
   margin: auto;
-  z-index: 900;
+  z-index: 9990;
+  position: fixed;
 }
 #enviandoBOX .progresoBarra{
   background: #fff;
@@ -1044,4 +1073,31 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 .tabs-content .contentTab button{
  margin-left: 2rem;
  margin-bottom: 1rem;
+}
+
+
+/*
+* ======================
+* @section Mensaje Final
+* ======================
+*/
+.msjFinal{
+  text-align: center;
+  position: relative;
+  .logoComunica{
+    width: 100px;
+    margin: auto;
+  }
+  .hMsjFinal{
+    font-size: 3rem;
+    /* margin-top: 2rem; */
+  }
+  .pMsjFinal{
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  h2{
+    margin:1rem auto;
+    font-size: 1.2rem;
+  }
 }

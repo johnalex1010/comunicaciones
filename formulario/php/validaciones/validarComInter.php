@@ -16,22 +16,11 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		if (!empty($_FILES['adjMailInsti']['name'])) {
 			if(($_FILES['adjMailInsti']['type'] == "application/pdf")  || ($_FILES['adjMailInsti']['type'] == "application/msword") || ($_FILES['adjMailInsti']['type'] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")){
 				if ($_FILES['adjMailInsti']['size'] > 8000000) {
-					unset($_SESSION['adjMailInsti1']);
-					unset($_SESSION['adjMailInsti2']);
-					unset($_SESSION['adjMailInsti3']);
-					unset($_SESSION['adjMailInsti4']);
 					$error[0][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
-				}else{
-					$_SESSION['adjMailInsti1'] = $_FILES['adjMailInsti']['type'];			
-					$_SESSION['adjMailInsti2'] = $_FILES['adjMailInsti']['size'];			
-					$_SESSION['adjMailInsti3'] = $_FILES['adjMailInsti']['name'];			
-					$_SESSION['adjMailInsti4'] = $_FILES['adjMailInsti']['tmp_name'];
-				}
+				}else{					
+					include_once '../../php/incrus/in_emailInstitucionales.php';
+				}	
 			}else{
-				unset($_SESSION['adjMailInsti1']);
-				unset($_SESSION['adjMailInsti2']);
-				unset($_SESSION['adjMailInsti3']);
-				unset($_SESSION['adjMailInsti4']);
 				$error[0][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
 			}
 		}else{
@@ -47,11 +36,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "El formulario tiene errores, por favor corrijalos para continuar.";
 			echo "</div>";
 			echo "</div>";
-		}else{
-			header("Location: ../../php/resumen/emailInstitucionales.php");
 		}
-	}else{
-		// echo "No1";
 	}
 
 	/*
@@ -65,37 +50,14 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		if (!empty($_FILES['tn']['name'][0]) && !empty($_FILES['tn']['name'][1])) {		
 			if ((($_FILES['tn']['type'][0] == "application/msword") || ($_FILES['tn']['type'][0] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")) && (($_FILES['tn']['type'][1] == "image/jpeg") || ($_FILES['tn']['type'][1] == "image/jpg"))){
 				if (($_FILES['tn']['size'][0] > 8000000) && ($_FILES['tn']['size'][1] > 8000000)) {
-					for ($i=0; $i < 2 ; $i++) { 
-						unset($_SESSION['tn1'][$i]);
-						unset($_SESSION['tn2'][$i]);
-						unset($_SESSION['tn3'][$i]);
-						unset($_SESSION['tn4'][$i]);
-					}
 					$error[1][0] = "Los archivos execenden el peso validos: Word es: 8000000 y JPG es de: 8000000";
 				}else{
-					for ($i=0; $i < 2 ; $i++) { 
-						$_SESSION['tn1'][$i] = $_FILES['tn']['type'][$i];
-						$_SESSION['tn2'][$i] = $_FILES['tn']['size'][$i];
-						$_SESSION['tn3'][$i] = $_FILES['tn']['name'][$i];
-						$_SESSION['tn4'][$i] = $_FILES['tn']['tmp_name'][$i];
-					}
+					include_once '../../php/incrus/in_tomasNoticias.php';
 				}				
 			}else{
-				for ($i=0; $i < 2 ; $i++) { 
-					unset($_SESSION['tn1'][$i]);
-					unset($_SESSION['tn2'][$i]);
-					unset($_SESSION['tn3'][$i]);
-					unset($_SESSION['tn4'][$i]);
-				}
 				$error[1][0] = "Los formatos validos son (Word y JPG)";
 			}
 		}else{
-			for ($i=0; $i < 2 ; $i++) { 
-				unset($_SESSION['tn1'][$i]);
-				unset($_SESSION['tn2'][$i]);
-				unset($_SESSION['tn3'][$i]);
-				unset($_SESSION['tn4'][$i]);
-			}
 			$error[1][0] = "Los campos son requeridos";
 		}
 
@@ -109,11 +71,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "El formulario tiene errores, por favor corrijalos para continuar.";
 			echo "</div>";
 			echo "</div>";
-		}else{
-			header("Location: ../../php/resumen/tomasNoticias.php");
 		}
-	}else{
-		// echo "No2";
 	}
 	/*
 	==============================
@@ -127,43 +85,31 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			/*===== Validar Nombre Doliente =====*/
 			if (!isset($_POST['condoNombre']) || empty($_POST['condoNombre'])) {
 				$error[2][1] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoNombre'] = $_POST['condoNombre'];
 			}
 
 			/*===== Validar Cargo Doliente =====*/
 			if (!isset($_POST['condoCargo']) || empty($_POST['condoCargo'])) {
 				$error[2][2] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoCargo'] = $_POST['condoCargo'];
-			}			
+			}
 
 			/*===== Validar Facultad/Dependencia =====*/
 			if (!isset($_POST['condoFacDep']) || empty($_POST['condoFacDep'])){
 				$error[2][3] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoFacDep'] = $_POST['condoFacDep'];
 			}
 
 			/*===== Validar Nombre Fallecido =====*/
 			if (!isset($_POST['condoFalle']) || empty($_POST['condoFalle'])) {
 				$error[2][4] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoFalle'] = $_POST['condoFalle'];
 			}
 
 			/*===== Validar Parentesco =====*/
 			if (!isset($_POST['condoParen']) || empty($_POST['condoParen'])) {
 				//$error[2][5] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoParen'] = $_POST['condoParen'];
 			}
 
 			/*===== Validar Lugar velación =====*/
 			if (!isset($_POST['condoLugarVel']) || empty($_POST['condoLugarVel'])) {
 				//$error[2][6] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoLugarVel'] = $_POST['condoLugarVel'];
 			}
 
 			/*===== Validar Fecha de conmemoración =====*/
@@ -174,7 +120,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				$date = explode("-", $_POST['condoFVela']);
 				$countDate =  count($date);
 				if ($countDate == 3 && checkdate($date[1], $date[2], $date[0])) {
-					$_SESSION['condoFVela'] = $_POST['condoFVela'];
+					$_POST['condoFVela'];
 				}else{
 					$error[2][8] = "El formato fecha es incorrecto";
 				}
@@ -183,18 +129,8 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			/*===== Validar hora velación =====*/
 			if (!isset($_POST['condoHVela']) || empty($_POST['condoHVela'])) {
 				//$error[2][8] = "El campo es obligatorio";
-			}else{
-				$_SESSION['condoHVela'] = $_POST['condoHVela'];
 			}
 		}else{
-			unset($_SESSION['condoNombre']);
-			unset($_SESSION['condoCargo']);
-			unset($_SESSION['condoFacDep']);
-			unset($_SESSION['condoFalle']);
-			unset($_SESSION['condoParen']);
-			unset($_SESSION['condoLugarVel']);
-			unset($_SESSION['condoFVela']);
-			unset($_SESSION['condoHVela']);
 			$error[2][0] = "Los campos obligatorios";
 		}
 
@@ -208,10 +144,8 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "</div>";
 			echo "</div>";
 		}else{
-			header("Location: ../../php/resumen/condolencias.php");
+			include_once '../../php/incrus/in_condolencias.php';
 		}
-	}else{
-		// echo "No3";
 	}
 	/*
 	===========================
@@ -224,22 +158,11 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		if (!empty($_FILES['cumple']['name'])) {
 			if(($_FILES['cumple']['type'] == "application/pdf")  || ($_FILES['cumple']['type'] == "application/msword") || ($_FILES['cumple']['type'] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")){
 				if ($_FILES['cumple']['size'] > 8000000) {
-					unset($_SESSION['cumple1']);
-					unset($_SESSION['cumple2']);
-					unset($_SESSION['cumple3']);
-					unset($_SESSION['cumple4']);
 					$error[3][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
 				}else{
-					$_SESSION['cumple1'] = $_FILES['cumple']['type'];			
-					$_SESSION['cumple2'] = $_FILES['cumple']['size'];			
-					$_SESSION['cumple3'] = $_FILES['cumple']['name'];			
-					$_SESSION['cumple4'] = $_FILES['cumple']['tmp_name'];
+					include_once '../../php/incrus/in_cumpleanios.php';
 				}
 			}else{
-				unset($_SESSION['cumple1']);
-				unset($_SESSION['cumple2']);
-				unset($_SESSION['cumple3']);
-				unset($_SESSION['cumple4']);
 				$error[3][1] = "El archivo adjunto debe ser un PDF o Word de máximo 1MB";
 			}
 		}else{
@@ -254,11 +177,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "El formulario tiene errores, por favor corrijalos para continuar.";
 			echo "</div>";
 			echo "</div>";
-		}else{
-			header("Location: ../../php/resumen/cumpleanios.php");
 		}
-	}else{
-		// echo "No4";
 	}
 	/*
 	=========================================
@@ -273,8 +192,6 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			/*===== Validar Nombre Conmemoración =====*/
 			if (!isset($_POST['conmeNombre']) || empty($_POST['conmeNombre'])) {
 				$error[4][1] = "El campo es obligatorio";
-			}else{
-				$_SESSION['conmeNombre'] = $_POST['conmeNombre'];
 			}
 
 			/*===== Validar Fecha de conmemoración =====*/
@@ -285,7 +202,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 				$date = explode("-", $_POST['conmeF']);
 				$countDate =  count($date);
 				if ($countDate == 3 && checkdate($date[1], $date[2], $date[0])) {
-					$_SESSION['conmeF'] = $_POST['conmeF'];
+					$_POST['conmeF'];
 				}else{
 					$error[4][2] = "El formato fecha es incorrecto";
 				}
@@ -295,17 +212,13 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			if (isset($_POST['conmeMSJ'])) {
 				unset( $_SESSION["conmeMSJ"] );
 				if (strlen($_POST['conmeMSJ'])<=510) {
-					$_SESSION['conmeMSJ'] = $_POST['conmeMSJ'];
+					$_POST['conmeMSJ'];
 				}else{
-					$_SESSION['conmeMSJ'] = $_POST['conmeMSJ'];
 					$error[4][3] = "Son máximo 500 caracteres";
 				}
 			}
 
 		}else{
-			unset($_SESSION['conmeNombre']);
-			unset($_SESSION['conmeF']);
-			unset($_SESSION['conmeMSJ']);
 			$error[4][0] = "Los campos obligatorios";
 		}
 		// Validando si existen errores en todo formulario
@@ -318,10 +231,8 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "</div>";
 			echo "</div>";
 		}else{
-			header("Location: ../../php/resumen/tarjetasConmemorativas.php");
+			include_once '../../php/incrus/in_tarjetasConmemorativas.php';
 		}
-	}else{
-		// echo "N05";
 	}
 
 }else{

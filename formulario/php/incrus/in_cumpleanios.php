@@ -1,18 +1,19 @@
 <?php
-	session_start();
+session_start();
 
 	if ($_SESSION['home'] == 0) {
 		header('Location:../../');
 	}
 	
-	include_once '../conexion.php';
-	include_once '../funciones/campos.php';
-
+	include_once '../../php/conexion.php';
+	include_once '../../php/variables.php';
+	include_once '../../php/funciones/campos.php';
 
 	//Insertar ST. Solicitud de Capacitación Web
 	$selecFINNumST = "SELECT MAX(numST) FROM t_solicitud ORDER BY numST DESC"; // Selescciona la ultima ST igresada en la BD
 	$rst = $conexion->query($selecFINNumST);
 
+	//Creación de numST y envio a base de datos
 	if ($row = mysqli_fetch_row($rst)) {
 		$stOLD = $row[0];
 		$newST = consecutivoST($stOLD);
@@ -28,12 +29,12 @@
 		$fecha = date('Y-m-d');
 		$comentario = 'Ingresa la Solicitud';
 		$adjunto = array();
-		$_FILES['cumple']['type'] = 		$_SESSION['cumple1'];
-		$_FILES['cumple']['size'] = 		$_SESSION['cumple2'];
-		$_FILES['cumple']['name'] = 		$_SESSION['cumple3'];
-		$_FILES['cumple']['tmp_name'] = 	$_SESSION['cumple4'];
-		$adjunto[] = $_FILES['cumple']['name'];
+		$_FILES['cumple']['type'];
+		$_FILES['cumple']['size'];
+		$_FILES['cumple']['name'];
+		$_FILES['cumple']['tmp_name'];
 
+		$adjunto[] = $_FILES['cumple']['name'];
 		$count = count($adjunto);
 
 		for ($i=0; $i < $count; $i++) { 
@@ -42,19 +43,36 @@
 			$in = 'CALL in_SolicitudADJ("'.$newST.'","'.$nombre.'","'.$email.'","'.$id_facDep.'","'.$telefono.'","'.$id_usuario.'","'.$id_unidad.'","'.$id_categoria.'","'.$id_subCategoria.'","'.$id_fase.'","'.$fecha.'","'.$comentario.'","'.$adj.'")';
 			$insert = $conexion->query($in); //Ejecuto el procedimiento
 		}
-
-		echo codigoSeguimiento($newST);
-
-		//La eliminación de Sesión y cierre de conexión se debe hacer al final del envio de correo a solicitudes@usantotomas.edu.co
 		mysqli_close($conexion);
-		session_destroy();
+
+		$_SESSION['numST'] = $newST;
+
+		//Se pregunta si exíste la consulta
+		if (isset($insert)) {
+
+			$folderST = $newST;
+			$folder = $rutaDestinoST.$folderST;
+			
+			// Se pregunta si no exíste la carpeta a crear
+			if (!file_exists($folder)) {
+				//Se crea la carpeta e ingresan los adjuntos
+				$newFolderST = mkdir("$rutaDestinoST$folderST", 0777);
+				move_uploaded_file($_FILES['cumple']['tmp_name'], $folder."/".$_FILES['cumple']['name']);
+
+				//Envio de correo -- solicitudes@usantotomas.edu.co
+				include '../../../mailer/e_solicitud.php';
+
+				if($exito){
+					//Redirección al resumen.
+					header('Location:../../php/resumen/cumpleanios.php');
+				}
+			}
+		}else{
+			echo "Error en la creación de la solicitud, por favor";
+			session_destroy();
+		}
 	}else{
 		echo "Error en la creación de la solicitud, por favor";
+		session_destroy();
 	}
-
-
-
-
 ?>
-
-

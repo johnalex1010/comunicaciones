@@ -5,8 +5,9 @@
 		header('Location:../../');
 	}
 	
-	include_once '../conexion.php';
-	include_once '../funciones/campos.php';
+	include_once '../../php/conexion.php';
+	include_once '../../php/variables.php';
+	include_once '../../php/funciones/campos.php';
 
 
 	//Insertar ST. Solicitud de Capacitación Web
@@ -28,31 +29,48 @@
 		$fecha = date('Y-m-d');
 		$comentario = 'Ingresa la Solicitud';
 
-		$nombreWeb = $_SESSION['nombreEventWeb'];
-		$subdominio =  $_SESSION['subdominio'];
-		$justificacion = $_SESSION['motivoNewWeb'];
+		$nombreWeb = $_POST['nombreEventWeb'];
+		$subdominio =  $_POST['subdominio'];
+		$justificacion = $_POST['motivoNewWeb'];
 
-		$_FILES['adjAprobMate']['type'] = 		$_SESSION['adjPlanNav1'];
-		$_FILES['adjAprobMate']['size'] = 		$_SESSION['adjPlanNav2'];
-		$_FILES['adjAprobMate']['name'] = 		$_SESSION['adjPlanNav3'];
-		$_FILES['adjAprobMate']['tmp_name'] = 	$_SESSION['adjPlanNav4'];
-		$adjunto = $_FILES['adjAprobMate']['name'];
+		$_FILES['adjPlanNav']['type'];
+		$_FILES['adjPlanNav']['size'];
+		$_FILES['adjPlanNav']['name'];
+		$_FILES['adjPlanNav']['tmp_name'];
+		$adjunto = $_FILES['adjPlanNav']['name'];
 
 		$in = 'CALL in_SolicitudNewWeb("'.$newST.'","'.$nombre.'","'.$email.'","'.$id_facDep.'","'.$telefono.'","'.$id_usuario.'","'.$id_unidad.'","'.$id_categoria.'","'.$id_subCategoria.'","'.$id_fase.'","'.$fecha.'","'.$comentario.'","'.$nombreWeb.'","'.$subdominio.'","'.$justificacion.'","'.$adjunto.'")';
 		$insert = $conexion->query($in); //Ejecuto el procedimiento
-
-		echo codigoSeguimiento($newST);
-
-		//La eliminación de Sesión y cierre de conexión se debe hacer al final del envio de correo a solicitudes@usantotomas.edu.co
 		mysqli_close($conexion);
-		session_destroy();
+
+		$_SESSION['numST'] = $newST;
+
+		//Se pregunta si exíste la consulta
+		if (isset($insert)) {
+
+			$folderST = $newST;
+			$folder = $rutaDestinoST.$folderST;
+			
+			// Se pregunta si no exíste la carpeta a crear
+			if (!file_exists($folder)) {
+				//Se crea la carpeta e ingresan los adjuntos
+				$newFolderST = mkdir("$rutaDestinoST$folderST", 0777);
+				move_uploaded_file($_FILES['adjPlanNav']['tmp_name'], $folder."/".$_FILES['adjPlanNav']['name']);
+
+				//Envio de correo -- solicitudes@usantotomas.edu.co
+				include '../../../mailer/e_solicitud.php';
+
+				if($exito){
+					//Redirección al resumen.
+					header('Location:../../php/resumen/newSite.php');
+				}
+			}
+		}else{
+			echo "Error en la creación de la solicitud, por favor";
+			session_destroy();
+		}
 	}else{
 		echo "Error en la creación de la solicitud, por favor";
+		session_destroy();
 	}
-
-
-
-
 ?>
-
-

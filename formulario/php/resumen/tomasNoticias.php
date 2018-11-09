@@ -32,10 +32,24 @@
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
 </head>
 <body>
-<div class="content resumen">
-	<h2>Resumen de solicitud de Comunicaciones Internas - Tomas Noticias</h2>
-	<br>
+<?php
+$s = "SELECT adjunto FROM t_adjunto WHERE numST ='".$_SESSION['numST']."'";
+$rs = $conexion->query($s);
+
+for ($i=0; $i<2; $i++) {
+	$row = mysqli_fetch_array($rs);
+	$adj[$i] = $row["adjunto"]; 
+}
+?>
+<div class="content msjFinal resumen">
+	<img src="../../img/logo.png" alt="Logo" class="logoComunica">
+	<h1 class="hMsjFinal">GRACIAS</h1>
+	<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
+	<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>
+	<a href="../../" class="btn btn-world btn-newST">Nueva solicitud</a>
+
 	<div class="cuadricula">
+		<h2>Resumen de solicitud de Comunicaciones Internas - Tomas Noticias</h2>
 		<div class="celda celdax2">
 			<h3>Nombre del solicitante</h3>
 			<p><?php echo $_SESSION['campoNombre'] ?></p>
@@ -57,18 +71,16 @@
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax2">
-			<h3>Noticia (Adjutno)</h3>
-			<p><?php echo $_SESSION['tn3'][0] = (!empty($_SESSION['tn3'][0])) ? $_SESSION['tn3'][0] : "No hay Adjunto"; ?></p>
+			<h3>Texto de la noticia (Adjunto)</h3>
+			<p><?php echo $adj[0]; ?></p>
 		</div>
 		<div class="celda celdax2">
-			<h3>Imagen (Adjutno)</h3>
-			<p><?php echo $_SESSION['tn3'][1] = (!empty($_SESSION['tn3'][1])) ? $_SESSION['tn3'][1] : "No hay Adjunto"; ?></p>
+			<h3>Imagen de la noticia (Adjunto)</h3>
+			<p><?php echo $adj[1]; ?></p>
 		</div>
 	</div>
-	<div class="cuadricula">
-		<a class="btn btn-world" href="../../solicitud/unidadComIns/comInter.php">Atras</a>
-		<a class="btn btn-send" href="../incrus/in_tomasNoticias.php">Enviar Solicitud</a>
-	</div>
+
+	<?php mysqli_close($conexion); session_destroy(); ?>
 </div>
 </body>
 </html>

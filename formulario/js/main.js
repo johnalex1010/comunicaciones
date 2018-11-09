@@ -51,68 +51,31 @@ $(document).ready(function(){
 	});
 });
 
+
+$('.btn-prevent').click(function(event){event.preventDefault();}); //Para prevenir envio de Button de agregar elementos
 /*
 =======================================
 Adicionar o eliminar elemnetos IMPRESOS
 =======================================
 */
-var intTextBoxIMP=1;
-//FUNCTION TO ADD File BOX ELEMENT
-function add_trIMP(){
-    if(intTextBoxIMP<10){
- 
-intTextBoxIMP = intTextBoxIMP + 1;
+//IMPRESOS
+$("#addIMP").click(function (e) {
+	//Append a new row of code to the "#itemsDIG" div
+	$("#itemsIMP").append('<div id="divIMP"><div class="cuadricula"><div class="celda celda90r"><table><tr><td><select name="ImpPieza[]"><option value="">- - Pieza - -</option>'+piezaImpEvento+'</select></td><td><select name="ImpAcabado[]"><option value="9">- - Acabado - -</option>'+acabadosImpEvento+'</select></td><td><select name="ImpTP[]"><option value="9">- - Tipo de papel - -</option>'+tipoPapelEvento+'</select></td><td><input type="text" name="IMPCant[]" value="" placeholder="Cantidad"></td></tr></table></div></div><button class="deleteIMP removeBTNS"></button></div>');
+});
+$("#itemsIMP").on("click", ".deleteIMP", function (e) {
+	$(this).parent("#divIMP").remove();
+});
 
-var contentIDIMP = document.getElementById('row_divIMP');
-var newtr = document.createElement('tr');
-newtr.setAttribute('id','floorstrText'+intTextBoxIMP);
-newtr.innerHTML = "<td><div class='group'><select name='selectPiezaIMPEvento[]'><option value='' disable selected>- - -</option>"+ piezaImpEvetno +"</select><span class='bar'></span><label>Seleccione pieza</label></div></td><td><div class='group'><select name='acabadoIMPEvento[]'><option value='' disable selected>- - -</option>"+ acabadosImpEvento +"</select><span class='bar'></span><label>Seleccione Acabados</label></div></td><td><div class='group'><select name='tipoPapelIMPEvento[]'><option value='' disable selected>- - -</option>"+ tipoPapelEvento +"</select><span class='bar'></span><label>Tipo de papel</label></div></td><td><div class='group'><input type='text' name='cantidadIMPEvento[]'><span class='bar'></span><label>Cantidad</label></div></td>";
-contentIDIMP.appendChild(newtr);
-    }
-    else{
-        alert("Solo se puedes agregar 10 elementos");
-    }
-}
- 
-//FUNCTION TO REMOVE TEXT BOX ELEMENT
-function remove_trIMP(){
-	if(intTextBoxIMP != 0){
-	    var contentIDIMP = document.getElementById('row_divIMP');
-	    contentIDIMP.removeChild(document.getElementById('floorstrText'+intTextBoxIMP));
-	    intTextBoxIMP = intTextBoxIMP-1;
-    }
-}
-/*
-==================================
-Adicionar o eliminar elemnetos WEB
-==================================
-*/
- 
-var intTextBoxDIG=1;
-//FUNCTION TO ADD File BOX ELEMENT
-function add_trWEB(){
-    if(intTextBoxDIG<10){
- 
-intTextBoxDIG = intTextBoxDIG + 1;
-var contentID = document.getElementById('row_divDIG');
-var newtr = document.createElement('div');
-newtr.setAttribute('id','floorstrTextDig'+intTextBoxDIG);
-newtr.innerHTML = "<div class='group'><select name='tipoDIGEvento[]'><option value='' disable selected>- - -</option>"+ tipoDigEvento +"</select><span class='bar'></span><label>Seleccione pieza</label></div>";
-contentID.appendChild(newtr);
-    }
-    else{
-        alert("you will save only 10 reports at a time so please save the u have entered reports");
-    }
-}
- 
-//FUNCTION TO REMOVE TEXT BOX ELEMENT
-function remove_trWEB(){
-	if(intTextBoxDIG != 0){
-	    var contentID = document.getElementById('row_divDIG');
-	    contentID.removeChild(document.getElementById('floorstrTextDig'+intTextBoxDIG));
-	    intTextBoxDIG = intTextBoxDIG-1;
-    }
-}
+
+//DIGITAL
+$("#addDIG").click(function (e) {
+	//Append a new row of code to the "#itemsDIG" div
+	$("#itemsDIG").append('<div id="divDIG"><div class="cuadricula"><div class="celda celdax90r"><select name="inputDIG[]"><option value="">- - -</option>'+ tipoDigEvento +'</select></div></div><button class="deleteDIG removeBTNS"></button></div>');
+});
+$("#itemsDIG").on("click", ".deleteDIG", function (e) {
+	$(this).parent("#divDIG").remove();
+});
 /*
 ============================
 BOTONES DE SIGUIENTE Y ATRAS
@@ -203,38 +166,46 @@ tippy('.tooltip');
 SELECT OPTION DE IMPRESOS
 =========================
 */
-var piezaImpEvetno = "<option value='1' >piezaImpEvetno1</option>";
-piezaImpEvetno += "<option value='2'>piezaImpEvetno2</option>";
-piezaImpEvetno += "<option value='3'>piezaImpEvetno3</option>";
-piezaImpEvetno += "<option value='4'>piezaImpEvetno4</option>";
-piezaImpEvetno += "<option value='5'>piezaImpEvetno5</option>";
-piezaImpEvetno += "<option value='6'>piezaImpEvetno6</option>";
+var piezaImpEvento = "<option value='1' >Tipo Pieza Impresa 1</option>";
+piezaImpEvento += "<option value='2'>Tipo Pieza Impresa 2</option>";
+piezaImpEvento += "<option value='3'>Tipo Pieza Impresa 3</option>";
+piezaImpEvento += "<option value='4'>Tipo Pieza Impresa 4</option>";
+piezaImpEvento += "<option value='5'>Tipo Pieza Impresa 5</option>";
+piezaImpEvento += "<option value='6'>Tipo Pieza Impresa 6</option>";
+piezaImpEvento += "<option value='7'>Tipo Pieza Impresa 7</option>";
+piezaImpEvento += "<option value='8'>Tipo Pieza Impresa 8</option>";
 
-var acabadosImpEvento = "<option value='1' >acabadosImpEvento1</option>";
-acabadosImpEvento += "<option value='2'>acabadosImpEvento2</option>";
-acabadosImpEvento += "<option value='3'>acabadosImpEvento3</option>";
-acabadosImpEvento += "<option value='4'>acabadosImpEvento4</option>";
-acabadosImpEvento += "<option value='5'>acabadosImpEvento5</option>";
-acabadosImpEvento += "<option value='6'>acabadosImpEvento6</option>";
+var acabadosImpEvento = "<option value='1' >Tipo Acabados Impresa 1</option>";
+acabadosImpEvento += "<option value='2'>Tipo Acabados Impresa 2</option>";
+acabadosImpEvento += "<option value='3'>Tipo Acabados Impresa 3</option>";
+acabadosImpEvento += "<option value='4'>Tipo Acabados Impresa 4</option>";
+acabadosImpEvento += "<option value='5'>Tipo Acabados Impresa 5</option>";
+acabadosImpEvento += "<option value='6'>Tipo Acabados Impresa 6</option>";
+acabadosImpEvento += "<option value='7'>Tipo Acabados Impresa 7</option>";
+acabadosImpEvento += "<option value='8'>Tipo Acabados Impresa 8</option>";
 
-var tipoPapelEvento = "<option value='1' >tipoPapelEvento1</option>";
-tipoPapelEvento += "<option value='2' >tipoPapelEvento2</option>";
-tipoPapelEvento += "<option value='3' >tipoPapelEvento3</option>";
-tipoPapelEvento += "<option value='4' >tipoPapelEvento4</option>";
-tipoPapelEvento += "<option value='5' >tipoPapelEvento5</option>";
-tipoPapelEvento += "<option value='6' >tipoPapelEvento6</option>";
+var tipoPapelEvento = "<option value='1'>Tipo Papel Impresa 1</option>";
+tipoPapelEvento += "<option value='2'>Tipo Papel Impresa 2</option>";
+tipoPapelEvento += "<option value='3'>Tipo Papel Impresa 3</option>";
+tipoPapelEvento += "<option value='4'>Tipo Papel Impresa 4</option>";
+tipoPapelEvento += "<option value='5'>Tipo Papel Impresa 5</option>";
+tipoPapelEvento += "<option value='6'>Tipo Papel Impresa 6</option>";
+tipoPapelEvento += "<option value='7'>Tipo Papel Impresa 7</option>";
+tipoPapelEvento += "<option value='8'>Tipo Papel Impresa 8</option>";
 
 /*
 ========================
 SELECT OPTION DE DIGITAL
 ========================
 */
-var tipoDigEvento = "<option value='1' >tipo digital 1</option>";
-tipoDigEvento += "<option value='2' >tipo digital 2</option>";
-tipoDigEvento += "<option value='3' >tipo digital 3</option>";
-tipoDigEvento += "<option value='4' >tipo digital 4</option>";
-tipoDigEvento += "<option value='5' >tipo digital 5</option>";
-tipoDigEvento += "<option value='6' >tipo digital 6</option>";
+var tipoDigEvento = "<option value='1' >Tipo Pieza Digital 1</option>";
+tipoDigEvento += "<option value='2' >Tipo Pieza Digital 2</option>";
+tipoDigEvento += "<option value='3' >Tipo Pieza Digital 3</option>";
+tipoDigEvento += "<option value='4' >Tipo Pieza Digital 4</option>";
+tipoDigEvento += "<option value='5' >Tipo Pieza Digital 5</option>";
+tipoDigEvento += "<option value='6' >Tipo Pieza Digital 6</option>";
+tipoDigEvento += "<option value='7' >Tipo Pieza Digital 7</option>";
+tipoDigEvento += "<option value='8' >Tipo Pieza Digital 8</option>";
 
 /*
 ========================

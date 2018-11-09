@@ -5,8 +5,9 @@
 		header('Location:../../');
 	}
 	
-	include_once '../conexion.php';
-	include_once '../funciones/campos.php';
+	include_once '../../php/conexion.php';
+	include_once '../../php/variables.php';
+	include_once '../../php/funciones/campos.php';
 
 //Insertar Solicitudes de solo Adjuntos tipo: Envío de correos Institucionales, Tomás Noticias, Cumpleaños
 
@@ -31,31 +32,32 @@ if ($row = mysqli_fetch_row($rst)) {
 	$comentario = 'Ingresa la Solicitud';
 
 	//Objetos especificos de la Tabla t_evento	
-	$id_tipoEvento = $_SESSION['tipoEvento'];
-	$nombreEvento = $_SESSION['nombreEvento'];
-	$lugar = $_SESSION['lugarEvento'];
-	$fechaInicio = $_SESSION['fIniEvento'];
-	$fechaFin = $_SESSION['fFinEvento'];
-	$hora = $_SESSION['horaEvento'];
-	$numTIC = $_SESSION['numTICEvento'];
-	$txtLineamientos = $_SESSION['lineamientoGraficos'];   
+	$id_tipoEvento = $_POST['tipoEvento'];
+	$nombreEvento = $_POST['nombreEvento'];
+	$lugar = $_POST['lugarEvento'];
+	$fechaInicio = $_POST['fIniEvento'];
+	$fechaFin = $_POST['fFinEvento'];
+	$hora = $_POST['horaEvento'];
+	$numTIC = $_POST['numTICEvento'];
+	$txtLineamientos = $_POST['lineamientoGraficos'];   
 
     //Creación de array para t_adjunto -- Más información evento
-	$_FILES['adjInfoEvento']['type'] = $_SESSION['adjInfoEvento1'];
-	$_FILES['adjInfoEvento']['size'] = $_SESSION['adjInfoEvento2'];
-	$_FILES['adjInfoEvento']['name'] = $_SESSION['adjInfoEvento3'];
-	$_FILES['adjInfoEvento']['tmp_name'] = $_SESSION['adjInfoEvento4'];
+	$_FILES['adjInfoEvento']['type'];
+	$_FILES['adjInfoEvento']['size'];
+	$_FILES['adjInfoEvento']['name'];
+	$_FILES['adjInfoEvento']['tmp_name'];
 
 	//Creación de array para t_adjunto -- Información sitioweb del evento
-	$_FILES['adjCubWEbEvento']['type'] = $_SESSION['adjCubWEbEvento1'];
-	$_FILES['adjCubWEbEvento']['size'] = $_SESSION['adjCubWEbEvento2'];
-	$_FILES['adjCubWEbEvento']['name'] = $_SESSION['adjCubWEbEvento3'];
-	$_FILES['adjCubWEbEvento']['tmp_name'] = $_SESSION['adjCubWEbEvento4'];
+	$_FILES['adjCubWEbEvento']['type'];
+	$_FILES['adjCubWEbEvento']['size'];
+	$_FILES['adjCubWEbEvento']['name'];
+	$_FILES['adjCubWEbEvento']['tmp_name'];
 
-	$_FILES['adjPresupuestoEvento']['type'] = $_SESSION['adjPresupuestoEvento1'];
-	$_FILES['adjPresupuestoEvento']['size'] = $_SESSION['adjPresupuestoEvento2'];
-	$_FILES['adjPresupuestoEvento']['name'] = $_SESSION['adjPresupuestoEvento3'];
-	$_FILES['adjPresupuestoEvento']['tmp_name'] = $_SESSION['adjPresupuestoEvento4'];
+	//Creación de array para t_adjunto -- Información presupuesto del evento
+	$_FILES['adjPresupuestoEvento']['type'];
+	$_FILES['adjPresupuestoEvento']['size'];
+	$_FILES['adjPresupuestoEvento']['name'];
+	$_FILES['adjPresupuestoEvento']['tmp_name'];
 
 	//
 	$zipAdj = $_FILES['adjInfoEvento']['name'];
@@ -80,43 +82,43 @@ if ($row = mysqli_fetch_row($rst)) {
 	}
 	//Arra de Cubrimiento audiovisual
 	$id_cubAudio = array();
-	$id_cubAudio = $_SESSION['tipoCubAUEvento'];
+	$id_cubAudio = $_POST['tipoCubAUEvento'];
 
 	//Arra de Objetivo Público
 	$id_objPublico = array(); //Referencia de t_resobjpublico
-	$id_objPublico = $_SESSION['checkPublicoObj'];
+	$id_objPublico = $_POST['checkPublicoObj'];
 
 	//Array para t_color
 	$color = array();
-	$color = $_SESSION['colorEvento'];
+	$color = $_POST['colorEvento'];
 
 	//Array para cubriiento audiovisual
 	$cubrimiento = array();
-	$cubrimiento = $_SESSION["tipoCubAUEvento"];
+	$cubrimiento = $_POST["tipoCubAUEvento"];
 
 	//Array para pieza impresa
 	$pimp = array();
-	$pimp = $_SESSION["selectPiezaIMPEvento"];
+	$pimp = $_POST["ImpPieza"];
 
 	//Array para acabado impresa
 	$aimp = array();
-	$aimp = $_SESSION["acabadoIMPEvento"];
+	$aimp = $_POST["ImpAcabado"];
 
 	//Array para tipo papel impresa
 	$timp = array();
-	$timp = $_SESSION["tipoPapelIMPEvento"];
+	$timp = $_POST["ImpTP"];
 
 	//Array para tipo papel impresa
 	$cimp = array();
-	$cimp = $_SESSION["cantidadIMPEvento"];
+	$cimp = $_POST["IMPCant"];
 
 	//Array para pieza digital
 	$dig = array();
-	$dig = $_SESSION["tipoDIGEvento"];
+	$dig = $_POST["inputDIG"];
 
 	//Objetos de t_requerimientoWeb
-	$tipoSitio = $_SESSION['tipoCubWEbEvento'];
-	$justificacionWeb = $_SESSION["jutifiCubWEbEvento"];
+	$tipoSitio = $_POST['tipoCubWEbEvento'];
+	$justificacionWeb = $_POST["jutifiCubWEbEvento"];
 
 	
 	//Conteo de elemento de cada array
@@ -156,12 +158,6 @@ if ($row = mysqli_fetch_row($rst)) {
 			$inColor = 'INSERT INTO t_color(color, numST) VALUES ("'.$col.'","'.$newST.'")';
 			$rstColor = $conexion->query($inColor);
 		}
-		
-		for ($l=0; $l < $countCubri; $l++) {
-			$cubri = $cubrimiento[$l];
-			$inCubri = 'INSERT INTO t_cubrimiento(tipoCubrimiento, numST) VALUES ("'.$cubri.'","'.$newST.'")';
-			$rstCubri = $conexion->query($inCubri);
-		}
 
 		for ($m=0; $m < $countIMP; $m++) { 
 			$impreP = $pimp[$m];
@@ -181,7 +177,7 @@ if ($row = mysqli_fetch_row($rst)) {
 
 		for ($o=0; $o < $countCubAud; $o++) {
 			$cubAu = $id_cubAudio[$o];
-			$inCubAu = 'INSERT INTO t_resaudiovisual(id_audiovisual, numST) VALUES ("'.$cubAu.'","'.$newST.'")';
+			$inCubAu = 'INSERT INTO t_cubrimiento(id_audiovisual, numST) VALUES ("'.$cubAu.'","'.$newST.'")';
 			$rstCubAud = $conexion->query($inCubAu);
 		}
 		
@@ -189,21 +185,38 @@ if ($row = mysqli_fetch_row($rst)) {
 			$inCubri = 'INSERT INTO t_requerimientoweb(tipoWeb, justificacionWeb, numST) VALUES ("'.$tipoSitio.'","'.$justificacionWeb.'","'.$newST.'")';
 			$rstCubri = $conexion->query($inCubri);
 		}
-
-		echo codigoSeguimiento($newST);
-
-		//La eliminación de Sesión y cierre de conexión se debe hacer al final del envio de correo a solicitudes@usantotomas.edu.co
 		mysqli_close($conexion);
-		session_destroy();
-		
+		$_SESSION['numST'] = $newST;
+
+		//Se pregunta si exíste la consulta
+		if (isset($insert)) {
+
+			$folderST = $newST;
+			$folder = $rutaDestinoST.$folderST;
+			
+			// Se pregunta si no exíste la carpeta a crear
+			if (!file_exists($folder)) {
+				//Se crea la carpeta e ingresan los adjuntos
+				$newFolderST = mkdir("$rutaDestinoST$folderST", 0777);
+				move_uploaded_file($_FILES['adjInfoEvento']['tmp_name'], $folder."/".$_FILES['adjInfoEvento']['name']);
+				move_uploaded_file($_FILES['adjCubWEbEvento']['tmp_name'], $folder."/".$_FILES['adjCubWEbEvento']['name']);
+				move_uploaded_file($_FILES['adjPresupuestoEvento']['tmp_name'], $folder."/".$_FILES['adjPresupuestoEvento']['name']);
+
+				//Envio de correo -- solicitudes@usantotomas.edu.co
+				include '../../../mailer/e_solicitud.php';
+
+				if($exito){
+					//Redirección al resumen.
+					header('Location:../../php/resumen/eventoResumen.php');
+				}
+			}
+		}else{
+			echo "Error en la creación de la solicitud, por favor";
+			session_destroy();
+		}
 	}else{
-		mysqli_close($conexion);
-		echo "No Funciono";
+		echo "Error en la creación de la solicitud, por favor";
+		session_destroy();
 	}
-
-}else{
-	mysqli_close($conexion);
-	session_destroy();
-	echo "NO Existe";
 }
 ?>

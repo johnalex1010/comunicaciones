@@ -181,7 +181,7 @@ USE bdComunicaciones;
 	/*--Tabla de adjuntos*/
 	CREATE TABLE t_adjunto(
 		id_adjunto int NOT NULL AUTO_INCREMENT,
-		adjunto varchar(30) NOT NULL,
+		adjunto varchar(100) NOT NULL,
 		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios Adjuntos para uns unica ST*/
 		PRIMARY KEY (id_adjunto),
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
@@ -193,15 +193,6 @@ USE bdComunicaciones;
 		color varchar(20) NOT NULL,
 		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios Colores(3) para uns unica ST*/
 		PRIMARY KEY (id_color),
-		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
-	);
-
-	/*--Tabla de cubrimiento*/
-	CREATE TABLE t_cubrimiento(
-		id_cubrimiento int NOT NULL AUTO_INCREMENT,
-		tipoCubrimiento varchar(50) NOT NULL,
-		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios Colores(3) para uns unica ST*/
-		PRIMARY KEY (id_cubrimiento),
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
 
@@ -241,11 +232,11 @@ USE bdComunicaciones;
 	);
 
 	/*--Tablas de requerimiento Audiovisual en Evento y/o Campañas*/
-	CREATE TABLE t_resAudioVisual(
-		id_resAudiovisual int NOT NULL AUTO_INCREMENT,
+	CREATE TABLE t_cubrimiento(
+		id_cubrimiento int NOT NULL AUTO_INCREMENT,
 		id_audiovisual int NOT NULL, /*Es FOREIGN KEY de la tabla t_audioVisual*/
 		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios requerimientos audiovisuales para una unica ST*/
-		PRIMARY KEY (id_resAudiovisual),
+		PRIMARY KEY (id_cubrimiento),
 		FOREIGN KEY (id_audioVisual) REFERENCES t_audioVisual(id_audioVisual),
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
@@ -516,7 +507,8 @@ USE bdComunicaciones;
 	(5, "Tipo Acabados Impresa 5"),
 	(6, "Tipo Acabados Impresa 6"),
 	(7, "Tipo Acabados Impresa 7"),
-	(8, "Tipo Acabados Impresa 8");
+	(8, "Tipo Acabados Impresa 8"),
+	(9, "Vacio");
 
 	/*--t_papelImp*/
 	INSERT INTO t_papelImp VALUES
@@ -527,7 +519,8 @@ USE bdComunicaciones;
 	(5, "Tipo Papel Impresa 5"),
 	(6, "Tipo Papel Impresa 6"),
 	(7, "Tipo Papel Impresa 7"),
-	(8, "Tipo Papel Impresa 8");
+	(8, "Tipo Papel Impresa 8"),
+	(9, "Vacio");
 
 	/*--t_permiso*/
 	INSERT INTO t_permiso VALUES
@@ -896,11 +889,10 @@ DELIMITER //
         IN _nombreCam varchar(200),         /*Relación de la tabla t_campaniascm*/
         IN _justificacion TEXT,             /*Relación de la tabla t_campaniascm*/
         IN _objetivo TEXT,                  /*Relación de la tabla t_campaniascm*/
-        IN _descripcion TEXT,                  /*Relación de la tabla t_campaniascm*/
+        IN _descripcion TEXT,               /*Relación de la tabla t_campaniascm*/
         IN _fechaHoraIni DATE,              /*Relación de la tabla t_campaniascm*/
         IN _fechaHoraFin DATE,              /*Relación de la tabla t_campaniascm*/
-        IN _palabrasClaves TEXT,             /*Relación de la tabla t_campaniascm*/
-        IN _adjunto VARCHAR(30),            /*Relación de la tabla t_adjunto*/
+        IN _palabrasClaves TEXT,            /*Relación de la tabla t_campaniascm*/
         IN _id_objPublico int               /*Relación de la tabla t_resobjpublico*/
 
     )
@@ -910,8 +902,7 @@ DELIMITER //
                 INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
                 INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
                 INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
-                INSERT INTO t_campaniascm(nombreCam, justificacion, objetivo, descripcion, fechaHoraIni, fechaHoraFin, palabrasClaves, numST) VALUES (_nombreCam, _justificacion, _objetivo, _descripcion, _fechaHoraIni, _fechaHoraFin, _palabrasClaves, _numST);
-                INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
+                INSERT INTO t_campaniascm(nombreCam, justificacion, objetivo, descripcion, fechaHoraIni, fechaHoraFin, palabrasClaves, numST) VALUES (_nombreCam, _justificacion, _objetivo, _descripcion, _fechaHoraIni, _fechaHoraFin, _palabrasClaves, _numST);                
                 INSERT INTO t_resobjpublico(id_objPublico, numST) VALUES (_id_objPublico, _numST);
             ELSE
                 INSERT INTO t_resobjpublico(id_objPublico, numST) VALUES (_id_objPublico, _numST);
@@ -944,7 +935,6 @@ DELIMITER //
         IN _direccion varchar(50),          /*Relación de la tabla t_crearedescm*/
         IN _telPerfil varchar(10),          /*Relación de la tabla t_crearedescm*/
         IN _emailPerfil varchar(100),       /*Relación de la tabla t_crearedescm*/
-        IN _adjunto VARCHAR(30),            /*Relación de la tabla t_adjunto*/
         IN _id_tipoRedSocial int            /*Relación de la tabla t_tiporedsocial*/
 
     )
@@ -955,7 +945,6 @@ DELIMITER //
                 INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
                 INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
                 INSERT INTO t_crearedescm(nomPerfil, emailPersonal, descripcion, direccion, telPerfil, emailPerfil, numST) VALUES (_nomPerfil, _emailPersonal, _descripcion, _direccion, _telPerfil, _emailPerfil, _numST);
-                INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
                 INSERT INTO t_restrs(id_tipoRedSocial, numST) VALUES (_id_tipoRedSocial, _numST);
             ELSE
                 INSERT INTO t_restrs(id_tipoRedSocial, numST) VALUES (_id_tipoRedSocial, _numST);

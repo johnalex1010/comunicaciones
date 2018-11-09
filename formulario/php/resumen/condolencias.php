@@ -9,13 +9,9 @@
 	include_once '../conexion.php';
 	//Insertar ST. Solicitud de Capacitación Web
 	$facDep = "SELECT facDep FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep'];
-	$facDepCondo = "SELECT facDep FROM t_facdep WHERE id_facDep =".$_SESSION['condoFacDep'];
 	$rst = $conexion->query($facDep);
-	$rstCondo = $conexion->query($facDepCondo);
 	$row = mysqli_fetch_row($rst);
-	$rowCondo = mysqli_fetch_row($rstCondo);
 	$facDep = $row[0];
-	$facDepCondo = $rowCondo[0];
 
 ?>
 <!DOCTYPE html>
@@ -36,9 +32,20 @@
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
 </head>
 <body>
-<div class="content resumen">
+<?php 
+	$s = "SELECT C.*, F.facDep FROM t_condolencias AS C, t_facdep AS F WHERE C.id_facDep=F.id_facDep AND C.numST='".$_SESSION['numST']."'";
+	$rs = $conexion->query($s);
+	$row = mysqli_fetch_array($rs);
+?>
+
+	<div class="content msjFinal resumen">
+		<img src="../../img/logo.png" alt="Logo" class="logoComunica">
+		<h1 class="hMsjFinal">GRACIAS</h1>
+		<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
+		<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>
+		<a href="../../" class="btn btn-world btn-newST">Nueva solicitud</a>
 	<h2>Resumen de solicitud de Comunicaciones Internas - Condolencias</h2>
-	<br>
+
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Nombre del solicitante</h3>
@@ -62,45 +69,42 @@
 	<div class="cuadricula">
 		<div class="celda celdax3">
 			<h3>Nombre del administrativo o estudiante</h3>
-			<p><?php echo $_SESSION['condoNombre'] ?></p>
+			<p><?php echo $row["nombreDoliente"]; ?></p>
 		</div>
 		<div class="celda celdax3">
 			<h3>Cargo</h3>
-			<p><?php echo $_SESSION['condoCargo'] ?></p>
+			<p><?php echo $row["cargoDoliente"]; ?></p>
 		</div>
 		<div class="celda celdax3">
 			<h3>Facultad / Dependencia</h3>
-			<p><?php echo $facDepCondo ?></p>
+			<p><?php echo $row["facDep"]; ?></p>
 		</div>	
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax3">
 			<h3>Nombre del facllecido</h3>
-			<p><?php echo $_SESSION['condoFalle'] ?></p>
+			<p><?php echo $row["nombreFallecido"]; ?></p>
 		</div>
 		<div class="celda celdax3">
 			<h3>Parentesco</h3>
-			<p><?php echo $_SESSION['condoParen'] ?></p>
+			<p><?php echo $row["parentesco"]; ?></p>
 		</div>
 		<div class="celda celdax3">
 			<h3>Lugar de velación</h3>
-			<p><?php echo $_SESSION['condoLugarVel'] ?></p>
+			<p><?php echo $row["lugarVelacion"]; ?></p>
 		</div>
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax2">
 			<h3>Fecha de velación</h3>
-			<p><?php echo $_SESSION['condoFVela'] ?></p>
+			<p><?php echo $row["fechaVelacion"]; ?></p>
 		</div>
 		<div class="celda celdax2">
 			<h3>Hora de velación</h3>
-			<p><?php echo $_SESSION['condoHVela'] ?></p>
+			<p><?php echo $row["horaVelacion"]; ?></p>
 		</div>
 	</div>
-	<div class="cuadricula">
-		<a class="btn btn-world" href="../../solicitud/unidadComIns/comInter.php">Atras</a>
-		<a class="btn btn-send" href="../incrus/in_condolencias.php">Enviar Solicitud</a>
-	</div>
 </div>
+<?php mysqli_close($conexion); session_destroy(); ?>
 </body>
 </html>

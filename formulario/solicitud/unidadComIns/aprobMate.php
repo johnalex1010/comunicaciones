@@ -60,14 +60,14 @@
 					  			<div class="contentCheck checkboxAudioVisual">
 									<div class="colorTxt tooltip" title="<?php checkAprobMateT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Que tipo de material desea ser aprobado? </div>
 										<span class="error"><?php echo $error[0][0] = (isset($error[0][0])) ? $error[0][0] : ""; ?></span><br>						
-										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Aprobación Material 1" <?php if (in_array("Aprobación Material 1", $_SESSION['checkAprobMate'])) echo "checked"; ?> /> Aprobación Material 1<br>
-										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Aprobación Material 2" <?php if (in_array("Aprobación Material 2", $_SESSION['checkAprobMate'])) echo "checked"; ?> /> Aprobación Material 2<br>
-										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Aprobación Material 3" <?php if (in_array("Aprobación Material 3", $_SESSION['checkAprobMate'])) echo "checked"; ?> /> Aprobación Material 3<br>
+										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Aprobación Material 1" <?php if (in_array("Aprobación Material 1", $_POST['checkAprobMate'])) echo "checked"; ?> /> Aprobación Material 1<br>
+										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Aprobación Material 2" <?php if (in_array("Aprobación Material 2", $_POST['checkAprobMate'])) echo "checked"; ?> /> Aprobación Material 2<br>
+										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Aprobación Material 3" <?php if (in_array("Aprobación Material 3", $_POST['checkAprobMate'])) echo "checked"; ?> /> Aprobación Material 3<br>
 										<br>
 										<br>									
 								</div>
 								<div class="group tooltip" title="<?php adjAprobMateT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-									<input type="file" class="requi" name="adjAprobMate" value="<?php echo $_SESSION['adjAprobMate3']?>">
+									<input type="file" class="requi" name="adjAprobMate">
 									<span class="bar"></span>
 									<label>Adjuntar ZIP material para aprobación. <span class="error"><?php echo $error[0][1] = (isset($error[0][1])) ? $error[0][1] : ""; ?></span></label>
 								</div>

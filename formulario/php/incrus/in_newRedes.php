@@ -5,8 +5,9 @@
 		header('Location:../../');
 	}
 	
-	include_once '../conexion.php';
-	include_once '../funciones/campos.php';
+	include_once '../../php/conexion.php';
+	include_once '../../php/variables.php';
+	include_once '../../php/funciones/campos.php';
 
 
 	//Insertar ST. Solicitud de Capacitación Web
@@ -28,19 +29,19 @@
 		$fecha = date('Y-m-d');
 		$comentario = 'Ingresa la Solicitud';
 
-		$nomPerfil = $_SESSION['nombreNewPerfil'];
-		$emailPersonal = $_SESSION['emailNewPerfil']; 
-		$descripcion = $_SESSION['descNewRed'];
-		$direccion = $_SESSION['dirNewRed'];
-		$telPerfil = $_SESSION['numTelNewRed'];	
-		$emailPerfil = $_SESSION['emailNewPerfil2'];
-		$_FILES['adjAprobMate']['type'] = 		$_SESSION['adjImgNewRed1'];
-		$_FILES['adjAprobMate']['size'] = 		$_SESSION['adjImgNewRed2'];
-		$_FILES['adjAprobMate']['name'] = 		$_SESSION['adjImgNewRed3'];
-		$_FILES['adjAprobMate']['tmp_name'] = 	$_SESSION['adjImgNewRed4'];
-		$adjunto = $_FILES['adjAprobMate']['name'];
+		$nomPerfil = $_POST['nombreNewPerfil'];
+		$emailPersonal = $_POST['emailNewPerfil']; 
+		$descripcion = $_POST['descNewRed'];
+		$direccion = $_POST['dirNewRed'];
+		$telPerfil = $_POST['numTelNewRed'];	
+		$emailPerfil = $_POST['emailNewPerfil2'];
+		$_FILES['adjImgNewRed']['type'];
+		$_FILES['adjImgNewRed']['size'];
+		$_FILES['adjImgNewRed']['name'];
+		$_FILES['adjImgNewRed']['tmp_name'];
+		$adjunto = $_FILES['adjImgNewRed']['name'];
 		$id_tipoRedSocial = array();
-		$id_tipoRedSocial = $_SESSION['checkNewRedes'];
+		$id_tipoRedSocial = $_POST['checkNewRedes'];
 		$count = count($id_tipoRedSocial);
 
 
@@ -50,22 +51,54 @@
 			$ra = $conexion->query($a);
 			$rowa = mysqli_fetch_row($ra);
 			$rs = $rowa[0];
-			$in = 'CALL in_SolicitudNewRedSocial("'.$newST.'","'.$nombre.'","'.$email.'","'.$id_facDep.'","'.$telefono.'","'.$id_usuario.'","'.$id_unidad.'","'.$id_categoria.'","'.$id_subCategoria.'","'.$id_fase.'","'.$fecha.'","'.$comentario.'","'.$nomPerfil.'","'.$emailPersonal.'","'.$descripcion.'","'.$direccion.'","'.$telPerfil.'","'.$emailPerfil.'","'.$adjunto.'","'.$rs.'")';
+			$in = 'CALL in_SolicitudNewRedSocial("'.$newST.'","'.$nombre.'","'.$email.'","'.$id_facDep.'","'.$telefono.'","'.$id_usuario.'","'.$id_unidad.'","'.$id_categoria.'","'.$id_subCategoria.'","'.$id_fase.'","'.$fecha.'","'.$comentario.'","'.$nomPerfil.'","'.$emailPersonal.'","'.$descripcion.'","'.$direccion.'","'.$telPerfil.'","'.$emailPerfil.'","'.$rs.'")';
 			$insert = $conexion->query($in); //Ejecuto el procedimiento
 		}
 
-		echo codigoSeguimiento($newST);
+		//Condiciones para poder agregar los array de forma independiente
+		$selecNumST = "SELECT numST FROM t_solicitud WHERE numST=".$newST; // Busca que ya este la nueva ST
+		$rstNumST = $conexion->query($selecFINNumST);
+		$select= mysqli_fetch_row($rstNumST);
 
-		//La eliminación de Sesión y cierre de conexión se debe hacer al final del envio de correo a solicitudes@usantotomas.edu.co
+		if ($select[0] == $newST) {
+			if (!empty($adjunto)) {
+				$inADJ = 'INSERT INTO t_adjunto(numST, adjunto) VALUES ("'.$newST.'","'.$adjunto.'")';
+				$rstADJ = $conexion->query($inADJ);
+			}
+		}else{
+			mysqli_close($conexion);
+			echo "No Funciono";
+		}
+
 		mysqli_close($conexion);
-		session_destroy();
+
+		$_SESSION['numST'] = $newST;
+
+		//Se pregunta si exíste la consulta
+		if (isset($insert)) {
+			$folderST = $newST;
+			$folder = $rutaDestinoST.$folderST;
+			
+			// Se pregunta si no exíste la carpeta a crear
+			if (!file_exists($folder)) {
+				//Se crea la carpeta e ingresan los adjuntos
+				$newFolderST = mkdir("$rutaDestinoST$folderST", 0777);
+				move_uploaded_file($_FILES['adjImgNewRed']['tmp_name'], $folder."/".$_FILES['adjImgNewRed']['name']);
+
+				//Envio de correo -- solicitudes@usantotomas.edu.co
+				include '../../../mailer/e_solicitud.php';
+
+				if($exito){
+					//Redirección al resumen.
+					header('Location:../../php/resumen/newRedes.php');
+				}
+			}
+		}else{
+			echo "Error en la creación de la solicitud, por favor";
+			session_destroy();
+		}		
 	}else{
 		echo "Error en la creación de la solicitud, por favor";
+		session_destroy();
 	}
-
-
-
-
 ?>
-
-

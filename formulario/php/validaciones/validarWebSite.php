@@ -173,14 +173,16 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		}
 
 		/*===== Validar Fecha de capacitación =====*/
-		$date = explode("-", $_POST['fechaCapa']);
-		$countDate =  count($date);
-		if ($countDate == 3 && checkdate($date[1], $date[2], $date[0])) {
-			$_POST['fechaCapa'];
-		}else{
-			$error[2][4] = "El formato fecha es incorrecto";
+		if (!empty($_POST['fechaCapa'])) {
+			$date = explode("-", $_POST['fechaCapa']);
+			$countDate =  count($date);
+			if ($countDate == 3 && checkdate($date[1], $date[2], $date[0])) {
+				$_POST['fechaCapa'];
+			}else{
+				$error[2][4] = "El formato fecha es incorrecto";
+			}
 		}
-
+		
 		/*===== Validar hora la capactitacion =====*/
 		if (!isset($_POST['horaCapa']) || empty($_POST['horaCapa'])) {
 			//$error[2][5] = "El campo es obligatorio";

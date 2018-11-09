@@ -181,7 +181,7 @@ USE bdComunicaciones;
 	/*--Tabla de adjuntos*/
 	CREATE TABLE t_adjunto(
 		id_adjunto int NOT NULL AUTO_INCREMENT,
-		adjunto varchar(30) NOT NULL,
+		adjunto varchar(100) NOT NULL,
 		numST varchar(10) NOT NULL, /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varios Adjuntos para uns unica ST*/
 		PRIMARY KEY (id_adjunto),
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)

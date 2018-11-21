@@ -4,156 +4,42 @@
     <?php require_once '../views/view.nav-top.php'; ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-      <?php require_once '../views/view.nav-side.php'; ?>      
+      <?php require_once '../views/view.nav-side.php'; ?>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
 			<!-- //CONTENIDO AQUÍ -->
 				<!-- // Panel Home -->
-				<div class="row">
-					<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-		              <div class="card card-statistics">
-		                <div class="card-body">
-		                  <div class="clearfix">
-		                    <div class="float-left">
-		                      <i class="mdi mdi-bell-ring text-info icon-lg"></i>
-		                    </div>
-		                    <div class="float-right">
-		                      <p class="mb-0 text-right">ST -> Asginadas</p>
-		                      <div class="fluid-container">
-		                        <h3 class="font-weight-medium text-right mb-0">246</h3>
-		                      </div>
-		                    </div>
-		                  </div>
-		                </div>
-		              </div>
-		            </div>
-		            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-		              <div class="card card-statistics">
-		                <div class="card-body">
-		                  <div class="clearfix">
-		                    <div class="float-left">
-		                      <i class="mdi mdi-bell text-success icon-lg"></i>
-		                    </div>
-		                    <div class="float-right">
-		                      <p class="mb-0 text-right">ST -> Realizadas</p>
-		                      <div class="fluid-container">
-		                        <h3 class="font-weight-medium text-right mb-0">5693</h3>
-		                      </div>
-		                    </div>
-		                  </div>
-		                </div>
-		              </div>
-		            </div>
-		            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-		              <div class="card card-statistics">
-		                <div class="card-body">
-		                  <div class="clearfix">
-		                    <div class="float-left">
-		                      <i class="mdi mdi-bell-sleep text-warning icon-lg"></i>
-		                    </div>
-		                    <div class="float-right">
-		                      <p class="mb-0 text-right">ST -> En Aprobación</p>
-		                      <div class="fluid-container">
-		                        <h3 class="font-weight-medium text-right mb-0">3455</h3>
-		                      </div>
-		                    </div>
-		                  </div>
-		                </div>
-		              </div>
-		            </div>
-		            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-		              <div class="card card-statistics">
-		                <div class="card-body">
-		                  <div class="clearfix">
-		                    <div class="float-left">
-		                      <i class="mdi mdi-bell-off text-danger icon-lg"></i>
-		                    </div>
-		                    <div class="float-right">
-		                      <p class="mb-0 text-right">ST -> No Realizadas</p>
-		                      <div class="fluid-container">
-		                        <h3 class="font-weight-medium text-right mb-0">$65,650</h3>
-		                      </div>
-		                    </div>
-		                  </div>
-		                </div>
-		              </div>
-		            </div>
-		        </div>
+				<?php require_once '../views/view.general-report.php'; ?>
 				
 		        <!-- // Table -->
-		        <h1>Solicitudes</h1>
-		        <!-- Tabla -->
 		        <div class="row">
 				    <div class="col-lg-9 grid-margin stretch-card">
 		              <div class="card">
 		                <div class="card-body">
+		                	<h3>Solicitudes</h3>
 		                  <div class="table-responsive">
 		                    <table class="table">
 		                      <thead>
 		                        <tr>
-		                          <th>Profile</th>
-		                          <th>VatNo.</th>
-		                          <th>Created</th>
-		                          <th>Status</th>
-		                          <th>Status</th>
+		                          <th>N° ST</th>
+		                          <th>Usuario Asignado</th>
+		                          <th>Nombre de ST</th>
+		                          <th>Estado</th>
 		                        </tr>
 		                      </thead>
 		                      <tbody>
-		                        <tr>
-		                          <td>Jacob</td>
-		                          <td>53275531</td>
-		                          <td>12 May 2017</td>
-		                          <td>12 May 2017</td>
-		                          <td>
-		                            <label class="badge badge-danger">No realizada</label>
-		                          </td>
-		                        </tr>
-		                        <tr>
-		                          <td>Jacob</td>
-		                          <td>53275531</td>
-		                          <td>12 May 2017</td>
-		                          <td>12 May 2017</td>
-		                          <td>
-		                            <label class="badge badge-warning">Pediente</label>
-		                          </td>
-		                        </tr>
-		                        <tr>
-		                          <td>Jacob</td>
-		                          <td>53275531</td>
-		                          <td>12 May 2017</td>
-		                          <td>12 May 2017</td>
-		                          <td>
-		                            <label class="badge badge-success">Cumplido</label>
-		                          </td>
-		                        </tr>
-		                        <tr>
-		                          <td>Jacob</td>
-		                          <td>53275531</td>
-		                          <td>12 May 2017</td>
-		                          <td>12 May 2017</td>
-		                          <td>
-		                            <label class="badge badge-info">Pediente</label>
-		                          </td>
-		                        </tr>
-		                        <tr>
-		                          <td>Jacob</td>
-		                          <td>53275531</td>
-		                          <td>12 May 2017</td>
-		                          <td>12 May 2017</td>
-		                          <td>
-		                            <label class="badge badge-info">Pediente</label>
-		                          </td>
-		                        </tr>
-		                        <tr>
-		                          <td>Jacob</td>
-		                          <td>53275531</td>
-		                          <td>12 May 2017</td>
-		                          <td>12 May 2017</td>
-		                          <td>
-		                            <label class="badge badge-info">Pediente</label>
-		                          </td>
-		                        </tr>
+		                      	<?php for ($i=0; $i < 6; $i++): ?>
+								<tr>
+									<td>Jacob</td>
+									<td>53275531</td>
+									<td>12 May 2017</td>
+									<td>
+									<label class="badge badge-success">No realizada</label>
+									</td>
+									<td><a href="#" class="btn btn-inverse-primary">Ver</a></td>
+								</tr>
+		                      	<?php endFor ?>
 		                      </tbody>
 		                    </table>
 		                  </div>

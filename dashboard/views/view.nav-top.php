@@ -20,7 +20,7 @@
 				<img class="img-xs rounded-circle" src="<?php echo URL ?>public/images/usuarios/face1.jpg" alt="Profile image">
 			</a>
 			<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-				<a href="<?php echo URL ?>"class="dropdown-item mt-2">Mi perfil</a>
+				<a href="<?php echo URL ?>pages/perfil.php"class="dropdown-item mt-2">Mi perfil</a>
 				<a href="<?php echo URL . 'pages/cerrar-session.php'; ?>"class="dropdown-item">Sign Out</a>
 			</div>
 		</li>

@@ -5,6 +5,7 @@
   <!-- inject:js -->
   <script src="<?php echo URL ?>public/js/off-canvas.js"></script>
   <script src="<?php echo URL ?>public/js/misc.js"></script>
+  <script src="<?php echo URL ?>public/js/chart.js"></script>
   <!-- endinject -->
   </body>
 

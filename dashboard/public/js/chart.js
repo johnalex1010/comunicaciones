@@ -79,30 +79,30 @@ $(function() {
   };
   var doughnutPieData = {
     datasets: [{
-      data: [60, 10, 30],
+      data: [50, 25, 25],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.5)',
-        'rgba(54, 162, 235, 0.5)',
-        'rgba(255, 206, 86, 0.5)',
-        'rgba(75, 192, 192, 0.5)',
-        'rgba(153, 102, 255, 0.5)',
-        'rgba(255, 159, 64, 0.5)'
+        'rgba(0, 205, 106, 0.5)',
+        'rgba(254, 174, 18, 0.5)',
+        'rgba(229, 82, 80, 0.5)'
+        //'rgba(229, 82, 80, 0.5)',
+        //'rgba(229, 82, 80, 0.5)',
+        //'rgba(229, 82, 80, 0.5)'
       ],
       borderColor: [
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
+        'rgba(0, 205, 106,1)',
+        'rgba(254, 174, 18, 1)',
+        'rgba(229, 82, 80, 1)'
+        //'rgba(229, 82, 80, 1)',
+        //'rgba(229, 82, 80, 1)',
+        //'rgba(229, 82, 80, 1)'
       ],
     }],
 
     // These labels appear in the legend and in the tooltips when hovering different arcs
     labels: [
-      'John',
-      'Blue',
-      'Yellow',
+      'Realizadas',
+      'En Aprobación',
+      'No Realizadas',
     ]
   };
   var doughnutPieOptions = {

@@ -13332,7 +13332,7 @@ a.text-success:hover, a.text-success:focus {
   color: #009b4e !important; }
 
 .text-info {
-  color: #8862e0 !important; }
+  color: #1967C9 !important; }
 
 a.text-info:hover, a.text-info:focus {
   color: #6837d8 !important; }
@@ -15355,7 +15355,7 @@ pre {
   border: 0;
   border-radius: 2px; }
   .card .card-body {
-    padding: 1.88rem 1.81rem; }
+    padding: 1.8rem 1.8rem; }
     .card .card-body + .card-body {
       padding-top: 0; }
   .card.card-outline-success {

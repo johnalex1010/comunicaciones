@@ -1,0 +1,58 @@
+.usta-card-user{
+	.usta-card-img{
+		/* background: red; */
+		img, h4{
+			display: inline-block;
+		}
+		img{
+			border-radius: 50%;
+			width: 80px;
+		}
+		h4{
+			margin-left: 1rem;
+			font-size: 1.5rem;
+		}
+	}
+	.usta-card-fecha{
+		/* background: red; */
+		font-size: 0.7rem;
+		margin: 0.7rem auto;
+		text-align: center;
+		display: table;
+	}
+	a{
+		float: right;
+	}
+}
+.btn-rounded{
+	border: none !important;
+}
+
+.usta-perfil{
+	&-description{
+		margin-bottom: 2rem;
+		text-align: center;
+		img{
+			border-radius: 50%;
+			margin-bottom: 1rem;
+		}
+		.usta-perfil-name{
+			margin-left: 1rem;
+		}
+	}
+	&-form{
+		form{
+			input, select{
+				margin-bottom: 1rem;
+				display: block;
+			}
+			input[type="submit"]{
+				width: 150px;
+			}
+			label{
+				font-size: 0.9rem;
+				margin: 0px;
+			}
+		}
+	}
+}

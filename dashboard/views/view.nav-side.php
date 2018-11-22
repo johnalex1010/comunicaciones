@@ -13,7 +13,7 @@
                   </div>
                 </div>
               </div>
-              <button class="btn btn-success btn-block">Nueva Solicitud<i class="mdi mdi-plus"></i></button>
+              <a href="<?php echo URLF ?>" class="btn btn-success btn-block" target="_blank">Nueva Solicitud<i class="mdi mdi-plus"></i></a>
             </div>
           </li>
           <li class="nav-item">

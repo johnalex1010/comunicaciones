@@ -29,7 +29,7 @@
 		                        </tr>
 		                      </thead>
 		                      <tbody>
-		                      	<?php for ($i=0; $i < 6; $i++): ?>
+		                      	<?php for ($i=1; $i < 7; $i++): ?>
 								<tr>
 									<td>Jacob</td>
 									<td>53275531</td>
@@ -37,13 +37,27 @@
 									<td>
 									<label class="badge badge-success">No realizada</label>
 									</td>
-									<td><a href="#" class="btn btn-inverse-primary">Ver</a></td>
+									<td><a href="<?php echo URL ?>pages/resume-ST.php?ST=<?php echo $i ?>" class="btn btn-inverse-primary btn-rounded">Ver</a></td>
 								</tr>
 		                      	<?php endFor ?>
 		                      </tbody>
 		                    </table>
 		                  </div>
 		                </div>
+		                <!-- Paginación -->
+						<div class="row">
+							<div class="col-lg-12 grid-margin stretch-card" >
+								<div class="btn-group" role="group" aria-label="First group" style="margin: auto">
+									<a href="" class="btn btn-primary btn-rounded"><</a>
+									<a href="" class="btn btn-primary">1</a>
+									<a href="" class="btn btn-primary">2</a>
+									<a href="" class="btn btn-primary">3</a>
+									<a href="" class="btn btn-primary">4</a>
+									<a href="" class="btn btn-primary">5</a>
+									<a href="" class="btn btn-primary btn-rounded">></a>
+								</div>
+							</div>
+						</div>
 		              </div>
 		            </div>
 		            <!-- Filtros -->
@@ -91,22 +105,7 @@
 		            </div>		            
 		        </div>
 
-		        <!-- Paginación -->
-				<div class="row">
-	        		<div class="col-lg-9 grid-margin stretch-card" >
-						<div class="btn-group" role="group" aria-label="First group" style="margin: auto">
-							<button type="button" class="btn btn-primary"><</button>
-							<button type="button" class="btn btn-primary">1</button>
-							<button type="button" class="btn btn-primary">2</button>
-							<button type="button" class="btn btn-primary">3</button>
-							<button type="button" class="btn btn-primary">4</button>
-							<button type="button" class="btn btn-primary">5</button>
-							<button type="button" class="btn btn-primary">6</button>
-							<button type="button" class="btn btn-primary">7</button>
-							<button type="button" class="btn btn-primary">></button>
-						</div>
-		       		</div>
-		       	</div>
+		        
 
 			        
 			<!-- //FIN CONTENIDO AQUÍ -->

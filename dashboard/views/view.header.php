@@ -16,6 +16,8 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php echo URL ?>public/css/style.css">
+  <link rel="stylesheet" href="<?php echo URL ?>public/css/usta.css">
+
   <!-- endinject -->
   <link rel="shortcut icon" href="<?php echo URL ?>public/images/favicon.png" />
 </head>

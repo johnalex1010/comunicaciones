@@ -8,35 +8,48 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-      <!-- //CONTENIDO AQUÍ -->
-        <!-- // Panel Home -->
-        <?php require_once '../views/view.general-report.php'; ?>
-        
-            <!-- // Table -->
-        <div class="row">
-          <div class="col-lg-8 grid-margin stretch-card">
+			<!-- //CONTENIDO AQUÍ -->
+				<!-- // Panel Home -->
+				<?php require_once '../views/view.general-report.php'; ?>
+				
+		        <!-- // Table -->
+				<div class="row">
+					<div class="col-lg-4 grid-margin stretch-card">
+						<div class="card">
+							<div class="card-body">
+								<h4 class="card-title">Perfil</h4>
+                <div class="usta-perfil">
+                  <div class="usta-perfil-description">
+                    <img src="<?php echo URL."public/images/usuarios/face".$_GET['id'].".jpg" ?>" alt="">
+                    <div class="usta-perfil-name">
+                      <h3>USUARIO <?php echo $_GET['id'] ?></h3>
+                      <div>Nombre Nombre Apellido Apellido</div>
+                      <div class="text-info">Cargo</div>
+                      <div>Unidad a la que pertenece</div>
+                    </div>
+                  </div>
+                </div>
+							</div>
+						</div>
+					</div>
+          <div class="col-lg-4 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Creación usuarios</h4>
+                <h4 class="card-title">Datos personales</h4>
                 <div class="usta-perfil">
                   <div class="usta-perfil-form">
                     <form action="">
-                      <label for="">Foto de perfil</label>
-                      <input type="file" class="form-control" placeholder="Subir foto de perfil">
-                      <label for="">Nombre completo</label>
                       <input type="password" class="form-control" id="exampleInputName1" placeholder="Cambiar Nombre">
-                      <label for="">Contraseña</label>
                       <input type="password" class="form-control" id="exampleInputName1" placeholder="Contraseña">
-                      <label for="">Repetir contraseña</label>
                       <input type="password" class="form-control" id="exampleInputName1" placeholder="Repetir Contraseña">
-                      <label for="">Cargo</label>
+
                       <select class="form-control">
                         <option>Cargo 1</option>
                         <option>Cargo 2</option>
                         <option>Cargo 3</option>
                         <option>Cargo 4</option>
                       </select>
-                      
+
                       <input type="submit" class="btn btn-success mr-2" value="Cambiar">
                     </form>
                   </div>
@@ -44,8 +57,8 @@
               </div>
             </div>
           </div>
-        </div>
-      <!-- //FIN CONTENIDO AQUÍ -->
+				</div>
+			<!-- //FIN CONTENIDO AQUÍ -->
         </div>
         <!-- content-wrapper ends -->
       </div>

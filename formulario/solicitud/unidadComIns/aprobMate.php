@@ -24,7 +24,6 @@
 
 	<!-- LINK -->
 	<link rel="shortcut icon" href="favicon.ico" />
-	<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed|Righteous" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
 
 </head>
@@ -35,10 +34,10 @@
 		<!-- HOME -->
 		<div class="home">
 			<div class="titles">
-				<h1 class="titlePrimary">Formato de solicitudes</h1>
-				<h2 class="titleSecond">Departamento de comunicaciones</h2>
+				<img class="logo" src="../../img/solicita.fw.png" alt="Logo">
 				<h3 class="titleThird">Sección Comunicaciones Internas</h3>
 			</div>
+			<a href="../../" class="btn btn-world btn-inicio">Inicio</a>
 			<p class="txtIntro">Texto explicativo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas beatae, eos nisi officia temporibus aliquid accusamus est maxime atque, voluptatibus commodi facere voluptatum esse quo ipsum expedita corporis ratione, debitis!
 			</p>
 			<p>Los campos con (<span style="color: #C20201;font-size:2rem;" >•</span>) son obligatorios.</p>

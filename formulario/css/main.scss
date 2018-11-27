@@ -16,14 +16,16 @@
 * @section Variables css
 * ======================
 */
-	$fontTitle:'Righteous', cursive; /*Fuentes de text´o para Titulos*/
-	$fontParagraph:'Encode Sans Condensed', sans-serif; /*Fuentes de text´o para Parrafos en general*/
-	$btnWorld: blue; /*Color Boton Principal*/
-	$btnSend: green; /*Color Boton Envio*/
+  @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+  @import url("https://fonts.googleapis.com/css?family=Passion+One");
+	$fontTitle:'Passion One', cursive;; /*Fuentes de text´o para Titulos*/
+	$fontParagraph: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";; /*Fuentes de text´o para Parrafos en general*/
+	$btnWorld: #2F8BD9; /*Color Boton Principal*/
+	$btnSend: #00D279; /*Color Boton Envio*/
   $btnValidate: #EA7120; /*Color Boton Envio*/
   $colorTxt: steelblue; /*Color texto de los campos*/
   $btnPlus: green;
-  $btnMinus: purple;
+  $btnMinus: #E14458;
 	
 	/* @Mixin para BTN's estado HOVER -- Revisar el archivo "main.scss"*/
 	@mixin hover($color) {
@@ -63,13 +65,14 @@ textarea{
 	outline: 0;
 	border: 0px;
 }
-h1, h2, h3, h4, h5, h6{font-family: $fontTitle}
+h1, h2, h3, h4, h5, h6{font-family: $fontTitle;font-weight: 100}
 :focus{outline: none;}
 ul{
   list-style: none;
 }
 input[type="submit"]{
   width: 120px;
+  border-bottom: 0;
 }
 input[type="color"]{
   width: 80px;
@@ -125,13 +128,13 @@ textarea{
 	line-height: 35px;
 	color:#fff;
 	border-radius: 3px;
-	border: 0px solid rgba(0,0,0,0.5);
+	/* border: 0px solid rgba(0,0,0,0.5); */
 	border-bottom-width: 3px;
 	cursor: pointer;
 	transition: all 0.5s;
 	&.btn-world{ 
 		background: $btnWorld;
-		&:hover{ @include hover($btnWorld); }
+		&:hover{ background: #FEBE39; }
 	}	
 	&.btn-send{
 	 	background: $btnSend;
@@ -156,6 +159,14 @@ textarea{
 		transform: scale(0.95);
 		border-bottom-width: 0px;
 	}
+  &.btn-inicio{
+    background-color: #FEBE39;
+    text-align: center;
+    min-width: 80px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
 }
 
 /*--Inputs--*/
@@ -448,6 +459,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 * ================================
 */
 .home{
+  position: relative;
   .titles{
     text-align: center;
     margin-bottom: 2rem;
@@ -472,7 +484,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   }
   .modalVideo{
     margin-bottom: 2rem;
-    background: red;
+    background: #00D279;
     color: #fff;
     display: table;
     padding: 0.5rem;
@@ -490,7 +502,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
       
 
         &>li{
-          background: red;
+          background: #2F8BD9;
           width: 300px;
           margin: 10px;
           padding: 0.6rem;
@@ -524,13 +536,13 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
             width: 100%;
 
             li{
-              background: rgba(red, .8);
+              background: rgba(#2F8BD9, .9);
               padding:0rem 0.5rem;
               border-bottom: 1px solid rgba(#ccc, 0.3);
               border-radius: 3px;
 
               &:hover{
-                background:green;
+                background:rgba(#2F8BD9,1);
               }
             }
           }
@@ -592,7 +604,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   height:29px;
   border-radius: 30px;
   border:1px solid #aaa;
-  background:#cbd1d8;
+  background:#E8E8E8;
   position:relative;
   display:inline-block;
   overflow:hidden;
@@ -618,12 +630,12 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   transition: left 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 .checkBtn[type="checkbox"]:checked{
-  background:#40e0d0;
-  border-color:#40e0d0;
+  background:#00D279;
+  border-color:#00D279;
 }
 .checkBtn[type="checkbox"]:checked:after{
   left:31px;
-  border-color:#40e0d0;
+  border-color:#00D279;
 }
 
 .checkBtn[type="checkbox"]:disabled{
@@ -652,7 +664,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   height: 20px;
   width: 20px;
   transition: all 0.15s ease-out 0s;
-  background: #cbd1d8;
+  background: #E8E8E8;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -666,7 +678,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   background: #9faab7;
 }
 .option-input:checked {
-  background: #40e0d0;
+  background: #00D279;
 }
 .option-input:checked::before {
   height: 20px;
@@ -679,7 +691,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   line-height: 3px;
 }
 .option-input:checked::after {
-  background: #40e0d0;
+  background: #00D279;
   content: '';
   display: block;
   position: relative;
@@ -712,7 +724,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 */
 .boxImpDig{
   h4{
-    background-color: red;
+    background-color: #2F8BD9;
     text-align: center;
     padding: 0.5rem;
     color: #fff;
@@ -753,6 +765,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
       height: 30px;
       width: 30px;
       margin-top: -5px;
+      color: #fff;
     }
   }
 }
@@ -767,7 +780,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
     text-align: center;
   }
   th{
-    background: #DEE5EF;
+    background: #E8E8E8;
     color: #4A5164;
     padding: 0.3rem 0.5rem;
     border-radius: 3px;
@@ -939,11 +952,25 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   border-radius: 3px;
   margin: 10% auto 0rem;
   position: relative;
+  &:before{
+    content:"ERRORES";
+    background: #E14458;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    position: absolute;
+    padding: 0.5rem 1.5rem;
+    box-sizing: border-box;
+    color: #fff;
+    border-radius: 3px 3px 0 0;
+  }
 }
 .modalError .boxError h3{
   text-align: center;
   margin-bottom: 1rem;
-  color: green;
+  margin-top: 1.5rem;
+  color: darken(#E14458, 20);
+  font-weight: 100;
 }
 .modalError .boxError p{
   padding: 0.5rem;
@@ -956,21 +983,24 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 .modalError .boxError .sierror{ background: #E24459; }
 
 .modalError .boxError .cerraModal{
-  background-color: #E24459;
   position: absolute;
   color: #fff;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
   padding: 0 9px;
   font-size: 1rem;
-  border-radius: 50%;
-  top: -15px;
-  right: -15px;
+  top: 0px;
+  right: 0px;
   cursor: pointer;
   font-weight: bold;
-  padding-left: 11px;
+  padding-left: 14px;
+  transition: all 0.6s;
 
+  &:hover{
+    border-radius: 0 3px 0 0;
+    background-color: darken(#E14458, 20);
+  }
 }
 
 /*
@@ -1007,7 +1037,7 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 .vertical-tabs {
   position: relative;
   margin: 2rem 0rem 2rem 200px;
-  border: 1px solid rgba(#3758A1, 0.1);
+  border: 1px solid rgba(#2F8BD9, 0.1);
   border-radius: 0px 10px 10px 0px;
   min-height: 100px;
 }
@@ -1046,17 +1076,17 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
   width: 100%;
   padding: 10px;
   text-decoration: none;
-  background-color: #3758A1;
-  border: 1px solid #3758A1;
-  border-right: 1px  solid #3758A1;
+  background-color: #2F8BD9;
+  border: 1px solid #2F8BD9;
+  border-right: 1px  solid #2F8BD9;
   color: #fff;
 }
 .tabs li.active a {
   z-index: 2;
-  border: 1px solid #3758A1;
-  color: #3758A1;
+  border: 1px solid #FEBE39;
+  background-color: #FEBE39;
+  color: #fff;
   outline: none;
-  background: #fff;
 }
 .tabs-content .contentTab {
   display: none;
@@ -1100,4 +1130,8 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
     margin:1rem auto;
     font-size: 1.2rem;
   }
+}
+.logo{
+  /* background: red; */
+  width: 200px;
 }

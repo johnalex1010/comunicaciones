@@ -21,7 +21,6 @@
 
 	<!-- LINK -->
 	<link rel="shortcut icon" href="favicon.ico" />
-	<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed|Righteous" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/main-min.css" />
 
 </head>
@@ -31,8 +30,9 @@
 		<!-- HOME -->
 		<div class="home">
 			<div class="titles">
-				<h1 class="titlePrimary">Formato de solicitudes</h1>
-				<h2 class="titleSecond">Departamento de comunicaciones</h2>
+				<!-- <h1 class="titlePrimary">Formato de solicitudes</h1> -->
+				<img class="logo" src="img/solicita.fw.png" alt="Logo">
+				<!-- <h2 class="titleSecond">Departamento de comunicaciones</h2> -->
 			</div>
 			<p class="txtIntro">Texto explicativo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas beatae, eos nisi officia temporibus aliquid accusamus est maxime atque, voluptatibus commodi facere voluptatum esse quo ipsum expedita corporis ratione, debitis!
 			</p>

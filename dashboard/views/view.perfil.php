@@ -60,7 +60,7 @@
                         <tr>
                           <td><h6>Nombre Solicitud</h6><p>Fecha: 00/00/0000</p></td>
                           <td><a href="" class="estado btn btn-inverse-success">Estado</a></td>
-                          <td><a href="" class="btn btn-inverse-secondary">Ver ST</a></td>
+                          <td><a href="<?php echo URL ?>pages/resume-ST.php?ST=5" class="btn btn-inverse-secondary">Ver ST</a></td>
                         </tr>
                         <?php endFor ?>
                       </tbody>

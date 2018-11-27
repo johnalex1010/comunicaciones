@@ -78,11 +78,11 @@
 									</div>
 									<div class="form-group">
 										<label>Número Solicitud</label>
-										<input type="text" class="form-control" placeholder="Username" aria-label="Username">
+										<input type="text" class="form-control" placeholder="Número Solicitud" aria-label="Username">
 									</div>
 									<div class="form-group">
 										<label>Nombre Solicitud</label>
-										<input type="text" class="form-control" placeholder="Username" aria-label="Username">
+										<input type="text" class="form-control" placeholder="Nombre Solicitud" aria-label="Username">
 									</div>
 									<div class="form-group">
 										<label for="exampleFormControlSelect2">Estado Solicitud</label>
@@ -96,18 +96,14 @@
 									</div>
 									<div class="form-group">
 										<label>Fecha Solcitud</label>
-										<input type="date" class="form-control" placeholder="Username" aria-label="Username">
+										<input type="date" class="form-control" placeholder="Fecha" aria-label="Username">
 									</div>
-									<button type="submit" class="btn btn-success mr-2">Submit</button>
+									<button type="submit" class="btn btn-success mr-2">Buscar</button>
                   				</form>
                   			</div>
 		              	</div>
 		            </div>		            
 		        </div>
-
-		        
-
-			        
 			<!-- //FIN CONTENIDO AQUÍ -->
         </div>
         <!-- content-wrapper ends -->

@@ -29,7 +29,6 @@
 
 	<!-- LINK -->
 	<link rel="shortcut icon" href="favicon.ico" />
-	<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed|Righteous" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../../css/main-min.css" />
 
 </head>
@@ -40,10 +39,10 @@
 		<!-- HOME -->
 		<div class="home">
 			<div class="titles">
-				<h1 class="titlePrimary">Formato de solicitudes</h1>
-				<h2 class="titleSecond">Departamento de comunicaciones</h2>
+				<img class="logo" src="../../img/solicita.fw.png" alt="Logo">
 				<h3 class="titleThird">Sección Evento</h3>
 			</div>
+			<a href="../../" class="btn btn-world btn-inicio">Inicio</a>
 			<p class="txtIntro">Texto explicativo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas beatae, eos nisi officia temporibus aliquid accusamus est maxime atque, voluptatibus commodi facere voluptatum esse quo ipsum expedita corporis ratione, debitis!
 			</p>
 			<p>Los campos con (<span style="color: #C20201;font-size:2rem;" >•</span>) son obligatorios.</p>
@@ -366,7 +365,7 @@
 				</div>
 			</div>
 
-			<div class="cuadricula web" style="display: <?php echo $display = (!empty($_POST['inputDIG'][0])) ? "block" : "none"; ?>"
+			<div class="cuadricula web" style="display: <?php echo $display = (!empty($_POST['inputDIG'][0])) ? "block" : "none"; ?>">
 				<div class="celda">
 					<h3 class="tooltip" title="<?php digEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">DIGITAL</h3>
 					<div class="cuadricula">

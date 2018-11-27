@@ -56,3 +56,42 @@
 		}
 	}
 }
+.card-estado{
+	background: #00CD6A;
+}
+
+.table-responsive::-webkit-scrollbar{
+	height: 7px;
+	width: 12px;
+	background-color: #F5F5F5;
+}
+.table-responsive::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #ddd;
+}
+.table-usta{
+	width: 100%;
+	tr{
+		th, td{
+			font-size: 13px;
+		}
+		th{
+			background: #E8E8E8;
+			color: #000;
+			border-radius: 3px;
+			padding: 0.6rem;
+			text-align: center;
+			border-top: 0;
+		    border-bottom-width: 1px;
+		    font-family: "Poppins", sans-serif;
+		    font-weight: 500;
+		    
+
+		}
+		td{
+			vertical-align: top;
+			padding: 18px 30px;
+		}
+	}
+}

@@ -7,6 +7,13 @@ CREATE DATABASE IF NOT EXISTS bdComunicaciones;
 USE bdComunicaciones;
 /*CREACION DE TABLAS*/
 
+	/*--Tabla Tipo de Solictud*/
+	CREATE TABLE t_tipo_solicitud(
+		id_tipo_solicitud int NOT NULL AUTO_INCREMENT,
+		tipo_solicitud varchar(50) NOT NULL,
+		PRIMARY KEY (id_tipo_solicitud)
+	);
+
 	/*--Tabla Unidad*/
 	CREATE TABLE t_unidad(
 		id_unidad int NOT NULL AUTO_INCREMENT,
@@ -106,10 +113,12 @@ USE bdComunicaciones;
 		numST varchar(10) NOT NULL UNIQUE,
 		nombre varchar(60) NOT NULL,
 		email varchar(80) NOT NULL,
-		id_facDep int NOT NULL, /*Es FOREIGN KEY de la tabla t_facDep*/
 		telefono varchar(20) NOT NULL,
+		id_facDep int NOT NULL, /*Es FOREIGN KEY de la tabla t_facDep*/
+		id_tipo_solicitud int NOT NULL, /*Es FOREIGN KEY de la tabla t_tipo_solicitud*/
 		PRIMARY KEY (numST),
-		FOREIGN KEY (id_facDep) REFERENCES t_facDep(id_facDep)
+		FOREIGN KEY (id_facDep) REFERENCES t_facDep(id_facDep),
+		FOREIGN KEY (id_tipo_solicitud) REFERENCES t_tipo_solicitud(id_tipo_solicitud)
 	);
 
 	/*--Tabla Categoria*/	
@@ -413,6 +422,21 @@ USE bdComunicaciones;
 	
 
 /*INSERT A LAS TABLAS*/
+	/*--t_tipo_solicitud*/
+	INSERT INTO t_tipo_solicitud VALUES
+	(1, "Sin tipo solicitud"),
+	(2, "Tipo Solicitud 2"),
+	(3, "Tipo Solicitud 3"),
+	(4, "Tipo Solicitud 4"),
+	(5, "Tipo Solicitud 5"),
+	(6, "Tipo Solicitud 6"),
+	(7, "Tipo Solicitud 7"),
+	(8, "Tipo Solicitud 8"),
+	(9, "Tipo Solicitud 9"),
+	(10, "Tipo Solicitud 10"),
+	(11, "Tipo Solicitud 11"),
+	(12, "Tipo Solicitud 12");
+
 	/*--t_unidad*/
 	INSERT INTO t_unidad VALUES
 	(1, "Comunicaciones Institucionales"),
@@ -571,7 +595,7 @@ USE bdComunicaciones;
 	(20, "Facultades Facultades  20");
 
 	/*--t_solicitud*/
-	INSERT INTO t_solicitud VALUES ("ST000", "Solicitud Generada por el sistema", "No debe ser tenida encuenta", 1, "000");
+	INSERT INTO t_solicitud VALUES ("ST000", "Solicitud Generada por el sistema", "No debe ser tenida encuenta","000", 1, 1);
 
 
 /*

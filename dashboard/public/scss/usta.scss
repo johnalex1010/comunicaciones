@@ -71,13 +71,15 @@
 	background-color: #ddd;
 }
 .table-usta{
+	border-top: 2px solid #F5F5F5;
 	width: 100%;
 	tr{
 		th, td{
 			font-size: 13px;
+			border: 2px solid #F5F5F5;
 		}
 		th{
-			background: #E8E8E8;
+			background: rgba(#E8E8E8, 0.6);
 			color: #000;
 			border-radius: 3px;
 			padding: 0.6rem;
@@ -91,7 +93,8 @@
 		}
 		td{
 			vertical-align: top;
-			padding: 18px 30px;
+			padding: 0.5rem 1rem;
+			text-align: justify;
 		}
 	}
 }

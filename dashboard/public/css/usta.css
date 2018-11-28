@@ -55,11 +55,13 @@
   background-color: #ddd; }
 
 .table-usta {
+  border-top: 2px solid #F5F5F5;
   width: 100%; }
   .table-usta tr th, .table-usta tr td {
-    font-size: 13px; }
+    font-size: 13px;
+    border: 2px solid #F5F5F5; }
   .table-usta tr th {
-    background: #E8E8E8;
+    background: rgba(232, 232, 232, 0.6);
     color: #000;
     border-radius: 3px;
     padding: 0.6rem;
@@ -70,4 +72,5 @@
     font-weight: 500; }
   .table-usta tr td {
     vertical-align: top;
-    padding: 18px 30px; }
+    padding: 0.5rem 1rem;
+    text-align: justify; }

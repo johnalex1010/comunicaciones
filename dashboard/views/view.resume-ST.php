@@ -48,31 +48,12 @@
 					<div class="col-lg-9 grid-margin stretch-card">
 						<div class="card">
 							<div class="card-body">
-								<h4 class="card-title">Características de la solicitud </h4>
+								<h4 class="card-title">Tipo solicitud: <b class="text-warning">EVENTO</b></h4>
                 <!-- //Datos De contacto -->
                 <?php require_once '../views/view.table-solicitante.php'; ?>
                 <br><br>
-                <!-- //Datos  -->
-                <table class="table-usta">
-                  <tr>
-                    <th width="50%">hola</th>
-                    <th width="50%">hola</th>
-                  </tr>
-                  <tr>
-                    <td>
-                      <ul class="list-arrow">
-                        <li>Aprobación Material 2</li>
-                        <li>Aprobación Material 2</li>
-                        <li>Aprobación Material 2</li>
-                        <li>Aprobación Material 2</li>
-                        <li>Aprobación Material 2</li>
-                      </ul>
-                    </td>
-                     <td>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure provident dolores fugit suscipit, repudiandae dicta error consectetur sed quos unde accusantium tempore reprehenderit repellat voluptatum obcaecati sunt, dolorem illo vero.</p>
-                     </td>
-                  </tr>
-                </table>
+                <!-- //Datos dependiendo del tipo de solicitud -->
+                <?php require_once $view_tipo_solicitud ?>
 							</div>
 						</div>
 					</div>

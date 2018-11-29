@@ -10,10 +10,10 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>John Alexander Fandiño Rojas</td>
-				<td>prof.sopweb@usantotomas.edu.co</td>
-				<td>Departamento de Comunicaciones</td>
-				<td>3214548919</td>
+				<td><?php echo utf8_encode($ts['nombre']); ?></td>
+				<td><?php echo utf8_encode($ts['email']); ?></td>
+				<td><?php echo utf8_encode($ts['facDep']); ?></td>
+				<td><?php echo utf8_encode($ts['telefono']); ?></td>
 			</tr>
 		</tbody>
 	</table>

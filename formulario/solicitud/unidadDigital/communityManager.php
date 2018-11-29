@@ -34,7 +34,7 @@
 		<!-- HOME -->
 		<div class="home">
 			<div class="titles">
-				<img class="logo" src="../../img/solicita.fw.png" alt="Logo">
+				<img class="logo" src="../../img/logo.png" alt="Logo">
 				<h3 class="titleThird">Sección Community Manager</h3>
 			</div>
 			<a href="../../" class="btn btn-world btn-inicio">Inicio</a>

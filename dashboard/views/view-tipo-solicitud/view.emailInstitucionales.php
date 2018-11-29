@@ -1,10 +1,6 @@
 <table class="table-usta">
   <tr>
-    <th>Documento para envío de correos institucionales</th>
-  </tr>
-  <tr>
-    <td>
-      documento.docs
-    </td>
-  </tr>
+    <th width="50%" >Documento para envío de correos institucionales</th>
+    <td width="50%"><?php echo $consulta['adjunto']; ?></td>
+  </tr>	
 </table>

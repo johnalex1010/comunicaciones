@@ -60,7 +60,7 @@ for ($i=0; $i<6; $i++) {
 
 ?>
 <div class="content msjFinal resumen">
-	<img src="../../img/logo.png" alt="Logo" class="logoComunica">
+	<img class="logo" src="../../img/logo.png" alt="Logo">
 	<h1 class="hMsjFinal">GRACIAS</h1>
 	<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
 	<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>

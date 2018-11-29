@@ -4,7 +4,8 @@
     <th width="50%">Imagen</th>
   </tr>
   <tr>
-    <td>Documento.docs</td>
-     <td>Imagen.jpg</td>
+  	<?php for ($i = 0; $i<2; $i++): ?>
+  		<td><?php echo $consulta[$i]['adjunto']; ?></td>
+  	<?php endFor ?>    
   </tr>
 </table>

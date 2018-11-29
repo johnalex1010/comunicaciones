@@ -1,37 +1,35 @@
 <table class="table-usta">
   <tr>
-    <th width="25%">Tipo de evento</th>
-    <th width="25%">Nombre del evento</th>
-    <th width="25%">Lugar del evento</th>
-    <th width="25%">Fecha inicio y fin del evento</th>
+    <th width="33.333%">Tipo de evento</th>
+    <th width="33.333%">Nombre del evento</th>
+    <th width="33.333%">Lugar del evento</th>
   </tr>
   <tr>
     <td>Tipo de evento</td>
     <td>Nombre del evento Nombre del evento Nombre del evento</td>
     <td>Lugar del evento</td>
-    <td>00/00/0000 al 00/00/0000</td>
+    
   </tr>
 </table>
 <br>
 <table class="table-usta">
   <tr>
+    <th width="33.333%">Fecha inicio y fin del evento</th>
     <th width="33.333%">Hora del evento</th>
     <th width="33.333%">Número TIC</th>
-    <th width="33.333%">Información adicional</th>
   </tr>
   <tr>
+    <td>00/00/0000 al 00/00/0000</td>
     <td>00:00 pm</td>
     <td>654</td>
-    <td>asdasdasdas.zip</td>
   </tr>
 </table>
 <br>
 <table class="table-usta">
   <tr>
-    <th width="25%">Cubrimiento audiovisual</th>
-    <th width="25%">Requerimiento web</th>
-    <th width="25%">Justificación web</th>
-    <th width="25%">Información adicional web</th>
+    <th width="33.333%">Cubrimiento audiovisual</th>
+    <th width="33.333%">Requerimiento web</th>
+    <th width="33.333%">Justificación web</th>
   </tr>
   <tr>
     <td>
@@ -45,7 +43,6 @@
     </td>
     <td>Nuevo / Actualización</td>
     <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae deserunt rerum veritatis, corrupti nobis incidunt. Velit ipsa explicabo, inventore dolores rerum, voluptatum libero voluptate modi quisquam temporibus esse quaerat assumenda!</td>
-    <td>sdfvsaifsd.zip</td>
   </tr>
 </table>
 <br>
@@ -94,39 +91,47 @@
     </td>
   </tr>
 </table>
-
-
 <br>
 <table class="table-usta">
   <tr>
     <th width="33.333%">Lineamientos gráficos</th>
+  </tr>
+  <tr>
+    <td>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae deserunt rerum veritatis, corrupti nobis incidunt. Velit ipsa explicabo, inventore dolores rerum, voluptatum libero voluptate modi quisquam temporibus esse quaerat assumenda!
+    </td>
+  </tr>
+</table>
+<br>
+<table class="table-usta">
+  <tr>
+    
     <th width="33.333%">Colores sugeridos</th>
     <th width="33.333%">Público Objetivo</th>
+    <th width="33.333%">Documentos Adjuntos</th>
   </tr>
   <tr>
     <td>
       <ul class="list-arrow">
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
+        <li>Color 2</li>
+        <li>Color 2</li>
+        <li>Color 2</li>
       </ul>
     </td>
     <td>
       <ul class="list-arrow">
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
+        <li>Público Objetivo 2</li>
+        <li>Público Objetivo 2</li>
+        <li>Público Objetivo 2</li>
+        <li>Público Objetivo 2</li>
+        <li>Público Objetivo 2</li>
       </ul>
     </td>
     <td>
       <ul class="list-arrow">
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
+        <li>Adjunto </li>
+        <li>Adjunto </li>
+        <li>Adjunto </li>
       </ul>
     </td>
   </tr>

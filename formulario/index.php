@@ -31,7 +31,7 @@
 		<div class="home">
 			<div class="titles">
 				<!-- <h1 class="titlePrimary">Formato de solicitudes</h1> -->
-				<img class="logo" src="img/solicita.fw.png" alt="Logo">
+				<img class="logo" src="img/logo.png" alt="Logo">
 				<!-- <h2 class="titleSecond">Departamento de comunicaciones</h2> -->
 			</div>
 			<p class="txtIntro">Texto explicativo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas beatae, eos nisi officia temporibus aliquid accusamus est maxime atque, voluptatibus commodi facere voluptatum esse quo ipsum expedita corporis ratione, debitis!

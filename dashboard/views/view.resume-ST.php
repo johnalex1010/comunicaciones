@@ -15,7 +15,7 @@
           <div class="col-lg-9 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
-                <h2 class="display1 ">Solicitud: <i class="text-primary">ST18_001</i></h2>
+                <h2 class="display1 ">Solicitud: <i class="text-primary"><?php echo $ts['numST'] ?></i></h2>
               </div>
             </div>
           </div>
@@ -48,12 +48,12 @@
 					<div class="col-lg-9 grid-margin stretch-card">
 						<div class="card">
 							<div class="card-body">
-								<h4 class="card-title">Tipo solicitud: <b class="text-warning">EVENTO</b></h4>
+                <h4 class="card-title"><?php echo utf8_encode($ts['nomUnidad']." / ".$ts['categoria']." / <b class='text-warning'>".$ts['subCategoria']."</b>"); ?></h4>
                 <!-- //Datos De contacto -->
                 <?php require_once '../views/view.table-solicitante.php'; ?>
                 <br><br>
                 <!-- //Datos dependiendo del tipo de solicitud -->
-                <?php require_once $view_tipo_solicitud ?>
+                <?php require_once $model; require_once $view_tipo_solicitud; ?>
 							</div>
 						</div>
 					</div>

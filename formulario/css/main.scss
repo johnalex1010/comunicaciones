@@ -1009,13 +1009,13 @@ select:focus ~ .bar:before, select:focus ~ .bar:after {
 * =========================
 */
 .resumen .cuadricula .celda{
-  background: #EFF4FA;
+  background: rgba(#F1F1F1, 0.5);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   text-align: justify;
 }
 .resumen .cuadricula .celda h3{
   font-family: 'Encode Sans Condensed', sans-serif;
-  color: #1AA162;
+  color: #308BD7;
 }
 .resumen .cuadricula .celda table{
   width: 100%;

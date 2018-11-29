@@ -39,7 +39,7 @@ $row = mysqli_fetch_array($rs);
 ?>
 
 <div class="content msjFinal resumen">
-	<img src="../../img/logo.png" alt="Logo" class="logoComunica">
+	<img class="logo" src="../../img/logo.png" alt="Logo">
 	<h1 class="hMsjFinal">GRACIAS</h1>
 	<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
 	<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>
@@ -208,11 +208,11 @@ $row = mysqli_fetch_array($rs);
 
 					$numeroColor = mysqli_num_rows($rsobJ);
 					if (empty($numeroColor)) {
-						echo "<li>No hay público objetivo</li>";
+						echo "<li>No hay colores</li>";
 					}else{
 						for ($i=0; $i < $numeroColor; $i++) { 
 							$rowObj = mysqli_fetch_array($rsobJ);
-							echo "<li>".$rowObj['color']."</li>";
+							echo "<li style='color:".$rowObj['color']."'>".$rowObj['color']."</li>";
 						}
 					}
 

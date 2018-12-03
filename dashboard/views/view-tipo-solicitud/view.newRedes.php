@@ -5,10 +5,9 @@
   <tr>
     <td>
       <ul class="list-arrow">
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
+        <?php for ($i = 0; $i<$totalTres; $i++): ?>
+          <li><?php echo $consultaTres[$i]['redSocial']; ?></li>
+        <?php endFor ?>
       </ul>
     </td>
   </tr>
@@ -21,9 +20,25 @@
     <th>Adj Img</th>
   </tr>
   <tr>
-    <td>Nombre de perfil (sugerido)</td>
-    <td>Correo personal para asociar al Fanpage</td>
-    <td>Adj Img</td>
+    <td>
+      <?php
+        if (!empty($consultaUno['nomPerfil'])) {
+          echo $consultaUno['nomPerfil'];
+        }else{
+          echo "No hay nombre de perfil sugerido.";
+        }
+      ?>
+    </td>
+    <td><?php echo $consultaUno['emailPersonal']; ?></td>
+    <td>
+      <?php
+        if ($totalDos == 0) {
+           echo "No hay adjuntos.";
+        }else{
+          echo $consultaDos['adjunto'];
+        }
+      ?>
+    </td>
   </tr>
 </table>
 <br>
@@ -32,7 +47,7 @@
     <th>Descripción para asociar al perfil</th>
   </tr>
   <tr>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam quam porro saepe eos nihil nisi, voluptatibus nobis quod quo commodi! Voluptatibus consectetur, quibusdam unde dignissimos tenetur illo dolore quidem saepe.</td>
+    <td><?php echo $consultaUno['descripcion']; ?></td>
   </tr>
 </table>
 <br>
@@ -43,8 +58,8 @@
     <th>Correo de contacto</th>
   </tr>
   <tr>
-    <td>Telefono de contacto</td>
-    <td>Direcció y/o Ubicación</td>
-    <td>Correo de contacto</td>
+    <td><?php echo $consultaUno['telPerfil']; ?></td>
+    <td><?php echo $consultaUno['direccion']; ?></td>
+    <td><?php echo $consultaUno['emailPerfil']; ?></td>
   </tr>
 </table>

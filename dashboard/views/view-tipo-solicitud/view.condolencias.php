@@ -5,9 +5,9 @@
     <th width="33.333%">Faculad / Dependencia</th>
   </tr>
   <tr>
-    <td>Nombre del administrativo o estudiante</td>
-    <td>Cargo</td>
-    <td>Faculad / Dependencia</td>
+    <td><?php echo $consulta['nombreDoliente'] ?></td>
+    <td><?php echo $consulta['cargoDoliente'] ?></td>
+    <td><?php echo $consulta['facDep'] ?></td>
   </tr>
 </table>
 
@@ -20,9 +20,25 @@
     <th width="33.333%">Lugar de velación</th>
   </tr>
   <tr>
-    <td>Nombre Fallecido</td>
-    <td>Parentesco</td>
-    <td>Lugar de velación</td>
+    <td><?php echo $consulta['nombreFallecido'] ?></td>
+    <td>
+      <?php
+        if (!empty($consulta['parentesco'])) {
+          echo $consulta['parentesco'];
+        }else{
+          echo "No hay parentesco";
+        }        
+      ?>      
+    </td>
+    <td>
+      <?php
+        if (!empty($consulta['lugarVelacion'])) {
+          echo $consulta['lugarVelacion'];
+        }else{
+          echo "No hay lugar de velacion";
+        }        
+      ?>      
+    </td>
   </tr>
 </table>
 <br>
@@ -32,7 +48,23 @@
     <th width="50%">Hora de velación</th>
   </tr>
   <tr>
-    <td>00/00/000</td>
-    <td>00:00 pm</td>
+    <td>
+      <?php
+        if (!empty($consulta['fechaVelacion'])) {
+          echo fecha($consulta['fechaVelacion']);
+        }else{
+          echo "No hay fecha de velación";
+        }        
+      ?>      
+    </td>
+    <td>
+      <?php
+        if (!empty($consulta['horaVelacion'])) {
+          echo doceHoras($consulta['horaVelacion']);
+        }else{
+          echo "No hay hora de velacion";
+        }
+      ?>      
+    </td>
   </tr>
 </table>

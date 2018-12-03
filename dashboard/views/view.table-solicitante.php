@@ -10,10 +10,10 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><?php echo utf8_encode($ts['nombre']); ?></td>
-				<td><?php echo utf8_encode($ts['email']); ?></td>
-				<td><?php echo utf8_encode($ts['facDep']); ?></td>
-				<td><?php echo utf8_encode($ts['telefono']); ?></td>
+				<td><?php echo $ts['nombre']; ?></td>
+				<td><?php echo $ts['email']; ?></td>
+				<td><?php echo $ts['facDep']; ?></td>
+				<td><?php echo $ts['telefono']; ?></td>
 			</tr>
 		</tbody>
 	</table>

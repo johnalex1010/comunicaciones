@@ -97,16 +97,16 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		/*===== Validar Cubrimiento WEB Radios Button =====*/
 			if (!empty($_POST['tipoCubWEbEvento'])) {
 				$_POST['tipoCubWEbEvento'];
-			}
 
-		/*===== Validar Justifcación web =====*/
-			if (!empty($_POST['jutifiCubWEbEvento'])) {
-				if (strlen($_POST['jutifiCubWEbEvento'])<=510) {
-					$_POST['jutifiCubWEbEvento'];
-				}else{
-					$error[8] = "Son máximo 500 caracteres";
+				/*===== Validar Justifcación web =====*/
+				if (!empty($_POST['jutifiCubWEbEvento'])) {
+					if (strlen($_POST['jutifiCubWEbEvento'])<=510) {
+						$_POST['jutifiCubWEbEvento'];
+					}else{
+						$error[8] = "Son máximo 500 caracteres";
+					}
 				}
-			}
+			}		
 
 		/*===== Validar Adjunto Web =====*/
 			if (!empty($_FILES['adjCubWEbEvento']['name'])) {

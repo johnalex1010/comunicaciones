@@ -6,15 +6,13 @@
   <tr>
     <td>
       <ul class="list-arrow">
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
+      <?php for ($i = 0; $i<$totalRecursos; $i++): ?>
+        <li><?php echo $consulta[$i]['nomAprobacion']; ?></li>
+      <?php endFor ?> 
       </ul>
     </td>
      <td>
-      <p>archivo.zip</p>
+      <p><?php echo $consulta[0]['adjunto']; ?></p>
      </td>
   </tr>
 </table>

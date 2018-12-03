@@ -48,7 +48,7 @@
 					<div class="col-lg-9 grid-margin stretch-card">
 						<div class="card">
 							<div class="card-body">
-                <h4 class="card-title"><?php echo utf8_encode($ts['nomUnidad']." / ".$ts['categoria']." / <b class='text-warning'>".$ts['subCategoria']."</b>"); ?></h4>
+                <h4 class="card-title"><?php echo $ts['nomUnidad']." / ".$ts['categoria']." / <b class='text-warning'>".$ts['subCategoria']."</b>"; ?></h4>
                 <!-- //Datos De contacto -->
                 <?php require_once '../views/view.table-solicitante.php'; ?>
                 <br><br>

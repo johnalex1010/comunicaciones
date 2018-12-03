@@ -3,7 +3,7 @@
     <th>Nombre de la campaña</th>
   </tr>
   <tr>
-    <td>Nombre de la campaña</td>
+    <td><?php echo $consultaUno[0]['nombreCam'] ?></td>
   </tr>
 </table>
 <br>
@@ -13,8 +13,8 @@
     <th width="50%">Objetivo de la campaña</th>
   </tr>
   <tr>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio aliquid dignissimos officia, consectetur iure inventore natus dolor quibusdam reprehenderit doloribus, eaque quod, illo reiciendis impedit esse. Distinctio unde nulla cumque.</td>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil dolor, dicta enim ipsa accusamus ad mollitia necessitatibus expedita nostrum iusto perferendis illum rerum itaque? Ipsam itaque veniam eius tenetur nam.</td>
+    <td><?php echo $consultaUno[0]['justificacion'] ?></td>
+    <td><?php echo $consultaUno[0]['objetivo'] ?></td>
   </tr>
 </table>
 <br>
@@ -24,8 +24,16 @@
     <th width="50%">Palabras clave de la campaña</th>
   </tr>
   <tr>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt quam velit possimus ut fugiat commodi temporibus obcaecati maxime, dolor deleniti labore rerum blanditiis necessitatibus doloribus architecto corporis, itaque, laboriosam nemo.</td>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quos, esse dolorum exercitationem, aliquam vel harum, nam eos fugiat, sunt pariatur illo repellat. Animi id quidem mollitia, molestias inventore officiis.</td>
+    <td><?php echo $consultaUno[0]['descripcion'] ?></td>
+    <td>
+      <?php
+        if (!empty($consultaUno[0]['palabrasClaves'])) {
+          echo $consultaUno[0]['palabrasClaves'];
+        }else{
+          echo "No hay palabras claves";
+        }
+      ?>
+    </td>
   </tr>
 </table>
 <br>
@@ -36,9 +44,16 @@
     <th width="33.333%">Fecha fin de la campaña</th>
   </tr>
   <tr>
-    <td>Asasa.zip</td>
-    <td>00/00/0000</td>
-    <td>00/00/0000</td>
+    <td>
+      <?php
+      if (!empty($consultaDos['adjunto'])) {
+        echo $consultaDos['adjunto'];
+      }else{
+        echo "No hay adjuntos.";
+      }
+      ?></td>
+    <td><?php echo fecha($consultaUno[0]['fechaHoraIni']) ?></td>
+    <td><?php echo fecha($consultaUno[0]['fechaHoraFin']) ?></td>
   </tr>
 </table>
 <br>
@@ -49,10 +64,9 @@
   <tr>
     <td>
       <ul class="list-arrow">
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
-        <li>Aprobación Material 2</li>
+        <?php for ($i = 0; $i<$totalDos; $i++): ?>
+          <li><?php echo $consultaUno[$i]['listPublico']; ?></li>
+        <?php endFor ?>
       </ul>
     </td>
   </tr>

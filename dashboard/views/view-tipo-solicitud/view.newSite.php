@@ -5,9 +5,17 @@
     <th width="33.333%">Zip con contenido web</th>
   </tr>
   <tr>
-    <td>Nombre del evento</td>
-    <td>Sugerencia de Subdominio</td>
-    <td>Zip con contenido web</td>
+    <td><?php echo $consulta['nombreWeb']; ?></td>
+    <td>
+      <?php
+        if (!empty($consulta['subdominio'])) {
+          echo $consulta['subdominio'];
+        }else{
+          echo "No hay subdominio sugerido";
+        }
+      ?>
+    </td>
+    <td><?php echo $consulta['adjunto']; ?></td>
   </tr>
 </table>
 <br>
@@ -16,6 +24,6 @@
     <th>Motívo</th>
   </tr>
   <tr>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate atque ipsa eveniet tempore sed cumque non, magnam accusamus enim consectetur, fuga fugiat! Quasi temporibus nostrum, corporis culpa, natus deleniti tenetur?</td>
+    <td><?php echo $consulta['justificacion']; ?></td>
   </tr>
 </table>

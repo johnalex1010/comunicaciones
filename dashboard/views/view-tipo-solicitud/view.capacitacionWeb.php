@@ -5,9 +5,17 @@
     <th width="33.333%">Celular de contacto</th>
   </tr>
   <tr>
-    <td>John Alexander Fandiño Rojas</td>
-    <td>656</td>
-    <td>351984321</td>
+    <td><?php echo $consulta['nomPersona'] ?></td>
+    <td><?php echo $consulta['telefonoExt'] ?></td>
+    <td>
+      <?php
+        if (!empty($consulta['numCelular'])) {
+          echo $consulta['numCelular'];
+        }else{
+          echo "No hay número alterno.";
+        }
+      ?>
+    </td>
   </tr>
 </table>
 <br>
@@ -18,9 +26,29 @@
     <th width="33.333%">Hora sugerida</th>
   </tr>
   <tr>
-    <td>pro.fsopweb@usantotomas.edu.co</td>
-    <td>00/00/0000</td>
-    <td>00:00 pm</td>
+    <td><?php echo $consulta['emailCapa'] ?></td>
+    <td>
+      <?php
+        if ($consulta['fechaCW'] == '0000-00-00') {
+          echo "No hay fecha sugerida.";
+        }elseif (!empty($consulta['fechaCW'])) {
+          echo fecha($consulta['fechaCW']);
+        }else{
+          echo "No hay fecha sugerida.";
+        }
+      ?>
+    </td>
+    <td>
+      <?php
+        if ($consulta['horaCW'] == '00:00:00') {
+           echo "No hay hora sugerida.";
+        }elseif (!empty($consulta['horaCW'])) {
+          echo doceHoras($consulta['horaCW']);
+        }else{
+          echo "No hay hora sugerida.";
+        }
+      ?>
+    </td>
   </tr>
 </table>
 <br>
@@ -29,6 +57,6 @@
     <th>Motívo de la capacitación</th>
   </tr>
   <tr>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, similique. Ea dicta, temporibus fuga debitis omnis. Possimus asperiores dolor ut provident, magnam esse libero tempora quisquam nihil. Neque, ex illo.</td>
+    <td><?php echo $consulta['txtMotivo'] ?></td>
   </tr>
 </table>

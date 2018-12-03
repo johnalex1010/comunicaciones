@@ -4,8 +4,8 @@
     <th width="50%">ZIP</th>
   </tr>
   <tr>
-    <td>http://congresointernacionalcomunicacionsocial.usta.edu.co/</td>
-    <td>adasdsa.zip</td>
+    <td><a href="<?php echo $consulta['urlAjuste'] ?>" target="_blank"><?php echo $consulta['urlAjuste'] ?></a></td>
+    <td><?php echo $consulta['adjunto'] ?></td>
   </tr>
 </table>
 <br>
@@ -14,6 +14,14 @@
     <th>Descripción</th>
   </tr>
   <tr>
-    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate atque ipsa eveniet tempore sed cumque non, magnam accusamus enim consectetur, fuga fugiat! Quasi temporibus nostrum, corporis culpa, natus deleniti tenetur?</td>
+    <td>
+      <?php
+        if (!empty($consulta['descripcion'])) {
+          echo $consulta['descripcion'];
+        }else{
+          echo "No hay descripcion";
+        }
+      ?>
+    </td>
   </tr>
 </table>

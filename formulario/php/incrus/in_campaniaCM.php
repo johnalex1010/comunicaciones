@@ -27,7 +27,7 @@
 		$id_subCategoria = 11;
 		$id_fase = 1;
 		$fecha = date('Y-m-d');
-		$comentario = 'Ingresa la Solicitud';
+		$comentario = 'Ingresa la Solicitud - Mensaje generado por el sistema.';
 		$nombreCam = $_POST['nomCampa'];
 		$justificacion = $_POST['justiCampa'];
 		$objetivo = $_POST['objCampa'];

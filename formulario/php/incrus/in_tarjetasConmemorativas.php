@@ -27,7 +27,7 @@
 		$id_subCategoria = 5;
 		$id_fase = 1;
 		$fecha = date('Y-m-d');
-		$comentario = 'Ingresa la Solicitud';
+		$comentario = 'Ingresa la Solicitud - Mensaje generado por el sistema.';
 
 		$nomConme = $_POST['conmeNombre']; //Referencia t_tarjetas
 		$fechaConme = $_POST['conmeF']; //Referencia t_tarjetas

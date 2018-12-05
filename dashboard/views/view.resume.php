@@ -61,16 +61,24 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Trasabilidad</h4>
-                <?php for ($i=1; $i < 4; $i++): ?>
+                
+                <?php for ($i=0; $i < 3; $i++): ?>
                   <div class="card-trasabilidad">
-                    <p class="card-trasabilidad-usuario text-success">Usuario -  00/00/0000</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia id iusto voluptas nostrum autem quia minus ducimus necessitatibus, veniam facilis. Ab ipsa hic itaque cumque, voluptates rerum libero ullam voluptatum.</p>
+                    <p class="card-trasabilidad-usuario text-success"><?php echo $consultaT[$i]['usuario']." - ".$consultaT[$i]['fecha']; ?></p>
+                    <p><?php echo $consultaT[$i]['comentario']; ?></p>
                   </div>
                   <hr>
                 <?php endFor ?>
 
-                <a href="<?php echo URL. "pages/trasabilidad.php" ?>" class="btn btn-outline-info">Ver toda la trasabilidad</a>
+                <form class="forms-sample" action="" >
+                  <textarea name="" class="form-control" cols="30" rows="5" placeholder="Agregar trasabilidad"></textarea>
+                  <br>
+                  <button type="submit" class="btn btn-success mr-2">Agregar trasabilidad</button>
+                </form>
+                <br>
+                <a href="<?php echo URL. "pages/trasabilidad.php?ST=".$ts['numST']."" ?>" class="btn btn-outline-info">Ver toda la trasabilidad</a>
               </div>
+
             </div>
           </div>
 				</div>

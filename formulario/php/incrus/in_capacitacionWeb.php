@@ -27,7 +27,7 @@
 		$id_subCategoria = 9;
 		$id_fase = 1;
 		$fecha = date('Y-m-d');
-		$comentario = 'Ingresa la Solicitud';
+		$comentario = 'Ingresa la Solicitud - Mensaje generado por el sistema.';
 
 		$nomPersona = $_POST['nombreCapa'];
 		$telefonoExt = $_POST['numTelCapa'];

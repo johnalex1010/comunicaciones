@@ -20,11 +20,12 @@
 								<h4 class="card-title">Perfil</h4>
                 <div class="usta-perfil">
                   <div class="usta-perfil-description">
-                    <img src="<?php echo URL."public/images/usuarios/face1.jpg" ?>" alt="">
+                    <img src="<?php echo URL."public/images/usuarios/".$consulta['usuario'].".jpg" ?>" alt="">
                     <div class="usta-perfil-name">
-                      <div>Nombre Nombre Apellido Apellido</div>
-                      <div class="text-info">Cargo</div>
-                      <div>Unidad a la que pertenece</div>
+                      <div><?php echo $consulta['usuario'] ?></div>
+                      <div><?php echo $consulta['nombres']." ".$consulta['apellidos'] ?></div>
+                      <div class="text-info"><?php echo $consulta['cargo'] ?></div>
+                      <div><?php echo $consulta['email'] ?></div>
                     </div>
                   </div>
                 </div>

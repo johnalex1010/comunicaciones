@@ -1,3 +1,4 @@
+<?php require_once '../models/model.usuario.php'; ?>
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
     <a class="navbar-brand brand-logo" href="<?php echo URL ?>">
@@ -17,12 +18,12 @@
 	<ul class="navbar-nav navbar-nav-right">
 		<li class="nav-item dropdown d-none d-xl-inline-block">
 			<a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-				<span class="profile-text">Hola, <?php echo $_SESSION['usuario']; ?> !</span>
-				<img class="img-xs rounded-circle" src="<?php echo URL ?>public/images/usuarios/face1.jpg" alt="Profile image">
+				<span class="profile-text">Hola, <?php echo $consulta['nombres']." ".$consulta['apellidos']; ?> !</span>
+				<img class="img-xs rounded-circle" src="<?php echo URL ?>public/images/usuarios/<?php echo $consulta['usuario'] ?>.jpg" alt="Profile image">
 			</a>
 			<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
 				<a href="<?php echo URL ?>pages/perfil.php"class="dropdown-item mt-2">Mi perfil</a>
-				<a href="<?php echo URL . 'pages/cerrar-session.php'; ?>"class="dropdown-item">Sign Out</a>
+				<a href="<?php echo URL . 'pages/cerrar-session.php'; ?>"class="dropdown-item">Cerrar sesión</a>
 			</div>
 		</li>
 	</ul>

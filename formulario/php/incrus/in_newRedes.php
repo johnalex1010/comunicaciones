@@ -27,7 +27,7 @@
 		$id_subCategoria = 10;
 		$id_fase = 1;
 		$fecha = date('Y-m-d');
-		$comentario = 'Ingresa la Solicitud';
+		$comentario = 'Ingresa la Solicitud - Mensaje generado por el sistema.';
 
 		$nomPerfil = $_POST['nombreNewPerfil'];
 		$emailPersonal = $_POST['emailNewPerfil']; 

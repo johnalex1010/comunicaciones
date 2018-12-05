@@ -27,7 +27,7 @@ session_start();
 		$id_subCategoria = 1;
 		$id_fase = 1;
 		$fecha = date('Y-m-d');
-		$comentario = 'Ingresa la Solicitud';
+		$comentario = 'Ingresa la Solicitud - Mensaje generado por el sistema.';
 		$adjunto = array();
 		$_FILES['adjMailInsti']['type'];
 		$_FILES['adjMailInsti']['size'];

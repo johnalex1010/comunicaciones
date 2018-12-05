@@ -27,7 +27,7 @@
 		$id_subCategoria = 6;
 		$id_fase = 1;
 		$fecha = date('Y-m-d');
-		$comentario = 'Ingresa la Solicitud';
+		$comentario = 'Ingresa la Solicitud - Mensaje generado por el sistema.';
 
 		$nombreWeb = $_POST['nombreEventWeb'];
 		$subdominio =  $_POST['subdominio'];

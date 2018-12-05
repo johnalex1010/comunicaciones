@@ -27,7 +27,7 @@
 		$id_subCategoria = 3;
 		$id_fase = 1;
 		$fecha = date('Y-m-d');
-		$comentario = 'Ingresa la Solicitud';
+		$comentario = 'Ingresa la Solicitud - Mensaje generado por el sistema.';
 
 		$nombreDoliente = $_POST['condoNombre'];
 		$cargo = $_POST['condoCargo'];

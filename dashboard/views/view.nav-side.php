@@ -1,15 +1,16 @@
+<?php require_once '../models/model.usuario.php'; ?>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item nav-profile">
             <div class="nav-link">
               <div class="user-wrapper">
                 <div class="profile-image">
-                  <img src="<?php echo URL ?>public/images/usuarios/face1.jpg" alt="profile image">
+                  <img src="<?php echo URL ?>public/images/usuarios/<?php echo $consulta['usuario'] ?>.jpg" alt="profile image">
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name"><?php echo $_SESSION['usuario']; ?></p>
+                  <p class="profile-name"><?php echo $consulta['usuario']; ?></p>
                   <div>
-                    <small class="designation text-muted">Manager</small>
+                    <small class="designation text-muted"><?php echo $consulta['cargo']; ?></small>
                   </div>
                 </div>
               </div>

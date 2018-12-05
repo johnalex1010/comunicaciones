@@ -1,0 +1,527 @@
+[33mcommit 270069ce9b9de0ef725fe84d59424b71f65b265c[m[33m ([m[1;36mHEAD -> [m[1;32mdash[m[33m, [m[1;31morigin/dash[m[33m)[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Nov 29 18:02:25 2018 -0500
+
+    Se elimina la tabla creada en el commit anterior, se hace los controller y models inciales
+
+[33mcommit c94f95cf8d684be698ca9736199962117ef323ec[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Nov 28 12:22:25 2018 -0500
+
+    Se realizan todas las tablas pertenecientes al tipo de solicitd en la carpeta views/views-tipo-solicitud, así mismo se crea un controller llamado controller.tipo.solicitud.php en la que se hace un switch para filtrar cada tipo de solicitud
+
+[33mcommit 4399c4591ac38abd84f39b7e1d6a3e1b00d2db02[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Nov 27 11:51:11 2018 -0500
+
+    Se añade: A. Una nueva tabla a la BD llamada t_tipo_solicitud, para indentificar que tipo de solicitud pertence la ST. B.Se añade línea gráfica para el formulario. C. Se añade logo provisional de la aplicacion. D. Se añade botón Inicio con función de devolverse al inicio dentro del formulario
+
+[33mcommit d8e4d29351ec9f504d4ec18b8a6847dbdfe07361[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Nov 22 15:06:02 2018 -0500
+
+    Se hace el 90% de la interación (FrontEnd) del dashboard. Hace falta dos páginas: resumen de cada ST y toda la trasabilidad de la misma.
+
+[33mcommit c69a7dad6b4291d4cafad86db6fedc8ba01673aa[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Nov 21 15:49:20 2018 -0500
+
+    Se crean las vistas básicas de las páginas restantes
+
+[33mcommit 5bc421c72c32457e2c355db8f2cd75502127682a[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Nov 21 11:56:08 2018 -0500
+
+    Se realiza estructura inicial del Dashboard, divido en vistas(views), tambien se realiza el admin/home
+
+[33mcommit bb81d68e53c28876ff816d1df0a1b71e7609d4a6[m[33m ([m[1;33mtag: v.1.1.Goku[m[33m)[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Nov 20 17:05:52 2018 -0500
+
+    Se empieza a hace la estructura MVC y se apoya con el dahsboard predefinido llamado StarAdmin de Bootstrap
+
+[33mcommit f9203404813f0a21e97651f80cbdc6b98ccb7125[m[33m ([m[1;31morigin/master[m[33m)[m
+Merge: 3728423 3aa73bb
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Nov 9 11:55:04 2018 -0500
+
+    Ajustes de detalles CSS en el formulario. Falta linea gráfica para botones y todo el Dahsbard
+
+[33mcommit 3aa73bb242ddecae31c215a6a069115d915d33a8[m[33m ([m[1;31morigin/comunicaciones[m[33m)[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Nov 9 11:48:04 2018 -0500
+
+    Ajustes de detalles CSS en el formulario. Falta linea gráfica para botones y todo el Dahsbard
+
+[33mcommit 5fcaea260b0d09fead0f33503fc6a6a3cfd9bdc2[m[33m ([m[1;33mtag: v.1.0.Goku[m[33m)[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Nov 1 17:49:48 2018 -0500
+
+    Se culmina el proceso de formulario de Solicitudes correctamente. Los últimos cambios fueron: Validación de formulario Evento, corrección en la BD quitando la tabla rstAudiovisual y dejando como principal t_cubrimiento. Actualiación del diagrama de la BD
+
+[33mcommit bd1c392fed1c88333ba47e3150009e0284694242[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Oct 31 17:24:26 2018 -0500
+
+    Se modifica los formularios cuyos adjuntos no son obligatorios. También se realiza la validación parcial del formulario eventos, modificando el plugin de adición y eliminación de items por uno más óptimo, esto se realizó para el campo Digitales. Falta realizar lo mismo para el campo Impresos y la culminación de la validación de campos, creación de ST y carpetas
+
+[33mcommit ff29490694798044e5acfdd3dda13d90bf3aa73f[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Oct 30 16:57:27 2018 -0500
+
+    Se realiza el resumen los demas formularios con creación de carpetas según ST, solo falta el formulario Eventos y la corrección del campo Adjunto de los formularios donde no es obligatorio el adjunto
+
+[33mcommit 7d867a426016c30a54f765c1a69227f8b5a3ecff[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Oct 29 11:28:33 2018 -0500
+
+    El mensaje email (mailer/e_solicitud.php) se deja genérico. Se realiza el resumen de EmailInstutucionales, Cumpleaños, Tomás Noticias y Aprobación de Material con creación de carpeta ST, envio de email y el resumen se hace por medio de consulta a base de datos según la ST
+
+[33mcommit 660d46c38b678fe0b525b4eeeddbb45e25ede555[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Oct 26 15:29:36 2018 -0500
+
+    Se reestructura el modulo PHPMailer, sacandolo del formulario y dejarlo de forma global para poder consumirlo en formulario y dashboard
+
+[33mcommit 451b8984ca158d15d290930ec55598524dfd929f[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Oct 25 15:41:50 2018 -0500
+
+    Se modificá el código para que cree la carpeta ST y vincule los archivos adjuntos y a su vez de integra la función PHPMailer para el envio de la notificación de la nuevas Solicitud
+
+[33mcommit bc144fee3315dbab18acd970112a3010deebbce5[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Oct 25 10:02:45 2018 -0500
+
+    Se actualiza el resumen de el formulario de Email Institucionales
+
+[33mcommit 3728423fc1512807817a93afa9c068c4b9a1ad65[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Oct 25 09:18:05 2018 -0500
+
+    Preubas
+
+[33mcommit 94e66a33e5b570b96ac6dfe8130ee7a4c9356e74[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Oct 25 09:15:35 2018 -0500
+
+    Re estrutura de formularios, comenzado por Email Institucionales
+
+[33mcommit e445ecf4665ba9d335cc7e46109c5d7b8cc2a74b[m[33m ([m[1;33mtag: v.0.9.GokuKid[m[33m)[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Oct 23 14:48:31 2018 -0500
+
+    Se hace un logo provisional, se realiza el mensaje de gracias con número de seguimiento.
+
+[33mcommit 98cc76e3da11f0715844cf7a66dbe41bc52b5048[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Oct 19 13:57:40 2018 -0500
+
+    Se crea la consulta de el formulario de Envio de correos institucional.
+
+[33mcommit 11bd5d9f137cc6707ee4229cbe17ee97f478062a[m[33m ([m[1;33mtag: v.0.7.GokuKid[m[33m)[m
+Merge: 72b5277 a585f95
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Oct 18 16:40:48 2018 -0500
+
+    Se absorbe la rama comunicaciones
+
+[33mcommit a585f95aa063ef5f1ef287fee4df672378be494b[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Oct 18 16:32:13 2018 -0500
+
+    Actualización de: Base de datos yDiagrama. Corrección y validación de todos los formularios. Funcionado al 100% hacia la base de datos.(Paso a seguir es: creación de carpeta con ST y envio de correos)
+
+[33mcommit 43498cbd41e56b03a86d505e89aced94a53a43f8[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Oct 17 17:00:38 2018 -0500
+
+    Se elimino la tabla de Medidas de la Base de datos, en la tabla t_respiezaimp se cambia el campo de medidas por cantidad. Se validad la inserción de Eventos en la base de datos. Se corrigen errores en demas archivos
+
+[33mcommit c41a87c47897cc3e523d032bbcf8578548bc4a9d[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Oct 16 11:47:49 2018 -0500
+
+    Se corrige y se optimiza la validación de Evento (php/validaciones/validarEvento.php). Tambien se ajusta el Resumen de Evento. Se sigue en proceso
+
+[33mcommit eb45b57f17a8f1ca7db25c42cb321123ab5b4a48[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Oct 12 15:36:50 2018 -0500
+
+    Actualización de Diagrama y base de datos. Tambien se empieza a validad e insertar en form Evento (Aun en proceso)
+
+[33mcommit d4aeb537a88aae5f60c4a7c47a25e19139511dbf[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Oct 12 09:44:37 2018 -0500
+
+    Se hace actualización del diagrama de base de datos y base de datos, se optimiza la tabla eventos y se separa en dos tablas, el cubrimientoAudiovisual (t_cubrimiento) y requerimiento Web (t_requerimientoWeb)
+
+[33mcommit 89f31e88827902b7bc9403289f282a5905c103ff[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Oct 11 15:35:23 2018 -0500
+
+    Se optimiza la validación y se hace la correcta inserción en la BD de el formulario de Tomás Noticias, solo hace el formulario de Eventos
+
+[33mcommit 7239455d17a43545560551a1abb6fe64554285cb[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Oct 10 15:12:29 2018 -0500
+
+    Validados en 80% de los formularios, quedan dos: Eventos y Tomás Noticias
+
+[33mcommit 66cd7df02d1e20a00a4917599a5872a7149513f0[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Oct 10 14:13:19 2018 -0500
+
+    Ajustes
+
+[33mcommit 070bad556437abbbb1d1f9fe0e7bd97210872290[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Oct 10 10:45:44 2018 -0500
+
+    Los formularios de Unidad Digital están, validados en su totalidad, aprobación de material de igual manera, está en proceso de validacón EmailInstitucionales
+
+[33mcommit 9efee874a62aa60420516949aae18ecad28288c9[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Oct 10 08:49:03 2018 -0500
+
+    Se valida correctamente CampañasCM
+
+[33mcommit bff56977c9dafa146d4f6eb017f61f4b8d013f84[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Oct 9 12:05:40 2018 -0500
+
+    Haciendo inserción de formularios - falta validar completamente CampañasCM
+
+[33mcommit c693531806ca087fce9a487e00eb601e8fef00b7[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Oct 8 15:56:54 2018 -0500
+
+    Creación e insersión de los formularios de CapacitaciónWeb y AsesoriasCM. Modificación de los resumenes de los mismos y actualización correción de facultades en index.php
+
+[33mcommit bfba693feb4f9299d0064f6e4b2f063aa584126b[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Oct 5 09:13:00 2018 -0500
+
+    Actualización de procedimientosAlmacenados.sql
+
+[33mcommit 30f19e3afc46f69d6839279be91601c739b16b3f[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Oct 3 17:04:43 2018 -0500
+
+    Actualización de: DiagramaSolicitudes.xml, bdComunicaciones.sql-> Nuevos campos, mejoramiento de tablas y adición de Procedimientos almacenados de INSERT, y nuevo item en formulario Community Manager-Creación de Redes Sociales- Nuevo item Linkedin
+
+[33mcommit 8681d04d9f57d3baffa3b82193198e85ee33430c[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Oct 3 12:12:37 2018 -0500
+
+    Actualización y corrección en la base de datos. Creación de procedimientos almacenados. (Solo falta el PA para el formulario de Eventos)
+
+[33mcommit 56ed473d7d250152bf92c2d0e97c578c93d2d12c[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Oct 2 15:55:36 2018 -0500
+
+    Se hace corrección de logíca en la base de datos, así mismo se corrige el procedimiento almacenado de in_SolicitudADJ
+
+[33mcommit e8c778dc4e8128277403433af413fdc455ea0ab5[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Oct 2 12:15:19 2018 -0500
+
+    (Actualización del commit anterior) Actualización de parametros en la base de datos e integración y actualización de los procedimientos almacenados en el archivo de la base de datos : bdComunicaciones.sql
+
+[33mcommit 63f441b6d53f443f119de19ca0fa1d3e0381bc46[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Oct 2 11:55:13 2018 -0500
+
+    Actualización de parametros en la base de datos e integración y actualización de los procedimientos almacenados en el archivo de la base de datos : bdComunicaciones.sql
+
+[33mcommit a7ad13842570d6d40b97b324b2dff23278184615[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Oct 1 16:32:18 2018 -0500
+
+    Actualización de parametros en la base de datos, y actualización del procedimiento almacenado llamdo in_EmailInsitucional ahora se llama: in_SolicitudADJ y se optimiza incluyendo condiciones
+
+[33mcommit 181d45097e490e5c3e68c97c13e9509074bdc491[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 28 15:27:44 2018 -0500
+
+    Organización de archivos base en carpeta, Actualización de la base de datos, actualización del procedimento almacenado de Email Insititucionales
+
+[33mcommit 311771a3d022fad3bb8316eb0ebeaf4792c2c14b[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 27 17:09:01 2018 -0500
+
+    Pruebas de creación de Procedimientos Almacenados
+
+[33mcommit 3742e26daec367f115178509a9070a2674c71022[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Sep 26 14:14:09 2018 -0500
+
+    Se actualiza la base de datos con la nueva tabla de TipoSolicitudes(t_tipoSolicitudes)
+
+[33mcommit 72b52778262058b473e5b5a398b7600cebd3ab11[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Sep 26 08:40:10 2018 -0500
+
+    Creación de la rama comunicaciones para hacer inserción a la BD de todo el sistema
+
+[33mcommit ace62289c4caf4ad46a45ede2aebd312c84b0fed[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 17:54:53 2018 -0500
+
+    Se elminan las ramas pruebas y resumeCI
+
+[33mcommit 1a8a15dc6f88e8d5cca41052626337af0ff27950[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 17:28:47 2018 -0500
+
+    Establecer BD.sql
+
+[33mcommit 5625ffdd91cbd99937f23d31e6d0462e640ac58c[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 17:23:30 2018 -0500
+
+    Nomnre nuevo de titulo bd.sql
+
+[33mcommit 0c2e90f2691b0023ce1cd5d3e60897565749af3b[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 17:21:03 2018 -0500
+
+    Dejar como estaba titulo de bd.sql
+
+[33mcommit fd64c94463b6fc0fba10003e20547e103557cbf8[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 17:20:05 2018 -0500
+
+    Modificar titulo de bd.sql
+
+[33mcommit 85f71a4cc24dfe6214e9848774e6c5ba40209a07[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 16:11:08 2018 -0500
+
+    Actualización de los commits
+
+[33mcommit b775eb3ccd158a7c6b49865cb20fe873e389497b[m
+Merge: ed38e37 a3b63a6
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 16:10:24 2018 -0500
+
+    Realizada la acción de creación de resumenes de los formularios
+
+[33mcommit a3b63a602cd19ed40cb94891b1b333d8866e136c[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 15:59:14 2018 -0500
+
+    Creación de los resumen de formularios Unidad Web - Community Manager
+
+[33mcommit 29e2694aa38ee0d7a60bd88c4ecc203aae921690[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 15:33:39 2018 -0500
+
+    Creación de los resumen de formularios Unidad Web - Web Site
+
+[33mcommit 46f565f592a7304b4c1d79a7ecf23d62cba4898b[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 15:12:37 2018 -0500
+
+    Creación de los resumen de Aprobación de Material
+
+[33mcommit 3842edaae24ea91b663c28c54fbb636a76a83484[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 15:05:43 2018 -0500
+
+    Creación de los resumenes de Comunicación Interna
+
+[33mcommit ed38e375dac4288b76785a0a057544a284db3296[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 14:28:11 2018 -0500
+
+    Creación de la ramma resumeCI
+
+[33mcommit 4a55f22d30ed354b63172cbc45bdf03c71061c1b[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 10:39:47 2018 -0500
+
+    Actualización de los commits
+
+[33mcommit daf471887c8a06c405706d2080ce55d91983e0c2[m
+Merge: 1aa244c 9f3aadf
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 10:36:24 2018 -0500
+
+    Validacion de campos para Community Manager.
+
+[33mcommit 9f3aadff59ad0cda5539817c72a077df6bcc7fce[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 10:34:04 2018 -0500
+
+    Validacion de campos para Community Manager.
+
+[33mcommit 6aa3568525bba58d965779a565b7a391c2934710[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Tue Sep 25 09:39:47 2018 -0500
+
+    Creación de Tooltips para Community Manager.
+
+[33mcommit 51409cc98752c7134cf10b1c9856b109800b1bf7[m
+Author: JohnAlex <prof.sopweb@usantotomas.red>
+Date:   Mon Sep 24 16:13:21 2018 -0500
+
+    Creación Items de Formularios de Community Manager
+
+[33mcommit 58a85d5170f77a32ad68a95f2d5b2735fc4dc5d4[m
+Author: JohnAlex <prof.sopweb@usantotomas.red>
+Date:   Mon Sep 24 16:11:24 2018 -0500
+
+    Creación Items de Formularios de Community Manager
+
+[33mcommit 1aa244c8c45b9e79830e4611953a8e3ca921890f[m
+Author: jhon Alexander Fandiño <prof.sopweb@usantotomas.red>
+Date:   Mon Sep 24 16:02:14 2018 -0500
+
+    Creación de la rama redes
+
+[33mcommit 1df90de39e710413be597ff38b5c4b43194e3a46[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 15:39:26 2018 -0500
+
+    Validación Capacitación Web
+
+[33mcommit 1c3dd2776df144041d92f59dca483bc6882b1061[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 15:37:59 2018 -0500
+
+    Validación Capacitación Web
+
+[33mcommit dc6dc74d95f0486b50e45a874612bd6e3955686c[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 15:11:53 2018 -0500
+
+    Validación de Ajustes web
+
+[33mcommit 8107b27d0b149d329773ed4aded0640bb6ee92ec[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 14:25:44 2018 -0500
+
+    Validación de Nuwvo sitio Web
+
+[33mcommit 55a4c86e5647c9f6042eed8e524b22925ccfd9a4[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 11:24:31 2018 -0500
+
+    Creación de Formularios Web
+
+[33mcommit 3184ddc5d7b0983c3b96afb75b34577d8ee0fb74[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 09:49:06 2018 -0500
+
+    Creación y validación formularios de Web Site desde la rama WEB
+
+[33mcommit 58518211ba8c25926f0e2557653cef71e957ccb0[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 09:47:50 2018 -0500
+
+    Creación formularios de Web Site
+
+[33mcommit 909038a118101092d198a024b7cda1ef3927d7ca[m
+Merge: 8db290d f53e28c
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 09:42:29 2018 -0500
+
+    Hechas las validaciones de Aprobacoón de Material
+
+[33mcommit f53e28c9a102e1c20eaf5ba92c9cabc5e8bce006[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 09:39:02 2018 -0500
+
+    Hechas las validaciones de Aprobacoón de Material
+
+[33mcommit 42dd39f142cf9338290998f847dd12efc427dbdb[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 09:37:30 2018 -0500
+
+    Hechas las validaciones de Aprobacoón de Material
+
+[33mcommit 8db290dd5a0becbd90418e3ca471e6ccf323e43d[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Mon Sep 24 08:24:37 2018 -0500
+
+    Creación de rama aprob
+
+[33mcommit ff5cf8006f0fd1605d0aa482090bd9cd0d788889[m
+Merge: b5ec13a 9a31e28
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 14:19:41 2018 -0500
+
+    Merge branch 'testCondolencias'
+
+[33mcommit 9a31e280efc56bb19f23d6b1fbccd2f48a416dca[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 12:28:01 2018 -0500
+
+    Validación de Condolencias
+
+[33mcommit b5ec13ab94442cd136ceb69b321048c883244ad0[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 11:32:02 2018 -0500
+
+    Creación de Rama testCondolencias
+
+[33mcommit ef2957f02af822ba52a90a2dc6a1b3e2f8a4f436[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 11:21:27 2018 -0500
+
+    Re escritura de CommitsSolicitudesComunicaciones.txt
+
+[33mcommit 13f4123691c792f489e6120dc3d39b17d22ddef0[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 11:15:32 2018 -0500
+
+    Validación de Tarjetas Conmemorativas
+
+[33mcommit 378e1325a8677ebb4e27f730112a3f5ef707c7b7[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Fri Sep 21 10:19:43 2018 -0500
+
+    Creción de Rama Test y comienzo de validaciones CI
+
+[33mcommit 7fdfaff2ecd3ec8a8d83c4e16cfacf577af72a6d[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 15:30:55 2018 -0500
+
+    Validación realizada sobre el formulario de Cumpleaños
+
+[33mcommit 5a1400b840573b5843e639c86053ec52319a6f33[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 15:22:09 2018 -0500
+
+    Validación realizada sobre el formulario de Tomás Noticias
+
+[33mcommit 5e414d93d7558daba27e53883ccd8805645b377e[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 14:34:25 2018 -0500
+
+    Validación realizada sobre el formulario de Correos Institucionales
+
+[33mcommit a3915710dc3125f8465f8c6ea11402522eda17eb[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 11:55:52 2018 -0500
+
+    Integración de Tooltips en Comunicación Interna
+
+[33mcommit 0f7e07cc290726d61787a215ed0d9bf081ee008e[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 11:37:48 2018 -0500
+
+    Maquetación de comunicación internar
+
+[33mcommit d87ce73605c9a41d92cbcdfbb0af5d6a99c2701a[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Thu Sep 20 08:30:51 2018 -0500
+
+    Inicio de la creación de la plantilla de Comunicación Interna
+
+[33mcommit b8033c5b382ebf3b506c631f36423ab214724237[m
+Author: JohnAlex <bartho1010@gmail.com>
+Date:   Wed Sep 19 14:37:48 2018 -0500
+
+    Inicio del proyecto de Solicitudes de Comunicaciones -- Esté ya intregra el funcionamiento (validaciones) del formulario de Eventos

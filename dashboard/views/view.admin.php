@@ -37,7 +37,7 @@
 									<td>
 									<label class="badge badge-success">No realizada</label>
 									</td>
-									<td><a href="<?php echo URL ?>pages/resume-ST.php?ST=<?php echo $i ?>" class="btn btn-inverse-primary btn-rounded">Ver</a></td>
+									<td><a href="<?php echo URL ?>pages/resume.php?ST=ST18_00<?php echo $i ?>" class="btn btn-inverse-primary btn-rounded">Ver</a></td>
 								</tr>
 		                      	<?php endFor ?>
 		                      </tbody>

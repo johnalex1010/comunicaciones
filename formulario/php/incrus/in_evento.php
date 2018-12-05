@@ -29,7 +29,7 @@ if ($row = mysqli_fetch_row($rst)) {
 	$id_subCategoria = 14;
 	$id_fase = 1;
 	$fecha = date('Y-m-d');
-	$comentario = 'Ingresa la Solicitud';
+	$comentario = 'Ingresa la Solicitud - Mensaje generado por el sistema.';
 
 	//Objetos especificos de la Tabla t_evento	
 	$id_tipoEvento = $_POST['tipoEvento'];

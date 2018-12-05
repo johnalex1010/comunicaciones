@@ -8,5 +8,6 @@ if (!isset($_SESSION['usuario'])) {
 }
 require_once '../models/model.tipo-solicitud.php';
 require_once '../controllers/controller.tipo-solicitud.php';
-require_once '../views/view.resume-ST.php';
+require_once '../models/model.trasabilidad.php';
+require_once '../views/view.resume.php';
 ?>

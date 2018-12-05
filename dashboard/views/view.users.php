@@ -14,19 +14,24 @@
         <br>
 				<div class="row">
         <!-- //card -->
-        <?php for ($i=1; $i < 9; $i++): ?>
+        <?php for ($i=0; $i < $totalU; $i++): ?>
           <div class="col-lg-3 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
                 <div class="usta-card-user">
                   <div class="usta-card-img">
-                    <img src="<?php echo URL."public/images/usuarios/face".$i.".jpg"; ?>" alt="Img" class="profile-image">
-                    <h4>Usuario <?php echo $i ?><div class="usta-card-fecha">Fecha de creación: <?php echo date("Y-m-d", mt_rand(0, 500000000)); ?></div></h4>
+                    <img src="<?php echo URL."public/images/usuarios/".$consultaU[$i]['usuario'].".jpg"; ?>" alt="Img" class="profile-image">
+                    <h4><?php echo $consultaU[$i]['usuario'] ?><div class="usta-card-fecha">Fecha de creación: <?php echo $consultaU[$i]['fecha_creacion']?></div></h4>
                   </div>
                   <div class="usta-card-u">
-                    <p>John Alexander Fandiño Rojas<br><i class="text-info">Cargo</i></p>
+                    <p>
+                      <?php echo $consultaU[$i]['nombres']." ".$consultaU[$i]['apellidos'];?><br>
+                      <i class="text-info"><?php echo $consultaU[$i]['cargo'];?></i>
+                      <br>
+                      <i>Permisos: <?php echo $consultaU[$i]['permiso'];?></i>
+                    </p>
                   </div>
-                  <a href="<?php echo URL."pages/user.php?id=$i" ?>" class="btn btn-inverse-secondary btn-rounded">Ver</a>
+                  <a href="<?php echo URL."pages/user.php?id=".$consultaU[$i]['id_usuario'] ?>" class="btn btn-inverse-secondary btn-rounded">Ver</a>
                 </div>
               </div>
             </div>

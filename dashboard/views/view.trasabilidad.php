@@ -51,7 +51,7 @@
                   <li><?php echo $consultaUA[$i]['usuario'] ?></li>
                 <?php endFor ?>
 				</ul>
-				<form class="forms-sample" action="#" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+				<form class="forms-sample" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 					<div class="form-group">
 						<label>Agregar usuario</label>						
 						<select class="form-control" id="exampleFormControlSelect2">

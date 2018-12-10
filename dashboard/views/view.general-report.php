@@ -1,3 +1,6 @@
+<?php 
+require_once '../pages/general.report.php';
+?>
 <div class="row">
 	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
       <div class="card card-statistics">
@@ -7,9 +10,9 @@
               <i class="mdi mdi-bell-ring text-info icon-lg"></i>
             </div>
             <div class="float-right">
-              <p class="mb-0 text-right">ST -> Asginadas</p>
+              <p class="mb-0 text-right">ST -> Ingresadas</p>
               <div class="fluid-container">
-                <h3 class="font-weight-medium text-right mb-0">246</h3>
+                <h3 class="font-weight-medium text-right mb-0"><?php echo $stsT['TOTAL']; ?></h3>
               </div>
             </div>
           </div>
@@ -24,9 +27,9 @@
               <i class="mdi mdi-bell text-success icon-lg"></i>
             </div>
             <div class="float-right">
-              <p class="mb-0 text-right">ST -> Realizadas</p>
+              <p class="mb-0 text-right">ST -> Finalizadas</p>
               <div class="fluid-container">
-                <h3 class="font-weight-medium text-right mb-0">5693</h3>
+                <h3 class="font-weight-medium text-right mb-0"><?php echo $stsF['FINALIZADAS']; ?></h3>
               </div>
             </div>
           </div>
@@ -41,9 +44,9 @@
               <i class="mdi mdi-bell-sleep text-warning icon-lg"></i>
             </div>
             <div class="float-right">
-              <p class="mb-0 text-right">ST -> En Aprobación</p>
+              <p class="mb-0 text-right">ST -> En desarrollo</p>
               <div class="fluid-container">
-                <h3 class="font-weight-medium text-right mb-0">3455</h3>
+                <h3 class="font-weight-medium text-right mb-0"><?php echo $stsD['DESARROLLO']; ?></h3>
               </div>
             </div>
           </div>
@@ -58,9 +61,9 @@
               <i class="mdi mdi-bell-off text-danger icon-lg"></i>
             </div>
             <div class="float-right">
-              <p class="mb-0 text-right">ST -> No Realizadas</p>
+              <p class="mb-0 text-right">ST -> Canceladas</p>
               <div class="fluid-container">
-                <h3 class="font-weight-medium text-right mb-0">$65,650</h3>
+                <h3 class="font-weight-medium text-right mb-0"><?php echo $stsC['CANCELADAS']; ?></h3>
               </div>
             </div>
           </div>

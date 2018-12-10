@@ -56,8 +56,17 @@
 		}
 	}
 }
-.card-estado{
-	background: #00CD6A;
+.card-color-finalizado{
+	background-color: #00CD7D;
+	color: #fff;
+}
+.card-color-enDesarrollo{
+	background-color: #FEAE12;
+	color: #fff;
+}
+.card-color-cancelado{
+	background-color: #E55250;
+	color: #fff;
 }
 
 .table-responsive::-webkit-scrollbar{

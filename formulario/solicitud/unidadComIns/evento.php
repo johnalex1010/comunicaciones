@@ -146,9 +146,7 @@
 					<div class="contentCheck checkboxAudioVisual">
 						<p class="colorTxt tooltip" title="<?php tipoCubAUEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Que tipo de cubrimiento audiovisual requiere? </p>
 						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='1' <?php if (in_array("1", $_POST['tipoCubAUEvento'])) echo "checked"; ?> > Fotográfia</p>
-						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='2' <?php if (in_array("2", $_POST['tipoCubAUEvento'])) echo "checked"; ?> > Zona T</p>
-						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='3' <?php if (in_array("3", $_POST['tipoCubAUEvento'])) echo "checked"; ?> > Maestro de ceremonia</p>
-						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='4' <?php if (in_array("4", $_POST['tipoCubAUEvento'])) echo "checked"; ?> > Redes sociales y divulgación de piezas</p>
+						<p><input type='checkbox' class="option-input checkbox" name='tipoCubAUEvento[]' value='2' <?php if (in_array("4", $_POST['tipoCubAUEvento'])) echo "checked"; ?> > Redes sociales y divulgación de piezas</p>
 					</div>
 				</div>
 		  		<div class="celda celdax2 p2" style="display: <?php echo $display = (isset($_POST['tipoCubWEbEvento'])) ? "block" : "none"; ?>">
@@ -472,13 +470,13 @@
 		  		<div class="celda">
 		  			<div class="contentCheck checkboxAudioVisual">
 						<p class="colorTxt tooltip" title="<?php checkPublicoObjT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Cual es su público objetivo? </p>
-						
 						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="1" <?php if (in_array("1", $_POST['checkPublicoObj'])) echo "checked"; ?> /> Estudiantes pregrado<br>
 						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="2" <?php if (in_array("2", $_POST['checkPublicoObj'])) echo "checked"; ?> /> Estudiantes posgrado<br>
 						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="3" <?php if (in_array("3", $_POST['checkPublicoObj'])) echo "checked"; ?> /> Docentes<br>
 						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="4" <?php if (in_array("4", $_POST['checkPublicoObj'])) echo "checked"; ?> /> Colaboradores administrativos<br>
 						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="5" <?php if (in_array("5", $_POST['checkPublicoObj'])) echo "checked"; ?> /> Egresados<br>
 						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="6" <?php if (in_array("6", $_POST['checkPublicoObj'])) echo "checked"; ?> /> Directivos<br>
+						<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="7" <?php if (in_array("7", $_POST['checkPublicoObj'])) echo "checked"; ?> /> Público externo<br>
 					</div>
 		  		</div>
 		  	</div>

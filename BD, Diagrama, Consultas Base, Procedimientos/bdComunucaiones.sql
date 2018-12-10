@@ -456,9 +456,7 @@ USE bdComunicaciones;
 	/*--t_audioVisual*/
 	INSERT INTO t_audioVisual VALUES
 	(1, "Fotográfia"),
-	(2, "Zona T"),
-	(3, "Maestro de ceremonia"),
-	(4, "Redes sociales y divulgación de piezas");
+	(2, "Redes sociales y divulgación de piezas");
 
 	/*--t_objPublico*/
 	INSERT INTO t_objPublico VALUES
@@ -467,7 +465,8 @@ USE bdComunicaciones;
 	(3, "Docentes"),
 	(4, "Colaboradores administrativos"),
 	(5, "Egresados"),
-	(6, "Directivos");
+	(6, "Directivos"),
+	(7, "Público externo");
 
 	/*--t_tipoEvento*/
 	INSERT INTO t_tipoEvento VALUES

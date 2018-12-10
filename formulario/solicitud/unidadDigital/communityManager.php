@@ -225,6 +225,7 @@
 									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="4" <?php if (in_array("4", $_POST['checkPublicoObj'])) echo "checked"; ?> /> Colaboradores administrativos<br>
 									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="5" <?php if (in_array("5", $_POST['checkPublicoObj'])) echo "checked"; ?> /> Egresados<br>
 									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="6" <?php if (in_array("6", $_POST['checkPublicoObj'])) echo "checked"; ?> /> Directivos<br>
+									<input type="checkbox" class="option-input checkbox"  name="checkPublicoObj[]" value="7" <?php if (in_array("7", $_POST['checkPublicoObj'])) echo "checked"; ?> /> Público externo<br>
 									<br>
 									<br>									
 								</div>

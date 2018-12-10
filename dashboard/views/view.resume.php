@@ -19,29 +19,35 @@
               </div>
             </div>
           </div>
+          
+          <?php require_once '../controllers/controller.estado.php'; ?>
+
           <div class="col-lg-3 grid-margin stretch-card">
             <div class="card">
-              <div class="card-body card-estado ">
-                <div class="card-estado">
-                  <form class="forms-sample" action="" >                    
-                    <table class="tale">
-                      <tbody>
-                        <tr>
-                          <td>                            
-                              <select class="form-control" id="exampleFormControlSelect2">
-                                <option>Estado 1</option>
-                                <option>Estado 2</option>
-                                <option>Estado 3</option>
-                                <option>Estado 4</option>
-                                <option>Estado 5</option>
-                              </select>
-                          </td>
-                          <td><input type="submit" class="btn btn-success" value="Cambiar"></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </form>
-                </div>
+              <div class="card-body <?php echo $estado ?>">
+                <div>
+                  <?php if ($maxT['MAXT'] == 2): ?>
+                    <h2>Finalizado</h2>
+                  <?php else: ?>
+                    <form class="forms-sample" action="#" >
+                      <table class="tale">
+                        <tbody>
+                          <tr>
+                            <td>
+                                <select class="form-control" id="exampleFormControlSelect2">
+                                  <?php for ($f=0; $f<$estadoNum; $f++): ?>
+                                    <option value="<?php echo $fase[$f]['id_fase']; ?>"><?php echo $fase[$f]['fase']; ?></option>
+                                  <?php endFor ?>
+                                  
+                                </select>
+                            </td>
+                            <td><input type="submit" class="btn <?php echo $estado ?>" value="Cambiar"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+                  <?php endif ?>
+                  </div>
               </div>
             </div>
           </div>
@@ -60,8 +66,7 @@
           <div class="col-lg-3 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Trasabilidad</h4>
-                
+                <h4 class="card-title">Trasabilidad</h4>                
                 <?php for ($i=0; $i < 3; $i++): ?>
                   <div class="card-trasabilidad">
                     <p class="card-trasabilidad-usuario text-success"><?php echo $consultaT[$i]['usuario']." - ".$consultaT[$i]['fecha']; ?></p>
@@ -69,16 +74,21 @@
                   </div>
                   <hr>
                 <?php endFor ?>
-
-                <form class="forms-sample" action="" >
-                  <textarea name="" class="form-control" cols="30" rows="5" placeholder="Agregar trasabilidad"></textarea>
+                
+                <?php if ($maxT['MAXT'] != 2): ?>
+                  <form action="#" method="POST">
+                  <?php if (isset($errorTrasabilidad)) {
+                    echo $errorTrasabilidad;
+                  } ?>
+                    <textarea name="comentario" class="form-control" cols="30" rows="5" placeholder="Agregar trasabilidad"></textarea>
+                    <br>
+                    <button type="submit" name="submitT" class="btn btn-success mr-2">Agregar trasabilidad</button>
+                  </form>
                   <br>
-                  <button type="submit" class="btn btn-success mr-2">Agregar trasabilidad</button>
-                </form>
-                <br>
+                <?php endif ?>
                 <a href="<?php echo URL. "pages/trasabilidad.php?ST=".$ts['numST']."" ?>" class="btn btn-outline-info">Ver toda la trasabilidad</a>
               </div>
-
+    
             </div>
           </div>
 				</div>

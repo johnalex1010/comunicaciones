@@ -32,7 +32,7 @@
 							</div>
 						</div>
 					</div>
-          <div class="col-lg-4 grid-margin stretch-card">
+          <div class="col-lg-3 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Datos personales</h4>
@@ -49,7 +49,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4 grid-margin stretch-card">
+          <div class="col-lg-5 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Ultimas Solicitudes</h4>

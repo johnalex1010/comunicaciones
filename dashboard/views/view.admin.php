@@ -1,5 +1,11 @@
 <?php require_once '../views/view.header.php'; ?>
 <body>
+<?php $page = (isset($_GET["page"])) ? $_GET["page"] : 1; ?>
+<?php Pagination::config($page, 7, "t_trasabilidad", null , 6); ?>
+<?php $data = Pagination::data(); ?>
+<?php $active = ""; ?>
+<?php if ($data["error"]): header("location:".URL."pages/404.php"); endif;?>
+
   <div class="container-scroller">
     <?php require_once '../views/view.nav-top.php'; ?>
     <!-- partial -->
@@ -19,42 +25,57 @@
 		                <div class="card-body">
 		                	<h3>Solicitudes</h3>
 		                  <div class="table-responsive">
-		                    <table class="table">
-		                      <thead>
-		                        <tr>
-		                          <th>N° ST</th>
-		                          <th>Usuario Asignado</th>
-		                          <th>Nombre de ST</th>
-		                          <th>Estado</th>
-		                        </tr>
-		                      </thead>
-		                      <tbody>
-		                      	<?php for ($i=1; $i < 7; $i++): ?>
-								<tr>
-									<td>Jacob</td>
-									<td>53275531</td>
-									<td>12 May 2017</td>
-									<td>
-									<label class="badge badge-success">No realizada</label>
+							<table class="table">
+								<thead>
+									<tr>
+										<th>N° ST</th>
+										<th>Fecha de ingreso</th>
+										<th>Estado</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach (Pagination::show_rows("numST") as $row): ?>
+									<tr>
+									<td><i><?php echo $row["numST"]; ?></i></td>
+									<td><?php echo fecha($row["fecha"]); ?></td>
+									<td><p style="padding:0.3rem; border-radius: 3px; display: inline-block; width: 100px; text-align: center;"
+									<?php if ($row["id_fase"] == 1): ?>
+										class="card-color-enDesarrollo"><?php echo $row["fase"]; ?></p>
+									<?php elseif($row["id_fase"] == 2): ?>
+										class="card-color-finalizado"><?php echo $row["fase"]; ?></p>
+									<?php else: ?>
+										class="card-color-cancelado"><?php echo $row["fase"]; ?></p>
+									<?php endif ?>
 									</td>
-									<td><a href="<?php echo URL ?>pages/resume.php?ST=ST18_00<?php echo $i ?>" class="btn btn-inverse-primary btn-rounded">Ver</a></td>
-								</tr>
-		                      	<?php endFor ?>
-		                      </tbody>
-		                    </table>
+									<td><a class="btn btn-inverse-primary btn-rounded" href="<?php echo URL."pages/resume.php?ST=".$row["numST"]; ?>">Ver</a></td>
+									</tr>
+									<?php endforeach; ?>
+								</tbody>
+							</table>
 		                  </div>
 		                </div>
 		                <!-- Paginación -->
 						<div class="row">
 							<div class="col-lg-12 grid-margin stretch-card" >
 								<div class="btn-group" role="group" aria-label="First group" style="margin: auto">
-									<a href="" class="btn btn-primary btn-rounded"><</a>
-									<a href="" class="btn btn-primary">1</a>
-									<a href="" class="btn btn-primary">2</a>
-									<a href="" class="btn btn-primary">3</a>
-									<a href="" class="btn btn-primary">4</a>
-									<a href="" class="btn btn-primary">5</a>
-									<a href="" class="btn btn-primary btn-rounded">></a>
+									<!-- Boton Inicio y siguiente-->
+									<?php if ($data["actual-section"] != 1): ?>
+										<a class="btn btn-primary btn-rounded" href="admin.php?page=1" >Inicio</a>
+										<a class="btn btn-primary" href="admin.php?page=<?php echo $data['previous']; ?>">&laquo;</a>	
+									<?php endif; ?>
+
+									<!-- Botones numerados-->
+									<?php for ($i = $data["section-start"]; $i <= $data["section-end"]; $i++): ?>					
+										<?php if ($i > $data["total-pages"]): break; endif; ?>
+										<?php $active = ($i == $data["this-page"]) ? "active" : ""; ?>			    
+										<a class="<?php echo $active; ?> btn btn-primary" href="admin.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+							    	<?php endfor; ?>
+
+									<!-- Boton Atras y fin-->
+									<?php if ($data["actual-section"] != $data["total-sections"]): ?>
+								    	<a class="btn btn-primary" href="admin.php?page=<?php echo $data['next']; ?>">&raquo;</a>
+								    	<a class="btn btn-primary btn-rounded" href="admin.php?page=<?php echo $data['total-pages']; ?>">Final</a>
+						    		<?php endif; ?>
 								</div>
 							</div>
 						</div>
@@ -69,11 +90,12 @@
 									<div class="form-group">
 										<label for="exampleFormControlSelect2">Usuario</label>
 										<select class="form-control" id="exampleFormControlSelect2">
-											<option>Usuario 1</option>
-											<option>Usuario 2</option>
-											<option>Usuario 3</option>
-											<option>Usuario 4</option>
-											<option>Usuario 5</option>
+											<option value="" selected disabled>Seleccionar usuario</option>
+											<?php
+												for ($i=0; $i < $totalU; $i++) { 
+													echo "<option>".$consultaU[$i]['usuario']."</option>";
+												}
+											?>
 										</select>
 									</div>
 									<div class="form-group">

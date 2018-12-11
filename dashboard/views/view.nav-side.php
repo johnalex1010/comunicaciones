@@ -1,4 +1,4 @@
-<?php require_once '../models/model.usuario.php'; ?>
+<?php require_once '../models/model.usuario.php'; require_once '../models/model.permisoU.php'; ?>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item nav-profile">
@@ -26,14 +26,18 @@
     <li class="nav-item">
       <a class="nav-link" href="<?php echo URL ?>pages/statics.php">
         <i class="menu-icon mdi mdi-chart-line"></i>
-        <span class="menu-title">Charts</span>
+        <span class="menu-title">Estadísticas</span>
       </a>
     </li>
+    <?php if ($pU['id_permiso'] == 1): ?>
     <li class="nav-item">
       <a class="nav-link" href="<?php echo URL ?>pages/users.php">
         <i class="menu-icon mdi mdi-account-multiple-outline"></i>
         <span class="menu-title">Usuarios</span>
       </a>
     </li>
+    <?php endif ?>
+
+    
   </ul>
 </nav>

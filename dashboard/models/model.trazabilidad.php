@@ -4,6 +4,6 @@ $consultaT = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS T.*, U.usuario, F.fa
 $consultaT->execute(array(':numST' => $ST));
 $consultaT = $consultaT->fetchAll(PDO::FETCH_ASSOC);
 
-$totalTrasabilidad = $conexion->query("SELECT FOUND_ROWS() AS totalTrasabilidad");
-$totalTrasabilidad = $totalTrasabilidad->fetch()['totalTrasabilidad'];
+$totalTrazabilidad = $conexion->query("SELECT FOUND_ROWS() AS totalTrazabilidad");
+$totalTrazabilidad = $totalTrazabilidad->fetch()['totalTrazabilidad'];
 ?>

@@ -6,6 +6,6 @@
 	define('USER', 'root');
 	define('PASSWORD', 'Usta2018*');
 	define('CHARSET', 'utf8mb4');
-	// error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-	// error_reporting(0);
+	error_reporting (E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+	error_reporting(0);
 ?>

@@ -5,6 +5,4 @@ $fase = $fase->fetchAll(PDO::FETCH_ASSOC);
 
 $estadoNum = $conexion->query("SELECT FOUND_ROWS() AS totalF");
 $estadoNum = $estadoNum->fetch()['totalF'];
-
-echo $fase[0]['fase'];
 ?>

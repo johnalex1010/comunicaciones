@@ -16,9 +16,9 @@
 				<div class="card">
 					<div class="card-body">
 						
-						<h1>Trasabilidad: <a href="resume.php?ST=<?php echo $consultaT[0]['numST']; ?>"><?php echo $consultaT[0]['numST'] ?></a></h1>
+						<h1>Trazabilidad: <a href="resume.php?ST=<?php echo $consultaT[0]['numST']; ?>"><?php echo $consultaT[0]['numST'] ?></a></h1>
 						<br>
-						<?php for ($i = 0; $i<$totalTrasabilidad; $i++): ?>
+						<?php for ($i = 0; $i<$totalTrazabilidad; $i++): ?>
 						<div class="fluid-container">
 		                    <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3">
 		                      <div class="col-md-1">

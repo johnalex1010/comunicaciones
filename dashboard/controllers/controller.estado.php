@@ -1,5 +1,5 @@
 <?php
-switch ($maxT['MAXT']) {
+switch ($maxT['id_fase']) {
 	case '1':
 		$estado = "card-color-enDesarrollo";
 		break;

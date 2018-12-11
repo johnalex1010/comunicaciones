@@ -9,6 +9,17 @@
       <div class="main-panel">
         <div class="content-wrapper">
 			<!-- //CONTENIDO AQUÍ -->
+          <?php if (isset($popMjs)): ?>
+           <div class="row purchace-popup">
+            <div class="col-12 pop-mensaje">
+              <span class="d-block d-md-flex align-items-center">
+                <p><?php echo $popMjs; ?></p>
+                <i class="mdi mdi-close popup-dismiss d-none d-md-block"></i>
+              </span>
+            </div>
+          </div>
+          <?php endif ?>
+         
 				
 		        <!-- // Table -->
 				<div class="row">
@@ -26,28 +37,38 @@
             <div class="card">
               <div class="card-body <?php echo $estado ?>">
                 <div>
-                  <?php if ($maxT['MAXT'] == 2): ?>
+                  <?php if ($maxT['id_fase'] == 2): ?>
                     <h2>Finalizado</h2>
                   <?php else: ?>
-                    <form class="forms-sample" action="#" >
+                    <form class="forms-sample" action="#" method="POST">
                       <table class="tale">
                         <tbody>
                           <tr>
                             <td>
-                                <select class="form-control" id="exampleFormControlSelect2">
+                                <select class="form-control" name="estado" >
+                                  <?php if ($maxT['id_fase'] == 1): ?>
+                                    <option value="1">En desarrollo</option>
+                                  <?php elseif($maxT['id_fase'] == 3): ?>
+                                    <option value="3">Cancelado</option>
+                                  <?php endif ?>
+
                                   <?php for ($f=0; $f<$estadoNum; $f++): ?>
                                     <option value="<?php echo $fase[$f]['id_fase']; ?>"><?php echo $fase[$f]['fase']; ?></option>
                                   <?php endFor ?>
                                   
                                 </select>
                             </td>
-                            <td><input type="submit" class="btn <?php echo $estado ?>" value="Cambiar"></td>
+                            <td><input type="submit" name="submitEstado" class="btn <?php echo $estado ?>" value="Cambiar estado"></td>
                           </tr>
                         </tbody>
                       </table>
                     </form>
                   <?php endif ?>
                   </div>
+
+
+
+                  
               </div>
             </div>
           </div>
@@ -66,27 +87,29 @@
           <div class="col-lg-3 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Trasabilidad</h4>                
+                <h4 class="card-title">Trazabilidad</h4>                
                 <?php for ($i=0; $i < 3; $i++): ?>
-                  <div class="card-trasabilidad">
-                    <p class="card-trasabilidad-usuario text-success"><?php echo $consultaT[$i]['usuario']." - ".$consultaT[$i]['fecha']; ?></p>
+                  <div class="card-trazabilidad">
+                    <p class="card-trazabilidad-usuario text-success"><?php echo $consultaT[$i]['usuario']." - ".$consultaT[$i]['fecha']; ?></p>
                     <p><?php echo $consultaT[$i]['comentario']; ?></p>
                   </div>
                   <hr>
                 <?php endFor ?>
                 
-                <?php if ($maxT['MAXT'] != 2): ?>
-                  <form action="#" method="POST">
-                  <?php if (isset($errorTrasabilidad)) {
-                    echo $errorTrasabilidad;
-                  } ?>
-                    <textarea name="comentario" class="form-control" cols="30" rows="5" placeholder="Agregar trasabilidad"></textarea>
+                <?php if ($perT[0]['perT'] == 1): ?>
+                  <?php if ($maxT['id_fase'] != 2): ?>
+                    <form action="#" method="POST">
+                    <?php if (isset($errorTrazabilidad)) {
+                      echo $errorTrazabilidad;
+                    } ?>
+                      <textarea name="comentario" class="form-control" cols="30" rows="5" placeholder="Agregar trazabilidad"></textarea>
+                      <br>
+                      <button type="submit" name="submitT" class="btn btn-success mr-2">Agregar trazabilidad</button>
+                    </form>
                     <br>
-                    <button type="submit" name="submitT" class="btn btn-success mr-2">Agregar trasabilidad</button>
-                  </form>
-                  <br>
+                  <?php endif ?>
                 <?php endif ?>
-                <a href="<?php echo URL. "pages/trasabilidad.php?ST=".$ts['numST']."" ?>" class="btn btn-outline-info">Ver toda la trasabilidad</a>
+                <a href="<?php echo URL. "pages/trazabilidad.php?ST=".$ts['numST']."" ?>" class="btn btn-outline-info">Ver toda la trazabilidad</a>
               </div>
     
             </div>

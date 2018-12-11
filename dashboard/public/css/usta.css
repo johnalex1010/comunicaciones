@@ -83,3 +83,21 @@
     vertical-align: top;
     padding: 0.5rem 1rem;
     text-align: justify; }
+
+.pop-mensaje span {
+  background-color: #E55250 !important;
+  position: relative; }
+  .pop-mensaje span p {
+    color: #fff !important; }
+  .pop-mensaje span i {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    width: 2.7rem;
+    height: 2.7rem;
+    font-size: 1.5rem;
+    padding: 0.6rem 0.6rem;
+    cursor: pointer;
+    border-radius: 3px;
+    color: #fff !important; }

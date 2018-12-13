@@ -14,10 +14,14 @@
 					<div class="col-lg-4 grid-margin stretch-card">
 						<div class="card">
 							<div class="card-body">
-								<h4 class="card-title">Usuario </h4>
+                <?php if ($user['activo'] == 1): ?>
+                      <h5>Usuario: <i class="text-success">activo</i></h5>
+                    <?php else: ?>
+                      <h5>Usuario: <i class="text-danger">inactivo</i></h5>
+                    <?php endif ?>
                 <div class="usta-perfil">
                   <div class="usta-perfil-description">
-                    <img src="<?php echo URL."public/images/usuarios/".$user['usuario'].".jpg" ?>" alt="">
+                    <!-- <img src="<?php echo URL."public/images/usuarios/".$user['usuario'].".jpg" ?>" alt=""> -->
                     <div class="usta-perfil-name">
                       <h3><?php echo $user['usuario'] ?></h3>
                       <div><?php echo $user['nombres']." ".$user['apellidos'] ?></div>

@@ -15,5 +15,6 @@ require_once '../models/model.permisosST.php';
 require_once '../models/update/model.up.trazabilidad.php';
 require_once '../models/update/model.up.estado.php';
 require_once '../models/model.estado.php';
+require_once '../controllers/controller.estado.php';
 require_once '../views/view.resume.php';
 ?>

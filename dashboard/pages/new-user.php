@@ -10,5 +10,9 @@ require_once '../models/model.permisoU.php';
 if ($pU['id_permiso'] != 1) {
 	header('Location:' . URL . 'pages/login.php');
 }
+require_once '../models/model.cargo.php';
+require_once '../models/model.permiso.php';
+require_once '../controllers/controller.in.user.php';
+require_once '../models/insert/model.in.user.php';
 require_once '../views/view.new-user.php';
 ?>

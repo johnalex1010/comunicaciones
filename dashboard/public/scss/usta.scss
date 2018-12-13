@@ -108,10 +108,20 @@
 	}
 }
 
+.card-error{
+	
+	h4{
+		background-color: #E55250;
+		border-radius: 3px;
+		padding: 1rem;
+		color: #fff;
+		text-align: center;
+	}
+}
 
-.pop-mensaje{
-	span{
-		background-color: #E55250 !important;
+.pop-mensaje,
+.pop-new-user{
+	span{		
 		position: relative;
 		p{
 			color: #fff !important;
@@ -129,5 +139,15 @@
 			border-radius: 3px;
 			color: #fff !important;
 		}
+	}
+}
+.pop-mensaje{
+	span{
+		background-color: #E55250 !important;
+	}
+}
+.pop-new-user{
+	span{
+		background-color: #00CD6A !important;
 	}
 }

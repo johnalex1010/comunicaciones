@@ -22,7 +22,7 @@
                   <div class="usta-perfil-description">
                     <img src="<?php echo URL."public/images/usuarios/".$consulta['usuario'].".jpg" ?>" alt="">
                     <div class="usta-perfil-name">
-                      <div><?php echo $consulta['usuario'] ?></div>
+                      <div>Usuario: <?php echo $consulta['usuario'] ?></div>
                       <div><?php echo $consulta['nombres']." ".$consulta['apellidos'] ?></div>
                       <div class="text-info"><?php echo $consulta['cargo'] ?></div>
                       <div><?php echo $consulta['email'] ?></div>

@@ -25,7 +25,12 @@
               <div class="card-body">
                 <div class="usta-card-user">
                   <div class="usta-card-img">
-                    <img src="<?php echo URL."public/images/usuarios/".$row['usuario'].".jpg"; ?>" alt="Img" class="profile-image">
+                    <?php if ($row['activo'] == 1): ?>
+                      <h5>Usuario: <i class="text-success">activo</i></h5>
+                    <?php else: ?>
+                      <h5>Usuario: <i class="text-danger">inactivo</i></h5>
+                    <?php endif ?>
+                    <!-- <img src="<?php echo URL."public/images/usuarios/".$row['usuario'].".jpg"; ?>" alt="Img" class="profile-image"> -->
                     <h4><?php echo $row['usuario'] ?><div class="usta-card-fecha">Fecha de creación: <?php echo $row['fecha_creacion']?></div></h4>
                   </div>
                   <div class="usta-card-u">

@@ -1,13 +1,12 @@
 <?php
-
-	if (isset($_POST['submitT'])) {
+	if (isset($_POST['submitTrazabilidad'])) {
 		if ($perT['perT'] == 1) {
 			if (!empty($_POST['comentario'])) {
 				$upTrazabilidad = $conexion->prepare("INSERT INTO t_trasabilidad (id_fase, numST, fecha, comentario, id_usuario) VALUES (:id_fase, :numST, :fecha, :comentario, :id_usuario)");
 				
 				$upTrazabilidad->execute(
 					array(				
-						':id_fase' => $maxT['MAXT'],
+						':id_fase' => $maxT['id_fase'],
 						':numST' => $ts['numST'],
 						':fecha' => date('Y-m-d'),
 						':comentario' => $_POST['comentario'],

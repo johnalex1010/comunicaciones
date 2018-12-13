@@ -19,7 +19,7 @@
 		<li class="nav-item dropdown d-none d-xl-inline-block">
 			<a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
 				<span class="profile-text">Hola, <?php echo $consulta['nombres']." ".$consulta['apellidos']; ?> !</span>
-				<img class="img-xs rounded-circle" src="<?php echo URL ?>public/images/usuarios/<?php echo $consulta['usuario'] ?>.jpg" alt="Profile image">
+				<!-- <img class="img-xs rounded-circle" src="<?php echo URL ?>public/images/usuarios/<?php echo $consulta['usuario'] ?>.jpg" alt="Profile image"> -->
 			</a>
 			<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
 				<a href="<?php echo URL ?>pages/perfil.php"class="dropdown-item mt-2">Mi perfil</a>

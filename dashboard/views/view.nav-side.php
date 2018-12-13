@@ -4,9 +4,9 @@
     <li class="nav-item nav-profile">
       <div class="nav-link">
         <div class="user-wrapper">
-          <div class="profile-image">
+          <!-- <div class="profile-image">
             <img src="<?php echo URL ?>public/images/usuarios/<?php echo $consulta['usuario'] ?>.jpg" alt="profile image">
-          </div>
+          </div> -->
           <div class="text-wrapper">
             <p class="profile-name"><?php echo $consulta['usuario']; ?></p>
             <div>
@@ -23,12 +23,12 @@
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" href="<?php echo URL ?>pages/statics.php">
         <i class="menu-icon mdi mdi-chart-line"></i>
         <span class="menu-title">Estadísticas</span>
       </a>
-    </li>
+    </li> -->
     <?php if ($pU['id_permiso'] == 1): ?>
     <li class="nav-item">
       <a class="nav-link" href="<?php echo URL ?>pages/users.php">

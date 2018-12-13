@@ -21,7 +21,7 @@
           <?php endif ?>
          
 				
-		        <!-- // Table -->
+		    <!-- // Table -->
 				<div class="row">
           <div class="col-lg-9 grid-margin stretch-card">
             <div class="card">
@@ -30,9 +30,6 @@
               </div>
             </div>
           </div>
-          
-          <?php require_once '../controllers/controller.estado.php'; ?>
-
           <div class="col-lg-3 grid-margin stretch-card">
             <div class="card">
               <div class="card-body <?php echo $estado ?>">
@@ -64,11 +61,7 @@
                       </table>
                     </form>
                   <?php endif ?>
-                  </div>
-
-
-
-                  
+                  </div>                  
               </div>
             </div>
           </div>
@@ -96,7 +89,7 @@
                   <hr>
                 <?php endFor ?>
                 
-                <?php if ($perT[0]['perT'] == 1): ?>
+                <?php if ($perT['perT'] == 1): ?>
                   <?php if ($maxT['id_fase'] != 2): ?>
                     <form action="#" method="POST">
                     <?php if (isset($errorTrazabilidad)) {
@@ -104,7 +97,7 @@
                     } ?>
                       <textarea name="comentario" class="form-control" cols="30" rows="5" placeholder="Agregar trazabilidad"></textarea>
                       <br>
-                      <button type="submit" name="submitT" class="btn btn-success mr-2">Agregar trazabilidad</button>
+                      <input type="submit" name="submitTrazabilidad" class="btn btn-success mr-2" value="Agregar trazabilidad">
                     </form>
                     <br>
                   <?php endif ?>

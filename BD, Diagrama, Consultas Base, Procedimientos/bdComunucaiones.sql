@@ -160,8 +160,9 @@ USE bdComunicaciones;
 		password varchar(80) NOT NULL,
 		nombres varchar(30) NOT NULL,
 		apellidos varchar(30) NOT NULL,
-		email varchar(30) NOT NULL,
+		email varchar(60) NOT NULL,
 		fecha_creacion DATE, /*Guarda fecha y hora*/
+		activo int NOT NULL,
 		id_cargo int NOT NULL,
 		id_permiso int NOT NULL, /*Es FOREIGN KEY de la tabla t_permiso*/
 		PRIMARY KEY (id_usuario),

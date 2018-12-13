@@ -84,12 +84,21 @@
     padding: 0.5rem 1rem;
     text-align: justify; }
 
-.pop-mensaje span {
-  background-color: #E55250 !important;
+.card-error h4 {
+  background-color: #E55250;
+  border-radius: 3px;
+  padding: 1rem;
+  color: #fff;
+  text-align: center; }
+
+.pop-mensaje span,
+.pop-new-user span {
   position: relative; }
-  .pop-mensaje span p {
+  .pop-mensaje span p,
+  .pop-new-user span p {
     color: #fff !important; }
-  .pop-mensaje span i {
+  .pop-mensaje span i,
+  .pop-new-user span i {
     position: absolute;
     top: 0px;
     right: 0px;
@@ -101,3 +110,9 @@
     cursor: pointer;
     border-radius: 3px;
     color: #fff !important; }
+
+.pop-mensaje span {
+  background-color: #E55250 !important; }
+
+.pop-new-user span {
+  background-color: #00CD6A !important; }

@@ -43,14 +43,17 @@
   margin: 0px; }
 
 .card-color-finalizado {
+  flex: 1 1 auto;
   background-color: #00CD7D;
   color: #fff; }
 
 .card-color-enDesarrollo {
+  flex: 1 1 auto;
   background-color: #FEAE12;
   color: #fff; }
 
 .card-color-cancelado {
+  flex: 1 1 auto;
   background-color: #E55250;
   color: #fff; }
 

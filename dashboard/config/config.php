@@ -1,6 +1,6 @@
 <?php
-	define('URL', 'http://localhost/JohnAlexUSTA/comunicaciones/dashboard/');
-	define('URLF', 'http://localhost/JohnAlexUSTA/comunicaciones/formulario/');
+	define('URL', 'http://172.16.8.234/JohnAlexUSTA/comunicaciones/dashboard/');
+	define('URLF', 'http://172.16.8.234/JohnAlexUSTA/comunicaciones/formulario/');
 	define('HOST', 'localhost');
 	define('DB', 'bdcomunicaciones');
 	define('USER', 'root');

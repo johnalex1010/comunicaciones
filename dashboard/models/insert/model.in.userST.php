@@ -18,7 +18,7 @@
 							':numST' => $ts['numST']
 						)
 					);
-					unset($_POST['userST']);
+					
 					//Agregar trazabilidad de creación de usuario					
 					$uSela = $conexion->prepare("SELECT * FROM t_usuario WHERE id_usuario=:id_usersystem");
 					$uSela->execute(array(':id_usersystem' => $consulta['id_usuario']));
@@ -43,6 +43,7 @@
 							':id_usuario' => $usuario
 						)
 					);
+					unset($_POST['userST']);
 					header('Location:'. URL."pages/trazabilidad.php?ST=".$ts['numST']);
 				}else{
 					$popMjs = "Este usuario ya ha sido agregado previamente.";

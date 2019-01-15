@@ -13,7 +13,7 @@
 
 				$_POST['estado'];
 				$consulta['id_usuario'];
-				$comentario = "El usuario: <b>".$u['usuario']."</b> cambio el estado de la solicitud a: <b>" .$e['fase']."</b>";
+				$comentario = "El usuario: <b>".$u['nombres']." ".$u['apellidos']."</b> cambio el estado de la solicitud a: <b>" .$e['fase']."</b>";
 				$usuario = 1; // Usuario del sistema
 
 

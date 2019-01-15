@@ -94,31 +94,53 @@
 			</div>
 			<div class="col-lg-3 grid-margin stretch-card">
 				<div class="card">
+					<!-- //Usuarios asginados -->
 					<div class="card-body">
-					<h4 class="card-title">Usuario asignados</h4>
-					<ul class="list-arrow ">
-						<?php for ($i=0; $i < $totalUA; $i++): ?>
-						<li><?php echo $consultaUA[$i]['nombres']." ".$consultaUA[$i]['apellidos'] ?></li>
-						<?php endFor ?>
-					</ul>
-					<?php if ($maxT['id_fase'] != 2): ?>
-						<?php if ($per['id_permiso'] == 1 || $per['id_permiso'] == 2): ?>
-							<form class="forms-sample" action="#" method="POST">
-								<div class="form-group">
-									<label>Agregar usuario</label>
-									<select class="form-control" name="userST" id="exampleFormControlSelect2">
-										<option value="" selected disabled>Seleccionar usuario</option>
-										<?php
-											for ($i=0; $i < $totalU; $i++) { 
-												echo "<option value='".$consultaU[$i]['id_usuario']."'>".$consultaU[$i]['nombres']." ".$consultaU[$i]['apellidos']."</option>";
-											}
-										?>
-									</select>
-								</div>
-								<button type="submit" name="submitUserST" class="btn btn-success mr-2">Agregar usuario</button>
-							</form>
+						<h4 class="card-title">Usuario asignados</h4>
+						<ul class="list-arrow ">
+							<?php for ($i=0; $i < $totalUA; $i++): ?>
+							<li><?php echo $consultaUA[$i]['nombres']." ".$consultaUA[$i]['apellidos'] ?></li>
+							<?php endFor ?>
+						</ul>
+						<?php if ($maxT['id_fase'] != 2): ?>
+							<?php if ($per['id_permiso'] == 1 || $per['id_permiso'] == 2): ?>
+								<form class="forms-sample" action="#" method="POST">
+									<div class="form-group">
+										<label>Agregar usuario</label>
+										<select class="form-control" name="userST" id="exampleFormControlSelect2">
+											<option value="" selected disabled>Seleccionar usuario</option>
+											<?php
+												for ($i=0; $i < $totalU; $i++) { 
+													echo "<option value='".$consultaU[$i]['id_usuario']."'>".$consultaU[$i]['nombres']." ".$consultaU[$i]['apellidos']."</option>";
+												}
+											?>
+										</select>
+									</div>
+									<button type="submit" name="submitUserST" class="btn btn-success mr-2">Agregar usuario</button>
+								</form>
+							<?php endif ?>
 						<?php endif ?>
-					<?php endif ?>
+						<hr>
+					</div>
+					
+					<!-- //Alertas asignadas -->
+					<div class="card-body">
+						<h4 class="card-title">Alertas</h4>
+						<ul class="list-arrow ">
+							<?php for ($i=0; $i < $totalA; $i++): ?>
+							<li>Alerta creada por <b class="text-success"><?php echo $consultaA[$i]['usuario']."</b> para el <b class='text-info'>".$consultaA[$i]['fecha_alerta'] ?></b></li>
+							<?php endFor ?>
+						</ul>
+						<?php if ($maxT['id_fase'] != 2): ?>
+							<?php if ($per['id_permiso'] == 1 || $per['id_permiso'] == 2): ?>
+								<form class="forms-sample" action="#" method="POST">
+									<div class="form-group">
+										<input type="date" name="fecha_alerta" class="form-control" placeholder="Fecha Alerta" aria-label="Username">
+									</div>
+									<button type="submit" name="submitAlertST" class="btn btn-success mr-2">Nueva Alerta</button>
+								</form>
+							<?php endif ?>
+						<?php endif ?>
 					</div>
 				</div>
 			</div>

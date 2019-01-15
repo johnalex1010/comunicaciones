@@ -412,7 +412,17 @@ USE bdComunicaciones;
 		FOREIGN KEY (id_tipoRedSocial) REFERENCES t_tipoRedSocial(id_tipoRedSocial),
 		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
 	);
-	
+
+	/*--Tabla Alertas*/	
+	CREATE TABLE t_alertas (
+		id_alertas int NOT NULL AUTO_INCREMENT,
+		fecha_alerta DATE NOT NULL,
+		id_usuario int NOT NULL, /*Es FOREIGN KEY de la tabla t_usuario*/
+		numST varchar(10) NOT NULL,  /*Es FOREIGN KEY de la tabla t_solicitud == No es unico porque pueden ser varias alertas a una misma  ST*/
+		PRIMARY KEY (id_alertas),
+		FOREIGN KEY (id_usuario) REFERENCES t_usuario(id_usuario),
+		FOREIGN KEY (numST) REFERENCES t_solicitud(numST)
+	);
 
 /*INSERT A LAS TABLAS*/
 
@@ -539,9 +549,18 @@ USE bdComunicaciones;
 
 	/*--t_usuario*/
 	INSERT INTO t_usuario VALUES
-	(1, "nousuario", "nousuario", "No Soy Usuario Valido", "No valido", "usu@usu.co", 1, 4),
-	(2, "johnalex1010", "millos", "John Alexander", "Fandiño Rojas", "prof.sopweb@usantotomas.edu.co", 3, 1),
-	(3, "lubo51", "josepass", "Jose", "Lubo", "webmaster@usantotomas.edu.co", 2, 1);
+	(1, "usersystem", "nousuario", "Usuario del Sistema", "", "usu@usu.co", "2018-12-01", 0, 1, 4),
+	(2, "johnf", "$2y$10$WfUtABet.3ek5aBypJRuTeCNxJ5DYdr.4YRi700iD3pnvOQSXNG72", "John Alexander", "Fandiño Rojas", "prof.sopweb@usantotomas.edu.co", "2018-12-02", 1, 3, 1),
+	(3, "josel", "$2y$10$dpcU7VGoeGOVtjxtnUVz5.9/xE6iI2PDn8Wg9itGBdt6IB7qDTjGy", "Jose", "Lubo", "webmaster@usantotomas.edu.co", "2018-12-04", 1, 2, 1),
+	(4, "andreas", "$2y$10$MugtRGU2UGwqkGTWk94s2ONAQ/RyErczKzm/TTqKpLLpIaKgyOfIa", "Andrea", "Sotelo", "dir.comunicaciones@usantotomas.edu.co", "2018-12-12", 1, 1, 1),
+	(5, "johannae", "$2y$10$k2AquRX.UMCuzqANYaQHLudNjxwLZNvBV6IsocuYDks9Ie/HRa.zu", "Johanna", "Espitia", "prof.espcomunicaciones3@usantotomas.edu.co", "2018-12-12", 1, 1, 2),
+	(6, "dinaa", "$2y$10$cY7tbCPdgMP43sz9IZnBKeqi5bf.ma5tOSTiNaEka6psOaD8cBZTG", "Dina", "Alvares", "prof.sopcomunicaciones1@usantotomas.edu.co", "2018-12-12", 1, 1, 2),
+	(7, "tatianam", "$2y$10$ODSdoamVHyS2Gd8MmA3ZJu1JNuMi19scAyAWcnZsfe725yt5tGuFW", "Tatiana", "Marín", "secre.comunicaciones@usantotomas.edu.co", "2018-12-12", 1, 1, 2),
+	(8, "johnhb", "$2y$10$tv9qX2JpyeFQxgeSy0VzUujfFVR2Syu/MDj2bgeZeHF7Atv4BwNhi", "John Henry", "Barrera", "pro.espcomunicaciones2@usantotomas.edu.co", "2018-12-12", 1, 1, 3),
+	(9, "dianat", "$2y$10$Dn1qvMvGQ6.QnOx4rfqN6eYesc23rYm0bL.VMWanRA.M/ZsEK6Vgu", "Diana", "Trujillo", "diana@usantotomas.edu.co", "2018-12-12", 1, 1, 3),
+	(10, "fernandas", "$2y$10$4W7eP3zCNxRYg/IVbL65AeR4NIJwnFnKneouHSrim9PNaiDf2j.Eq", "Fernanda", "Sierra", "angelica.sierra@usantotomas.edu.co", "2018-12-12", 1, 1, 3),
+	(11, "andreaf", "$2y$10$KSAV8d/nkZtXEUeAFPTIJuhpziLIAUJrV.FbQvHOQW7EsnQPqoncW", "Andrea", "Forero", "pro.espcomunicaciones4@usantotomas.edu.co", "2018-12-12", 1, 1, 3),
+	(12, "carolinac", "$2y$10$et1fS7qf3cBR5yfiiwy36.Cbp8EXv4MhSMakN0.dnJTuMtzuB.CNu", "Carolina", "Chavarría", "carolina@usantotomas.edu.co", "2018-12-12", 1, 1, 3);
 
 	/*--t_tipoRedSocial*/
 	INSERT INTO t_tipoRedSocial VALUES

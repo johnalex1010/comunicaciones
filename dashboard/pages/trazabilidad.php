@@ -18,5 +18,7 @@ require_once '../models/update/model.up.estado.php';
 require_once '../models/model.estado.php';
 require_once '../controllers/controller.estado.php';
 require_once '../models/insert/model.in.userST.php';
+require_once '../models/model.alertas.php';
+require_once '../models/insert/model.in.alertas.php';
 require_once '../views/view.trazabilidad.php';
 ?>

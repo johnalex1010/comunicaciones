@@ -15,8 +15,7 @@ if (isset($_POST['submit'])) {
 			}
 		}else{
 			$error = "<p class='btn btn-rounded btn-inverse-danger'>Usuario y contraseña incorrectos</p><br>";
-		}
-	
+		}	
 	}else{
 		$error = "<p class='btn btn-rounded btn-inverse-danger'>Usuario y contraseña incorrectos</p><br>";
 	}

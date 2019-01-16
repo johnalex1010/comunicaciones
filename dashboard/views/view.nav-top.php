@@ -1,4 +1,10 @@
-<?php require_once '../models/model.usuario.php'; ?>
+<?php
+require_once '../models/model.usuario.php';
+require_once '../models/model.alerta.php';
+
+
+
+?>
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
     <a class="navbar-brand brand-logo" href="<?php echo URL ?>">
@@ -10,11 +16,32 @@
     </a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-center">
-<!-- 	<ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+	<ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+		<?php
+		for ($i = 0; $i < $totalAl; $i++){
+			$date1 = date('Y-m-d');
+			$date2 = $consultaAl[$i]['fecha_alerta'];
+			if ($date1 <= $date2) {
+				$date1 = new DateTime($date1);
+				$date2 = new DateTime($date2);
+				$diff = $date1->diff($date2);
+				$diferencia = $diff->days;
+				if ($diferencia <= 5){
+					$mostrar = true;
+				}else{
+					$mostrar = false;
+				}
+			}
+		}
+		if ($mostrar == true) {
+		?>
 		<li class="nav-item	">
-			<a href="#" class="nav-link"><i class="mdi mdi-elevation-rise"></i>Reportes</a>
+			<a  href="<?php echo URL ?>pages/alertas.php" class="nav-link  text-warning" style="font-size: 0.9rem;"><i class="fa fa-warning text-warning" ></i>Alertas Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis laudantium .</a>
 		</li>
-	</ul> -->
+		<?php
+		}
+		?>		
+	</ul>
 	<ul class="navbar-nav navbar-nav-right">
 		<li class="nav-item dropdown d-none d-xl-inline-block">
 			<a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -22,8 +49,8 @@
 				<!-- <img class="img-xs rounded-circle" src="<?php echo URL ?>public/images/usuarios/<?php echo $consulta['usuario'] ?>.jpg" alt="Profile image"> -->
 			</a>
 			<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-				<a href="<?php echo URL ?>pages/perfil.php"class="dropdown-item mt-2">Mi perfil</a>
-				<a href="<?php echo URL . 'pages/cerrar-session.php'; ?>"class="dropdown-item">Cerrar sesión</a>
+				<a href="<?php echo URL ?>pages/perfil.php" class="dropdown-item mt-2">Mi perfil</a>
+				<a href="<?php echo URL . 'pages/cerrar-session.php'; ?>" class="dropdown-item">Cerrar sesión</a>
 			</div>
 		</li>
 	</ul>

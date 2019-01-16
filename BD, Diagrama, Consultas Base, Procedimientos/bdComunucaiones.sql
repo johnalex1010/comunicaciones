@@ -632,6 +632,7 @@ DELIMITER //
                 INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
                 INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
                 INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+                INSERT INTO t_resusuario(id_usuario, numST) VALUES (7, _numST);
                 INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
             ELSE
                 INSERT INTO t_adjunto(numST, adjunto) VALUES (_numST, _adjunto);
@@ -666,6 +667,7 @@ DELIMITER //
         BEGIN
             INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+            INSERT INTO t_resusuario(id_usuario, numST) VALUES (7, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
             INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_tarjetas(nombreTarjeta, fechaTarjeta, mensaje, numST) VALUES (_nombreTarjeta, _fechaTarjeta, _mensaje, _numST);
@@ -704,6 +706,7 @@ DELIMITER //
         BEGIN
             INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+            INSERT INTO t_resusuario(id_usuario, numST) VALUES (7, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
             INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_condolencias(nombreDoliente, cargoDoliente, id_facDep, nombreFallecido, parentesco, lugarVelacion, fechaVelacion, horaVelacion, numST) VALUES (_nombreDoliente, _cargo, _id_facDepCondo, _nombreFallecido, _parentesco, _lugarVelacion, _fechaVelacion, _horaVelacion, _numST);
@@ -736,6 +739,7 @@ DELIMITER //
             IF NOT EXISTS (SELECT numST FROM t_solicitud WHERE numST=_numST) THEN
                 INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
                 INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+                INSERT INTO t_resusuario(id_usuario, numST) VALUES (7, _numST);
                 INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
                 INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
                 INSERT INTO t_aprobMate(nomAprobacion, numST) VALUES (_nomAprobacion, _numST);
@@ -774,6 +778,7 @@ DELIMITER //
         BEGIN
             INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+            INSERT INTO t_resusuario(id_usuario, numST) VALUES (7, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
             INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_newWeb(nombreWeb, subdominio, justificacion, numST) VALUES (_nombreWeb, _subdominio, _justificacion, _numST);
@@ -809,6 +814,7 @@ DELIMITER //
         BEGIN
             INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+            INSERT INTO t_resusuario(id_usuario, numST) VALUES (7, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
             INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_ajusteWeb(urlAjuste, descripcion, numST) VALUES (_urlAjuste, _descripcion, _numST);
@@ -848,6 +854,7 @@ DELIMITER //
         BEGIN
             INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+            INSERT INTO t_resusuario(id_usuario, numST) VALUES (7, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
             INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_capacitacionWeb(nomPersona, telefonoExt, numCelular, emailCapa, fechaCW, horaCW, txtMotivo, numST) VALUES (_nomPersona, _telefonoExt, _numCelular, _emailCapa, _fechaCW, _horaCW, _txtMotivo, _numST);
@@ -882,6 +889,7 @@ DELIMITER //
         BEGIN
             INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+            INSERT INTO t_resusuario(id_usuario, numST) VALUES (7, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
             INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_asesoriaCM(tema, lugar, fechaACM, horaACM, numST) VALUES (_tema, _lugar, _fechaACM, _horaACM, _numST);
@@ -921,6 +929,7 @@ DELIMITER //
             IF NOT EXISTS (SELECT numST FROM t_solicitud WHERE numST=_numST) THEN
                 INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
                 INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+                INSERT INTO t_resusuario(id_usuario, numST) VALUES (7, _numST);
                 INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
                 INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
                 INSERT INTO t_campaniascm(nombreCam, justificacion, objetivo, descripcion, fechaHoraIni, fechaHoraFin, palabrasClaves, numST) VALUES (_nombreCam, _justificacion, _objetivo, _descripcion, _fechaHoraIni, _fechaHoraFin, _palabrasClaves, _numST);                
@@ -963,6 +972,7 @@ DELIMITER //
             IF NOT EXISTS (SELECT numST FROM t_solicitud WHERE numST=_numST) THEN
                 INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
                 INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+                INSERT INTO t_resusuario(id_usuario, numST) VALUES (7, _numST);
                 INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
                 INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
                 INSERT INTO t_crearedescm(nomPerfil, emailPersonal, descripcion, direccion, telPerfil, emailPerfil, numST) VALUES (_nomPerfil, _emailPersonal, _descripcion, _direccion, _telPerfil, _emailPerfil, _numST);
@@ -1004,6 +1014,7 @@ DELIMITER //
         BEGIN
             INSERT INTO t_solicitud(numST, nombre, email, id_facDep, telefono) VALUES (_numST, _nombres, _email, _id_facDep, _telefono);
             INSERT INTO t_resusuario(id_usuario, numST) VALUES (_id_usuario, _numST);
+            INSERT INTO t_resusuario(id_usuario, numST) VALUES (7, _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
             INSERT INTO t_resunidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
             INSERT INTO t_evento(id_tipoEvento, nombreEvento, lugar, fechaInicio, fechaFin, hora, numTIC, txtLineamientos, numST) VALUES (_id_tipoEvento, _nombreEvento, _lugar, _fechaInicio, _fechaFin, _hora, _numTIC, _txtLineamientos, _numST);

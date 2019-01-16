@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 		$error[0] = "El campo es obligatorio";
 	}else{
 		$campoNombre = $_POST['campoNombre'];
-		$patron = '/^[a-zA-ZÑñ, ]*$/';
+		$patron = '/^[a-zA-ZÑñáéíóúÁÉÍÓÚ, ]*$/';
 		if(preg_match($patron,$campoNombre)){
 			$_SESSION['campoNombre'] = $campoNombre;
         }else{

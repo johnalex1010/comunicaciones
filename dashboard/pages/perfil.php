@@ -7,5 +7,6 @@ if (!isset($_SESSION['usuario'])) {
 	header('Location:' . URL . 'pages/login.php');
 }
 require_once '../models/model.usuario.php';
+require_once '../models/update/model.up.perfil.php';
 require_once '../views/view.perfil.php';
 ?>

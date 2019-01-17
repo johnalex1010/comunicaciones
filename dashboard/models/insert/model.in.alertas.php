@@ -34,7 +34,7 @@
 
 						$usuario = 1; // Usuario del sistema
 						$maxT['id_fase'];
-						$comentario = "El usuario <b>".$uSela['nombres']." ".$uSela['apellidos']."</b> agregó una nueva alerta para el día <b>".$_POST['fecha_alerta']."</b>.";
+						$comentario = "El usuario <b>".$uSela['nombres']." ".$uSela['apellidos']."</b> agregó una nueva alerta para el día <b>".fecha($_POST['fecha_alerta'])."</b>.";
 
 						$inAddUser = $conexion->prepare("INSERT INTO t_trasabilidad (id_fase, numST, fecha, comentario, id_usuario) VALUES (:id_fase, :numST, :fecha, :comentario, :id_usuario)");
 					

@@ -20,7 +20,7 @@
     <li class="nav-item">
       <a class="nav-link" href="<?php echo URL ?>pages/admin.php">
         <i class="menu-icon mdi mdi-television"></i>
-        <span class="menu-title">Dashboard</span>
+        <span class="menu-title">Inicio</span>
       </a>
     </li>
     <!-- <li class="nav-item">

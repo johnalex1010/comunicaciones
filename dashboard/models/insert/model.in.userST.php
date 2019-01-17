@@ -10,7 +10,7 @@
 				$sustTotal = $sustTotal->fetch()['totalRU'];
 
 				if ($sustTotal == 0) {
-					//Agregar usuario a la ST
+					// //Agregar usuario a la ST
 					$addUser = $conexion->prepare("INSERT INTO t_resusuario (id_usuario, numST) VALUES (:id_usuario, :numST)");
 					$addUser->execute(
 						array(
@@ -44,6 +44,8 @@
 						)
 					);
 					unset($_POST['userST']);
+					include '../../mailer/e_addUser.php';
+
 					header('Location:'. URL."pages/trazabilidad.php?ST=".$ts['numST']);
 				}else{
 					$popMjs = "Este usuario ya ha sido agregado previamente.";

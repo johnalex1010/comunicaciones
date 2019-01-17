@@ -11,5 +11,5 @@
 
 	//CORREOS
 	$correoContacto = 'prof.sopweb@usantotomas.edu.co'; //pass = 123456789
-	$correoSolicitudes = 'prof.sopweb@usantotomas.edu.co';
+	$correoSolicitudes = 'secre.comunicaciones@usantotomas.edu.co';
 ?>

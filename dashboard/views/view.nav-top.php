@@ -1,9 +1,6 @@
 <?php
 require_once '../models/model.usuario.php';
 require_once '../models/model.alerta.php';
-
-
-
 ?>
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
@@ -19,6 +16,7 @@ require_once '../models/model.alerta.php';
 	<ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
 		<?php
 		for ($i = 0; $i < $totalAl; $i++){
+			// $mostrar = 0;
 			$date1 = date('Y-m-d');
 			$date2 = $consultaAl[$i]['fecha_alerta'];
 			if ($date1 <= $date2) {
@@ -26,17 +24,17 @@ require_once '../models/model.alerta.php';
 				$date2 = new DateTime($date2);
 				$diff = $date1->diff($date2);
 				$diferencia = $diff->days;
+
 				if ($diferencia <= 5){
-					$mostrar = true;
-				}else{
-					$mostrar = false;
+					$mostrar = 1;
 				}
 			}
 		}
-		if ($mostrar == true) {
+		// echo $mostrar;
+		if ($mostrar == 1) {
 		?>
 		<li class="nav-item	">
-			<a  href="<?php echo URL ?>pages/alertas.php" class="nav-link  text-warning" style="font-size: 0.9rem;"><i class="fa fa-warning text-warning" ></i>Alertas Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis laudantium .</a>
+			<a  href="<?php echo URL ?>pages/alertas.php" class="nav-link  text-warning" style="font-size: 0.9rem;"><i class="fa fa-warning text-warning" ></i>Hay alertas que expirarán proximamente. Ver aquí</a>
 		</li>
 		<?php
 		}

@@ -1,13 +1,12 @@
 <?php
-session_start();
-$numST = $_SESSION['numST'];
 // ENVIAR CORREO ==============================================================
 /*
 Primero, obtenemos el listado de e-mails
 desde nuestra base de datos y la incorporamos a un Array.
 */
 require("datos-email.php");
-$array = array($correoSolicitudes, "prof.sopweb@usantotomas.edu.co");
+$array = array($uSelb['email']);
+// $array = array("prof.sopweb@usantotomas.edu.co");
 
 /* 
 Incluimos el PHPMailerAutoload, que se encarga de incorporar 
@@ -33,8 +32,8 @@ $mail->CharSet = 'UTF-8';
 $mail->From = $correoContacto; // Nuestro correo electrónico
 $mail->FromName = 'Universidad Santo Tomás'; // El nombre de nuestro sitio o proyecto
 $mail->IsHTML(true); // Indicamos que el email tiene formato HTML                      
-$mail->Subject = "Nueva solicitud"; // El asunto del email
-$mail->Body = "<p>Prueba de correo ST:". $numST ."</p>"; // El cuerpo de nuestro mensaje
+$mail->Subject = "A sido asignado a una solicitud"; // El asunto del email
+$mail->Body = "<p>Hola ".$uSelb['nombres']." ".$uSelb['apellidos'].", el usuario ".$uSela['nombres']." ".$uSela['apellidos']." te asignó a la ST: <b>".$ts['numST']."</b>"; // El cuerpo de nuestro mensaje
 
 // Recorremos nuestro array de e-mails.
 

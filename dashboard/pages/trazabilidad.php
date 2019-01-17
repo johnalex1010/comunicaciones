@@ -7,6 +7,7 @@ if (!isset($_SESSION['usuario'])) {
 	header('Location:' . URL . 'pages/login.php');
 }
 $ST = $_GET['ST'];
+require_once '../models/model.functions.php';
 require_once '../models/model.tipo-solicitud.php';
 require_once '../models/model.trazabilidad.php';
 require_once '../models/model.usuarioAsignados.php';

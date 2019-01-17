@@ -34,7 +34,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 					include_once '../../php/incrus/in_aprobacionMaterial.php';
 				}
 			}else{
-				$error[0][1] = "El archivo adjunto debe ser un ZIP o Word de máximo 1MB";
+				$error[0][1] = "El archivo adjunto debe ser un ZIP";
 			}
 		}else{
 			$error[0][1] = "El archivo adjunto es obligatorio";

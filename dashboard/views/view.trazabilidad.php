@@ -128,7 +128,7 @@
 						<h4 class="card-title">Alertas</h4>
 						<ul class="list-arrow ">
 							<?php for ($i=0; $i < $totalA; $i++): ?>
-							<li>Alerta creada por <b class="text-success"><?php echo $consultaA[$i]['usuario']."</b> para el <b class='text-info'>".$consultaA[$i]['fecha_alerta'] ?></b></li>
+							<li>Alerta creada por <b class="text-success"><?php echo $consultaA[$i]['usuario']."</b> para el <b class='text-info'>".fecha($consultaA[$i]['fecha_alerta']); ?></b></li>
 							<?php endFor ?>
 						</ul>
 						<?php if ($maxT['id_fase'] != 2): ?>

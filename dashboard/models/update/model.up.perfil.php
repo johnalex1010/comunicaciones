@@ -1,12 +1,3 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <?php
 	if (isset($_POST['submitPerfil'])) {
 		$a = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM t_usuario WHERE usuario=:usuario");
@@ -41,7 +32,7 @@
 						echo $popMjs = "La contraseña no es igual";
 					}
 				}
-
+				// $popMjs = "Datos guardados";
 				$upPerfil = $conexion->prepare("UPDATE t_usuario SET password=:password, nombres=:nombres, apellidos=:apellidos WHERE usuario=:usuario");
 				$upPerfil->execute(
 					array(
@@ -51,8 +42,10 @@
 						'password' => $password
 					)
 				);
-				// header('Location:'. URL."pages/perfil.php");
-				$popMjs = "Datos guardados";
+
+				// $upPerfil->close();
+				header('Location:'. URL."pages/perfil.php");
+				
 			}
 		}else{
 			$popMjs = "<p class='btn btn-rounded btn-inverse-danger'>Usuario y contraseña incorrectos</p><br>";

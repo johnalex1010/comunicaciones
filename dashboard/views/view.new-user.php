@@ -103,7 +103,7 @@
           </div>
           <?php endif ?>         
         </div>
-        </form>
+        
       <!-- //FIN CONTENIDO AQUÍ -->
         </div>
         <!-- content-wrapper ends -->

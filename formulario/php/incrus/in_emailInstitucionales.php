@@ -45,7 +45,7 @@ session_start();
 		}
 		mysqli_close($conexion);
 
-		$_SESSION['adjMailInsti3'] = $_FILES['adjMailInsti']['name'];
+		$_SESSION['adjMailInsti'] = $_FILES['adjMailInsti']['name'];
 		$_SESSION['numST'] = $newST;
 
 		//Se pregunta si exíste la consulta

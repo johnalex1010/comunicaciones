@@ -21,7 +21,7 @@ class Conection
 	{
 		$user = "root";
 		$password = "Usta2018*";
-		$db_name = "bdcomunicaciones";
+		$db_name = "bdComunicaciones";
 		$host = "localhost";
 		$conection_info = "mysql:host=$host;dbname=$db_name";
 

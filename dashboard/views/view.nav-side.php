@@ -8,7 +8,7 @@
             <img src="<?php echo URL ?>public/images/usuarios/<?php echo $consulta['usuario'] ?>.jpg" alt="profile image">
           </div> -->
           <div class="text-wrapper">
-            <p class="profile-name"><?php echo $consulta['usuario']; ?></p>
+            <p class="profile-name"><?php echo $consulta['nombres']." ".$consulta['apellidos']; ?></p>
             <div>
               <small class="designation text-muted"><?php echo $consulta['cargo']; ?></small>
             </div>

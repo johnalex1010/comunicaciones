@@ -2,7 +2,7 @@
 	define('URL', 'http://172.16.8.234/JohnAlexUSTA/comunicaciones/dashboard/');
 	define('URLF', 'http://172.16.8.234/JohnAlexUSTA/comunicaciones/formulario/');
 	define('HOST', 'localhost');
-	define('DB', 'bdcomunicaciones');
+	define('DB', 'bdComunicaciones');
 	define('USER', 'root');
 	define('PASSWORD', 'Usta2018*');
 	define('CHARSET', 'utf8mb4');

@@ -17,18 +17,44 @@ class PaginationModel extends Conection
 			$this->query = $query;
 		}
 		else
-		{
-			$this->query = "SELECT t.*, f.fase, u.usuario, s.fecha_ingreso
-			FROM " . addslashes($query). " t
+		{	
+			if (empty($_GET['ST']) AND empty($_GET['fecha_ingreso']) AND empty($_GET['usuario']) AND !empty($_GET['estado'])) {
+				$groupNumST = "GROUP BY t.numST";
+			}else{
+				$groupNumST = "";
+			}	
+
+			if (!empty($_GET['ST'])) {
+				$a[] = "AND t.numST LIKE '%".$_GET['ST']."%'";
+			}
+
+			if (!empty($_GET['fecha_ingreso'])) {
+				$a[] = "AND s.fecha_ingreso='".$_GET['fecha_ingreso']."'";
+			}
+
+
+			if (!empty($_GET['estado'])) {
+				$a[] = "AND f.id_fase='".$_GET['estado']."'";
+			}
+
+			if (!empty($_GET['usuario'])) {
+				$a[] = "AND u.id_usuario='".$_GET['usuario']."'";
+			}
+
+			$this->query = "SELECT t.*, f.fase, ru.id_usuario, s.fecha_ingreso
+			FROM t_trasabilidad t
 			INNER JOIN t_fase f
 			ON t.id_fase = f.id_fase
+			INNER JOIN t_resusuario ru
+			ON t.numST = ru.numST
 			INNER JOIN t_usuario u
-			ON t.id_usuario = u.id_usuario
+			ON ru.id_usuario = u.id_usuario
 			INNER JOIN t_solicitud s
 			ON t.numST = s.numST
 			WHERE
 			t.id_fase = f.id_fase
-			AND t.id_trasabilidad IN (SELECT MAX(id_trasabilidad) FROM " . addslashes($query). " GROUP BY numST) ";
+			AND ru.id_usuario = u.id_usuario
+			AND t.id_trasabilidad IN (SELECT MAX(id_trasabilidad) FROM t_trasabilidad GROUP BY numST) ".implode(" ", $a)." ".$groupNumST;			
 		}
 	}	
 

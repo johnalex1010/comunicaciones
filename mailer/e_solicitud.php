@@ -8,7 +8,7 @@ desde nuestra base de datos y la incorporamos a un Array.
 */
 require("datos-email.php");
 $array = array("prof.sopweb@usantotomas.edu.co");
-//$array = array($correoSolicitudes, "prof.sopweb@usantotomas.edu.co");
+//$array = array($correoSolicitudes);
 
 /* 
 Incluimos el PHPMailerAutoload, que se encarga de incorporar 

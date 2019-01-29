@@ -149,7 +149,7 @@ if ($row = mysqli_fetch_row($rst)) {
 
 		for ($j=0; $j < $countOBJPu; $j++) {
 			$ojP = $id_objPublico[$j];
-			$inObjP = 'INSERT INTO t_resobjpublico(id_objPublico, numST) VALUES ("'.$ojP.'","'.$newST.'")';
+			$inObjP = 'INSERT INTO t_resObjpublico(id_objPublico, numST) VALUES ("'.$ojP.'","'.$newST.'")';
 			$rstObjP = $conexion->query($inObjP);
 		}
 
@@ -165,13 +165,13 @@ if ($row = mysqli_fetch_row($rst)) {
 			$impreT = $timp[$m];
 			$impreC = $cimp[$m];
 
-			$inIMP = 'INSERT INTO t_respiezaimp (id_piezaImp, id_acabadoImp, id_papelImp, cantidad, numST) VALUES ("'.$impreP.'", "'.$impreA.'", "'.$impreT.'", "'.$impreC.'", "'.$newST.'")';
+			$inIMP = 'INSERT INTO t_resPiezaImp (id_piezaImp, id_acabadoImp, id_papelImp, cantidad, numST) VALUES ("'.$impreP.'", "'.$impreA.'", "'.$impreT.'", "'.$impreC.'", "'.$newST.'")';
 			$rstIMP = $conexion->query($inIMP);
 		}
 
 		for ($n=0; $n < $countDIG; $n++) { 
 			$digital = $dig[$n];
-			$inDIG = 'INSERT INTO t_respiezadig (id_piezaDig, numST) VALUES ("'.$digital.'", "'.$newST.'")';
+			$inDIG = 'INSERT INTO t_resPiezaDig (id_piezaDig, numST) VALUES ("'.$digital.'", "'.$newST.'")';
 			$rstDIG = $conexion->query($inDIG);
 		}
 
@@ -182,7 +182,7 @@ if ($row = mysqli_fetch_row($rst)) {
 		}
 		
 		if (!empty($tipoSitio)) {
-			$inCubri = 'INSERT INTO t_requerimientoweb(tipoWeb, justificacionWeb, numST) VALUES ("'.$tipoSitio.'","'.$justificacionWeb.'","'.$newST.'")';
+			$inCubri = 'INSERT INTO t_requerimientoWeb(tipoWeb, justificacionWeb, numST) VALUES ("'.$tipoSitio.'","'.$justificacionWeb.'","'.$newST.'")';
 			$rstCubri = $conexion->query($inCubri);
 		}
 		mysqli_close($conexion);
@@ -207,7 +207,8 @@ if ($row = mysqli_fetch_row($rst)) {
 
 				if($exito){
 					//Redirección al resumen.
-					header('Location:../../php/resumen/eventoResumen.php');
+					// header('Location:../../php/resumen/eventoResumen.php');
+					echo "<script>window.location.replace('../../php/resumen/eventoResumen.php');</script>";
 				}
 			}
 		}else{

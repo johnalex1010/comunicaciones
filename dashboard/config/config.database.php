@@ -1,12 +1,13 @@
 <?php
 /* Conexión a la base de datos para todo el core */
 $host = constant('HOST');
-$db = constant('DB');
+$db_name = constant('DB');
 $user = constant('USER');
-$pass = constant('PASSWORD');
+$password = constant('PASSWORD');
 $charset = constant('CHARSET');
+
 try{
-	$conexion = new PDO('mysql:host='.$host.';dbname='.$db.'', ''.$user.'', ''.$pass.'', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES  \'UTF8\''));
+	$conexion = new PDO('mysql:host='.$host.';dbname='.$db_name.'', ''.$user.'', ''.$password.'', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES  \'UTF8\''));
 }catch(PDOException $e){
 	echo "Errror: " . $e->getMessage();
 	die();
@@ -19,10 +20,10 @@ class Conection
 
 	function __construct()
 	{
-		$user = "root";
-		$password = "Usta2018*";
-		$db_name = "bdComunicaciones";
-		$host = "localhost";
+		$host = constant('HOST');
+		$db_name = constant('DB');
+		$user = constant('USER');
+		$password = constant('PASSWORD');
 		$conection_info = "mysql:host=$host;dbname=$db_name";
 
 		try

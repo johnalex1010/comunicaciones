@@ -2,7 +2,7 @@
 	if (isset($_POST['submitUserST'])) {
 		if ($perT['perT'] == 1) {
 			if (!empty($_POST['userST'])) {
-				$sust = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS  * FROM t_resusuario WHERE numST=:numST AND id_usuario=:id_usuario");
+				$sust = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS  * FROM t_resUsuario WHERE numST=:numST AND id_usuario=:id_usuario");
 				$sust->execute(array(':numST'=> $ts['numST'], ':id_usuario'=> $_POST['userST']));
 				$sust = $sust->fetchAll(PDO::FETCH_ASSOC);
 
@@ -11,7 +11,7 @@
 
 				if ($sustTotal == 0) {
 					// //Agregar usuario a la ST
-					$addUser = $conexion->prepare("INSERT INTO t_resusuario (id_usuario, numST) VALUES (:id_usuario, :numST)");
+					$addUser = $conexion->prepare("INSERT INTO t_resUsuario (id_usuario, numST) VALUES (:id_usuario, :numST)");
 					$addUser->execute(
 						array(
 							':id_usuario' => $_POST['userST'],

@@ -3,9 +3,9 @@ $consultaUno = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS
 	CCM.*,
 	OBJ.listPublico
 FROM
-	t_campaniascm AS CCM,
-	t_objpublico AS OBJ,
-	t_resobjpublico AS ROBJ
+	t_campaniasCM AS CCM,
+	t_objPublico AS OBJ,
+	t_resObjpublico AS ROBJ
 WHERE
 	CCM.numST=ROBJ.numST
 	AND ROBJ.id_objPublico=OBJ.id_objPublico

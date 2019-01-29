@@ -47,7 +47,7 @@
 
 		for ($i=0; $i < $count; $i++) { 
 			//LLamo el pricedimiento almacenado
-			$a = "SELECT id_tipoRedSocial FROM t_tiporedsocial WHERE id_tipoRedSocial=".$id_tipoRedSocial[$i]."";
+			$a = "SELECT id_tipoRedSocial FROM t_tipoRedSocial WHERE id_tipoRedSocial=".$id_tipoRedSocial[$i]."";
 			$ra = $conexion->query($a);
 			$rowa = mysqli_fetch_row($ra);
 			$rs = $rowa[0];

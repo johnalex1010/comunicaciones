@@ -45,7 +45,7 @@ class PaginationModel extends Conection
 			FROM t_trasabilidad t
 			INNER JOIN t_fase f
 			ON t.id_fase = f.id_fase
-			INNER JOIN t_resusuario ru
+			INNER JOIN t_resUsuario ru
 			ON t.numST = ru.numST
 			INNER JOIN t_usuario u
 			ON ru.id_usuario = u.id_usuario

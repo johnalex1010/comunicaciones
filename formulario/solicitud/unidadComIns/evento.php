@@ -1,7 +1,5 @@
-
 <?php 
 	session_start();
-
 	set_time_limit(300);
 
 	if ($_SESSION['home'] == 0) {
@@ -59,7 +57,7 @@
 							if ($_POST['tipoEvento'] == "") {
 								echo "<option value='' disable selected>- - -</option>";
 							}else{
-								$s = "SELECT tipoEvento FROM t_tipoevento WHERE id_tipoEvento='".$_POST['tipoEvento']."'";
+								$s = "SELECT tipoEvento FROM t_tipoEvento WHERE id_tipoEvento='".$_POST['tipoEvento']."'";
 								$rs = $conexion->query($s);
 								$row = mysqli_fetch_array($rs);
 								echo "<option value='".$_POST['tipoEvento']."' selected>".$row['tipoEvento']."</option>";
@@ -204,7 +202,7 @@
 						<div class="celda celdax70r">
 							<div id="itemsIMP">
 								<?php
-									$i = "SELECT P.listPiezaImp, A.listAcabadoImp, PP.listPapelImp FROM t_piezaimp AS P, t_acabadoimp AS A, t_papelimp AS PP WHERE P.id_piezaImp='".$_POST['ImpPieza'][0]."' AND A.id_acabadoImp='".$_POST['ImpAcabado'][0]."' AND PP.id_papelImp='".$_POST['ImpTP'][0]."'";
+									$i = "SELECT P.listPiezaImp, A.listAcabadoImp, PP.listPapelImp FROM t_piezaImp AS P, t_acabadoImp AS A, t_papelImp AS PP WHERE P.id_piezaImp='".$_POST['ImpPieza'][0]."' AND A.id_acabadoImp='".$_POST['ImpAcabado'][0]."' AND PP.id_papelImp='".$_POST['ImpTP'][0]."'";
 									$rsi = $conexion->query($i);
 									$fi = mysqli_fetch_array($rsi);
 									if (!empty($_POST['ImpPieza'][0])) {
@@ -255,7 +253,7 @@
 									$c = count($_POST['ImpPieza']);
 									for ($i=1; $i < $c; $i++) {
 										if (!empty($_POST['ImpPieza'][$i])){
-											$imp = "SELECT P.listPiezaImp, A.listAcabadoImp, PP.listPapelImp FROM t_piezaimp AS P, t_acabadoimp AS A, t_papelimp AS PP WHERE P.id_piezaImp='".$_POST['ImpPieza'][$i]."' AND A.id_acabadoImp='".$_POST['ImpAcabado'][$i]."' AND PP.id_papelImp='".$_POST['ImpTP'][$i]."'";
+											$imp = "SELECT P.listPiezaImp, A.listAcabadoImp, PP.listPapelImp FROM t_piezaImp AS P, t_acabadoImp AS A, t_papelImp AS PP WHERE P.id_piezaImp='".$_POST['ImpPieza'][$i]."' AND A.id_acabadoImp='".$_POST['ImpAcabado'][$i]."' AND PP.id_papelImp='".$_POST['ImpTP'][$i]."'";
 											// $imp = "SELECT P.listPiezaImp FROM t_piezaimp AS P WHERE P.id_piezaImp='".$_POST['ImpPieza'][$i]."'";
 											$rsi = $conexion->query($imp);
 											$fimp = mysqli_fetch_array($rsi);
@@ -370,7 +368,7 @@
 						<div class="celda celdax70r">
 							<div id="itemsDIG">
 								<?php
-									$d = "SELECT listPiezaDig FROM t_piezadig WHERE id_piezaDig='".$_POST['inputDIG'][0]."'";
+									$d = "SELECT listPiezaDig FROM t_piezaDig WHERE id_piezaDig='".$_POST['inputDIG'][0]."'";
 									$rsd = $conexion->query($d);
 									$f = mysqli_fetch_array($rsd);
 									if (!empty($_POST['inputDIG'][0])) {
@@ -391,7 +389,7 @@
 									$c = count($_POST['inputDIG']);
 									for ($i=1; $i < $c; $i++) {
 										if (!empty($_POST['inputDIG'][$i])){
-											$d = "SELECT listPiezaDig FROM t_piezadig WHERE id_piezaDig='".$_POST['inputDIG'][$i]."'";
+											$d = "SELECT listPiezaDig FROM t_piezaDig WHERE id_piezaDig='".$_POST['inputDIG'][$i]."'";
 											$rsd = $conexion->query($d);
 											$f = mysqli_fetch_array($rsd);
 								?>

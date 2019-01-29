@@ -41,8 +41,8 @@ if (isset($_POST['submit'])) {
 		$error[2] = "El campo es obligatorio";
 	}else{
 		$campoFacDep = $_POST['campoFacDep'];
-		$_SESSION['campoFacDep'] = $campoFacDep;
-		$facDep = "SELECT * FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep'];
+		echo $_SESSION['campoFacDep'] = $campoFacDep;
+		$facDep = "SELECT * FROM t_facDep WHERE id_facDep =".$_SESSION['campoFacDep'];
 		$rst = $conexion->query($facDep);
 		$row = mysqli_fetch_row($rst);
 		$idfacDep = $row[0];

@@ -47,7 +47,7 @@
 
 		for ($i=0; $i < $count; $i++) { 
 			//LLamo el pricedimiento almacenado
-			$a = "SELECT id_objPublico FROM t_objpublico WHERE id_objPublico=".$id_objPublico[$i]."";
+			$a = "SELECT id_objPublico FROM t_objPublico WHERE id_objPublico=".$id_objPublico[$i]."";
 			$ra = $conexion->query($a);
 			$rowa = mysqli_fetch_row($ra);
 			$public = $rowa[0];

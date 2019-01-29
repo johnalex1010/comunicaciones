@@ -9,7 +9,7 @@ set_time_limit(300);
 	include_once '../conexion.php';
 	include_once '../funciones/tooltip.php';
 	//Insertar ST. Solicitud de Capacitación Web
-	$facDep = "SELECT f.facDep FROM t_facdep AS f WHERE f.id_facDep =".$_SESSION['campoFacDep']."";
+	$facDep = "SELECT f.facDep FROM t_facDep AS f WHERE f.id_facDep =".$_SESSION['campoFacDep']."";
 	$rst = $conexion->query($facDep);
 	$rowF = mysqli_fetch_row($rst);
 ?>
@@ -33,7 +33,7 @@ set_time_limit(300);
 <body>
 
 <?php
-$s = "SELECT E.*, TE.tipoEvento FROM t_evento AS E,	t_tipoevento AS TE WHERE TE.id_tipoEvento=E.id_tipoEvento AND E.numST='".$_SESSION['numST']."'";
+$s = "SELECT E.*, TE.tipoEvento FROM t_evento AS E,	t_tipoEvento AS TE WHERE TE.id_tipoEvento=E.id_tipoEvento AND E.numST='".$_SESSION['numST']."'";
 $rs = $conexion->query($s);
 $row = mysqli_fetch_array($rs);
 ?>
@@ -104,7 +104,7 @@ $row = mysqli_fetch_array($rs);
 			<ul>
 				<ul>
 				<?php
-					$cu = "SELECT A.listAudioVisual FROM t_cubrimiento AS C, t_audiovisual AS A WHERE C.id_audiovisual=A.id_audioVisual AND C.numST='".$_SESSION['numST']."'";
+					$cu = "SELECT A.listAudioVisual FROM t_cubrimiento AS C, t_audioVisual AS A WHERE C.id_audioVisual=A.id_audioVisual AND C.numST='".$_SESSION['numST']."'";
 					$rsCU = $conexion->query($cu);
 
 					$numeroCU = mysqli_num_rows($rsCU);
@@ -124,7 +124,7 @@ $row = mysqli_fetch_array($rs);
 		<div class="celda celdax3">
 			<h3>Sitio web para el evento</h3>
 			<?php
-				$web = "SELECT * FROM t_requerimientoweb WHERE numST='".$_SESSION['numST']."'";
+				$web = "SELECT * FROM t_requerimientoWeb WHERE numST='".$_SESSION['numST']."'";
 				$rsWeb = $conexion->query($web);
 				$rowWeb = mysqli_fetch_array($rsWeb);
 			?>
@@ -144,7 +144,7 @@ $row = mysqli_fetch_array($rs);
 					<th>Cantidad</th>
 				</tr>
 				<?php
-					$imp = "SELECT p.listPiezaImp, a.listAcabadoImp, tp.listPapelImp, rs.cantidad FROM t_respiezaimp AS rs, t_piezaimp AS p, t_acabadoimp AS a, t_papelimp AS tp WHERE rs.id_piezaImp=p.id_piezaImp	AND rs.id_acabadoImp=a.id_acabadoImp AND rs.id_papelImp=tp.id_papelImp AND rs.numST='".$_SESSION['numST']."'";
+					$imp = "SELECT p.listPiezaImp, a.listAcabadoImp, tp.listPapelImp, rs.cantidad FROM t_resPiezaImp AS rs, t_piezaImp AS p, t_acabadoImp AS a, t_papelImp AS tp WHERE rs.id_piezaImp=p.id_piezaImp	AND rs.id_acabadoImp=a.id_acabadoImp AND rs.id_papelImp=tp.id_papelImp AND rs.numST='".$_SESSION['numST']."'";
 					$rsImp = $conexion->query($imp);
 
 					$numImp = mysqli_num_rows($rsImp);
@@ -174,7 +174,7 @@ $row = mysqli_fetch_array($rs);
 					<th>Pieza digital</th>
 				</tr>
 				<?php
-					$dig = "SELECT d.listPiezaDig FROM t_respiezadig AS pd,	t_piezadig AS d WHERE pd.id_piezaDig=d.id_piezaDig AND pd.numST='".$_SESSION['numST']."'";
+					$dig = "SELECT d.listPiezaDig FROM t_resPiezaDig AS pd,	t_piezaDig AS d WHERE pd.id_piezaDig=d.id_piezaDig AND pd.numST='".$_SESSION['numST']."'";
 					$rsDig = $conexion->query($dig);
 					$numDif = mysqli_num_rows($rsDig);
 					if (empty($numDif)) {
@@ -223,7 +223,7 @@ $row = mysqli_fetch_array($rs);
 			<h3>Publico objetivo</h3>
 			<ul>
 				<?php
-					$obj = "SELECT OBJ.listPublico FROM t_resobjpublico AS ROBJ, t_objpublico AS OBJ WHERE ROBJ.id_objPublico=OBJ.id_objPublico AND numST='".$_SESSION['numST']."'";
+					$obj = "SELECT OBJ.listPublico FROM t_resObjpublico AS ROBJ, t_objPublico AS OBJ WHERE ROBJ.id_objPublico=OBJ.id_objPublico AND numST='".$_SESSION['numST']."'";
 					$rsobJ = $conexion->query($obj);					
 
 					$numero = mysqli_num_rows($rsobJ);

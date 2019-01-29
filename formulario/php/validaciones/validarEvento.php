@@ -238,7 +238,8 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 
 	}
 }else{
-	header('Location:../../');
+	// header('Location:../../');
+	echo "<script>window.location.replace('../../');</script>";
 	echo "NO existen";
 }
 ?>

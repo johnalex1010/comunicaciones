@@ -8,7 +8,7 @@
 	// session_destroy();
 	include_once '../conexion.php';
 	//Insertar ST. Solicitud de Capacitación Web
-	$facDep = "SELECT facDep FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep']; // Selescciona la ultima ST igresada en la BD
+	$facDep = "SELECT facDep FROM t_facDep WHERE id_facDep =".$_SESSION['campoFacDep']; // Selescciona la ultima ST igresada en la BD
 	$rst = $conexion->query($facDep);
 	$row = mysqli_fetch_row($rst);
 	$facDep = $row[0];
@@ -33,7 +33,7 @@
 </head>
 <body>
 <?php
-$s = "SELECT AJ.*, ADJ.adjunto FROM t_ajusteweb AS AJ, t_adjunto AS ADJ WHERE AJ.numST=ADJ.numST AND AJ.numST='".$_SESSION['numST']."'";
+$s = "SELECT AJ.*, ADJ.adjunto FROM t_ajusteWeb AS AJ, t_adjunto AS ADJ WHERE AJ.numST=ADJ.numST AND AJ.numST='".$_SESSION['numST']."'";
 $rs = $conexion->query($s);
 $row = mysqli_fetch_array($rs);
 ?>
@@ -72,7 +72,7 @@ $row = mysqli_fetch_array($rs);
 	</div>
 	<div class="cuadricula">
 		<div class="celda celdax2">
-			<h3>Contendo que se va a cambiar/corregir (Adjutno)</h3>
+			<h3>Contendo que se va a cambiar/corregir (Adjunto)</h3>
 			<p><?php echo $row["adjunto"]; ?></p>
 		</div>
 		<div class="celda celdax2">

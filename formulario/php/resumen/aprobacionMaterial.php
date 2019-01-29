@@ -8,7 +8,7 @@
 	// session_destroy();
 	include_once '../conexion.php';
 	//Insertar ST. Solicitud de Capacitación Web
-	$facDep = "SELECT facDep FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep']; // Selescciona la ultima ST igresada en la BD
+	$facDep = "SELECT facDep FROM t_facDep WHERE id_facDep =".$_SESSION['campoFacDep']; // Selescciona la ultima ST igresada en la BD
 	$rst = $conexion->query($facDep);
 	$row = mysqli_fetch_row($rst);
 	$facDep = $row[0];
@@ -33,7 +33,7 @@
 </head>
 <body>
 <?php
-$s="SELECT ad.adjunto, ap.nomAprobacion FROM t_adjunto AS ad, t_aprobmate AS ap WHERE ad.numST='".$_SESSION['numST']."' AND ap.numST='".$_SESSION['numST']."'";
+$s="SELECT ad.adjunto, ap.nomAprobacion FROM t_adjunto AS ad, t_aprobMate AS ap WHERE ad.numST='".$_SESSION['numST']."' AND ap.numST='".$_SESSION['numST']."'";
 $rs = $conexion->query($s);
 for ($i=0; $i<3; $i++) {
 	$row = mysqli_fetch_array($rs);

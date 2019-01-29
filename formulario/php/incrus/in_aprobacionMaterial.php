@@ -29,10 +29,10 @@
 		$fecha = date('Y-m-d');
 		$comentario = 'Ingresa la Solicitud - Mensaje generado por el sistema.';
 
-		echo $_FILES['adjAprobMate']['type'];
-		echo $_FILES['adjAprobMate']['size'];
-		echo $_FILES['adjAprobMate']['name'];
-		echo $_FILES['adjAprobMate']['tmp_name'];
+		$_FILES['adjAprobMate']['type'];
+		$_FILES['adjAprobMate']['size'];
+		$_FILES['adjAprobMate']['name'];
+		$_FILES['adjAprobMate']['tmp_name'];
 		$adjunto = $_FILES['adjAprobMate']['name'];
 
 		$nomAprobMate = $_POST['checkAprobMate'];

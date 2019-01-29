@@ -8,7 +8,7 @@
 	// session_destroy();
 	include_once '../conexion.php';
 	//Insertar ST. Solicitud de Capacitación Web
-	$facDep = "SELECT facDep FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep'];
+	$facDep = "SELECT facDep FROM t_facDep WHERE id_facDep =".$_SESSION['campoFacDep'];
 	$rst = $conexion->query($facDep);
 	$row = mysqli_fetch_row($rst);
 	$facDep = $row[0];
@@ -33,7 +33,7 @@
 </head>
 <body>
 <?php 
-	$s = "SELECT C.*, F.facDep FROM t_condolencias AS C, t_facdep AS F WHERE C.id_facDep=F.id_facDep AND C.numST='".$_SESSION['numST']."'";
+	$s = "SELECT C.*, F.facDep FROM t_condolencias AS C, t_facDep AS F WHERE C.id_facDep=F.id_facDep AND C.numST='".$_SESSION['numST']."'";
 	$rs = $conexion->query($s);
 	$row = mysqli_fetch_array($rs);
 ?>

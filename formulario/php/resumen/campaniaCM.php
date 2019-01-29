@@ -8,7 +8,7 @@
 	// session_destroy();
 	include_once '../conexion.php';
 	//Insertar ST. Solicitud de Capacitación Web
-	$facDep = "SELECT facDep FROM t_facdep WHERE id_facDep =".$_SESSION['campoFacDep']; // Selescciona la ultima ST igresada en la BD
+	$facDep = "SELECT facDep FROM t_facDep WHERE id_facDep =".$_SESSION['campoFacDep']; // Selescciona la ultima ST igresada en la BD
 	$rst = $conexion->query($facDep);
 	$row = mysqli_fetch_row($rst);
 	$facDep = $row[0];
@@ -37,16 +37,16 @@ $s="SELECT
 	C.*,
 	OBJ.listPublico
 FROM
-	t_campaniascm AS C,
-	t_objpublico AS OBJ,
-	t_resobjpublico AS ROBJ
+	t_campaniasCM AS C,
+	t_objPublico AS OBJ,
+	t_resObjpublico AS ROBJ
 WHERE
 	ROBJ.id_objPublico=OBJ.id_objPublico
 	AND C.numST=ROBJ.numST
 	AND C.numST='".$_SESSION['numST']."'";
 $rs = $conexion->query($s);
 $a = array();
-for ($i=0; $i<6; $i++) {
+for ($i=0; $i<7; $i++) {
 	$row = mysqli_fetch_array($rs);
 	$nombreCam[$i] = $row["nombreCam"];
 	$objetivo[$i] = $row["objetivo"];

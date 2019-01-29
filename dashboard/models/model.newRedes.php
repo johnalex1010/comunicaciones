@@ -1,5 +1,5 @@
 <?php
-$consultaUno = $conexion->prepare("SELECT * FROM t_crearedescm WHERE numST=:numST");
+$consultaUno = $conexion->prepare("SELECT * FROM t_creaRedesCM WHERE numST=:numST");
 $consultaUno->execute(array(':numST' => $ST));
 $consultaUno = $consultaUno->fetch();
 /*---------*/
@@ -14,8 +14,8 @@ $totalDos = $totalDos->fetch()['total'];
 $consultaTres = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS
 	TR.redSocial
 FROM
-	t_restrs AS RTR,
-	t_tiporedsocial AS TR
+	t_resTRS AS RTR,
+	t_tipoRedSocial AS TR
 WHERE
 	RTR.id_tipoRedSocial=TR.id_tipoRedSocial
 	AND RTR.numST=:numST");

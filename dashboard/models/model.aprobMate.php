@@ -3,7 +3,7 @@ $consulta = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS
 	AM.*,
 	ADJ.adjunto
 FROM
-	t_aprobmate AS AM,
+	t_aprobMate AS AM,
 	t_adjunto AS ADJ
 WHERE
 	AM.numST=ADJ.numST

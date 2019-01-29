@@ -63,7 +63,7 @@
 				}
 			}
 		}else{
-			echo "Error en la creación de la solicitud, por favoraa";
+			echo "Error en la creación de la solicitud, por favor";
 			session_destroy();
 		}
 	}else{

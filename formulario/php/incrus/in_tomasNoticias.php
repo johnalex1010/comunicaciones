@@ -31,11 +31,10 @@
 
 
 		for ($i=0; $i < 2 ; $i++) { 
-			echo $_FILES['tn']['type'][$i];
-			echo $_FILES['tn']['size'][$i];
-			echo $_FILES['tn']['name'][$i];
-			echo $_FILES['tn']['tmp_name'][$i];
-			echo "<br>";
+			$_FILES['tn']['type'][$i];
+			$_FILES['tn']['size'][$i];
+			$_FILES['tn']['name'][$i];
+			$_FILES['tn']['tmp_name'][$i];
 		}
 		$adjunto = array();
 		$adjunto = $_FILES['tn']['name'];
@@ -70,19 +69,13 @@
 
 				if($exito){
 					//Redirección al resumen.
-					header('Location:../../php/resumen/tomasnoticias.php');
+					header('Location:../../php/resumen/tomasNoticias.php');
 				}
 			}
 		}else{
 			echo "Error en la creación de la solicitud, por favor";
 			session_destroy();
 		}
-
-
-
-
-
-
 	}else{
 		echo "Error en la creación de la solicitud, por favor";
 	}

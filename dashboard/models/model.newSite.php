@@ -3,7 +3,7 @@ $consulta = $conexion->prepare("SELECT
 	NW.*,
 	ADJ.adjunto
 FROM
-	t_newweb AS NW,
+	t_newWeb AS NW,
 	t_adjunto AS ADJ
 WHERE
 	NW.numST=ADJ.numST

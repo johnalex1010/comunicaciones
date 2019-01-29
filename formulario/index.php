@@ -1,11 +1,11 @@
 <?php 
-
+	ob_start();
 	session_start();
 	set_time_limit(300);
 
 	require_once 'php/funciones/tooltip.php';
 	require_once 'php/funciones/campos.php';
-	require_once 'php/validaciones/validarHome.php';
+	include 'php/validaciones/validarHome.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,7 +25,6 @@
 
 </head>
 <body>
-	
 	<div class="content">
 		<!-- HOME -->
 		<div class="home">

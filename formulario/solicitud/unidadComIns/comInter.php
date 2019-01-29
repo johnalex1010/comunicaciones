@@ -129,7 +129,7 @@
 										if ($_POST['condoFacDep'] == "") {
 											echo "<option value='' disable selected>- - -</option>";
 										}else{
-											$s = "SELECT * FROM t_facdep WHERE id_facDep='".$_POST['condoFacDep']."'";
+											$s = "SELECT * FROM t_facDep WHERE id_facDep='".$_POST['condoFacDep']."'";
 											$rs = $conexion->query($s);
 											$row = mysqli_fetch_assoc($rs);
 											echo "<option value='".$row["id_facDep"]."' selected>".$row["facDep"]."</option>";

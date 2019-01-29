@@ -1,5 +1,5 @@
 <?php
-$consultaUno = $conexion->prepare("SELECT E.*, TE.tipoEvento FROM t_evento AS E, t_tipoevento AS TE WHERE E.id_tipoEvento=TE.id_tipoEvento AND numST=:numST");
+$consultaUno = $conexion->prepare("SELECT E.*, TE.tipoEvento FROM t_evento AS E, t_tipoEvento AS TE WHERE E.id_tipoEvento=TE.id_tipoEvento AND numST=:numST");
 $consultaUno->execute(array(':numST' => $ST));
 $consultaUno = $consultaUno->fetch();
 /*--------*/
@@ -12,7 +12,7 @@ $totalDos = $totalDos->fetch()['total'];
 
 /*--------*/
 
-$consultaTres = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS OBJ.listPublico FROM t_objpublico AS OBJ, t_resobjpublico AS ROBJ WHERE ROBJ.id_objPublico=OBJ.id_objPublico AND numST=:numST");
+$consultaTres = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS OBJ.listPublico FROM t_objPublico AS OBJ, t_resObjpublico AS ROBJ WHERE ROBJ.id_objPublico=OBJ.id_objPublico AND numST=:numST");
 $consultaTres->execute(array(':numST' => $ST));
 $consultaTres = $consultaTres->fetchAll(PDO::FETCH_ASSOC);
 $totalTres = $conexion->query("SELECT FOUND_ROWS() AS total");
@@ -26,21 +26,21 @@ $totalCuatro = $conexion->query("SELECT FOUND_ROWS() AS total");
 $totalCuatro = $totalCuatro->fetch()['total'];
 
 /*--------*/
-$consultaCinco = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS A.listAudioVisual FROM t_cubrimiento AS C, t_audiovisual AS A WHERE C.id_audiovisual=A.id_audioVisual AND numST=:numST");
+$consultaCinco = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS A.listAudioVisual FROM t_cubrimiento AS C, t_audioVisual AS A WHERE C.id_audiovisual=A.id_audioVisual AND numST=:numST");
 $consultaCinco->execute(array(':numST' => $ST));
 $consultaCinco = $consultaCinco->fetchAll(PDO::FETCH_ASSOC);
 $totalCinco = $conexion->query("SELECT FOUND_ROWS() AS total");
 $totalCinco = $totalCinco->fetch()['total'];
 
 /*--------*/
-$consultaSeis = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM t_requerimientoweb WHERE numST=:numST");
+$consultaSeis = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM t_requerimientoWeb WHERE numST=:numST");
 $consultaSeis->execute(array(':numST' => $ST));
 $consultaSeis = $consultaSeis->fetchAll(PDO::FETCH_ASSOC);
 $totalSeis = $conexion->query("SELECT FOUND_ROWS() AS total");
 $totalSeis = $totalSeis->fetch()['total'];
 
 /*--------*/
-$consultaSiete = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS D.listPiezaDig FROM t_piezadig AS D, t_respiezadig AS RD WHERE RD.id_piezaDig=D.id_piezaDig AND RD.numST=:numST");
+$consultaSiete = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS D.listPiezaDig FROM t_piezaDig AS D, t_resPiezaDig AS RD WHERE RD.id_piezaDig=D.id_piezaDig AND RD.numST=:numST");
 $consultaSiete->execute(array(':numST' => $ST));
 $consultaSiete = $consultaSiete->fetchAll(PDO::FETCH_ASSOC);
 $totalSiete = $conexion->query("SELECT FOUND_ROWS() AS total");
@@ -53,10 +53,10 @@ $consultaOcho = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS
 	P.listPapelImp,
 	RI.cantidad
 FROM
-	t_piezaimp AS I,
-	t_acabadoimp AS A,
-	t_papelimp AS P,
-	t_respiezaimp AS RI
+	t_piezaImp AS I,
+	t_acabadoImp AS A,
+	t_papelImp AS P,
+	t_respiezaImp AS RI
 WHERE
 	RI.id_piezaImp=I.id_piezaImp
 	AND RI.id_acabadoImp=A.id_acabadoImp

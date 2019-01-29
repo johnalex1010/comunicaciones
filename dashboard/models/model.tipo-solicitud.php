@@ -12,11 +12,11 @@ $ts = $conexion->prepare("SELECT
 	SCAT.subCategoria
 FROM 
 	t_solicitud AS S,
-	t_facdep AS FD,
+	t_facDep AS FD,
 	t_unidad AS U,
 	t_categoria AS CAT,
-	t_subcategoria AS SCAT,
-	t_resunidad AS RU
+	t_subCategoria AS SCAT,
+	t_resUnidad AS RU
 WHERE 
 	RU.id_unidad=U.id_unidad
 	AND RU.id_categoria=CAT.id_categoria

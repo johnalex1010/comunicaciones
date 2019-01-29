@@ -39,14 +39,14 @@ function campoFacDep($con){
 	}
 }
 function tipoEvento($con){
-	$r = "SELECT * FROM t_tipoevento";
+	$r = "SELECT * FROM t_tipoEvento";
 	$rst = $con->query($r);
 	while ($f = mysqli_fetch_array($rst)) {
 		echo "<option value='".$f['id_tipoEvento']."'>".$f['tipoEvento']."</option>";
 	}
 }
 function piezaImpEvento($con){
-	$r = "SELECT * FROM t_piezaimp";
+	$r = "SELECT * FROM t_piezaImp";
 	$rst = $con->query($r);
 	while ($f = mysqli_fetch_array($rst)) {
 		echo "<option value='".$f['id_piezaImp']."'>".$f['listPiezaImp']."</option>";
@@ -54,7 +54,7 @@ function piezaImpEvento($con){
 }
 
 function acabadosImpEvento($con){
-	$r = "SELECT * FROM t_acabadoimp";
+	$r = "SELECT * FROM t_acabadoImp";
 	$rst = $con->query($r);
 	while ($f = mysqli_fetch_array($rst)) {
 		echo "<option value='".$f['id_acabadoImp']."'>".$f['listAcabadoImp']."</option>";
@@ -62,14 +62,14 @@ function acabadosImpEvento($con){
 }
 
 function tipoPapelEvento($con){
-	$r = "SELECT * FROM t_papelimp";
+	$r = "SELECT * FROM t_papelImp";
 	$rst = $con->query($r);
 	while ($f = mysqli_fetch_array($rst)) {
 		echo "<option value='".$f['id_papelImp']."'>".$f['listPapelImp']."</option>";
 	}
 }
 function piezaDigEvento($con){
-	$r = "SELECT * FROM t_piezadig";
+	$r = "SELECT * FROM t_piezaDig";
 	$rst = $con->query($r);
 	while ($f = mysqli_fetch_array($rst)) {
 		echo "<option value='".$f['id_piezaDig']."'>".$f['listPiezaDig']."</option>";

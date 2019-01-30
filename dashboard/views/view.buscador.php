@@ -82,8 +82,8 @@
 								<div class="btn-group" role="group" aria-label="First group" style="margin: auto">
 									<!-- Boton Inicio y siguiente-->
 									<?php if ($data["actual-section"] != 1): ?>
-										<a class="btn btn-primary btn-rounded" href="buscador.php?page=1<?php implode("", $variables) ?>">Inicio</a>
-										<a class="btn btn-primary" href="buscador.php?page=<?php echo $data['previous']; implode("", $variables) ?>">&laquo;</a>	
+										<a class="btn btn-primary btn-rounded" href="buscador.php?page=1<?php echo $v ?>">Inicio</a>
+										<a class="btn btn-primary" href="buscador.php?page=<?php echo $data['previous']; echo $v ?>">&laquo;</a>	
 									<?php endif; ?>
 
 									<!-- Botones numerados-->
@@ -95,8 +95,8 @@
 
 									<!-- Boton Atras y fin-->
 									<?php if ($data["actual-section"] != $data["total-sections"]): ?>
-								    	<a class="btn btn-primary" href="buscador.php?page=<?php echo $data['next']; implode("", $variables) ?>">&raquo;</a>
-								    	<a class="btn btn-primary btn-rounded" href="buscador.php?page=<?php echo $data['total-pages']; implode("", $variables) ?>">Final</a>
+								    	<a class="btn btn-primary" href="buscador.php?page=<?php echo $data['next']; echo $v ?>">&raquo;</a>
+								    	<a class="btn btn-primary btn-rounded" href="buscador.php?page=<?php echo $data['total-pages']; echo $v ?>">Final</a>
 						    		<?php endif; ?>
 								</div>
 							</div>

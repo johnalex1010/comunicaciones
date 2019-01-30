@@ -6,6 +6,7 @@ INNER JOIN t_alertas a
 ON t.numST = a.numST
 WHERE a.fecha_alerta IN (SELECT MAX(fecha_alerta) FROM t_alertas GROUP BY numST)
 AND t.id_trasabilidad IN (SELECT MAX(id_trasabilidad) FROM t_trasabilidad GROUP BY numST)
+GROUP BY a.numST
 ORDER BY a.numST DESC;");
 $consultaAl->execute();
 $consultaAl = $consultaAl->fetchAll(PDO::FETCH_ASSOC);

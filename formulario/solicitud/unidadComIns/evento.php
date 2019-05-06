@@ -38,10 +38,10 @@
 		<div class="home">
 			<div class="titles">
 				<img class="logo" src="../../img/logo.png" alt="Logo">
-				<h3 class="titleThird">Sección Evento</h3>
+				<h3 class="titleThird">Sección Actividades Académicas</h3>
 			</div>
 			<a href="../../" class="btn btn-world btn-inicio">Inicio</a>
-			<p class="txtIntro">Texto explicativo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas beatae, eos nisi officia temporibus aliquid accusamus est maxime atque, voluptatibus commodi facere voluptatum esse quo ipsum expedita corporis ratione, debitis!
+			<p class="txtIntro">Bienvenidos a la sección de Actividades Académicas, recuerde diligenciar todos los cuadros con la información solicitada.
 			</p>
 			<p>Los campos con (<span style="color: #C20201;font-size:2rem;" >•</span>) son obligatorios.</p>
 		</div>
@@ -51,7 +51,7 @@
 		<fieldset>
 		  	<div class="cuadricula">
 		  		<div class="celda celdax3">
-		  			<div class="group tooltip" title="<?php tipoEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+		  			<div class="group tooltip" title="<?php //tipoEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 		  				<select name="tipoEvento" id="tipoEvento">
 						<?php
 							if ($_POST['tipoEvento'] == "") {
@@ -67,61 +67,61 @@
 						</select>
 		  				<span class="bar"></span>
 		  				<span class="required"></span>
-		  				<label>Tipo de evento <span class="error"><?php echo $error[0] = (isset($error[0])) ? $error[0] : ""; ?></span></label>
+		  				<label>Tipo de Actividades Académicas <span class="error"><?php echo $error[0] = (isset($error[0])) ? $error[0] : ""; ?></span></label>
 		  			</div>
 		  		</div>
 		  		<div class="celda celdax3">
-		  			<div class="group tooltip" title="<?php nombreEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+		  			<div class="group tooltip" title="<?php //nombreEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 		  				<input type="text" class="requi" name="nombreEvento" value="<?php echo $_POST['nombreEvento'] = (isset($_POST['nombreEvento'])) ? $_POST['nombreEvento'] : ''; ?>">
 		  				<span class="bar"></span>
 		  				<span class="required"></span>
-		  				<label>Nombre del evento <span class="error"><?php echo $error[1] = (isset($error[1])) ? $error[1] : ""; ?></span></label>
+		  				<label>Nombre del Actividades Académicas <span class="error"><?php echo $error[1] = (isset($error[1])) ? $error[1] : ""; ?></span></label>
 		  			</div>
 		  		</div>
 		  		<div class="celda celdax3">
-		  			<div class="group tooltip" title="<?php lugarEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+		  			<div class="group tooltip" title="<?php //lugarEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 		  				<input type="text" name="lugarEvento"  value="<?php echo $_POST['lugarEvento'] = (isset($_POST['lugarEvento'])) ? $_POST['lugarEvento'] : ''; ?>">
 		  				<span class="bar"></span>
 		  				<span class="required"></span>
-		  				<label>Lugar del evento <span class="error"><?php echo $error[2] = (isset($error[2])) ? $error[2] : ""; ?></span></label>
+		  				<label>Lugar del Actividades Académicas <span class="error"><?php echo $error[2] = (isset($error[2])) ? $error[2] : ""; ?></span></label>
 		  			</div>
 		  		</div>
 		  	</div>
 		  	<div class="cuadricula">
-		  		<div class="celda celdax3">
-		  			<div class="group tooltip" title="<?php fIniEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+		  		<div class="celda celdax2">
+		  			<div class="group tooltip" title="<?php //fIniEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 		  				<input type="date" name="fIniEvento" value="<?php echo $_POST['fIniEvento'] = (isset($_POST['fIniEvento'])) ? $_POST['fIniEvento'] : ''; ?>">
 		  				<span class="bar"></span>
 		  				<span class="required"></span>
-		  				<label>Fecha de inicio del evento <span class="error"><?php echo $error[3] = (isset($error[3])) ? $error[3] : ""; ?></span></label>
+		  				<label>Fecha de inicio de las Actividades Académicas <span class="error"><?php echo $error[3] = (isset($error[3])) ? $error[3] : ""; ?></span></label>
 		  			</div>
 		  		</div>
-		  		<div class="celda celdax3">
-		  			<div class="group tooltip" title="<?php fFinEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+		  		<div class="celda celdax2">
+		  			<div class="group tooltip" title="<?php //fFinEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 		  				<input type="date" class="requi" name="fFinEvento" value="<?php echo $_POST['fFinEvento'] = (isset($_POST['fFinEvento'])) ? $_POST['fFinEvento'] : ''; ?>">
 		  				<span class="bar"></span>
 		  				<span class="required"></span>
-		  				<label>Fecha de finalización del evento <span class="error"><?php echo $error[4] = (isset($error[4])) ? $error[4] : ""; ?></span></label>
-		  			</div>
-		  		</div>
-		  		<div class="celda celdax3">
-		  			<div class="group tooltip" title="<?php horaEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
-		  				<input type="time" name="horaEvento" value="<?php echo $_POST['horaEvento'] = (isset($_POST['horaEvento'])) ? $_POST['horaEvento'] : ''; ?>">
-		  				<span class="bar"></span>
-		  				<span class="required"></span>
-		  				<label>Hora de inicio del evento <span class="error"><?php echo $error[5] = (isset($error[5])) ? $error[5] : ""; ?></span></label>
+		  				<label>Fecha de finalización de las Actividades Académicas <span class="error"><?php echo $error[4] = (isset($error[4])) ? $error[4] : ""; ?></span></label>
 		  			</div>
 		  		</div>
 		  	</div>
-		  	<div class="cuadricula">	
-		  		<div class="celda celdax2">
+		  	<div class="cuadricula">		  		
+		  		<div class="celda celdax3">
+		  			<div class="group tooltip" title="<?php //horaEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+		  				<input type="time" name="horaEvento" value="<?php echo $_POST['horaEvento'] = (isset($_POST['horaEvento'])) ? $_POST['horaEvento'] : ''; ?>">
+		  				<span class="bar"></span>
+		  				<span class="required"></span>
+		  				<label>Hora de inicio de las Actividades Académicas <span class="error"><?php echo $error[5] = (isset($error[5])) ? $error[5] : ""; ?></span></label>
+		  			</div>
+		  		</div>	
+		  		<div class="celda celdax3">
 		  			<div class="group tooltip" title="<?php numTICEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 		  				<input type="text" name="numTICEvento" value="<?php echo $_POST['numTICEvento'] = (isset($_POST['numTICEvento'])) ? $_POST['numTICEvento'] : ''; ?>">
 		  				<span class="bar"></span>
-		  				<label>Numero TIC del evento <span class="error"><span class="error"><?php echo $error[6] = (isset($error[6])) ? $error[6] : ""; ?></span></label>
+		  				<label>Numero TIC de las Actividades Académicas <span class="error"><span class="error"><?php echo $error[6] = (isset($error[6])) ? $error[6] : ""; ?></span></label>
 		  			</div>
 		  		</div>
-		  		<div class="celda celdax2">
+		  		<div class="celda celdax3">
 		  			<div class="group tooltip" title="<?php adjInfoEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 		  				<input type="file" class="requi" name="adjInfoEvento" >
 		  				<span class="bar"></span>
@@ -132,11 +132,11 @@
 		  	</div>
 		  	<div class="cuadricula">
 		  		<div class="celda celdax2 tooltip" title="<?php qCubAUEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
-		  			<p class="colorTxt">¿Su evento requiere cubrimiento Audiovisual? <input type="checkbox" class="requi checkBtn btnCheck1" <?php if (!empty($_POST['tipoCubAUEvento'])) {echo "checked";}?>
+		  			<p class="colorTxt">¿Su Actividad Académica requiere cubrimiento Audiovisual? <input type="checkbox" class="requi checkBtn btnCheck1" <?php if (!empty($_POST['tipoCubAUEvento'])) {echo "checked";}?>
 		  			></p>
 		  		</div>
 		  		<div class="celda celdax2 tooltip" title="<?php qCubWebEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
-		  			<p class="colorTxt">¿Su evento requiere sitioweb? <input type="checkbox" class="requi checkBtn btnCheck2" <?php if (!empty($_POST['tipoCubWEbEvento'])) {echo "checked";}?>></p>
+		  			<p class="colorTxt">¿Su Actividad Académica requiere sitioweb? <input type="checkbox" class="requi checkBtn btnCheck2" <?php if (!empty($_POST['tipoCubWEbEvento'])) {echo "checked";}?>></p>
 		  		</div>
 		  	</div>
 		  	<div class="cuadricula">
@@ -149,7 +149,7 @@
 				</div>
 		  		<div class="celda celdax2 p2" style="display: <?php echo $display = (isset($_POST['tipoCubWEbEvento'])) ? "block" : "none"; ?>">
 		  			<div class="contentCheck">
-						<p class="colorTxt tooltip" title="<?php tipoCubWEbEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Que tipo de sitio web requiere su evento? </p>
+						<p class="colorTxt tooltip" title="<?php tipoCubWEbEventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Que tipo de sitio web requiere su Actividad Académica? </p>
 						<p><input type="radio" class="option-input radio" name="tipoCubWEbEvento" value="Nuevo" 
 							<?php echo $checked = ($_POST['tipoCubWEbEvento'] == "Nuevo") ? $checked = "checked" : "" ?>
 							 /> Nuevo</p>

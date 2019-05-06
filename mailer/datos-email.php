@@ -1,7 +1,7 @@
 <?php 
-	//DATOS DE Microsoft - Dominio CIDCA
+	//DATOS Dominio USTA
 	$user = 'prof.sopweb@usantotomas.edu.co';
-	$pass = 'John$2017';
+	$pass = 'Millos$2019';
 
 	//Puerto, HostSMTP, Cifrado, Autenticación
 	$puerto = '587';
@@ -10,6 +10,5 @@
 	$autenticacion = true;
 
 	//CORREOS
-	$correoContacto = 'prof.sopweb@usantotomas.edu.co'; //pass = 123456789
 	$correoSolicitudes = 'secre.comunicaciones@usantotomas.edu.co';
 ?>

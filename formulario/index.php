@@ -33,7 +33,7 @@
 				<img class="logo" src="img/logo.png" alt="Logo">
 				<!-- <h2 class="titleSecond">Departamento de comunicaciones</h2> -->
 			</div>
-			<p class="txtIntro">Texto explicativo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas beatae, eos nisi officia temporibus aliquid accusamus est maxime atque, voluptatibus commodi facere voluptatum esse quo ipsum expedita corporis ratione, debitis!
+			<p class="txtIntro">Bienvenidos a Solicita, el aplicativo web del Departamento de Comunicaciones que le permitirá realizar la solicitud de piezas publicitarias.
 			</p>
 
 			<button id="myBtn" class="modalVideo">Modal al video explicativo</button>
@@ -56,7 +56,7 @@
 				
 				<div class="cuadricula">
 					<div class="celda celdax2">
-						<div class="group tooltip" title="<?php campoNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+						<div class="group tooltip" title="<?php //campoNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 							<input type="text" name="campoNombre" required value="<?php echo $_SESSION['campoNombre'] = (isset($_SESSION['campoNombre'])) ? $_SESSION['campoNombre'] : ''; ?>">
 							<span class="bar"></span>
 							<span class="required"></span>
@@ -64,7 +64,7 @@
 						</div>
 					</div>
 					<div class="celda celdax2">
-						<div class="group tooltip" title="<?php campoEmailT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+						<div class="group tooltip" title="<?php //campoEmailT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 							<input type="email" required name="campoEmail" value="<?php echo $_SESSION['campoEmail'] = (isset($_SESSION['campoEmail'])) ? $_SESSION['campoEmail'] : ''; ?>">
 							<span class="bar"></span>
 							<span class="required"></span>
@@ -74,7 +74,7 @@
 				</div>
 				<div class="cuadricula">
 					<div class="celda celdax2">
-						<div class="group tooltip" title="<?php campoFacDepT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+						<div class="group tooltip" title="<?php //campoFacDepT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 							<select name="campoFacDep" id="campoFacDep" required>
 							<?php
 								if ($_SESSION['campoFacDep'] == "") {
@@ -91,11 +91,11 @@
 						</div>
 					</div>
 					<div class="celda celdax2">
-						<div class="group tooltip" title="<?php campoTelT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+						<div class="group tooltip" title="<?php //campoTelT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 							<input type="text" required name="campoTel" value="<?php echo $_SESSION['campoTel'] = (isset($_SESSION['campoTel'])) ? $_SESSION['campoTel'] : ''; ?>">
 							<span class="bar"></span>
 							<span class="required"></span>
-							<label>Numero de telefono de contacto <span class="error"><?php echo $error[3] = (isset($error[3])) ? $error[3] : ""; ?></span></label>
+							<label>Numero de teléfono de contacto <span class="error"><?php echo $error[3] = (isset($error[3])) ? $error[3] : ""; ?></span></label>
 						</div>
 					</div>
 				</div>
@@ -118,7 +118,7 @@
 					<ul class="navUnidad">
 						<li>Comunicaciones Institucionales
 							<ul class="subNavUnidad">
-								<li class="tooltip" title="<?php eventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="right"><a href="solicitud/unidadComIns/evento.php">Eventos</a></li>
+								<li class="tooltip" title="<?php eventoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="right"><a href="solicitud/unidadComIns/evento.php">Actividades Académicas</a></li>
 								<!-- <li class="tooltip" title="<?php campaniaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="right"><a href="#">Campañas</a></li> -->
 								<li class="tooltip" title="<?php comInterT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="right"><a href="solicitud/unidadComIns/comInter.php">Comunicaciones Internas</a></li>
 								<li class="tooltip" title="<?php aprobMateT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="right"><a href="solicitud/unidadComIns/aprobMate.php" >Material para aprobación</a></li>

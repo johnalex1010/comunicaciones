@@ -25,9 +25,9 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 
 		/*===== Validar Adjunto Contenido y plan de navgación =====*/
 		if (!empty($_FILES['adjPlanNav']['name'])) {
-			if($_FILES['adjPlanNav']['type'] == "application/zip"){
+			if(($_FILES['adjPlanNav']['type'] == "application/zip") || ($_FILES['adjPlanNav']['type'] == "application/x-zip-compressed")){
 				if ($_FILES['adjPlanNav']['size'] > 8000000) {
-					$error[0][2] = "El archivo adjunto excede el tamaño permitido de 1MB";
+					$error[0][2] = "El archivo adjunto excede el tamaño permitido de 8MB";
 				}else{
 					$_FILES['adjPlanNav']['type'];			
 					$_FILES['adjPlanNav']['size'];			
@@ -35,7 +35,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 					$_FILES['adjPlanNav']['tmp_name'];
 				}
 			}else{
-				$error[0][2] = "El archivo adjunto debe ser un ZIP de máximo 1MB";
+				$error[0][2] = "El archivo adjunto debe ser un ZIP de máximo 8MB";
 			}
 		}else{
 			$error[0][2] = "El archivo adjunto es obligatorio";
@@ -58,7 +58,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar";
 			echo "</div>";
 			echo "</div>";
 		}else{
@@ -90,7 +90,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 
 		/*===== Validar Ajunto de ajustes =====*/
 		if (!empty($_FILES['adjDocWEb']['name'])) {
-			if($_FILES['adjDocWEb']['type'] == "application/zip"){
+			if(($_FILES['adjDocWEb']['type'] == "application/zip") || ($_FILES['adjDocWEb']['type'] == "application/x-zip-compressed")){
 				if ($_FILES['adjDocWEb']['size'] > 8000000) {$error[1][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
 				}else{
 					$_FILES['adjDocWEb']['type'];			
@@ -118,7 +118,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar.";
 			echo "</div>";
 			echo "</div>";
 		}else{
@@ -207,7 +207,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar.";
 			echo "</div>";
 			echo "</div>";
 		}else{

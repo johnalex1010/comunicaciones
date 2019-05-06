@@ -440,7 +440,7 @@ USE bdComunicaciones;
 
 	/*--t_categoria*/
 	INSERT INTO t_categoria VALUES
-	(1, "Eventos", 1),
+	(1, "Actividades Académicas", 1),
 	(2, "Campañas", 1),
 	(3, "Comunicaciones Internas", 1),
 	(4, "Aprobaciones", 1),
@@ -462,7 +462,7 @@ USE bdComunicaciones;
 	(11, "Campañas Redes Sociales", 6),
 	(12, "Asesorias Community Manager", 6),
 	(13, "Aprobación de material", 3),
-	(14, "Evento", 1);
+	(14, "Actividad Académica", 1);
 
 	/*--t_fase*/
 	INSERT INTO t_fase VALUES
@@ -487,58 +487,63 @@ USE bdComunicaciones;
 
 	/*--t_tipoEvento*/
 	INSERT INTO t_tipoEvento VALUES
-	(1, "Tipo Evento 1"),
-	(2, "Tipo Evento 2"),
-	(3, "Tipo Evento 3"),
-	(4, "Tipo Evento 4"),
-	(5, "Tipo Evento 5"),
-	(6, "Tipo Evento 6");
+	(1, "Congreso Nacional"),
+	(2, "Congreso Internacional"),
+	(3, "Conversatorio"),
+	(4, "Encuentro"),
+	(5, "Foro"),
+	(6, "Taller"),
+	(7, "Otro");
 
 	/*--t_piezaDig*/
 	INSERT INTO t_piezaDig VALUES
-	(1, "Tipo Pieza Digital 1"),
-	(2, "Tipo Pieza Digital 2"),
-	(3, "Tipo Pieza Digital 3"),
-	(4, "Tipo Pieza Digital 4"),
-	(5, "Tipo Pieza Digital 5"),
-	(6, "Tipo Pieza Digital 6"),
-	(7, "Tipo Pieza Digital 7"),
-	(8, "Tipo Pieza Digital 8");
+	(1, "Led"),
+	(2, "Mailing"),
+	(3, "Pantallas ");
 
 	/*--t_piezaImp*/
 	INSERT INTO t_piezaImp VALUES
-	(1, "Tipo Pieza Impresa 1"),
-	(2, "Tipo Pieza Impresa 2"),
-	(3, "Tipo Pieza Impresa 3"),
-	(4, "Tipo Pieza Impresa 4"),
-	(5, "Tipo Pieza Impresa 5"),
-	(6, "Tipo Pieza Impresa 6"),
-	(7, "Tipo Pieza Impresa 7"),
-	(8, "Tipo Pieza Impresa 8");
+	(1, "Afiche"),
+	(2, "Brochure"),
+	(3, "Cartilla"),
+	(4, "Certificados"),
+	(5, "Escarapelas"),
+	(6, "Librillo"),
+	(7, "Material POP"),
+	(8, "Pendón"),
+	(9, "Rompetráfico"),
+	(10, "Volantes"),
+	(11, "Vacio");
 
 	/*--t_acabadoImp*/
 	INSERT INTO t_acabadoImp VALUES
-	(1, "Tipo Acabados Impresa 1"),
-	(2, "Tipo Acabados Impresa 2"),
-	(3, "Tipo Acabados Impresa 3"),
-	(4, "Tipo Acabados Impresa 4"),
-	(5, "Tipo Acabados Impresa 5"),
-	(6, "Tipo Acabados Impresa 6"),
-	(7, "Tipo Acabados Impresa 7"),
-	(8, "Tipo Acabados Impresa 8"),
-	(9, "Vacio");
+	(1, "Brillante"),
+	(2, "Mate"),
+	(3, "Plastificado"),
+	(4, "Vacio");
 
 	/*--t_papelImp*/
 	INSERT INTO t_papelImp VALUES
-	(1, "Tipo Papel Impresa 1"),
-	(2, "Tipo Papel Impresa 2"),
-	(3, "Tipo Papel Impresa 3"),
-	(4, "Tipo Papel Impresa 4"),
-	(5, "Tipo Papel Impresa 5"),
-	(6, "Tipo Papel Impresa 6"),
-	(7, "Tipo Papel Impresa 7"),
-	(8, "Tipo Papel Impresa 8"),
-	(9, "Vacio");
+	(1, "Autoadhesivo"),
+	(2, "Bond 70 gr"),
+	(3, "Bond 90 gr"),
+	(4, "Bond 115 gr"),
+	(5, "Ecológico"),
+	(6, "Lino"),
+	(7, "Propalcote gr 90"),
+	(8, "Propalcote de 115 gr"),
+	(9, "Propalcote de 150 gr"),
+	(10, "Propalcote de 200 gr"),
+	(11, "Propalcote de 300 gr"),
+	(12, "Propalmate 90 gr"),
+	(13, "Propalmate 240 gr"),
+	(14, "Opalina blanca 90 gr"),
+	(15, "Opalina blanca 180 gr"),
+	(16, "Opalina blanca 200 gr"),
+	(17, "Opalina blanca 240 gr"),
+	(18, "Opalina beige 90 gr"),
+	(19, "Opalina beige 180 gr"),
+	(20, "Vacio");
 
 	/*--t_permiso*/
 	INSERT INTO t_permiso VALUES

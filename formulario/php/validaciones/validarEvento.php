@@ -30,6 +30,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			if (empty($_POST['lugarEvento'])) {
 				$error[2] = "El campo es obligatorio";
 			}
+		
 		/*===== Validar Fecha inicio  del evento =====*/
 			if (empty($_POST['fIniEvento'])) {
 				$error[3] = "El campo es obligatorio";
@@ -74,8 +75,8 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
  
 		/*===== Validar Adjunto Adicionales =====*/
 			if (!empty($_FILES['adjInfoEvento']['name'])) {
-				if($_FILES['adjInfoEvento']['type'] == "application/zip"){
-					if ($_FILES['adjInfoEvento']['size'] > 8000000) {
+				if(($_FILES['adjInfoEvento']['type'] == "application/zip") || ($_FILES['adjInfoEvento']['type'] == "application/x-zip-compressed")){
+					if ($_FILES['adjInfoEvento']['size'] > 1500000) {
 						$error[7] = "El archivo adjunto excede el tamaño permitido de 1MB";
 					}else{
 						$_FILES['adjInfoEvento']['type'];
@@ -110,8 +111,8 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 
 		/*===== Validar Adjunto Web =====*/
 			if (!empty($_FILES['adjCubWEbEvento']['name'])) {
-				if($_FILES['adjCubWEbEvento']['type'] == "application/zip"){
-					if ($_FILES['adjCubWEbEvento']['size'] > 8000000) {
+				if(($_FILES['adjInfoEvento']['type'] == "application/zip") || ($_FILES['adjInfoEvento']['type'] == "application/x-zip-compressed")){
+					if ($_FILES['adjCubWEbEvento']['size'] > 1500000) {
 						$error[9] = "El archivo adjunto excede el tamaño permitido de 1MB";
 					}else{
 						$_FILES['adjCubWEbEvento']['type'];
@@ -229,7 +230,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar.";
 			echo "</div>";
 			echo "</div>";
 		}else{

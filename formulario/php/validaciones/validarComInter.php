@@ -33,7 +33,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar";
 			echo "</div>";
 			echo "</div>";
 		}
@@ -48,14 +48,14 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		$error = array();
 
 		if (!empty($_FILES['tn']['name'][0]) && !empty($_FILES['tn']['name'][1])) {		
-			if ((($_FILES['tn']['type'][0] == "application/msword") || ($_FILES['tn']['type'][0] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")) && (($_FILES['tn']['type'][1] == "image/jpeg") || ($_FILES['tn']['type'][1] == "image/jpg"))){
-				if (($_FILES['tn']['size'][0] > 8000000) && ($_FILES['tn']['size'][1] > 8000000)) {
-					$error[1][0] = "Los archivos execenden el peso validos: Word es: 8000000 y JPG es de: 8000000";
+			if ((($_FILES['tn']['type'][0] == "application/msword") || ($_FILES['tn']['type'][0] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")) && (($_FILES['tn']['type'][1] == "image/jpeg") || ($_FILES['tn']['type'][1] == "image/jpg") || ($_FILES['tn']['type'][1] == "image/png"))){
+				if (($_FILES['tn']['size'][0] > 5000000) && ($_FILES['tn']['size'][1] > 5000000)) {
+					$error[1][0] = "Los archivos execenden el peso valido: Para el documento Word es: 4MB y para la imagen JPG/PNG es de: 2MB";
 				}else{
 					include_once '../../php/incrus/in_tomasNoticias.php';
 				}				
 			}else{
-				$error[1][0] = "Los formatos validos son (Word y JPG)";
+				$error[1][0] = "Los formatos validos son (Word y JPG/PNG)";
 			}
 		}else{
 			$error[1][0] = "Los campos son requeridos";
@@ -68,7 +68,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar";
 			echo "</div>";
 			echo "</div>";
 		}
@@ -140,7 +140,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar";
 			echo "</div>";
 			echo "</div>";
 		}else{
@@ -174,7 +174,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar";
 			echo "</div>";
 			echo "</div>";
 		}
@@ -227,7 +227,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar";
 			echo "</div>";
 			echo "</div>";
 		}else{

@@ -7,7 +7,7 @@
 	define('HOST', 'localhost');
 	define('DB', 'bdComunicaciones');
 	define('USER', 'root');
-	define('PASSWORD', 'Usta2018*');
+	define('PASSWORD', 'M2jN#TF-gSTB');
 
 	//==============
 	//Datos Servidor

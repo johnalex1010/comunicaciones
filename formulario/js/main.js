@@ -166,46 +166,52 @@ tippy('.tooltip');
 SELECT OPTION DE IMPRESOS
 =========================
 */
-var piezaImpEvento = "<option value='1' >Tipo Pieza Impresa 1</option>";
-piezaImpEvento += "<option value='2'>Tipo Pieza Impresa 2</option>";
-piezaImpEvento += "<option value='3'>Tipo Pieza Impresa 3</option>";
-piezaImpEvento += "<option value='4'>Tipo Pieza Impresa 4</option>";
-piezaImpEvento += "<option value='5'>Tipo Pieza Impresa 5</option>";
-piezaImpEvento += "<option value='6'>Tipo Pieza Impresa 6</option>";
-piezaImpEvento += "<option value='7'>Tipo Pieza Impresa 7</option>";
-piezaImpEvento += "<option value='8'>Tipo Pieza Impresa 8</option>";
+var piezaImpEvento = "<option value='1' >Afiche</option>";
+piezaImpEvento += "<option value='2'>Brochure</option>";
+piezaImpEvento += "<option value='3'>Cartilla</option>";
+piezaImpEvento += "<option value='4'>Certificados</option>";
+piezaImpEvento += "<option value='5'>Escarapelas</option>";
+piezaImpEvento += "<option value='6'>Librillo</option>";
+piezaImpEvento += "<option value='7'>Material POP</option>";
+piezaImpEvento += "<option value='8'>Pendón</option>";
+piezaImpEvento += "<option value='9'>Rompetráfico</option>";
+piezaImpEvento += "<option value='10'>Volantes</option>";
+piezaImpEvento += "<option value=''>Vacio</option>";
 
-var acabadosImpEvento = "<option value='1' >Tipo Acabados Impresa 1</option>";
-acabadosImpEvento += "<option value='2'>Tipo Acabados Impresa 2</option>";
-acabadosImpEvento += "<option value='3'>Tipo Acabados Impresa 3</option>";
-acabadosImpEvento += "<option value='4'>Tipo Acabados Impresa 4</option>";
-acabadosImpEvento += "<option value='5'>Tipo Acabados Impresa 5</option>";
-acabadosImpEvento += "<option value='6'>Tipo Acabados Impresa 6</option>";
-acabadosImpEvento += "<option value='7'>Tipo Acabados Impresa 7</option>";
-acabadosImpEvento += "<option value='8'>Tipo Acabados Impresa 8</option>";
+var acabadosImpEvento = "<option value='1' >Brillante</option>";
+acabadosImpEvento += "<option value='2'>Mate</option>";
+acabadosImpEvento += "<option value='3'>Plastificado</option>";
+acabadosImpEvento += "<option value='4'>Vacio</option>";
 
-var tipoPapelEvento = "<option value='1'>Tipo Papel Impresa 1</option>";
-tipoPapelEvento += "<option value='2'>Tipo Papel Impresa 2</option>";
-tipoPapelEvento += "<option value='3'>Tipo Papel Impresa 3</option>";
-tipoPapelEvento += "<option value='4'>Tipo Papel Impresa 4</option>";
-tipoPapelEvento += "<option value='5'>Tipo Papel Impresa 5</option>";
-tipoPapelEvento += "<option value='6'>Tipo Papel Impresa 6</option>";
-tipoPapelEvento += "<option value='7'>Tipo Papel Impresa 7</option>";
-tipoPapelEvento += "<option value='8'>Tipo Papel Impresa 8</option>";
+var tipoPapelEvento = "<option value='1'>Autoadhesivo</option>";
+tipoPapelEvento += "<option value='2'>Bond 70 gr</option>";
+tipoPapelEvento += "<option value='3'>Bond 90 gr</option>";
+tipoPapelEvento += "<option value='4'>Bond 115 gr</option>";
+tipoPapelEvento += "<option value='5'>Ecológico</option>";
+tipoPapelEvento += "<option value='6'>Lino</option>";
+tipoPapelEvento += "<option value='7'>Propalcote gr 90</option>";
+tipoPapelEvento += "<option value='8'>Propalcote de 115 gr</option>";
+tipoPapelEvento += "<option value='9'>Propalcote de 150 gr</option>";
+tipoPapelEvento += "<option value='10'>Propalcote de 200 gr</option>";
+tipoPapelEvento += "<option value='11'>Propalcote de 300 gr</option>";
+tipoPapelEvento += "<option value='12'>Propalmate 90 gr</option>";
+tipoPapelEvento += "<option value='13'>Propalmate 240 gr</option>";
+tipoPapelEvento += "<option value='14'>Opalina blanca 90 gr</option>";
+tipoPapelEvento += "<option value='15'>Opalina blanca 180 gr</option>";
+tipoPapelEvento += "<option value='16'>Opalina blanca 200 gr</option>";
+tipoPapelEvento += "<option value='17'>Opalina blanca 240 gr</option>";
+tipoPapelEvento += "<option value='18'>Opalina beige 90 gr</option>";
+tipoPapelEvento += "<option value='19'>Opalina beige 180 gr</option>";
+tipoPapelEvento += "<option value=''>Vacio</option>";
 
 /*
 ========================
 SELECT OPTION DE DIGITAL
 ========================
 */
-var tipoDigEvento = "<option value='1' >Tipo Pieza Digital 1</option>";
-tipoDigEvento += "<option value='2' >Tipo Pieza Digital 2</option>";
-tipoDigEvento += "<option value='3' >Tipo Pieza Digital 3</option>";
-tipoDigEvento += "<option value='4' >Tipo Pieza Digital 4</option>";
-tipoDigEvento += "<option value='5' >Tipo Pieza Digital 5</option>";
-tipoDigEvento += "<option value='6' >Tipo Pieza Digital 6</option>";
-tipoDigEvento += "<option value='7' >Tipo Pieza Digital 7</option>";
-tipoDigEvento += "<option value='8' >Tipo Pieza Digital 8</option>";
+var tipoDigEvento = "<option value='1' >Led</option>";
+tipoDigEvento += "<option value='2' >Mailing</option>";
+tipoDigEvento += "<option value='3' >Pantallas</option>";
 
 /*
 ========================

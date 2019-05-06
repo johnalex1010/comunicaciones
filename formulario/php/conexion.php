@@ -5,7 +5,7 @@
 //CREA LA CONEXIÓN A LA BD
 $host_db = "localhost";
 $user_db = "root";
-$pass_db = "Usta2018*";
+$pass_db = "M2jN#TF-gSTB";
 $db_name = "bdComunicaciones";
 
 //==============

@@ -17,7 +17,7 @@
   <tr>
     <th>Nombre de perfil (sugerido)</th>
     <th>Correo personal para asociar al Fanpage</th>
-    <th>Adj Img</th>
+    <th>Adjunto</th>
   </tr>
   <tr>
     <td>

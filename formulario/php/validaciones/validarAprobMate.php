@@ -27,7 +27,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 
 		/*===== Validar Adjunto Aprtobación de Material =====*/
 		if (!empty($_FILES['adjAprobMate']['name'])) {
-			if($_FILES['adjAprobMate']['type'] == "application/zip"){
+			if(($_FILES['adjAprobMate']['type'] == "application/zip") || ($_FILES['adjAprobMate']['type'] == "application/x-zip-compressed")){
 				if ($_FILES['adjAprobMate']['size'] > 8000000) {
 					$error[0][1] = "El archivo adjunto excede el tamaño permitido de 1MB";
 				}else{
@@ -45,7 +45,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar.";
+			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar.";
 			echo "</div>";
 			echo "</div>";
 		}

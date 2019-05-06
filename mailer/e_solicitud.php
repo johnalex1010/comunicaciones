@@ -101,7 +101,7 @@ $mail->Body = "<!doctype html>
 <body>
 	<div class='contenido' style='width: 500px; margin: 0 auto; font-family: Verdana; text-align: center; border: 1px solid #EBEDEF; border-radius: 0.3rem;'>
 		<div class='imgBox' style='background-color: #EBEDEF; padding: 0.4rem;'>
-			<img src='http://172.16.8.234/JohnAlexUSTA/comunicaciones/dashboard/public/images/solicita.fw.png' alt='Img'>
+			<img src='https://www.usta.edu.co/images/solicita.fw.png' alt='Img'>
 		</div>
 		<p>Se ha geneardo una nueva solictud.</p>
 		<h3 style='background-color: #00D17C;display: table; margin: 0 auto; padding: 0.5rem; border-radius: 0.3rem; color: #fff; font-size: 2rem; margin-top: 1rem;'>". $numST ."</h3>
@@ -117,4 +117,14 @@ foreach ($array as $email) {
   $exito = $mail->Send(); // Realiza el envío =)
   $mail->ClearAddresses(); // Limpia los "Address" cargados previamente para volver a cargar uno.
 }
+
+
+/*
+===================
+OJO
+===================
+Si no funcional el envio por favor revisar el php.ini
+https://es.ourcodeworld.com/articulos/leer/46/como-solucionar-error-en-php-xampp-wampp-ssl-certificate-error-unable-to-get-local-issuer-certificate
+
+*/
 ?>

@@ -61,7 +61,7 @@ function numTICEventoT(){
 	echo "Soy numTIC evento";
 }
 function adjInfoEventoT(){
-	echo "Soy adjInfo evento";
+	echo "Adjuntar en una carpeta comprimida los archivos que serán de referencia.";
 }
 function qCubAUEventoT(){
 	echo "Soy qCubAU evento";
@@ -91,7 +91,7 @@ function digEventoT(){
 	echo "Soy web evento";
 }
 function adjPresupuestoEventoT(){
-	echo "Soy adjPresupuesto evento";
+	echo "Adjuntar el formato 030 de aprobación de presupuesto del CAF.";
 }
 function selectPiezaIMPEventoT(){
 	echo "Soy selectPiezaIMP evento";
@@ -109,7 +109,7 @@ function tipoDIGEventoT(){
 	echo "Soy tipoDIG evento";
 }
 function lineamientoGraficosT(){
-	echo "Soy lineamientoGraficos evento";
+	echo "Exponga puntualmente los parámetros indispensables de diseño gráfico y comunicación visual, que sugiere para la realización de su solicitud.";
 }
 function colorEventoT(){
 	echo "Soy colorEvento evento";

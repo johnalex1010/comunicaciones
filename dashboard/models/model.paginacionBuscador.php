@@ -54,7 +54,7 @@ class PaginationModel extends Conection
 			WHERE
 			t.id_fase = f.id_fase
 			AND ru.id_usuario = u.id_usuario
-			AND t.id_trasabilidad IN (SELECT MAX(id_trasabilidad) FROM t_trasabilidad GROUP BY numST) ".implode(" ", $a)." ".$groupNumST. " GROUP BY t.numST";			
+			AND t.id_trasabilidad IN (SELECT MAX(id_trasabilidad) FROM t_trasabilidad GROUP BY numST) ".implode(" ", $a)." ".$groupNumST;			
 		}
 	}	
 

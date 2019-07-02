@@ -22,22 +22,22 @@ Campos del Evento
 ======================
 */
 function eventoT(){
-	echo "Soy el tooltip de Evento";
+	echo "Estas pueden ser Congresos, Encuentros, Simposios, y actividades propias de las Facultades.";
 }
 function campaniaT(){
 	echo "Soy el tooltip de Campaña";
 }
 function comInterT(){
-	echo "Soy el tooltip de Comunicaciones Internas";
+	echo "Tales como: publicaciones en medios Institucionales de diferentes temas.";
 }
 function aprobMateT(){
-	echo "Soy el tooltip de Aprobación material";
+	echo "Piezas gráficas, textos para campañas (copy), documentos institucionales (PAP, PEP, PIP, PI), entre otros.";
 }
 function webSiteT(){
-	echo "Soy el tooltip de Web Site";
+	echo "Nuevos sitios, actualizaciones, capacitaciones, entre otros.";
 }
 function CMT(){
-	echo "Soy el tooltip de Community Manager";
+	echo "Creación de perfiles en redes sociales, creación de campañas, revisión de perfiles, capacitación, entre otros.";
 }
 function tipoEventoT(){
 	echo "Soy tipo evento";
@@ -58,10 +58,10 @@ function horaEventoT(){
 	echo "Soy hora evento";
 }	
 function numTICEventoT(){
-	echo "Soy numTIC evento";
+	echo "Este es el número que asigna el Departamento de Tecnología, al momento de registrar un evento.";
 }
 function adjInfoEventoT(){
-	echo "Adjuntar en una carpeta comprimida los archivos que serán de referencia.";
+	echo "Carpeta comprimida en formato ZIP que contenga los elementos adicionales, tales como: archivos en Word, PDF, Imágenes, etc.";
 }
 function qCubAUEventoT(){
 	echo "Soy qCubAU evento";
@@ -79,7 +79,7 @@ function jutifiCubWEbEventoT(){
 	echo "Soy jutifiCubWEb evento";
 }
 function adjCubWEbEventoT(){
-	echo "Soy adjCubWEb evento";
+	echo "Carpeta comprimida en formato ZIP que contenga los elementos adicionales, tales como: archivos en Word, Excel, Imágenes, etc.";
 }
 function requerimientoIMPWEBEventoT(){
 	echo "Soy requerimientoIMPWEB evento";
@@ -91,7 +91,7 @@ function digEventoT(){
 	echo "Soy web evento";
 }
 function adjPresupuestoEventoT(){
-	echo "Adjuntar el formato 030 de aprobación de presupuesto del CAF.";
+	echo "Adjuntar el formato 030 de aprobación de presupuesto del CAF si lo tiene.";
 }
 function selectPiezaIMPEventoT(){
 	echo "Soy selectPiezaIMP evento";
@@ -109,10 +109,10 @@ function tipoDIGEventoT(){
 	echo "Soy tipoDIG evento";
 }
 function lineamientoGraficosT(){
-	echo "Exponga puntualmente los parámetros indispensables de diseño gráfico y comunicación visual, que sugiere para la realización de su solicitud.";
+	echo "Describa puntualmente los parámetros indispensables de diseño gráfico y comunicación visual, que sugiere para la realización de su solicitud.";
 }
 function colorEventoT(){
-	echo "Soy colorEvento evento";
+	echo "Aquí podrá sugerir una paleta de color.";
 }
 function checkPublicoObjT(){
 	echo "Soy checkPublicoObjT evento";
@@ -129,19 +129,19 @@ Campos de comunicacion interna Link TABS
 ========================================
 */
 function envioMailInstiT(){
-	echo "Soy envioMailInstiT";
+	echo "Circulares y comunicados.";
 }
 function tomasNoticiaT(){
-	echo "Soy tomasNoticiaT";
+	echo "Publicación de noticias en cualquier sección del Tomás Noticias.";
 }
 function condolenciasT(){
-	echo "Soy condolenciasT";
+	echo "Creación de pieza gráfica con la información general solicitada aquí.";
 }
 function cumpleaniosT(){
-	echo "Soy cumpleaniosT";
+	echo "Creación de pieza gráfica con la información general solicitada aquí.";
 }
 function tarjetasConmemorativasT(){
-	echo "Soy tarjetasConmemorativasT";
+	echo "Creación de pieza gráfica con la información general solicitada aquí.";
 }
 
 /*
@@ -162,7 +162,7 @@ function TNwordT(){
 	echo "Soy TNWord";
 }
 function TNjpgT(){
-	echo "Soy TNjpg";
+	echo "El tamaño mínimo de la imagen debe ser de 2000 pixceles de ancho por su proporción en alto.";
 }
 
 /*
@@ -255,7 +255,7 @@ function nombreEventoWebT(){
 	echo "Soy nombreEventoWebT";
 }
 function subdominioT(){
-	echo "Soy subdominioT";
+	echo "Generalmente el nombre del subidominio va acorde al nombre del sitio y siempre va con la terminación <b>.usta.edu.co</b><br>Ej: <b>congresocomunicaciones.usta.edu.co</b>";
 }
 function adjPlanNavT(){
 	echo "Soy adjPlanNavT";
@@ -303,10 +303,10 @@ function emailCapaT(){
 	echo "Soy emailCapaT";
 }
 function fechaCapaT(){
-	echo "Soy fechaCapaT";
+	echo "Se le confirmará vía correo electrónico la disponibilidad de la fecha acorde a la agenda del Web Master.";
 }
 function horaCapaT(){
-	echo "Soy horaCapaT";
+	echo "Se le confirmará vía correo electrónico la disponibilidad de la hora acorde a la agenda del Web Master.";
 }
 function motivoCapaT(){
 	echo "Soy motivoCapaT";
@@ -336,10 +336,10 @@ function checkNewRedesT(){
 	echo "Soy checkNewRedesT";
 }
 function nombreNewPerfilT(){
-	echo "Soy nombreNewPerfil";
+	echo "Nombre corto que represente el programa acompañado de la palabra <b>USTA</b>. Ej: <b>Maestria en Ciencias Económicas USTA</b>";
 }
 function emailNewPerfilT(){
-	echo "Soy emailNewPerfilT";
+	echo "En el caso de Facebook el correo electrónico existente debe estar asociado a esta red social.<br> Para los casos de Instagram y Twitter se debe asociar el número celular del administrador.";
 }
 function adjImgNewRedT(){
 	echo "Soy adjImgNewRedT";
@@ -396,12 +396,12 @@ function temaAsesoT(){
 	echo "Soy temaAsesoT";
 }
 function lugarAsesoT(){
-	echo "Soy lugarAsesoT";
+	echo "Se le confirmará vía correo electrónico la disponibilidad de la fecha acorde a la agenda del Community Manager.";
 }
 function fechaAsesoT(){
-	echo "Soy fechaAsesoT";
+	echo "Se le confirmará vía correo electrónico la disponibilidad de la fecha acorde a la agenda del Community Manager.";
 }
 function horaAsesoT(){
-	echo "Soy horaAsesoT";
+	echo "Se le confirmará vía correo electrónico la disponibilidad de la hora acorde a la agenda del Community Manager.";
 }
 ?>

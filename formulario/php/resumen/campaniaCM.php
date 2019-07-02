@@ -62,7 +62,7 @@ for ($i=0; $i<7; $i++) {
 <div class="content msjFinal resumen">
 	<img class="logo" src="../../img/logo.png" alt="Logo">
 	<h1 class="hMsjFinal">GRACIAS</h1>
-	<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
+	<p class="pMsjFinal">Su solicitud ha sido creada exitosamente. <br> Para conocer el estado de la misma por favor utilice el siguiente código:</p>
 	<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>
 	<a href="../../" class="btn btn-world btn-newST">Nueva solicitud</a>	
 	<h2>Resumen de solicitud de Creación campañas</h2>

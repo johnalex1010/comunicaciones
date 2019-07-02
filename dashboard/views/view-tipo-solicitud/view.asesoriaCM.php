@@ -3,7 +3,6 @@
     <thead>
       <tr>
         <th>Temá central de la asesoría</th>
-        <th>Lugar sugerido</th>
         <th>Fecha sugerida</th>
         <th>Hora sugerida</th>
       </tr>
@@ -11,15 +10,6 @@
     <tbody>
       <tr>
         <td><?php echo $consulta['tema']; ?></td>
-        <td>
-          <?php
-            if (!empty($consulta['lugar'])) {
-              echo $consulta['lugar'];
-            }else{
-              echo "No hay lugar sugerido.";
-            }
-          ?>
-        </td>
         <td>
       <?php
         if ($consulta['fechaACM'] == '0000-00-00') {

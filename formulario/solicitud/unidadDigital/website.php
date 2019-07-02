@@ -39,9 +39,8 @@
 				<img class="logo" src="../../img/logo.png" alt="Logo">
 				<h3 class="titleThird">Sección Sitios Web</h3>
 			</div>
-			<a href="../../" class="btn btn-world btn-inicio">Inicio</a>
-			<p class="txtIntro">Texto explicativo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas beatae, eos nisi officia temporibus aliquid accusamus est maxime atque, voluptatibus commodi facere voluptatum esse quo ipsum expedita corporis ratione, debitis!
-			</p>
+			<a href="../../" class="btn btn-world btn-inicio">Ir al inicio</a>
+			<p class="txtIntro">Aquí podrá hacer sus solucitudes de creación de sitios web, capacitaciones o ajustes en sitios ya publicados.</p>
 			<p>Los campos con (<span style="color: #C20201;font-size:2rem;" >•</span>) son obligatorios.</p>
 		</div>
 	</div>
@@ -51,9 +50,9 @@
 		<div class="vertical-tabs">
 			<!-- ========== Link TABS ========== -->
 			<ul class="tabs vertical" data-tab="">
-				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitNewSite']) ? $active = 'active' : "" ?>" title="<?php tabNewSite(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panela1" aria-selected="true" tabindex="0">Nuevo sitio web</a></li>
-				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitAjusteWeb']) ? $active = 'active' : "" ?>" title="<?php tabAjusTxtImgT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelb1" aria-selected="false" tabindex="-1">Ajustes de textos y/o imagenes web</a></li>
-				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitCapa']) ? $active = 'active' : "" ?>" title="<?php tabCapWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelc1" aria-selected="false" tabindex="-1">Capacitación para contenidos web</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitNewSite']) ? $active = 'active' : "" ?>" title="<?php //tabNewSite(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panela1" aria-selected="true" tabindex="0">Nuevo sitio web</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitAjusteWeb']) ? $active = 'active' : "" ?>" title="<?php //tabAjusTxtImgT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelb1" aria-selected="false" tabindex="-1">Ajustes de textos y/o imagenes web</a></li>
+				<li class="tab-title tooltip <?php echo $active = isset($_POST['submitCapa']) ? $active = 'active' : "" ?>" title="<?php //tabCapWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panelc1" aria-selected="false" tabindex="-1">Capacitación para actualización de contenidos web</a></li>
 			</ul>
 			<!-- ========== Content TABS ========== -->
 			<div class="tabs-content">
@@ -63,25 +62,25 @@
 					<form action="" method="post" enctype="multipart/form-data">
 						<div class="cuadricula">
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php nombreEventoWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //nombreEventoWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="nombreEventWeb" value="<?php echo $_POST['nombreEventWeb'] = (isset($_POST['nombreEventWeb'])) ? $_POST['nombreEventWeb'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
-					  				<label>Nombre del evento <span class="error"><?php echo $error[0][0] = (isset($error[0][0])) ? $error[0][0] : ""; ?></span></label>
+					  				<label>Nombre del sitio <span class="error"><?php echo $error[0][0] = (isset($error[0][0])) ? $error[0][0] : ""; ?></span></label>
 					  			</div>
 							</div>
 							<div class="celda celdax2">
 								<div class="group tooltip" title="<?php subdominioT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="subdominio" value="<?php echo $_POST['subdominio'] = (isset($_POST['subdominio'])) ? $_POST['subdominio'] : ''; ?>">
 					  				<span class="bar"></span>
-					  				<label>Subdominio.usta.edu.co <span class="error"><?php echo $error[0][1] = (isset($error[0][1])) ? $error[0][1] : ""; ?></span></label>
+					  				<label>Subdominio sugerido <span class="error"><?php echo $error[0][1] = (isset($error[0][1])) ? $error[0][1] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>
 
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php adjPlanNavT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //adjPlanNavT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="adjPlanNav" value="<?php echo $_POST['adjPlanNav3']?>">
 									<span class="bar"></span>
 									<span class="required"></span>
@@ -92,11 +91,11 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php motivoNewWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
+								<div class="group tooltip" title="<?php //motivoNewWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
 									<textarea name="motivoNewWeb" id=""><?php echo $_POST['motivoNewWeb'] ?></textarea>
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
-					  				<label>Motivo por el cual debe ser creado <span class="error"><?php echo $error[0][3] = (isset($error[0][3])) ? $error[0][3] : ""; ?></span></label>
+					  				<label>Motivo por el cual deberá ser creado el sitio <span class="error"><?php echo $error[0][3] = (isset($error[0][3])) ? $error[0][3] : ""; ?></span></label>
 					  			</div>
 							</div>
 
@@ -111,17 +110,17 @@
 						<div class="cuadricula">
 							<div class="celda">
 
-								<div class="group tooltip" title="<?php urlWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //urlWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="urlWeb" value="<?php echo $_POST['urlWeb'] = (isset($_POST['urlWeb'])) ? $_POST['urlWeb'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
-					  				<label>Url donde se realizaran los cambios <span class="error"><?php echo $error[1][0] = (isset($error[1][0])) ? $error[1][0] : ""; ?></span></label>
+					  				<label>Url del sitio donde se realizaran los cambios <span class="error"><?php echo $error[1][0] = (isset($error[1][0])) ? $error[1][0] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php adjDocWEbT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //adjDocWEbT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="adjDocWEb" value="<?php echo $_POST['adjDocWEb3']?>">
 									<span class="bar"></span>
 									<span class="required"></span>
@@ -131,7 +130,7 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php descripWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
+								<div class="group tooltip" title="<?php //descripWebT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
 									<textarea name="descripWeb" id=""><?php echo $_POST['descripWeb'] ?></textarea>
 					  				<span class="bar"></span>
 					  				<label>Descripción adicional <span class="error"><?php echo $error[1][2] = (isset($error[1][2])) ? $error[1][2] : ""; ?></span></label>
@@ -143,11 +142,11 @@
 				</div>
 				<!-- ========== Content Capacitación contenidos web ========== -->
 				<div class="contentTab <?php echo $active = isset($_POST['submitCapa']) ? $active = 'active' : "" ?>" id="panelc1" aria-hidden="true" tabindex="-1">
-					<h3>Capacitación contenidos web</h3>
+					<h3>Capacitación para actualización de contenidos web</h3>
 					<form action="" method="post">
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php nombreCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //nombreCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="nombreCapa" value="<?php echo $_POST['nombreCapa'] = (isset($_POST['nombreCapa'])) ? $_POST['nombreCapa'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
@@ -157,15 +156,15 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php numTelCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //numTelCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" name="numTelCapa" value="<?php echo $_POST['numTelCapa'] = (isset($_POST['numTelCapa'])) ? $_POST['numTelCapa'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
-					  				<label>Telefono de contacto <span class="error"><span class="error"><?php echo $error[2][1] = (isset($error[2][1])) ? $error[2][1] : ""; ?></span></label>
+					  				<label>Teléfono de contacto <span class="error"><span class="error"><?php echo $error[2][1] = (isset($error[2][1])) ? $error[2][1] : ""; ?></span></label>
 					  			</div>
 							</div>
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php numCelCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //numCelCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" name="numCelCapa" value="<?php echo $_POST['numCelCapa'] = (isset($_POST['numCelCapa'])) ? $_POST['numCelCapa'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Celular de contacto <span class="error"><span class="error"><?php echo $error[2][2] = (isset($error[2][2])) ? $error[2][2] : ""; ?></span></label>
@@ -174,7 +173,7 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php emailCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //emailCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="text" name="emailCapa" value="<?php echo $_POST['emailCapa'] = (isset($_POST['emailCapa'])) ? $_POST['emailCapa'] : ''; ?>">
 									<span class="bar"></span>
 									<span class="required"></span>
@@ -185,20 +184,20 @@
 								<div class="group tooltip" title="<?php fechaCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="date" name="fechaCapa" value="<?php echo $_POST['fechaCapa'] = (isset($_POST['fechaCapa'])) ? $_POST['fechaCapa'] : ''; ?>">
 					  				<span class="bar"></span>
-					  				<label>Fecha (Sujeta a disponibilidad) <span class="error"><?php echo $error[2][4] = (isset($error[2][4])) ? $error[2][4] : ""; ?></label>
+					  				<label>Fecha <span class="error"><?php echo $error[2][4] = (isset($error[2][4])) ? $error[2][4] : ""; ?></label>
 					  			</div>
 							</div>
 							<div class="celda celdax3">
 								<div class="group tooltip" title="<?php horaCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="time" name="horaCapa" value="<?php echo $_POST['horaCapa'] = (isset($_POST['horaCapa'])) ? $_POST['horaCapa'] : ''; ?>">
 					  				<span class="bar"></span>
-					  				<label>Hora (Sujeta a disponibilidad) <span class="error"><?php echo $error[2][5] = (isset($error[2][5])) ? $error[2][5] : ""; ?></span></label>
+					  				<label>Hora <span class="error"><?php echo $error[2][5] = (isset($error[2][5])) ? $error[2][5] : ""; ?></span></label>
 					  			</div>
 							</div>
 						</div>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php motivoCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
+								<div class="group tooltip" title="<?php //motivoCapaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">
 									<textarea name="motivoCapa" id=""><?php echo $_POST['motivoCapa'] ?></textarea>
 					  				<span class="bar"></span>
 					  				<span class="required"></span>

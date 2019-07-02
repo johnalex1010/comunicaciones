@@ -33,17 +33,17 @@
 				<img class="logo" src="img/logo.png" alt="Logo">
 				<!-- <h2 class="titleSecond">Departamento de comunicaciones</h2> -->
 			</div>
-			<p class="txtIntro">Bienvenidos a Solicita, el aplicativo web del Departamento de Comunicaciones que le permitirá realizar la solicitud de piezas publicitarias.
+			<p class="txtIntro">Bienvenido a Solicita, el aplicativo web del Departamento de Comunicaciones que le permitirá realizar la solicitud de creación de estrategías comunicacionales.
 			</p>
 
-			<button id="myBtn" class="modalVideo">Modal al video explicativo</button>
+			<button id="myBtn" class="modalVideo">Videotutorial</button>
 			<!-- The Modal -->
 			<div id="myModal" class="modal">
 
 			  <!-- Modal content -->
 			  <div class="modal-content">
 			    <span class="close">&times;</span>
-			   <h2>Video exlicativo</h2>
+			   <h2>Videotutorial</h2>
 			   <br>
 			   <!-- <iframe width="100%" height="400" src="https://www.youtube.com/embed/iEPTlhBmwRg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
 			  </div>
@@ -95,7 +95,7 @@
 							<input type="text" required name="campoTel" value="<?php echo $_SESSION['campoTel'] = (isset($_SESSION['campoTel'])) ? $_SESSION['campoTel'] : ''; ?>">
 							<span class="bar"></span>
 							<span class="required"></span>
-							<label>Numero de teléfono de contacto <span class="error"><?php echo $error[3] = (isset($error[3])) ? $error[3] : ""; ?></span></label>
+							<label>Número de teléfono de contacto <span class="error"><?php echo $error[3] = (isset($error[3])) ? $error[3] : ""; ?></span></label>
 						</div>
 					</div>
 				</div>

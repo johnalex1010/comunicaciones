@@ -22,6 +22,8 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 		/*===== Validar Nombre del perfil =====*/
 		if (isset($_POST['nombreNewPerfil']) && !empty($_POST['nombreNewPerfil'])) {
 			$_POST['nombreNewPerfil'];
+		}else{
+			$error[0][1] = "El campo es obligatorio";
 		}
 
 		/*===== Validar Email de perfil 1 =====*/
@@ -31,8 +33,10 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			$emailNewPerfil = $_POST['emailNewPerfil'];
 			if (filter_var($emailNewPerfil, FILTER_VALIDATE_EMAIL)) {
 				$emailNewPerfil;
+			}else if (is_numeric($_POST['emailNewPerfil'])) {
+				$emailNewPerfil;
 			}else{
-				$error[0][2] = "Esta dirección de correo no es válida.";
+				$error[0][2] = "Verifique el campo";
 			}
 		}
 		/*===== Validar Adjunto Imagenes sugeridas =====*/
@@ -98,7 +102,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar";
+			echo "El formulario contiene errores, por favor corrija para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelva a relacionarlos.";
 			echo "</div>";
 			echo "</div>";
 		}else{
@@ -224,7 +228,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar";	
+			echo "El formulario contiene errores, por favor corrija para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelva a relacionarlos.";	
 			echo "</div>";
 			echo "</div>";
 		}else{
@@ -279,7 +283,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar.";
+			echo "El formulario contiene errores, por favor corrija para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelva a relacionarlos..";
 			echo "</div>";
 			echo "</div>";
 		}else{

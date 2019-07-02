@@ -39,7 +39,7 @@ $row = mysqli_fetch_array($rs);
 <div class="content msjFinal resumen">
 	<img class="logo" src="../../img/logo.png" alt="Logo">
 	<h1 class="hMsjFinal">GRACIAS</h1>
-	<p class="pMsjFinal">Para seguir el estado de su solicitud, utlice el siguiente código:</p>
+	<p class="pMsjFinal">Su solicitud ha sido creada exitosamente. <br> Para conocer el estado de la misma por favor utilice el siguiente código:</p>
 	<div class="btn btn-send btn-msjFinal"><?php echo $_SESSION['numST'] ?></div>
 	<a href="../../" class="btn btn-world btn-newST">Nueva solicitud</a>
 	<h2>Resumen de solicitud de Asesorías</h2>
@@ -64,21 +64,15 @@ $row = mysqli_fetch_array($rs);
 		</div>
 	</div>
 		<div class="cuadricula">
-		<div class="celda celdax2">
+		<div class="celda celdax3">
 			<h3>Tema central de la asesoría</h3>
 			<p><?php  echo $row["tema"]; ?></p>
 		</div>
-		<div class="celda celdax2">
-			<h3>Lugar de la asesoría (Sugerido)</h3>
-			<p><?php  echo $row["lugar"]; ?></p>
-		</div>
-	</div>
-	<div class="cuadricula">
-		<div class="celda celdax2">
+		<div class="celda celdax3">
 			<h3>Fecha (Sujeta a disponibilidad)</h3>
 			<p><?php  echo $row["fechaACM"]; ?></p>
 		</div>
-		<div class="celda celdax2">
+		<div class="celda celdax3">
 			<h3>Hora (Sujeta a disponibilidad)</h3>
 			<p><?php  echo $row["horaACM"]; ?></p>
 		</div>

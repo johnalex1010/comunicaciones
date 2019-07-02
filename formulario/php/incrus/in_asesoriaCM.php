@@ -30,11 +30,11 @@
 		$comentario = 'Ingresa la Solicitud - Mensaje generado por el sistema.';
 
 		$tema = $_POST['temaAseso'];
-		$lugar = $_POST['lugarAseso'];
+		// $lugar = $_POST['lugarAseso'];
 		$fechaACM = $_POST['fechaAseso'];
 		$horaACM = $_POST['horaAseso'];
 
-		$in = 'CALL in_SolicitudAsesoriaCM("'.$newST.'","'.$nombre.'","'.$email.'","'.$id_facDep.'","'.$telefono.'","'.$id_usuario.'","'.$id_unidad.'","'.$id_categoria.'","'.$id_subCategoria.'","'.$id_fase.'","'.$fecha.'","'.$comentario.'","'.$tema.'","'.$lugar.'","'.$fechaACM.'","'.$horaACM.'")';
+		$in = 'CALL in_SolicitudAsesoriaCM("'.$newST.'","'.$nombre.'","'.$email.'","'.$id_facDep.'","'.$telefono.'","'.$id_usuario.'","'.$id_unidad.'","'.$id_categoria.'","'.$id_subCategoria.'","'.$id_fase.'","'.$fecha.'","'.$comentario.'","'.$tema.'","'.$fechaACM.'","'.$horaACM.'")';
 		$insert = $conexion->query($in); //Ejecuto el procedimiento
 		mysqli_close($conexion);
 

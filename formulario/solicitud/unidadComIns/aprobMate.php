@@ -37,9 +37,8 @@
 				<img class="logo" src="../../img/logo.png" alt="Logo">
 				<h3 class="titleThird">Sección Comunicaciones Internas</h3>
 			</div>
-			<a href="../../" class="btn btn-world btn-inicio">Inicio</a>
-			<p class="txtIntro">Texto explicativo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas beatae, eos nisi officia temporibus aliquid accusamus est maxime atque, voluptatibus commodi facere voluptatum esse quo ipsum expedita corporis ratione, debitis!
-			</p>
+			<a href="../../" class="btn btn-world btn-inicio">Ir al inicio</a>
+			<p class="txtIntro">Aquí podrá adjuntar sus documentos para la revisión estilo y formato.</p>
 			<p>Los campos con (<span style="color: #C20201;font-size:2rem;" >•</span>) son obligatorios.</p>
 		</div>
 	</div>
@@ -47,7 +46,7 @@
 		<div class="vertical-tabs">
 			<!-- ========== Link TABS ========== -->
 			<ul class="tabs vertical" data-tab="">
-				<li class="tab-title tooltip active" title="<?php envioMailInstiT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panela1" aria-selected="true" tabindex="0">Aprobación de Material</a></li>
+				<li class="tab-title tooltip active" title="<?php //envioMailInstiT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left"><a href="#panela1" aria-selected="true" tabindex="0">Aprobación de Material</a></li>
 			</ul>
 			<!-- ========== Content TABS ========== -->
 			<div class="tabs-content">
@@ -57,15 +56,21 @@
 						<div class="cuadricula">
 					  		<div class="celda">
 					  			<div class="contentCheck checkboxAudioVisual">
-									<div class="colorTxt tooltip" title="<?php checkAprobMateT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Que tipo de material desea ser aprobado? </div>
+									<div class="colorTxt tooltip" title="<?php //checkAprobMateT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward" data-tippy-placement="left">¿Qué	 material desea ser aprobado? </div>
 										<span class="error"><?php echo $error[0][0] = (isset($error[0][0])) ? $error[0][0] : ""; ?></span><br>						
-										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Aprobación Material 1" <?php if (in_array("Aprobación Material 1", $_POST['checkAprobMate'])) echo "checked"; ?> /> Aprobación Material 1<br>
-										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Aprobación Material 2" <?php if (in_array("Aprobación Material 2", $_POST['checkAprobMate'])) echo "checked"; ?> /> Aprobación Material 2<br>
-										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Aprobación Material 3" <?php if (in_array("Aprobación Material 3", $_POST['checkAprobMate'])) echo "checked"; ?> /> Aprobación Material 3<br>
+										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Folletos" <?php if (in_array("Folletos", $_POST['checkAprobMate'])) echo "checked"; ?> /> Folletos<br>
+										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="PEP (Proyecto Educativo de Programa)" <?php if (in_array("PEP (Proyecto Educativo de Programa)", $_POST['checkAprobMate'])) echo "checked"; ?> /> PEP (Proyecto Educativo de Programa)<br>
+										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Inforgrafías" <?php if (in_array("Inforgrafías", $_POST['checkAprobMate'])) echo "checked"; ?> /> Inforgrafías<br>
+										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="PAP (Plan Analítico del Programa)" <?php if (in_array("PAP (Plan Analítico del Programa)", $_POST['checkAprobMate'])) echo "checked"; ?> /> PAP (Plan Analítico del Programa)<br>
+										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Boletines de noticias de programas" <?php if (in_array("Boletines de noticias de programas", $_POST['checkAprobMate'])) echo "checked"; ?> /> Boletines de noticias de programas<br>
+										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Informes de gestión" <?php if (in_array("Informes de gestión", $_POST['checkAprobMate'])) echo "checked"; ?> /> Informes de gestión<br>
+										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Manuales y reglamentos" <?php if (in_array("Manuales y reglamentos", $_POST['checkAprobMate'])) echo "checked"; ?> /> Manuales y reglamentos<br>
+										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Piezas gráficas ya elaboradas" <?php if (in_array("Piezas gráficas ya elaboradas", $_POST['checkAprobMate'])) echo "checked"; ?> /> Piezas gráficas ya elaboradas<br>
+										<input type="checkbox" class="option-input checkbox" name="checkAprobMate[]" value="Brochures de mercadeo" <?php if (in_array("Brochures de mercadeo", $_POST['checkAprobMate'])) echo "checked"; ?> /> Brochures de mercadeo<br>
 										<br>
 										<br>									
 								</div>
-								<div class="group tooltip" title="<?php adjAprobMateT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //adjAprobMateT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="adjAprobMate">
 									<span class="bar"></span>
 									<label>Adjuntar ZIP material para aprobación. <span class="error"><?php echo $error[0][1] = (isset($error[0][1])) ? $error[0][1] : ""; ?></span></label>

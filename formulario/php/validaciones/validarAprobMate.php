@@ -45,7 +45,7 @@ if (isset($_SESSION['campoNombre']) && isset($_SESSION['campoEmail']) && isset($
 			echo "<div class='boxError'>";
 			echo "<div class='cerraModal' id='cerraModal'>X</div>";
 			echo "<h3>Estimado usuario:</h3>";
-			echo "El formulario tiene errores, por favor corrijalos para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelvalos a relacionar.";
+			echo "El formulario contiene errores, por favor corrija para continuar. Si su solicitud contiene archivos adjuntos, por favor vuelva a relacionarlos..";
 			echo "</div>";
 			echo "</div>";
 		}

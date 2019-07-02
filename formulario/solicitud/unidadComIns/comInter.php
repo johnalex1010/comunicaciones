@@ -39,9 +39,8 @@
 				<img class="logo" src="../../img/logo.png" alt="Logo">
 				<h3 class="titleThird">Sección Comunicaciones Internas</h3>
 			</div>
-			<a href="../../" class="btn btn-world btn-inicio">Inicio</a>
-			<p class="txtIntro">Texto explicativo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas beatae, eos nisi officia temporibus aliquid accusamus est maxime atque, voluptatibus commodi facere voluptatum esse quo ipsum expedita corporis ratione, debitis!
-			</p>
+			<a href="../../" class="btn btn-world btn-inicio">Ir al inicio</a>
+			<p class="txtIntro">Aquí podrá hacer sus solicitudes referentes a divulgaciones o publicaciones en medios institucionales.</p>
 			<p>Los campos con (<span style="color: #C20201;font-size:2rem;" >•</span>) son obligatorios.</p>
 		</div>
 	</div>
@@ -66,7 +65,7 @@
 						<p><span class="error"><?php echo $error[0][0] = (isset($error[0][0])) ? $error[0][0] : ""; ?></span></p>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php correosInstuT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //correosInstuT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="adjMailInsti">
 									<span class="bar"></span>
 									<label>Adjuntar documento Word o PDF <span class="error"><?php echo $error[0][1] = (isset($error[0][1])) ? $error[0][1] : ""; ?></span></label>
@@ -83,7 +82,7 @@
 						<p><span class="error"><?php echo $error[1][0] = (isset($error[1][0])) ? $error[1][0] : ""; ?></span></p>
 						<div class="cuadricula">
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php TNwordT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //TNwordT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="tn[]">
 									<span class="bar"></span>
 									<label>Adjuntar documento Word</label>
@@ -93,7 +92,7 @@
 								<div class="group tooltip" title="<?php TNjpgT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="tn[]">
 									<span class="bar"></span>
-									<label>Adjuntar imagen JPG/JPEG</label>
+									<label>Adjuntar imagen JPG/PNG</label>
 								</div>
 							</div>
 						</div>
@@ -107,7 +106,7 @@
 						<p><span class="error"><?php echo $error[2][0] = (isset($error[2][0])) ? $error[2][0] : ""; ?></span></p>
 						<div class="cuadricula">
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php condoNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //condoNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="condoNombre" value="<?php echo $_POST['condoNombre'] = (isset($_POST['condoNombre'])) ? $_POST['condoNombre'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
@@ -115,7 +114,7 @@
 					  			</div>
 							</div>
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php condoCargoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //condoCargoT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="condoCargo" value="<?php echo $_POST['condoCargo'] = (isset($_POST['condoCargo'])) ? $_POST['condoCargo'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
@@ -123,7 +122,7 @@
 					  			</div>
 							</div>
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php condoFacDepT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //condoFacDepT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<select name="condoFacDep" id="condoFacDep">
 									<?php
 										if ($_POST['condoFacDep'] == "") {
@@ -145,7 +144,7 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php condoFalleT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //condoFalleT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="condoFalle" value="<?php echo $_POST['condoFalle'] = (isset($_POST['condoFalle'])) ? $_POST['condoFalle'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
@@ -153,14 +152,14 @@
 					  			</div>
 							</div>
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php condoParenT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //condoParenT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="condoParen" value="<?php echo $_POST['condoParen'] = (isset($_POST['condoParen'])) ? $_POST['condoParen'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Parentesco <span class="error"><?php echo $error[2][5] = (isset($error[2][5])) ? $error[2][5] : ""; ?></label>
 					  			</div>
 							</div>
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php condoLugarVelT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //condoLugarVelT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="condoLugarVel" value="<?php echo $_POST['condoLugarVel'] = (isset($_POST['condoLugarVel'])) ? $_POST['condoLugarVel'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Lugar de velación <span class="error"><?php echo $error[2][6] = (isset($error[2][6])) ? $error[2][6] : ""; ?></label>
@@ -169,14 +168,14 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php condoFVelaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //condoFVelaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="date" name="condoFVela" value="<?php echo $_POST['condoFVela'] = (isset($_POST['condoFVela'])) ? $_POST['condoFVela'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Fecha de velación <span class="error"><?php echo $error[2][7] = (isset($error[2][7])) ? $error[2][7] : ""; ?></label>
 					  			</div>
 							</div>
 							<div class="celda celdax3">
-								<div class="group tooltip" title="<?php condoHVelaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //condoHVelaT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="time" name="condoHVela" value="<?php echo $_POST['condoHVela'] = (isset($_POST['condoHVela'])) ? $_POST['condoHVela'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<label>Hora de velación <span class="error"><?php echo $error[2][8] = (isset($error[2][8])) ? $error[2][8] : ""; ?></label>
@@ -194,7 +193,7 @@
 						<p><span class="error"><?php echo $error[3][0] = (isset($error[3][0])) ? $error[3][0] : ""; ?></span></p>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php cumpleT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //cumpleT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<input type="file" class="requi" name="cumple">
 									<span class="bar"></span>
 									<label>Adjuntar documento Word o PDF <span class="error"><?php echo $error[3][1] = (isset($error[3][1])) ? $error[3][1] : ""; ?></span></label>
@@ -211,7 +210,7 @@
 						<p><span class="error"><?php echo $error[4][0] = (isset($error[4][0])) ? $error[4][0] : ""; ?></span>
 						<div class="cuadricula">
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php conmeNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //conmeNombreT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="text" class="requi" name="conmeNombre" value="<?php echo $_POST['conmeNombre'] = (isset($_POST['conmeNombre'])) ? $_POST['conmeNombre'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
@@ -219,7 +218,7 @@
 					  			</div>
 							</div>
 							<div class="celda celdax2">
-								<div class="group tooltip" title="<?php conmeFT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //conmeFT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 					  				<input type="date" name="conmeF" value="<?php echo $_POST['conmeF'] = (isset($_POST['conmeF'])) ? $_POST['conmeF'] : ''; ?>">
 					  				<span class="bar"></span>
 					  				<span class="required"></span>
@@ -229,7 +228,7 @@
 						</div>
 						<div class="cuadricula">
 							<div class="celda">
-								<div class="group tooltip" title="<?php conmeMSJT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
+								<div class="group tooltip" title="<?php //conmeMSJT(); ?>" data-tippy-arrow="true" data-tippy-animation="shift-toward">
 									<textarea name="conmeMSJ" id=""><?php echo $_POST['conmeMSJ'] ?></textarea>
 					  				<span class="bar"></span>
 					  				<span class="required"></span>

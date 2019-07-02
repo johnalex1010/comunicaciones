@@ -373,7 +373,7 @@ USE bdComunicaciones;
 	CREATE TABLE t_asesoriaCM (
 		id_asesoriaCM int NOT NULL AUTO_INCREMENT,
 		tema varchar(200) NOT NULL,
-		lugar varchar(50) NOT NULL,
+		-- lugar varchar(50) NOT NULL,
 		fechaACM DATE NOT NULL,
 		horaACM time NOT NULL,
 		numST varchar(10) NOT NULL UNIQUE, /*Es FOREIGN KEY de la tabla t_solicitud*/
@@ -513,7 +513,7 @@ USE bdComunicaciones;
 	(8, "Pendón"),
 	(9, "Rompetráfico"),
 	(10, "Volantes"),
-	(11, "Vacio");
+	(11, "Ninguno");
 
 	/*--t_acabadoImp*/
 	INSERT INTO t_acabadoImp VALUES
@@ -569,38 +569,61 @@ USE bdComunicaciones;
 	(7, "tatianam", "$2y$10$ODSdoamVHyS2Gd8MmA3ZJu1JNuMi19scAyAWcnZsfe725yt5tGuFW", "Tatiana", "Marín", "secre.comunicaciones@usantotomas.edu.co", "2018-12-12", 1, 1, 2),
 	(8, "johnhb", "$2y$10$tv9qX2JpyeFQxgeSy0VzUujfFVR2Syu/MDj2bgeZeHF7Atv4BwNhi", "John Henry", "Barrera", "pro.espcomunicaciones2@usantotomas.edu.co", "2018-12-12", 1, 1, 3),
 	(9, "dianat", "$2y$10$Dn1qvMvGQ6.QnOx4rfqN6eYesc23rYm0bL.VMWanRA.M/ZsEK6Vgu", "Diana", "Trujillo", "diana@usantotomas.edu.co", "2018-12-12", 1, 1, 3),
-	(10, "fernandas", "$2y$10$4W7eP3zCNxRYg/IVbL65AeR4NIJwnFnKneouHSrim9PNaiDf2j.Eq", "Fernanda", "Sierra", "angelica.sierra@usantotomas.edu.co", "2018-12-12", 1, 1, 3),
-	(11, "andreaf", "$2y$10$KSAV8d/nkZtXEUeAFPTIJuhpziLIAUJrV.FbQvHOQW7EsnQPqoncW", "Andrea", "Forero", "pro.espcomunicaciones4@usantotomas.edu.co", "2018-12-12", 1, 1, 3),
-	(12, "carolinac", "$2y$10$et1fS7qf3cBR5yfiiwy36.Cbp8EXv4MhSMakN0.dnJTuMtzuB.CNu", "Carolina", "Chavarría", "carolina@usantotomas.edu.co", "2018-12-12", 1, 1, 3);
+	(10, "andreaf", "$2y$10$KSAV8d/nkZtXEUeAFPTIJuhpziLIAUJrV.FbQvHOQW7EsnQPqoncW", "Andrea", "Forero", "pro.espcomunicaciones4@usantotomas.edu.co", "2018-12-12", 1, 1, 3),
+	(11, "carolinac", "$2y$10$et1fS7qf3cBR5yfiiwy36.Cbp8EXv4MhSMakN0.dnJTuMtzuB.CNu", "Carolina", "Chavarría", "carolina@usantotomas.edu.co", "2018-12-12", 1, 1, 3);
 
 	/*--t_tipoRedSocial*/
 	INSERT INTO t_tipoRedSocial VALUES
 	(1, "Facebook"),
 	(2, "Instagram"),
-	(3, "Twitter"),
-	(4, "Linkedin");
-
+	(3, "Twitter");
+	
 	/*--t_facDep*/
 	INSERT INTO t_facDep VALUES
-	(1, "Departamento Departamento 1"),
-	(2, "Departamento Departamento 2"),
-	(3, "Departamento Departamento 3"),
-	(4, "Departamento Departamento 4"),
-	(5, "Departamento Departamento 5"),
-	(6, "Departamento Departamento 6"),
-	(7, "Departamento Departamento 7"),
-	(8, "Departamento Departamento 8"),
-	(9, "Departamento Departamento 9"),
-	(10, "Facultades Facultades  10"),
-	(12, "Facultades Facultades  12"),
-	(13, "Facultades Facultades  13"),
-	(14, "Facultades Facultades  14"),
-	(15, "Facultades Facultades  15"),
-	(16, "Facultades Facultades  16"),
-	(17, "Facultades Facultades  17"),
-	(18, "Facultades Facultades  18"),
-	(19, "Facultades Facultades  19"),
-	(20, "Facultades Facultades  20");
+	(1, "Factultad de Adminitración de Empresas"),
+	(2, "Factultad de Comunicación Social"),
+	(3, "Factultad de Contaduría Pública"),
+	(4, "Factultad de Cultura Física, Deporte y Recreación"),
+	(5, "Factultad de Derecho"),
+	(6, "Factultad de Diseño Gráfico"),
+	(7, "Factultad de Economía"),
+	(8, "Factultad de Estadística"),
+	(9, "Factultad de Gobierno y Relaciones Internacionales"),
+	(10, "Facultad de Ingeniería Ambiental"),
+	(11, "Facultad de Ingeniería Civil"),
+	(12, "Facultad de Ingeniería de Telecomunicaciones"),
+	(13, "Facultad de Ingeniería Electrónica"),
+	(14, "Facultad de Ingeniería Industrial"),
+	(15, "Facultad de Ingeniería Mecánica"),
+	(16, "Facultad de Filosofía y Letras"),
+	(17, "Facultad de Mercadeo"),
+	(18, "Facultad de Negocios Internacionales"),
+	(19, "Facultad de Psicología"),
+	(20, "Facultad de Sociología"),
+	(21, "Facultad de Teología"),
+	(22,"CRAI USTA"),
+	(23,"Departamento de Admisiones y Mercadeo"),
+	(24,"Departamento de Ciencias Básicas"),
+	(25,"Departamento de Comunicaciones"),
+	(26,"Departamento de Humanidades y Formación Integral"),
+	(27,"Departamento de Promoción y Bienestar Institucional"),
+	(28,"Departamento de Sindicatura"),
+	(29,"Departamento de Registro y Control"),
+	(30,"Dirección Nacional de Evangelización y Cultura"),
+	(31,"Dirección Nacional de Planeación y Desarrollo"),
+	(32,"Dirección Nacional de Responsabilidad Social Universitaria - DRSU -"),
+	(33,"Instituto de Estudios Socio-Históricos Fray Alonso de Zamora"),
+	(34,"Instituto de Lenguas Fray Bernardo de Lugo"),
+	(35,"Oficina de Auditoría Interna"),
+	(36,"Oficina de Educación Continua"),
+	(37,"Oficina de Egresados"),
+	(38,"Oficina de Relaciones Internacionales e Interinstitucionales"),
+	(39,"Secretaría General"),
+	(40,"Unidad de Desarrollo Curricular y Formación Docente"),
+	(41,"Unidad de Desarrollo Integral Estudiantil"),
+	(42,"Unidad de Gestión Integral de la Calidad Universitaria - UGICU -"),
+	(43,"Unidad de Investigación"),
+	(44,"Unidad de Posgrados");
 
 	/*--t_solicitud*/
 	INSERT INTO t_solicitud VALUES ("ST000", "Solicitud Generada por el sistema", "No debe ser tenida encuenta","000", 1, null);
@@ -891,7 +914,7 @@ DELIMITER //
         IN _comentario TEXT,                /*Relación de la tabla t_trasabilidad*/
 
         IN _tema varchar(200),              /*Relación de la tabla t_asesoriaCM*/
-        IN _lugar varchar(50),              /*Relación de la tabla t_asesoriaCM*/
+        --IN _lugar varchar(50),              /*Relación de la tabla t_asesoriaCM*/
         IN _fechaACM DATE,                  /*Relación de la tabla t_asesoriaCM*/
         IN _horaACM time                    /*Relación de la tabla t_asesoriaCM*/
         
@@ -902,7 +925,7 @@ DELIMITER //
             INSERT INTO t_resUsuario(id_usuario, numST) VALUES ("7", _numST);
             INSERT INTO t_trasabilidad(id_fase, numST, fecha, comentario, id_usuario) VALUES (_id_fase, _numST, _fecha, _comentario, _id_usuario);
             INSERT INTO t_resUnidad(id_unidad, id_categoria, id_subCategoria, numST) VALUES (_id_unidad, _id_categoria, _id_subCategoria, _numST);
-            INSERT INTO t_asesoriaCM(tema, lugar, fechaACM, horaACM, numST) VALUES (_tema, _lugar, _fechaACM, _horaACM, _numST);
+            INSERT INTO t_asesoriaCM(tema, fechaACM, horaACM, numST) VALUES (_tema, _fechaACM, _horaACM, _numST);
         END//
 DELIMITER ;
 
